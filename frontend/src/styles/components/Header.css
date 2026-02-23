@@ -1,0 +1,532 @@
+.site-header {
+  background: var(--vinyl-card);
+  border-bottom: 1px solid var(--vinyl-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-lg);
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: var(--space-md);
+}
+
+/* Левая часть с логотипом */
+.logo-container {
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+}
+
+.logo {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--vinyl-text);
+  text-decoration: none;
+  padding: var(--space-xs) 0;
+  letter-spacing: -0.5px;
+  transition: var(--transition);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logo:hover {
+  color: var(--vinyl-primary);
+}
+
+/* Центральная часть с навигацией */
+.nav-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.site-nav {
+  display: flex;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--space-md);
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 500;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  color: var(--vinyl-muted);
+  font-size: var(--text-base);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  min-height: 40px;
+}
+
+.nav-link:hover {
+  color: var(--vinyl-text);
+  background: var(--vinyl-light-bg);
+}
+
+.nav-link.active {
+  color: white;
+  background: var(--vinyl-primary);
+  font-weight: 600;
+}
+
+/* Правая часть с корзиной и меню */
+.right-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  min-width: 120px;
+}
+
+/* Кнопка корзины */
+.cart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* Отступ между иконкой и счётчиком */
+  background: transparent;
+  border: 2px solid var(--vinyl-border);
+  color: white;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  min-width: auto;
+  min-height: 44px;
+  font-size: var(--text-base);
+  position: relative;
+}
+
+.cart-button:hover {
+  background: var(--vinyl-primary);
+  border-color: var(--vinyl-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(179, 0, 0, 0.3);
+}
+
+/* Иконка корзины */
+.cart-button svg {
+  width: 24px;  /* Увеличили с 20px до 24px */
+  height: 24px;
+  display: block;
+}
+
+.cart-button svg path,
+.cart-button svg circle,
+.cart-button svg line {
+  stroke: white;
+  stroke-width: 2;
+}
+
+/* Счётчик товаров (белый в скобках) */
+.cart-count {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: white;  /* Белый цвет */
+  line-height: 1;
+}
+
+.cart-count::before {
+  content: "(";
+}
+
+.cart-count::after {
+  content: ")";
+}
+
+.cart-button-mobile {
+  display: none;
+}
+
+/* Mobile Menu Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 2px solid var(--vinyl-border);
+  padding: 0; /* Убираем padding */
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  position: relative;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.nav-toggle:hover {
+  background: var(--vinyl-light-bg);
+  border-color: var(--vinyl-primary);
+}
+
+/* Контейнер для полосок */
+.nav-toggle .bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px; /* Чуть толще */
+  background: white;
+  margin: 3px 0;
+  transition: var(--transition-slow);
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+/* Анимация при открытом меню */
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+  width: 24px;
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+  width: 24px;
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .site-header .container {
+    padding: var(--space-sm) var(--space-xl);
+  }
+  
+  .nav-wrapper {
+    display: flex !important;
+  }
+  
+  .site-nav {
+    display: flex;
+  }
+  
+  .nav-menu {
+    display: flex;
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+  
+  .cart-button-mobile {
+    display: none;
+  }
+  
+  .cart-button-desktop {
+    display: inline-flex;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .site-header .container {
+    padding: var(--space-sm) var(--space-md);
+    flex-wrap: wrap;
+  }
+  
+  .logo-container {
+    flex: 1;
+    min-width: auto;
+  }
+  
+  .right-container {
+    min-width: auto;
+    gap: var(--space-xs);
+  }
+  
+  .nav-toggle {
+    display: flex;
+  }
+  
+  .cart-button-desktop {
+    display: none;
+  }
+  
+  .cart-button-mobile {
+    display: inline-flex;
+  }
+  
+  .cart-button-mobile .cart-count {
+    font-size: var(--text-sm);
+  }
+  
+  .nav-wrapper {
+    flex: 0 0 100%;
+    order: 4;
+  }
+  
+  .site-nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--vinyl-card);
+    border-bottom: 1px solid var(--vinyl-border);
+    border-top: 1px solid var(--vinyl-border);
+    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+    max-height: calc(100vh - 70px);
+  }
+
+  .site-nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+    align-items: stretch;
+    padding: var(--space-lg);
+    margin: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--vinyl-primary);
+    color: white;
+    transform: translateY(-1px);
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .logo {
+    font-size: var(--text-xl);
+  }
+  
+  .cart-button,
+  .nav-toggle {
+    min-width: 40px;
+    min-height: 40px;
+    padding: var(--space-xs);
+  }
+  
+  .cart-button svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .cart-button .cart-count {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Добавьте в конец файла Header.css */
+
+/* Бейдж пользователя */
+.user-badge-desktop {
+  transition: var(--transition);
+}
+
+.user-badge-desktop:hover {
+  background: rgba(255, 60, 60, 0.1);
+  border-color: var(--vinyl-red);
+}
+
+/* Иконка пользователя в меню */
+.nav-link svg {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+/* Для мобильной версии */
+@media (max-width: 768px) {
+  .user-badge-desktop {
+    display: none; /* Скрываем на мобилках */
+  }
+  
+  /* Увеличиваем иконку в мобильном меню */
+  .nav-link svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+}
+
+/* Кнопка входа */
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--vinyl-border);
+  color: white;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+}
+
+.login-button:hover {
+  background: var(--vinyl-primary);
+  border-color: var(--vinyl-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(179, 0, 0, 0.3);
+}
+
+.login-button svg {
+  width: 22px;
+  height: 22px;
+  stroke: white;
+}
+
+/* Аватарка пользователя */
+.avatar-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--vinyl-red);
+  border: 2px solid var(--vinyl-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+.avatar-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  border-color: var(--vinyl-red);
+}
+
+/* Для мобильной версии */
+@media (max-width: 768px) {
+  .login-button,
+  .avatar-button {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+  }
+  
+  .login-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+/* Кнопка избранного */
+.favorites-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--vinyl-border);
+  color: white;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.favorites-button:hover {
+  border-color: var(--vinyl-red);
+}
+
+.favorites-button svg {
+  width: 22px;
+  height: 22px;
+  stroke: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Плавная трансформация */
+.favorites-button:hover svg {
+  stroke: var(--vinyl-red);
+  transform: scale(1.15);
+  fill: #b51e1e;
+}
+
+/* Счётчик избранного */
+.favorites-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--vinyl-red);
+  color: white;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid var(--vinyl-card);
+  transition: all 0.3s ease;
+}
+
+.favorites-button:hover .favorites-count {
+  transform: scale(1.1);
+  background: #b51e1e;
+  box-shadow: 0 0 10px rgba(255, 60, 60, 0.5);
+}

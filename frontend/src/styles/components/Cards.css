@@ -1,0 +1,137 @@
+/* Общие стили для карточек */
+.card {
+  background: var(--vinyl-card);
+  border: 1px solid var(--vinyl-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-slow);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Feature Card */
+.feature-card {
+  background: var(--vinyl-light-bg);
+  border: 1px solid var(--vinyl-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  transition: var(--transition-slow);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--vinyl-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  transition: var(--transition-slow);
+  font-size: var(--text-2xl);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+  background: var(--vinyl-primary-hover);
+}
+
+/* Team Card */
+.team-card {
+  background: var(--vinyl-card);
+  border: 1px solid var(--vinyl-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  transition: var(--transition-slow);
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.team-photo img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+}
+
+/* Stat Card */
+.stat-card {
+  background: var(--vinyl-light-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: var(--transition-slow);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--vinyl-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--vinyl-muted);
+}
+
+/* Timeline Item */
+.timeline-item {
+  background: var(--vinyl-light-bg);
+  border: 1px solid var(--vinyl-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  transition: var(--transition-slow);
+}
+
+.timeline-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-item h4 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+}
+
+.timeline-item p {
+  font-size: var(--text-base);
+  color: var(--vinyl-muted);
+  line-height: 1.5;
+}
+
+.year-circle {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--vinyl-primary);
+  color: white;
+  font-weight: 700;
+  line-height: 60px;
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-base);
+}

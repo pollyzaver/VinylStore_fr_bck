@@ -1,0 +1,680 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-modal {
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 0;
+  background: var(--vinyl-card);
+  border-radius: 20px;
+  animation: slideUp 0.3s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: var(--vinyl-primary);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: var(--text-xl);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--vinyl-primary-hover);
+  transform: scale(1.1);
+}
+
+.modal-header {
+  padding: 20px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-breadcrumb {
+  display: flex;
+  gap: 10px;
+  color: var(--vinyl-muted);
+  font-size: 0.9rem;
+}
+
+.modal-breadcrumb span:last-child {
+  color: white;
+  font-weight: 600;
+}
+
+.modal-body {
+  display: flex;
+  padding: 0;
+}
+
+.modal-left {
+  width: 40%;
+  padding: 30px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-right {
+  width: 60%;
+  padding: 30px;
+}
+
+.modal-image-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.modal-main-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* FEATURE TAGS - обновлено */
+.special-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0 5px;
+  padding: 0;
+  width: 100%;
+}
+
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: #b30000;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(179, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.feature-tag:hover {
+  border-color: #b30000;
+}
+
+/* QUICK INFO */
+.quick-info {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.info-label {
+  color: var(--vinyl-muted);
+}
+
+.info-value {
+  color: white;
+  font-weight: 600;
+}
+
+.stock-available {
+  color: #4CAF50;
+}
+.stock-available::before { content: '✓ '; }
+
+.stock-unavailable {
+  color: #F44336;
+}
+.stock-unavailable::before { content: '✗ '; }
+
+.stock-low {
+  color: #FF9800;
+}
+.stock-low::before { content: '⚠ '; }
+
+.modal-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.modal-artist {
+  color: var(--vinyl-muted);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--vinyl-text);
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.price-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.current-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.original-price {
+  font-size: 1.5rem;
+  color: var(--vinyl-muted);
+  text-decoration: line-through;
+}
+
+.discount-badge {
+  background: var(--vinyl-primary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-add-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--vinyl-primary);
+  border: none;
+  color: white;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-add-btn:hover {
+  background: var(--vinyl-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* КНОПКА ИЗБРАННОГО - исправлено */
+.wishlist-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: transparent;
+  border: 2px solid var(--vinyl-border);
+  color: white;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wishlist-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  transition: all 0.3s ease;
+}
+
+.wishlist-btn.active {
+  border-color: #b30000;
+}
+
+.wishlist-btn.active svg {
+  fill: #b30000;
+  stroke: #b30000;
+}
+
+.wishlist-btn:hover {
+  transform: translateY(-1px);
+}
+
+.wishlist-btn.active:hover {
+  transform: translateY(-1px);
+  border-color: #b30000;
+}
+
+/* ДОСТАВКА */
+.delivery-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.delivery-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--vinyl-text);
+  font-size: 0.9rem;
+}
+
+/* ТАБЫ */
+.product-tabs {
+  margin-top: 30px;
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--vinyl-muted);
+  padding: 15px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-btn.active {
+  color: white;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #b30000;
+}
+
+.tabs-content {
+  padding: 5px 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ОПИСАНИЕ АЛЬБОМА */
+.album-description {
+  line-height: 1.7;
+  color: var(--vinyl-text);
+  margin-bottom: 25px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+/* ОСОБЕННОСТИ И НАГРАДЫ */
+.highlights, .awards, .care-instructions {
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.highlights h4, .awards h4, .care-instructions h4 {
+  color: var(--vinyl-text);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.highlights ul, .care-instructions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.highlights li, .care-instructions li {
+  color: var(--vinyl-text);
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+.highlights li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #b30000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.care-instructions li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #b30000;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.awards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.award-badge {
+  background: rgba(255, 193, 7, 0.1);
+  color: #FFC107;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* ТРЕКЛИСТ */
+.tracks-list {
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  gap: 10px;
+}
+
+.track-item:last-child { 
+  border-bottom: none; 
+}
+
+.track-number {
+  width: 30px;
+  color: var(--vinyl-muted);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.track-name {
+  flex: 1;
+  color: var(--vinyl-text);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding-right: 10px;
+}
+
+.track-duration {
+  color: var(--vinyl-muted);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ХАРАКТЕРИСТИКИ */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  width: 100%;
+  gap: 10px;
+}
+
+.spec-label {
+  color: var(--vinyl-muted);
+  white-space: nowrap;
+}
+
+.spec-value {
+  color: var(--vinyl-text);
+  font-weight: 600;
+  text-align: right;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ТЕГИ - с правильными отступами */
+.product-tags {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.product-tags h4 {
+  color: var(--vinyl-text);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--vinyl-muted);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: default;
+}
+
+.tag:hover {
+  background: rgba(179, 0, 0, 0.1);
+  color: #b30000;
+  border-color: rgba(179, 0, 0, 0.3);
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+  .modal-body {
+    flex-direction: column;
+  }
+  
+  .modal-left,
+  .modal-right {
+    width: 100%;
+  }
+  
+  .modal-left { 
+    border-right: none; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+  
+  .modal-title { 
+    font-size: 1.8rem; 
+  }
+  
+  .tabs-header { 
+    overflow-x: auto; 
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
+  
+  .tab-btn {
+    padding: 12px 20px;
+  }
+  
+  .specs-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .action-buttons { 
+    flex-direction: column; 
+  }
+  
+  .spec-item {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .spec-label {
+    white-space: normal;
+  }
+  
+  .track-item {
+    flex-wrap: wrap;
+  }
+  
+  .track-name {
+    width: 100%;
+    padding-right: 0;
+  }
+  
+  .track-duration {
+    margin-left: 30px;
+  }
+  
+  .highlights li, .care-instructions li {
+    padding-left: 20px;
+    font-size: 0.95rem;
+  }
+  
+  .special-features {
+    gap: 6px;
+  }
+  
+  .feature-tag {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    white-space: normal;
+    text-align: center;
+  }
+  
+  .product-tags {
+    margin-top: 30px;
+    padding-top: 15px;
+  }
+  
+  .tags-list {
+    gap: 6px;
+  }
+  
+  .tag {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-left,
+  .modal-right {
+    padding: 20px;
+  }
+  
+  .price-wrapper {
+    flex-wrap: wrap;
+  }
+  
+  .current-price {
+    font-size: 2rem;
+  }
+  
+  .award-badge {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .product-tags {
+    margin-top: 25px;
+  }
+}

@@ -1,0 +1,102 @@
+/* Аккордеон для FAQ */
+.accordion {
+  border: 1px solid var(--vinyl-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--vinyl-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--vinyl-border);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Скрываем чекбокс */
+.accordion-input {
+  display: none;
+}
+
+.accordion-button {
+  width: 100%;
+  padding: var(--space-xl);
+  background: var(--vinyl-light-bg);
+  border: none;
+  color: var(--vinyl-text);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  transition: var(--transition-slow);
+  line-height: 1.4;
+}
+
+.accordion-button:hover {
+  background: var(--vinyl-primary);
+  color: white;
+}
+
+.accordion-icon {
+  font-size: var(--text-xl);
+  font-weight: 300;
+  transition: var(--transition-slow);
+  min-width: 20px;
+  text-align: center;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  background: var(--vinyl-dark);
+  padding: 0 var(--space-xl);
+}
+
+/* Когда чекбокс отмечен - аккордеон открыт */
+.accordion-input:checked + .accordion-button {
+  background: var(--vinyl-primary);
+  color: white;
+}
+
+.accordion-input:checked + .accordion-button .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-input:checked + .accordion-button + .accordion-content {
+  max-height: 500px;
+  padding: var(--space-xl);
+}
+
+/* Стили для текста внутри аккордеона */
+.accordion-content p {
+  color: var(--vinyl-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-base);
+}
+
+.accordion-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .accordion-button {
+    padding: var(--space-lg);
+    font-size: var(--text-base);
+  }
+  
+  .accordion-content {
+    padding: 0 var(--space-lg);
+  }
+  
+  .accordion-input:checked + .accordion-button + .accordion-content {
+    padding: var(--space-lg);
+  }
+}

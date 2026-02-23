@@ -1,0 +1,399 @@
+/* Контактный Hero (простая версия) */
+.contacts-hero-simple {
+  padding: 100px 0 80px;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+}
+
+.contacts-hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+  padding-left: 10%;
+}
+
+.contacts-red-stripe {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--vinyl-primary) 25%, 
+    var(--vinyl-primary) 75%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 20px rgba(255, 60, 60, 0.5);
+}
+
+.contacts-hero-main {
+  flex: 1;
+  max-width: 600px;
+}
+
+.contacts-title-wrapper {
+  margin-bottom: 30px;
+}
+
+.contacts-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.contacts-title-part1 {
+  color: white;
+  display: block;
+}
+
+.contacts-title-part2 {
+  color: var(--vinyl-primary);
+  display: block;
+  text-shadow: 0 0 20px rgba(255, 60, 60, 0.3);
+}
+
+.contacts-title-line {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vinyl-primary), transparent);
+  border-radius: 2px;
+}
+
+.contacts-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.highlight-red {
+  color: var(--vinyl-primary);
+  font-weight: 600;
+}
+
+/* Контактные метрики */
+.contact-metrics {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+}
+
+.metric-item {
+  text-align: center;
+  flex: 1;
+}
+
+.metric-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--vinyl-primary);
+  margin-bottom: 5px;
+}
+
+.metric-label {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.metric-description {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.metric-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Винил */
+.contacts-vinyl-simple {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  flex-shrink: 0;
+  margin-right: 10%;
+}
+
+.simple-vinyl-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: 
+    radial-gradient(circle at center, #222 0%, #111 70%),
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255,255,255,0.03) 0deg 1deg,
+      transparent 1deg 3deg
+    );
+  position: relative;
+  animation: simpleSpin 20s linear infinite;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+@keyframes simpleSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.simple-vinyl-groove {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.simple-vinyl-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.simple-vinyl-hole {
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.simple-vinyl-red {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 60, 60, 0.15) 0%,
+    rgba(255, 60, 60, 0.05) 50%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  z-index: -1;
+  animation: redPulse 4s ease-in-out infinite;
+}
+
+@keyframes redPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+/* Контактная сетка */
+.contact-grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0 80px;
+}
+
+.contact-info-card {
+  padding: 30px;
+  border-radius: 16px;
+  background: var(--vinyl-card);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--vinyl-primary), var(--vinyl-secondary));
+}
+
+.contact-card-icon {
+  margin-bottom: 20px;
+  color: var(--vinyl-primary);
+}
+
+.contact-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.contact-card-text {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--vinyl-muted);
+}
+
+.contact-card-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--vinyl-muted);
+  margin-top: 20px;
+}
+
+/* График работы */
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.schedule-item:last-child { border-bottom: none; }
+
+.schedule-item.highlight {
+  background: rgba(255, 60, 60, 0.1);
+  margin: 10px -30px;
+  padding: 10px 30px;
+  border-radius: 8px;
+}
+
+.schedule-day {
+  font-weight: 600;
+  color: white;
+}
+
+.schedule-time {
+  color: var(--vinyl-muted);
+}
+
+/* Соцсети */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-link {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  color: var(--vinyl-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Карта */
+.map-section {
+  margin: 80px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+.map-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.map-caption {
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+/* Форма */
+.contact-form-section {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 50px;
+  background: var(--vinyl-card);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact-form-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-form-section p {
+  text-align: center;
+  color: var(--vinyl-muted);
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contacts-hero-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+  
+  .contacts-hero-main { max-width: 100%; }
+  .contacts-title-line { margin: 0 auto; }
+  .contacts-subtitle { margin-left: auto; margin-right: auto; }
+  .contacts-vinyl-simple { width: 250px; height: 250px; }
+}
+
+@media (max-width: 768px) {
+  .contacts-hero-simple { padding: 80px 0 60px; }
+  .contacts-title { font-size: 2.5rem; }
+  .contact-metrics { flex-direction: column; gap: 15px; }
+  .metric-divider { width: 80%; height: 1px; }
+  
+  .contact-grid-section { grid-template-columns: 1fr; gap: 20px; }
+  .contact-form-section { padding: 30px 20px; }
+  .contact-form-section h2 { font-size: 2rem; }
+}
