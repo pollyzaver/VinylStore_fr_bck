@@ -39,7 +39,6 @@ const About = ({ onNavigate }) => {
   const circleRef = useRef();
 
   useEffect(() => {
-    const section = document.querySelector('.history-scroll-section');
 
     // Наблюдаем за скроллом внутри секции
     const handleScroll = () => {

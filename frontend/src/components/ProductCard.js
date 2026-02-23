@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
 
 const ProductCard = ({ product, onProductClick }) => {
   const { addToCart } = useCart();
-  const { addToFavorites, removeFromFavorites, isInFavorites, favorites } = useFavorites();
+  const { addToFavorites, removeFromFavorites, isInFavorites } = useFavorites();
   const [isAdding, setIsAdding] = useState(false);
   
   // Используем функцию из контекста для проверки, а не локальное состояние

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../api';
 import axios from 'axios';
@@ -70,7 +70,7 @@ const Profile = ({ onNavigate }) => {
     } finally {
       setLoadingAI(false);
     }
-  }, [user]); // Добавлена зависимость от user
+  }, [user, onNavigate, loadRecommendations, loadAIRecommendations]); // Добавлена зависимость от user
 
   const translateGenre = (genre) => {
     const map = {

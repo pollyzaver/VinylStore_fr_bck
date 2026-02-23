@@ -20,7 +20,7 @@ export const FavoritesProvider = ({ children }) => {
       setFavorites([]);
       setFavoritesProducts([]);
     }
-  }, [user]);
+  }, [user, loadFavorites]);
 
   const loadFavorites = async () => {
     try {

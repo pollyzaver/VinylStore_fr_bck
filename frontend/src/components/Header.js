@@ -23,31 +23,6 @@ const LoginIcon = () => (
 );
 
 // Иконка пользователя
-const UserIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-    <circle cx="12" cy="7" r="4" />
-  </svg>
-);
-
-// Иконка избранного
-const HeartIcon = ({ filled = false }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-  </svg>
-);
-
-const Header = ({ onCartClick, onNavigate, currentPage }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { getCartItemsCount } = useCart();
-  const { user } = useAuth();
-  const { getFavoritesCount } = useFavorites(); // 👈 ПОЛУЧАЕМ СЧЁТЧИК ИЗ КОНТЕКСТА
-
-  const handleNavigation = (page) => {
-    console.log('Navigating to:', page);
-    onNavigate(page);
-    setIsMenuOpen(false);
-  };
 
   const cartItemsCount = getCartItemsCount();
   const favoritesCount = getFavoritesCount(); // 👈 ИСПОЛЬЗУЕМ РЕАЛЬНЫЙ СЧЁТЧИК
