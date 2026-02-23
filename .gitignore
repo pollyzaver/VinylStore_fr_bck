@@ -1,7 +1,7 @@
 # Зависимости
 node_modules/
-frontend/node_modules/
 backend/node_modules/
+frontend/node_modules/
 
 # Сборки
 frontend/build/
@@ -14,7 +14,6 @@ frontend/dist/
 .env.development
 backend/.env
 frontend/.env
-frontend/.env.*
 
 # Логи
 npm-debug.log*
@@ -31,8 +30,3 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
-
-# Временные файлы
-*.log
-*.tmp
-*.temp
