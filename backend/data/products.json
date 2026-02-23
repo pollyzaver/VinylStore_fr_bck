@@ -1,0 +1,1132 @@
+[
+  {
+    "id": 1,
+    "title": "Violator",
+    "description": "Depeche Mode",
+    "year": 1990,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 5290,
+    "category": "electronic",
+    "image": "/assets/violator.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Культовый альбом Depeche Mode, выпущенный в 1990 году. Содержит такие хиты как \"Enjoy the Silence\", \"Policy of Truth\" и \"Personal Jesus\". Альбом стал коммерческим прорывом для группы и считается одним из лучших электронных альбомов всех времён.",
+      "label": "Mute Records",
+      "tracklist": {
+        "a": [
+          "World in My Eyes",
+          "Sweetest Perfection",
+          "Personal Jesus",
+          "Halo"
+        ],
+        "b": [
+          "Waiting for the Night",
+          "Enjoy the Silence",
+          "Policy of Truth",
+          "Blue Dress",
+          "Clean"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:26",
+          "4:43",
+          "4:56",
+          "4:30"
+        ],
+        "b": [
+          "6:07",
+          "6:12",
+          "4:55",
+          "5:41",
+          "5:28"
+        ]
+      },
+      "highlights": [
+        "Ремастеринг 2007 года",
+        "Оригинальная обложка",
+        "Вкладыш с текстами песен"
+      ],
+      "awards": [
+        "Платиновый статус в 15 странах"
+      ],
+      "tags": [
+        "depeche-mode",
+        "электроника",
+        "80s",
+        "классика"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.8,
+      "stock": 7,
+      "barcode": "5099750442321",
+      "edition": "Ремастированное издание 2007 года",
+      "features": [
+        "180-граммовый винил",
+        "Оригинальный вкладыш",
+        "Цифровая загрузка"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Songs of Faith and Devotion",
+    "description": "Depeche Mode",
+    "year": 1993,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "electronic",
+    "image": "/assets/dev.jpg",
+    "detailedInfo": {
+      "description": "Альбом 1993 года, представляющий более тёмное и агрессивное звучание Depeche Mode. Смесь электроники, рока и госпела сделала его уникальной работой в дискографии группы.",
+      "label": "Mute Records",
+      "tracklist": {
+        "a": [
+          "I Feel You",
+          "Walking in My Shoes",
+          "Condemnation",
+          "Mercy in You"
+        ],
+        "b": [
+          "Judas",
+          "In Your Room",
+          "Get Right With Me",
+          "Rush",
+          "One Caress"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:35",
+          "5:02",
+          "3:20",
+          "4:52"
+        ],
+        "b": [
+          "5:14",
+          "6:25",
+          "3:52",
+          "4:45",
+          "3:30"
+        ]
+      },
+      "highlights": [
+        "Ремастеринг 2007 года",
+        "Оригинальная обложка",
+        "Вкладыш с текстами песен"
+      ],
+      "awards": [
+        "Платиновый статус в Великобритании и США"
+      ],
+      "tags": [
+        "depeche-mode",
+        "электроника",
+        "90s",
+        "госпел-рок"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Европа",
+      "rating": 4.7,
+      "stock": 6,
+      "barcode": "0094638243218",
+      "edition": "Ремастированное издание",
+      "features": [
+        "180-граммовый винил",
+        "Плакат",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Mezzanine",
+    "description": "Massive Attack",
+    "year": 1998,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 4290,
+    "category": "electronic",
+    "image": "/assets/Mezzanine.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Самый мрачный и атмосферный альбом Massive Attack. Знаковая работа трип-хопа, отличающаяся плотными басами и индустриальным звучанием.",
+      "label": "Virgin Records",
+      "tracklist": {
+        "a": [
+          "Angel",
+          "Risingson",
+          "Teardrop",
+          "Inertia Creeps"
+        ],
+        "b": [
+          "Exchange",
+          "Dissolved Girl",
+          "Man Next Door",
+          "Black Milk",
+          "Mezzanine",
+          "Group Four"
+        ]
+      },
+      "durations": {
+        "a": [
+          "6:18",
+          "4:58",
+          "5:29",
+          "5:56"
+        ],
+        "b": [
+          "4:10",
+          "6:08",
+          "5:56",
+          "6:20",
+          "5:54",
+          "8:13"
+        ]
+      },
+      "highlights": [
+        "Высококачественный ремастеринг",
+        "Лайнер-ноты",
+        "Оригинальная обложка 1998 года"
+      ],
+      "awards": [
+        "Платина в Великобритании"
+      ],
+      "tags": [
+        "massive-attack",
+        "трип-хоп",
+        "электроника",
+        "90s"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Европа",
+      "rating": 4.9,
+      "stock": 5,
+      "barcode": "724384632113",
+      "edition": "Ремастированное издание",
+      "features": [
+        "180-граммовый винил",
+        "Двойной LP",
+        "Вкладыш"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "title": "Without You I'm Nothing",
+    "description": "Placebo",
+    "year": 1998,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "alternative",
+    "image": "/assets/WithoutyouI'mnothing.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Mutter",
+    "description": "Rammstein",
+    "year": 2001,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 10790,
+    "category": "metal",
+    "image": "/assets/mutter.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Один из наиболее известных и коммерчески успешных альбомов Rammstein. “Mutter” представил более мелодичное, но по-прежнему мощное звучание, став ключевым релизом индустриального метала начала 2000-х. Включает хиты \"Sonne\", \"Ich Will\", \"Links 2–3–4\" и заглавную композицию \"Mutter\".",
+      "label": "Motor Music",
+      "tracklist": {
+        "a": [
+          "Mein Herz Brennt",
+          "Links 2–3–4",
+          "Sonne",
+          "Ich Will",
+          "Feuer Frei!"
+        ],
+        "b": [
+          "Mutter",
+          "Spieluhr",
+          "Zwitter",
+          "Rein Raus",
+          "Adios",
+          "Nebel"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:39",
+          "3:36",
+          "4:32",
+          "3:37",
+          "3:11"
+        ],
+        "b": [
+          "4:33",
+          "4:46",
+          "4:17",
+          "3:09",
+          "3:49",
+          "4:54"
+        ]
+      },
+      "highlights": [
+        "Ремастеринг высокого качества",
+        "Вкладыш с текстами и фотографиями",
+        "Культовый дизайн обложки"
+      ],
+      "awards": [
+        "Платиновый статус в Германии и Австрии",
+        "Золотой статус в США и Великобритании"
+      ],
+      "tags": [
+        "rammstein",
+        "индастриал-метал",
+        "2000s",
+        "классика"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Германия",
+      "rating": 4.9,
+      "stock": 4,
+      "barcode": "731457266215",
+      "edition": "Переиздание на 180-граммовом виниле",
+      "features": [
+        "180-граммовый винил",
+        "Плотный конверт",
+        "Вкладыш с текстами песен"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "title": "Still Loving You",
+    "description": "Scorpions (Single)",
+    "year": 1984,
+    "genre": "Рок",
+    "format": "7\" Single",
+    "price": 4590,
+    "category": "rock",
+    "image": "/assets/still.jpg",
+    "badge": "Редкий"
+  },
+  {
+    "id": 7,
+    "title": "Cigarettes After Sex",
+    "description": "Cigarettes After Sex",
+    "year": 2017,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 3190,
+    "category": "alternative",
+    "image": "/assets/cig.jpg",
+    "badge": "Новинка"
+  },
+  {
+    "id": 8,
+    "title": "The Downward Spiral",
+    "description": "Nine Inch Nails",
+    "year": 1994,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 3590,
+    "category": "alternative",
+    "image": "/assets/nin.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Origin of Symmetry",
+    "description": "Muse",
+    "year": 2001,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 3690,
+    "category": "rock",
+    "image": "/assets/OriginofSymmetry.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 10,
+    "title": "Disintegration",
+    "description": "The Cure",
+    "year": 1989,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 4390,
+    "category": "alternative",
+    "image": "/assets/cure.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 11,
+    "title": "Sehnsucht",
+    "description": "Rammstein",
+    "year": 1997,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 7890,
+    "category": "metal",
+    "image": "/assets/sehnsucht.jpg",
+    "badge": "Хит"
+  },
+  {
+    "id": 12,
+    "title": "Razorblade Romance",
+    "description": "HIM",
+    "year": 1999,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 4890,
+    "category": "rock",
+    "image": "/assets/him.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Dummy",
+    "description": "Portishead",
+    "year": 1994,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "electronic",
+    "image": "/assets/dummy.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 14,
+    "title": "System Of A Down",
+    "description": "System Of A Down",
+    "year": 1998,
+    "genre": "Метал",
+    "format": "12\" LP Red Vinyl",
+    "price": 10290,
+    "category": "metal",
+    "image": "/assets/soad.jpg",
+    "badge": "Эксклюзив"
+  },
+  {
+    "id": 15,
+    "title": "Around The Fur",
+    "description": "Deftones",
+    "year": 1997,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 5690,
+    "category": "alternative",
+    "image": "/assets/around.jpg"
+  },
+  {
+    "id": 16,
+    "title": "The Wall",
+    "description": "Pink Floyd",
+    "year": 1979,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 4590,
+    "category": "rock",
+    "image": "/assets/the-wall.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 17,
+    "title": "Ultra",
+    "description": "Depeche Mode",
+    "year": 1997,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 3890,
+    "category": "electronic",
+    "image": "/assets/ultra.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Du Riechst So Gut",
+    "description": "Rammstein (Single)",
+    "year": 1995,
+    "genre": "Метал",
+    "format": "7\" Single",
+    "price": 9290,
+    "category": "metal",
+    "image": "/assets/du-riechst.jpg",
+    "badge": "Редкий",
+    "detailedInfo": {
+      "description": "Дебютный сингл Rammstein, впервые выпущенный в 1995 году. Композиция стала важной частью раннего звучания группы и заложила основы фирменного стиля индастриал-метала. Сингл известен своей атмосферной, мрачной эстетикой и коллекционным статусом, особенно среди первых немецких изданий.",
+      "label": "Motor Music",
+      "tracklist": {
+        "a": [
+          "Du Riechst So Gut"
+        ],
+        "b": [
+          "Wollt Ihr Das Bett In Flammen Sehen? (Live)"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:50"
+        ],
+        "b": [
+          "5:19"
+        ]
+      },
+      "highlights": [
+        "Оригинальное раннее оформление",
+        "Редкое коллекционное издание",
+        "Высокая ценность среди фанатов Rammstein"
+      ],
+      "awards": [
+        "Культовый статус дебютного релиза",
+        "Редкое лимитированное переиздание"
+      ],
+      "tags": [
+        "rammstein",
+        "индастриал-метал",
+        "single",
+        "90s",
+        "редкость"
+      ],
+      "weight": "140 грамм",
+      "speed": "45 об/мин",
+      "country": "Германия",
+      "rating": 4.8,
+      "stock": 2,
+      "barcode": "731451234512",
+      "edition": "Лимитированное коллекционное издание",
+      "features": [
+        "Коллекционный 7-дюймовый винил",
+        "Редкая ранняя версия обложки",
+        "Лайв-трек на стороне B"
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "title": "AM",
+    "description": "Arctic Monkeys",
+    "year": 2013,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 6190,
+    "category": "rock",
+    "image": "/assets/am.jpg",
+    "badge": "Хит"
+  },
+  {
+    "id": 20,
+    "title": "Meds",
+    "description": "Placebo",
+    "year": 2006,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 5590,
+    "category": "alternative",
+    "image": "/assets/meds.jpg"
+  },
+  {
+    "id": 21,
+    "title": "The Doors",
+    "description": "The Doors",
+    "year": 1967,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 4890,
+    "category": "rock",
+    "image": "/assets/the-doors.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 22,
+    "title": "The Bends",
+    "description": "Radiohead",
+    "year": 1995,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 6090,
+    "category": "alternative",
+    "image": "/assets/the-bends.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 23,
+    "title": "Ultraviolence",
+    "description": "Lana Del Rey",
+    "year": 2014,
+    "genre": "Поп",
+    "format": "12\" LP",
+    "price": 5790,
+    "category": "pop",
+    "image": "/assets/ultraviolence.jpg"
+  },
+  {
+    "id": 24,
+    "title": "We Are Chaos",
+    "description": "Marilyn Manson",
+    "year": 2020,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "alternative",
+    "image": "/assets/we-are-chaos.jpg",
+    "badge": "Новинка"
+  },
+  {
+    "id": 25,
+    "title": "Emigrate",
+    "description": "Emigrate",
+    "year": 2007,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 4290,
+    "category": "rock",
+    "image": "/assets/emigrate.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Significant Other",
+    "description": "Limp Bizkit",
+    "year": 1999,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 4890,
+    "category": "alternative",
+    "image": "/assets/significant-other.jpg",
+    "badge": "Хит"
+  },
+  {
+    "id": 27,
+    "title": "Body Pop",
+    "description": "And One",
+    "year": 1997,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 3590,
+    "category": "electronic",
+    "image": "/assets/body-pop.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Tanzomat",
+    "description": "Tanzomat",
+    "year": 2006,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 6190,
+    "category": "electronic",
+    "image": "/assets/tanzomat.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Pulp Fiction",
+    "description": "Саундтрек",
+    "year": 1994,
+    "genre": "Саундтрек",
+    "format": "12\" LP",
+    "price": 4590,
+    "category": "other",
+    "image": "/assets/pulp-fiction.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 30,
+    "title": "Nevermind",
+    "description": "Nirvana",
+    "year": 1991,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "alternative",
+    "image": "/assets/nevermind.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 31,
+    "title": "After Hours",
+    "description": "The Weeknd",
+    "year": 2020,
+    "genre": "Поп",
+    "format": "12\" LP",
+    "price": 4190,
+    "category": "pop",
+    "image": "/assets/after-hours.jpg",
+    "badge": "Хит"
+  },
+  {
+    "id": 32,
+    "title": "Dynasty",
+    "description": "Kiss",
+    "year": 1979,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 4390,
+    "category": "rock",
+    "image": "/assets/dynasty.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 33,
+    "title": "Destroyer",
+    "description": "Kiss",
+    "year": 1976,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "rock",
+    "image": "/assets/destroyer.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 34,
+    "title": "Slipknot",
+    "description": "Slipknot",
+    "year": 1999,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 4690,
+    "category": "metal",
+    "image": "/assets/slipknot.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 35,
+    "title": "Abbey Road",
+    "description": "The Beatles",
+    "year": 1969,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 5290,
+    "category": "rock",
+    "image": "/assets/abbey-road.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 36,
+    "title": "Vulgar Display of Power",
+    "description": "Pantera",
+    "year": 1992,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 8790,
+    "category": "metal",
+    "image": "/assets/vulgar-display.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 37,
+    "title": "Saturday Night Wrist",
+    "description": "Deftones",
+    "year": 2006,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 7990,
+    "category": "alternative",
+    "image": "/assets/saturday-night.jpg"
+  },
+  {
+    "id": 38,
+    "title": "Life Is Killing Me",
+    "description": "Type O Negative",
+    "year": 2003,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 5190,
+    "category": "alternative",
+    "image": "/assets/life-is-killing.jpg"
+  },
+  {
+    "id": 39,
+    "title": "Bloody Kisses",
+    "description": "Type O Negative",
+    "year": 1993,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "alternative",
+    "image": "/assets/bloody-kisses.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 40,
+    "title": "Deutschland",
+    "description": "Rammstein",
+    "year": 2019,
+    "genre": "Индастриал-метал",
+    "format": "7\" Single",
+    "price": 2190,
+    "category": "metal",
+    "image": "/assets/deutschland.jpg",
+    "badge": "Хит"
+  },
+  {
+    "id": 41,
+    "title": "Rosenrot",
+    "description": "Rammstein",
+    "year": 2005,
+    "genre": "Индастриал-метал",
+    "format": "12\" LP",
+    "price": 5890,
+    "category": "metal",
+    "image": "/assets/rosenrot.jpg"
+  },
+  {
+    "id": 42,
+    "title": "Herzeleid",
+    "description": "Rammstein",
+    "year": 1995,
+    "genre": "Индастриал-метал",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "metal",
+    "image": "/assets/herzeleid.jpg",
+    "badge": "Коллекционное"
+  },
+  {
+    "id": 43,
+    "title": "Zeit",
+    "description": "Rammstein",
+    "year": 2022,
+    "genre": "Индастриал-метал",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "metal",
+    "image": "/assets/zeit.jpg",
+    "badge": "Новинка"
+  },
+  {
+    "id": 44,
+    "title": "Liebe ist für alle da",
+    "description": "Rammstein",
+    "year": 2009,
+    "genre": "Индастриал-метал",
+    "format": "12\" LP",
+    "price": 6190,
+    "category": "metal",
+    "image": "/assets/liebe.jpg"
+  },
+  {
+    "id": 45,
+    "title": "21",
+    "description": "Adele",
+    "year": 2011,
+    "genre": "Поп",
+    "format": "12\" LP",
+    "price": 4790,
+    "category": "pop",
+    "image": "/assets/21.jpg",
+    "badge": "Бестселлер"
+  },
+  {
+    "id": 46,
+    "title": "Currents",
+    "description": "Tame Impala",
+    "year": 2015,
+    "genre": "Психоделический рок",
+    "format": "12\" LP",
+    "price": 5290,
+    "category": "alternative",
+    "image": "/assets/currents.jpg"
+  },
+  {
+    "id": 47,
+    "title": "I Love You",
+    "description": "The Neighbourhood",
+    "year": 2013,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 4890,
+    "category": "alternative",
+    "image": "/assets/iloveyou.jpg"
+  },
+  {
+    "id": 48,
+    "title": "Born To Die",
+    "description": "Lana Del Rey",
+    "year": 2012,
+    "genre": "Поп",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "pop",
+    "image": "/assets/born.jpg"
+  },
+  {
+    "id": 49,
+    "title": "Honeymoon",
+    "description": "Lana Del Rey",
+    "year": 2015,
+    "genre": "Поп",
+    "format": "12\" LP",
+    "price": 5190,
+    "category": "pop",
+    "image": "/assets/honeymoon.jpg"
+  },
+  {
+    "id": 50,
+    "title": "Did you know that there's a tunnel under Ocean Blvd",
+    "description": "Lana Del Rey",
+    "year": 2023,
+    "genre": "Поп",
+    "format": "12\" LP",
+    "price": 5390,
+    "category": "pop",
+    "image": "/assets/didyou.jpg",
+    "badge": "Новинка"
+  },
+  {
+    "id": 51,
+    "title": "O My Heart",
+    "description": "Mother Mother",
+    "year": 2008,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 4590,
+    "category": "alternative",
+    "image": "/assets/ohmyheart.jpg"
+  },
+  {
+    "id": 52,
+    "title": "Euphoria (Original Score)",
+    "description": "Labrinth",
+    "year": 2019,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 5690,
+    "category": "electronic",
+    "image": "/assets/euphoria.jpg",
+    "badge": "Саундтрек"
+  },
+  {
+    "id": 53,
+    "title": "The Dark Side of the Moon",
+    "description": "Pink Floyd",
+    "year": 1973,
+    "genre": "Прогрессивный рок",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "rock",
+    "image": "/assets/dark-side.jpg",
+    "badge": "Легенда"
+  },
+  {
+    "id": 54,
+    "title": "Rumours",
+    "description": "Fleetwood Mac",
+    "year": 1977,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 6890,
+    "category": "rock",
+    "image": "/assets/rumours.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 55,
+    "title": "Painkiller",
+    "description": "Judas Priest",
+    "year": 1990,
+    "genre": "Хэви-метал",
+    "format": "12\" LP",
+    "price": 6290,
+    "category": "metal",
+    "image": "/assets/painkiller.jpg",
+    "badge": "Классика"
+  },
+  {
+    "id": 56,
+    "title": "Follow the Leader",
+    "description": "Korn",
+    "year": 1998,
+    "genre": "Ню-метал",
+    "format": "12\" LP",
+    "price": 5890,
+    "category": "metal",
+    "image": "/assets/follow-the-leader.jpg",
+    "badge": "Культовый"
+  },
+  {
+    "id": 57,
+    "title": "To Pimp a Butterfly",
+    "description": "Kendrick Lamar",
+    "year": 2015,
+    "genre": "Хип-хоп",
+    "format": "12\" LP",
+    "price": 5790,
+    "category": "alternative",
+    "image": "/assets/to-pimp.jpg"
+  },
+  {
+    "id": 58,
+    "title": "Back to Black",
+    "description": "Amy Winehouse",
+    "year": 2006,
+    "genre": "Соул",
+    "format": "12\" LP",
+    "price": 5290,
+    "category": "pop",
+    "image": "/assets/back-to-black.jpg"
+  },
+  {
+    "id": 59,
+    "title": "In Rainbows",
+    "description": "Radiohead",
+    "year": 2007,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "alternative",
+    "image": "/assets/in-rainbows.jpg"
+  },
+  {
+    "id": 60,
+    "title": "Hot Fuss",
+    "description": "The Killers",
+    "year": 2004,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "rock",
+    "image": "/assets/hot-fuss.jpg"
+  },
+  {
+    "id": 62,
+    "title": "Thriller",
+    "description": "Michael Jackson",
+    "year": 1982,
+    "genre": "Поп/R&B",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "pop",
+    "image": "/assets/thriller.jpg"
+  },
+  {
+    "id": 62,
+    "title": "The Rise and Fall of Ziggy Stardust",
+    "description": "David Bowie",
+    "year": 1972,
+    "genre": "Глэм-рок",
+    "format": "12\" LP",
+    "price": 7190,
+    "category": "rock",
+    "image": "/assets/ziggy.jpg",
+    "badge": "Винтаж"
+  },
+  {
+    "id": 63,
+    "title": "Sgt. Pepper's Lonely Hearts Club Band",
+    "description": "The Beatles",
+    "year": 1967,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 7890,
+    "category": "rock",
+    "image": "/assets/sgt-pepper.jpg",
+    "badge": "Коллекционное"
+  },
+  {
+    "id": 64,
+    "title": "Master of Puppets",
+    "description": "Metallica",
+    "year": 1986,
+    "genre": "Трэш-метал",
+    "format": "12\" LP",
+    "price": 6790,
+    "category": "metal",
+    "image": "/assets/master-of-puppets.jpg",
+    "badge": "Легенда",
+    "detailedInfo": {
+      "description": "Третий студийный альбом Metallica, считающийся одним из величайших метал-альбмов всех времён. Содержит такие треки как \"Master of Puppets\", \"Battery\" и \"Welcome Home (Sanitarium)\".",
+      "label": "Elektra Records",
+      "tracklist": {
+        "a": [
+          "Battery",
+          "Master of Puppets",
+          "The Thing That Should Not Be",
+          "Welcome Home (Sanitarium)"
+        ],
+        "b": [
+          "Disposable Heroes",
+          "Leper Messiah",
+          "Orion",
+          "Damage, Inc."
+        ]
+      },
+      "durations": {
+        "a": [
+          "5:12",
+          "8:36",
+          "6:37",
+          "6:27"
+        ],
+        "b": [
+          "8:17",
+          "5:40",
+          "8:28",
+          "5:29"
+        ]
+      },
+      "highlights": [
+        "Ремастеринг 2017 года",
+        "Оригинальное издание",
+        "Гейтфолд обложка"
+      ],
+      "tags": [
+        "metallica",
+        "трэш-метал",
+        "80s",
+        "классика"
+      ],
+      "weight": "180 грамм",
+      "speed": "45 об/мин",
+      "country": "США"
+    }
+  },
+  {
+    "id": 65,
+    "title": "Whatever People Say I Am, That's What I'm Not",
+    "description": "Arctic Monkeys",
+    "year": 2006,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 5290,
+    "category": "rock",
+    "image": "/assets/whatever-people-say.jpg",
+    "badge": "Дебют"
+  },
+  {
+    "id": 66,
+    "title": "Blonde",
+    "description": "Frank Ocean",
+    "year": 2016,
+    "genre": "R&B",
+    "format": "12\" LP",
+    "price": 8990,
+    "category": "alternative",
+    "image": "/assets/blonde.jpg",
+    "badge": "Раритет"
+  },
+  {
+    "id": 67,
+    "title": "The Queen Is Dead",
+    "description": "The Smiths",
+    "year": 1986,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 6790,
+    "category": "alternative",
+    "image": "/assets/queen-is-dead.jpg"
+  },
+  {
+    "id": 68,
+    "title": "Unknown Pleasures",
+    "description": "Joy Division",
+    "year": 1979,
+    "genre": "Пост-панк",
+    "format": "12\" LP",
+    "price": 7290,
+    "category": "alternative",
+    "image": "/assets/unknown-pleasures.jpg"
+  }
+]

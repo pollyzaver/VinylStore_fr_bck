@@ -1,0 +1,210 @@
+[
+  {
+    "id": "user_abc123",
+    "email": "test@test.com",
+    "password": "$2a$10$...",
+    "name": "Александр",
+    "avatar": null,
+    "testCompleted": true,
+    "testDate": "2026-02-21",
+    "profile": {
+      "genre": [
+        "post-punk",
+        "electronic"
+      ],
+      "mood": [
+        "melancholy",
+        "energy"
+      ],
+      "era": "1980-2000",
+      "colors": [
+        "dark-blue",
+        "burgundy"
+      ],
+      "listening_context": "focused",
+      "vocal": "male-deep",
+      "lyrics_importance": 8,
+      "instrumental_complexity": 7,
+      "vector": [
+        0.8,
+        0.3,
+        0.6,
+        0.2,
+        0.9,
+        0.4,
+        0.5,
+        0.7
+      ]
+    },
+    "favorites": [
+      1,
+      5,
+      12
+    ],
+    "purchases": [],
+    "createdAt": "2026-02-21",
+    "lastLogin": "2026-02-21"
+  },
+  {
+    "id": "3w7eLAtvUp",
+    "email": "pollyzaver777@gmail.com",
+    "password": "$2b$10$8RHJNU9J/B5k5YTDbdMr7.VzOGi9h1cY5cOfJQojovAGxbCT/WQjq",
+    "name": "agae",
+    "avatar": null,
+    "testCompleted": true,
+    "testDate": "2026-02-22T05:50:43.147Z",
+    "profile": {
+      "visualStyle": "nature",
+      "movie": "interstellar",
+      "colors": "yellow",
+      "timeOfDay": "evening",
+      "primaryGenre": "rock",
+      "aesthetic": "industrial",
+      "vector": [
+        0.1,
+        0.1,
+        0.4,
+        0.1,
+        0.3
+      ],
+      "genre": [
+        "classical",
+        "ambient"
+      ],
+      "mood": [
+        "calm",
+        "inspiration"
+      ],
+      "era": "2010s",
+      "listening_context": "focused",
+      "lyrics_importance": 7,
+      "instrumental_complexity": 8
+    },
+    "favorites": [],
+    "purchases": [
+      1,
+      5,
+      11
+    ],
+    "createdAt": "2026-02-22T05:49:55.787Z",
+    "lastLogin": "2026-02-22T20:16:24.485Z"
+  },
+  {
+    "id": "3pCUNoZ1b2",
+    "email": "wefw@mail.ru",
+    "password": "$2b$10$bAzYddEBrqC4PFi/MfYKyOxziqY7xwLtEpEWnG7l0S6pVdeED/Mzq",
+    "name": "ауыаыуа",
+    "avatar": null,
+    "testCompleted": true,
+    "testDate": "2026-02-22T19:25:38.171Z",
+    "profile": {
+      "visualStyle": "minimal",
+      "movie": "pulp_fiction",
+      "colors": [
+        "red"
+      ],
+      "timeOfDay": "evening",
+      "primaryGenre": "classical",
+      "aesthetic": "gothic",
+      "vector": [
+        0.5,
+        0.6,
+        0.4,
+        0.9,
+        0.8
+      ],
+      "genre": [
+        "rock",
+        "pop"
+      ],
+      "mood": [
+        "energy",
+        "melancholy"
+      ],
+      "era": "1990s",
+      "listening_context": "focused",
+      "lyrics_importance": 7,
+      "instrumental_complexity": 8
+    },
+    "favorites": [],
+    "purchases": [
+      1,
+      5,
+      12
+    ],
+    "createdAt": "2026-02-22T19:25:19.861Z",
+    "lastLogin": "2026-02-22T19:25:19.861Z"
+  },
+  {
+    "id": "gothic_fan_88",
+    "email": "gothic@test.com",
+    "password": "$2b$10$6hTdaD2lGwOPFX9p.2UWWOLiY/xU9S7fqiEA.5Tbq2jwv5rVplRl.",
+    "name": "Алиса",
+    "avatar": null,
+    "testCompleted": true,
+    "testDate": "2026-02-22",
+    "profile": {
+      "genre": [
+        "post-punk",
+        "rock",
+        "gothic"
+      ],
+      "mood": [
+        "melancholy",
+        "nostalgia"
+      ],
+      "era": "1980s",
+      "colors": [
+        "black",
+        "burgundy",
+        "purple"
+      ],
+      "listening_context": "focused",
+      "vocal": "male-deep",
+      "lyrics_importance": 9,
+      "instrumental_complexity": 8,
+      "visualStyle": "gothic",
+      "movie": "blade_runner",
+      "timeOfDay": "night",
+      "primaryGenre": "rock",
+      "aesthetic": "gothic",
+      "vector": [
+        0.8,
+        0.3,
+        0.2,
+        0.9,
+        0.4,
+        0.7,
+        0.5
+      ]
+    },
+    "favorites": [
+      1,
+      2,
+      4
+    ],
+    "purchases": [
+      1,
+      2,
+      5,
+      7,
+      10
+    ],
+    "createdAt": "2026-02-22",
+    "lastLogin": "2026-02-22T20:09:05.598Z"
+  },
+  {
+    "id": "rTKsBBKOcD",
+    "email": "bfuuviv@mail.ru",
+    "password": "$2b$10$iRIdHS5c7w80/xQLz6AIWee5uhTI9QOK.kY9G29Xif0IEMstjuJIS",
+    "name": "цфц",
+    "avatar": null,
+    "testCompleted": false,
+    "testDate": null,
+    "profile": null,
+    "favorites": [],
+    "purchases": [],
+    "createdAt": "2026-02-22T20:54:25.767Z",
+    "lastLogin": "2026-02-22T20:54:25.767Z"
+  }
+]
