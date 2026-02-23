@@ -180,9 +180,24 @@ const Contacts = () => {
               Следите за новыми поступлениями, акциями и мероприятиями
             </p>
             <div className="social-links">
-              <a href="#" className="social-link vinyl-btn">Instagram</a>
-              <a href="#" className="social-link vinyl-btn">Telegram</a>
-              <a href="#" className="social-link vinyl-btn">VK</a>
+              <button 
+                className="social-link"
+                onClick={() => window.open('https://instagram.com', '_blank')}
+              >
+                Instagram
+              </button>
+              <button 
+                className="social-link"
+                onClick={() => window.open('https://telegram.org', '_blank')}
+              >
+                Telegram
+              </button>
+              <button 
+                className="social-link"
+                onClick={() => window.open('https://vk.com', '_blank')}
+              >
+                VK
+              </button>
             </div>
           </div>
         </div>

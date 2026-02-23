@@ -8,9 +8,10 @@ const Favorites = ({ onNavigate }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Найдите строку 13 (useEffect) и замените на:
   useEffect(() => {
     refreshFavorites();
-  }, []);
+  }, [refreshFavorites]); // Добавлена зависимость
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);

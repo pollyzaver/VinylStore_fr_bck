@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../api';
-import axios from 'axios'; // 👈 Добавляем axios для AI-запросов
+import axios from 'axios';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const Profile = ({ onNavigate }) => {
   const { user, logout } = useAuth();
@@ -39,27 +40,15 @@ const Profile = ({ onNavigate }) => {
     if (user.testCompleted) {
       console.log('User test completed, loading recommendations');
       loadRecommendations();
-      loadAIRecommendations(); // 👈 Загружаем AI-рекомендации
+      loadAIRecommendations();
     } else {
       console.log('User test not completed');
       setLoading(false);
     }
-  }, [user]);
-
-  const loadRecommendations = async () => {
-    try {
-      const products = await api.getProducts();
-      const shuffled = [...products].sort(() => 0.5 - Math.random());
-      setRecommendations(shuffled.slice(0, 4));
-    } catch (error) {
-      console.error('Failed to load recommendations:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [user, onNavigate, loadRecommendations, loadAIRecommendations]);
 
   // 👇 НОВАЯ ФУНКЦИЯ: загрузка AI-рекомендаций
-  const loadAIRecommendations = async () => {
+  const loadAIRecommendations = useCallback(async () => {
     if (!user?.testCompleted || !user?.id) return;
     
     setLoadingAI(true);
@@ -78,19 +67,10 @@ const Profile = ({ onNavigate }) => {
     } catch (error) {
       console.error('❌ Ошибка загрузки AI-рекомендаций:', error);
       setAiError('Не удалось загрузить умные рекомендации. Но у нас есть обычные!');
-      
-      // Если AI не работает, показываем больше обычных рекомендаций
-      try {
-        const products = await api.getProducts();
-        const shuffled = [...products].sort(() => 0.5 - Math.random());
-        setRecommendations(prev => [...prev, ...shuffled.slice(0, 4)]);
-      } catch (e) {
-        console.error('Не удалось загрузить доп. рекомендации:', e);
-      }
     } finally {
       setLoadingAI(false);
     }
-  };
+  }, [user]); // Добавлена зависимость от user
 
   const translateGenre = (genre) => {
     const map = {

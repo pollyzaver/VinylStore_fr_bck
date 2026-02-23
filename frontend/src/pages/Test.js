@@ -8,7 +8,7 @@ const Test = ({ onNavigate }) => { // 👈 ПОЛУЧАЕМ onNavigate ИЗ ПР
   const [answers, setAnswers] = useState({});
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const { user, submitTest } = useAuth();
+  const {submitTest } = useAuth();
 
   useEffect(() => {
     loadQuestions();

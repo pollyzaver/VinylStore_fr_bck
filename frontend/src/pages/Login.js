@@ -63,13 +63,6 @@ const Login = ({ onNavigate }) => {
     }
   };
 
-  const fillTestCredentials = () => {
-    setFormData({
-      email: 'test@test.com',
-      password: '123456'
-    });
-  };
-
   return (
     <div className="auth-page">
       <div className="container">
