@@ -1,5 +1,4 @@
-// frontend/src/context/AuthContext.js
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import Cookies from 'js-cookie';
 import { authAPI } from '../api/auth';
 
@@ -12,16 +11,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(Cookies.get('token') || null);
 
-  useEffect(() => {
-    console.log('AuthProvider: token =', token);
-    if (token) {
-      loadUser();
-    } else {
-      setLoading(false);
-    }
-  }, [token, loadUser]);
-
-  const loadUser = async () => {
+  // ОПРЕДЕЛЯЕМ loadUser ПЕРЕД useEffect
+  const loadUser = useCallback(async () => {
     try {
       console.log('Loading user with token:', token);
       const userData = await authAPI.getMe(token);
@@ -33,7 +24,16 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [token]); // Добавляем token как зависимость
+
+  useEffect(() => {
+    console.log('AuthProvider: token =', token);
+    if (token) {
+      loadUser();
+    } else {
+      setLoading(false);
+    }
+  }, [token, loadUser]); // Добавляем loadUser в зависимости
 
   const register = async (userData) => {
     console.log('Registering with:', userData);

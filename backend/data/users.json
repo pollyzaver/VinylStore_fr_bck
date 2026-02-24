@@ -46,50 +46,6 @@
     "lastLogin": "2026-02-21"
   },
   {
-    "id": "3w7eLAtvUp",
-    "email": "pollyzaver777@gmail.com",
-    "password": "$2b$10$8RHJNU9J/B5k5YTDbdMr7.VzOGi9h1cY5cOfJQojovAGxbCT/WQjq",
-    "name": "agae",
-    "avatar": null,
-    "testCompleted": true,
-    "testDate": "2026-02-22T05:50:43.147Z",
-    "profile": {
-      "visualStyle": "nature",
-      "movie": "interstellar",
-      "colors": "yellow",
-      "timeOfDay": "evening",
-      "primaryGenre": "rock",
-      "aesthetic": "industrial",
-      "vector": [
-        0.1,
-        0.1,
-        0.4,
-        0.1,
-        0.3
-      ],
-      "genre": [
-        "classical",
-        "ambient"
-      ],
-      "mood": [
-        "calm",
-        "inspiration"
-      ],
-      "era": "2010s",
-      "listening_context": "focused",
-      "lyrics_importance": 7,
-      "instrumental_complexity": 8
-    },
-    "favorites": [],
-    "purchases": [
-      1,
-      5,
-      11
-    ],
-    "createdAt": "2026-02-22T05:49:55.787Z",
-    "lastLogin": "2026-02-22T20:16:24.485Z"
-  },
-  {
     "id": "3pCUNoZ1b2",
     "email": "wefw@mail.ru",
     "password": "$2b$10$bAzYddEBrqC4PFi/MfYKyOxziqY7xwLtEpEWnG7l0S6pVdeED/Mzq",
@@ -206,5 +162,19 @@
     "purchases": [],
     "createdAt": "2026-02-22T20:54:25.767Z",
     "lastLogin": "2026-02-22T20:54:25.767Z"
+  },
+  {
+    "id": "zLAQaPEg9K",
+    "email": "ndbwebdj@mail.com",
+    "password": "$2b$10$vvKm1KuSQ3CWxBBUEzdF/.Lj/tU74xhdhqlrXHs4b8RjXrMESIRBG",
+    "name": "f3hfkwh",
+    "avatar": null,
+    "testCompleted": false,
+    "testDate": null,
+    "profile": null,
+    "favorites": [],
+    "purchases": [],
+    "createdAt": "2026-02-24T10:40:42.689Z",
+    "lastLogin": "2026-02-24T10:40:42.690Z"
   }
 ]

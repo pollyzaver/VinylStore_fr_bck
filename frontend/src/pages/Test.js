@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../api/auth';
 
-const Test = ({ onNavigate }) => { // 👈 ПОЛУЧАЕМ onNavigate ИЗ ПРОПСОВ
+const Test = ({ onNavigate }) => {
   const [questions, setQuestions] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -49,7 +49,7 @@ const Test = ({ onNavigate }) => { // 👈 ПОЛУЧАЕМ onNavigate ИЗ ПР
       setSubmitting(true);
       await submitTest(answers);
       // После успешного прохождения теста - на профиль
-      onNavigate('profile'); // 👈 ИСПОЛЬЗУЕМ onNavigate ВМЕСТО navigate
+      onNavigate('profile');
     } catch (error) {
       console.error('Failed to submit test:', error);
       alert('Ошибка при сохранении результатов. Попробуйте ещё раз.');
@@ -77,7 +77,7 @@ const Test = ({ onNavigate }) => { // 👈 ПОЛУЧАЕМ onNavigate ИЗ ПР
   if (!questions) {
     return (
       <div className="error-container">
-        <h2>😕 Ой!</h2>
+        <h2>Ой!</h2>
         <p>Не удалось загрузить вопросы теста</p>
         <button onClick={loadQuestions} className="btn btn-primary">
           Попробовать снова
@@ -102,7 +102,7 @@ const Test = ({ onNavigate }) => { // 👈 ПОЛУЧАЕМ onNavigate ИЗ ПР
             alignItems: 'center',
             marginBottom: '20px'
           }}>
-            <h1 className="section-title" style={{ marginBottom: 0 }}>🎧 Музыкальный тест</h1>
+            <h1 className="section-title" style={{ marginBottom: 0 }}> Музыкальный тест</h1>
             <button 
               onClick={handleCancel}
               className="btn btn-outline"

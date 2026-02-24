@@ -3,8 +3,6 @@ class AIRecommender {
   constructor() {
     console.log('🤖 AI Recommender 2.0 инициализирован');
   }
-
-  // ============= ГЛАВНАЯ ФУНКЦИЯ =============
   async getSmartRecommendations(userProfile, allProducts, allUsers, userHistory = {}) {
     console.log('🎯 Генерация комбинированных рекомендаций...');
     
@@ -43,7 +41,6 @@ class AIRecommender {
     return this.weightAndSortRecommendations(recommendationSources, userProfile);
   }
 
-  // ============= 1. РЕКОМЕНДАЦИИ НА ОСНОВЕ ТЕСТА =============
   getTestBasedRecommendations(profile, allProducts) {
     console.log('📊 Генерация на основе теста');
     const recommendations = [];
@@ -97,7 +94,7 @@ class AIRecommender {
     return recommendations;
   }
 
-  // ============= 2. РЕКОМЕНДАЦИИ НА ОСНОВЕ ПОКУПОК =============
+  // 2. РЕКОМЕНДАЦИИ НА ОСНОВЕ ПОКУПОК
   getPurchaseBasedRecommendations(purchases, allProducts) {
     console.log('🛒 Генерация на основе покупок');
     const recommendations = [];
@@ -146,13 +143,12 @@ class AIRecommender {
     return recommendations;
   }
 
-  // ============= 3. РЕКОМЕНДАЦИИ НА ОСНОВЕ ЛАЙКОВ =============
+  //3. РЕКОМЕНДАЦИИ НА ОСНОВЕ ЛАЙКОВ
   getFavoritesBasedRecommendations(favorites, allProducts) {
     console.log('❤️ Генерация на основе избранного');
     // Аналогично покупкам, но с меньшим весом
     const recommendations = this.getPurchaseBasedRecommendations(favorites, allProducts);
     
-    // Уменьшаем вес для лайков
     return recommendations.map(r => ({
       ...r,
       score: r.score * 0.7,
@@ -161,7 +157,7 @@ class AIRecommender {
     }));
   }
 
-  // ============= 4. КОЛЛАБОРАТИВНАЯ ФИЛЬТРАЦИЯ =============
+  // 4. КОЛЛАБОРАТИВНАЯ ФИЛЬТРАЦИЯ
   getCollaborativeRecommendations(similarUsers, allProducts) {
     console.log('👥 Генерация на основе похожих пользователей');
     const recommendations = [];
@@ -191,7 +187,7 @@ class AIRecommender {
     return recommendations;
   }
 
-  // ============= 5. ПОПУЛЯРНОЕ (для разнообразия) =============
+  // 5. ПОПУЛЯРНОЕ
   getPopularRecommendations(allProducts) {
     console.log('🔥 Добавляем популярное');
     // Просто берём случайные товары с маленьким весом
@@ -205,7 +201,7 @@ class AIRecommender {
       }));
   }
 
-  // ============= ПОИСК ПОХОЖИХ ПОЛЬЗОВАТЕЛЕЙ =============
+  // ПОИСК ПОХОЖИХ ПОЛЬЗОВАТЕЛЕЙ
   findSimilarUsers(userProfile, allUsers) {
     console.log('🔍 Поиск похожих пользователей...');
     const similarUsers = [];
@@ -243,7 +239,7 @@ class AIRecommender {
     return similarUsers.sort((a, b) => b.similarity - a.similarity);
   }
 
-  // ============= ВЗВЕШИВАНИЕ И СОРТИРОВКА =============
+  // ВЗВЕШИВАНИЕ И СОРТИРОВКА
   weightAndSortRecommendations(sources, profile) {
     console.log('⚖️ Взвешивание рекомендаций...');
     
@@ -281,7 +277,7 @@ class AIRecommender {
     return sorted;
   }
 
-  // ============= ГЕНЕРАЦИЯ ПРИЧИН =============
+  // ГЕНЕРАЦИЯ ПРИЧИН
   getTestReason(profile, product) {
     const reasons = [];
     

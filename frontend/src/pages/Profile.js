@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../api';
 import axios from 'axios';
-import React, { useState, useEffect, useCallback } from 'react';
 
 const Profile = ({ onNavigate }) => {
   const { user, logout } = useAuth();
@@ -45,10 +44,21 @@ const Profile = ({ onNavigate }) => {
       console.log('User test not completed');
       setLoading(false);
     }
-  }, [user, onNavigate, loadRecommendations, loadAIRecommendations]);
+  }, [user, onNavigate]);
 
-  // 👇 НОВАЯ ФУНКЦИЯ: загрузка AI-рекомендаций
-  const loadAIRecommendations = useCallback(async () => {
+  const loadRecommendations = async () => {
+    try {
+      const products = await api.getProducts();
+      const shuffled = [...products].sort(() => 0.5 - Math.random());
+      setRecommendations(shuffled.slice(0, 4));
+    } catch (error) {
+      console.error('Failed to load recommendations:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadAIRecommendations = async () => {
     if (!user?.testCompleted || !user?.id) return;
     
     setLoadingAI(true);
@@ -67,11 +77,21 @@ const Profile = ({ onNavigate }) => {
     } catch (error) {
       console.error('❌ Ошибка загрузки AI-рекомендаций:', error);
       setAiError('Не удалось загрузить умные рекомендации. Но у нас есть обычные!');
+      
+      try {
+        const products = await api.getProducts();
+        const shuffled = [...products].sort(() => 0.5 - Math.random());
+        setRecommendations(prev => [...prev, ...shuffled.slice(0, 4)]);
+      } catch (e) {
+        console.error('Не удалось загрузить доп. рекомендации:', e);
+      }
     } finally {
       setLoadingAI(false);
     }
-  }, [user, onNavigate, loadRecommendations, loadAIRecommendations]); // Добавлена зависимость от user
+  };
 
+  // ... остальные функции translate (они остаются без изменений)
+  
   const translateGenre = (genre) => {
     const map = {
       'rock': 'Рок',
@@ -112,6 +132,16 @@ const Profile = ({ onNavigate }) => {
       'all': 'Всё подряд'
     };
     return map[era] || era;
+  };
+
+  const translateContext = (context) => {
+    const map = {
+      'background': 'Фоном за делами',
+      'headphones': 'В наушниках в транспорте',
+      'focused': 'Специально, с хорошей аппаратурой',
+      'party': 'На вечеринках с друзьями'
+    };
+    return map[context] || context;
   };
 
   const translateVisualStyle = (style) => {
@@ -455,7 +485,7 @@ const Profile = ({ onNavigate }) => {
               </div>
             )}
 
-            {/* 👇 AI-РЕКОМЕНДАЦИИ (НОВЫЙ БЛОК) */}
+            {/* AI-рекомендации */}
             {aiRecommendations.length > 0 && (
               <>
                 <h2 className="section-title" style={{ marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '10px' }}>

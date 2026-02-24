@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import { api } from '../api';
 
@@ -12,17 +12,8 @@ export const FavoritesProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
 
-  // Загружаем избранное при входе пользователя
-  useEffect(() => {
-    if (user) {
-      loadFavorites();
-    } else {
-      setFavorites([]);
-      setFavoritesProducts([]);
-    }
-  }, [user, loadFavorites]);
-
-  const loadFavorites = async () => {
+  // ОПРЕДЕЛЯЕМ loadFavorites ПЕРЕД useEffect
+  const loadFavorites = useCallback(async () => {
     try {
       setLoading(true);
       // Загружаем избранное пользователя (из user.favorites)
@@ -42,7 +33,17 @@ export const FavoritesProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]); // Добавляем user как зависимость
+
+  // Загружаем избранное при входе пользователя
+  useEffect(() => {
+    if (user) {
+      loadFavorites();
+    } else {
+      setFavorites([]);
+      setFavoritesProducts([]);
+    }
+  }, [user, loadFavorites]); // Добавляем loadFavorites в зависимости
 
   const addToFavorites = async (product) => {
     try {

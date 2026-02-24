@@ -8,10 +8,9 @@ const Favorites = ({ onNavigate }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Найдите строку 13 (useEffect) и замените на:
   useEffect(() => {
     refreshFavorites();
-  }, [refreshFavorites]); // Добавлена зависимость
+  }, [refreshFavorites]);
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
@@ -44,7 +43,7 @@ const Favorites = ({ onNavigate }) => {
           marginTop: '40px'
         }}>
           <h1 className="section-title" style={{ marginBottom: 0 }}>
-            ❤️ Моё избранное
+            Моё избранное
           </h1>
           {favoritesProducts.length > 0 && (
             <span style={{

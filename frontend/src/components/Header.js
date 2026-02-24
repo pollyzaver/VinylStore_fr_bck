@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useFavorites } from '../context/FavoritesContext'; // 👈 ДОБАВИТЬ
+import { useFavorites } from '../context/FavoritesContext';
 import '../styles/components/Header.css';
 
 // Иконка корзины
@@ -22,10 +22,27 @@ const LoginIcon = () => (
   </svg>
 );
 
-// Иконка пользователя
+// Иконка избранного
+const HeartIcon = ({ filled = false }) => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+  </svg>
+);
+
+const Header = ({ onCartClick, onNavigate, currentPage }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { getCartItemsCount } = useCart();
+  const { user } = useAuth();
+  const { getFavoritesCount } = useFavorites();
+
+  const handleNavigation = (page) => {
+    console.log('Navigating to:', page);
+    onNavigate(page);
+    setIsMenuOpen(false);
+  };
 
   const cartItemsCount = getCartItemsCount();
-  const favoritesCount = getFavoritesCount(); // 👈 ИСПОЛЬЗУЕМ РЕАЛЬНЫЙ СЧЁТЧИК
+  const favoritesCount = getFavoritesCount();
 
   return (
     <>
@@ -50,7 +67,6 @@ const LoginIcon = () => (
               aria-label="Основная навигация"
             >
               <ul className="nav-menu">
-                {/* Основные пункты - всегда видны */}
                 <li className="nav-item">
                   <button 
                     className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
@@ -81,7 +97,7 @@ const LoginIcon = () => (
 
           {/* Правая часть с корзиной, избранным и авторизацией */}
           <div className="right-container">
-            {/* Иконка избранного (для всех пользователей) */}
+            {/* Иконка избранного */}
             <button 
               className="favorites-button"
               onClick={() => handleNavigation('favorites')}
