@@ -211,13 +211,6 @@ const About = ({ onNavigate }) => {
           </div>
         </section>
 
-        {/* ==== Остальные секции — полностью как у тебя ==== */}
-        {/* Команда */}
-        {/* Достижения */}
-        {/* CTA */}
-        {/* Команда */}
-        {/* … остальное полностью без изменений … */}
-
         <section className="team-section" style={{paddingBlock: 'var(--space-2xl)'}}>
           <div className="section-content">
             <h2 className="section-title">Наша команда</h2>
@@ -270,7 +263,7 @@ const About = ({ onNavigate }) => {
                 Свяжитесь с нами сегодня и получите бесплатную консультацию по подбору винила.
               </p>
               <button 
-                className="btn btn-primary"
+                className="btn btn-white"
                 onClick={() => onNavigate('contacts', '#contact-form')}
               >
                 Связаться с нами

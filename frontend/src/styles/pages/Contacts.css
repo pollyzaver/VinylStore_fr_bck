@@ -1,112 +1,98 @@
-/* Контактный Hero (простая версия) */
-.contacts-hero-simple {
-  padding: 100px 0 80px;
-  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
-  position: relative;
-  overflow: hidden;
+
+/* Анимация фона */
+@keyframes heroSlowZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
 }
 
-.contacts-hero-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  position: relative;
-  z-index: 2;
-  padding-left: 10%;
-}
-
-.contacts-red-stripe {
+.contacts-hero::before {
+  content: '';
   position: absolute;
-  top: -100px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--vinyl-primary) 25%, 
-    var(--vinyl-primary) 75%, 
-    transparent 100%
-  );
-  box-shadow: 0 0 20px rgba(255, 60, 60, 0.5);
+  height: 100%;
+  background: inherit;
+  z-index: -1;
+  animation: heroSlowZoom 20s ease-in-out infinite;
 }
 
-.contacts-hero-main {
-  flex: 1;
-  max-width: 600px;
+/* Отключаем анимацию и фиксированный фон на мобильных */
+@media (max-width: 768px) {
+  .contacts-hero {
+    background-attachment: scroll;
+  }
+  
+  .contacts-hero::before {
+    animation: none;
+  }
 }
 
-.contacts-title-wrapper {
-  margin-bottom: 30px;
+.contacts-hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 4;
+  position: relative;
 }
 
-.contacts-title {
-  font-size: 3.5rem;
+.contacts-hero-title {
+  font-size: 3rem;
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 15px;
-}
-
-.contacts-title-part1 {
+  margin-bottom: 20px;
   color: white;
-  display: block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.contacts-title-part2 {
-  color: var(--vinyl-primary);
-  display: block;
-  text-shadow: 0 0 20px rgba(255, 60, 60, 0.3);
-}
-
-.contacts-title-line {
-  width: 120px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--vinyl-primary), transparent);
-  border-radius: 2px;
-}
-
-.contacts-subtitle {
-  color: rgba(255, 255, 255, 0.8);
+.contacts-hero-subtitle {
+  color: var(--vinyl-muted);
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 40px;
-  max-width: 500px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.highlight-red {
-  color: var(--vinyl-primary);
-  font-weight: 600;
-}
 
-/* Контактные метрики */
-.contact-metrics {
+/* Контактные метрики (обновленные) */
+.contacts-metrics {
   display: flex;
   align-items: center;
-  gap: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 25px;
-  backdrop-filter: blur(10px);
-  max-width: 500px;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+  z-index: 4;
+  position: relative;
 }
 
 .metric-item {
   text-align: center;
-  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px 30px;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-slow);
+}
+
+.metric-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--vinyl-primary);
+  box-shadow: 0 10px 30px rgba(179, 0, 0, 0.2);
 }
 
 .metric-number {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--vinyl-primary);
   margin-bottom: 5px;
+  line-height: 1;
 }
 
 .metric-label {
   color: white;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 5px;
@@ -114,102 +100,10 @@
 
 .metric-description {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
-.metric-divider {
-  width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Винил */
-.contacts-vinyl-simple {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  flex-shrink: 0;
-  margin-right: 10%;
-}
-
-.simple-vinyl-disc {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: 
-    radial-gradient(circle at center, #222 0%, #111 70%),
-    repeating-conic-gradient(
-      from 0deg,
-      rgba(255,255,255,0.03) 0deg 1deg,
-      transparent 1deg 3deg
-    );
-  position: relative;
-  animation: simpleSpin 20s linear infinite;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-}
-
-@keyframes simpleSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.simple-vinyl-groove {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.simple-vinyl-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.simple-vinyl-hole {
-  width: 10px;
-  height: 10px;
-  background: #000;
-  border-radius: 50%;
-}
-
-.simple-vinyl-red {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 60, 60, 0.15) 0%,
-    rgba(255, 60, 60, 0.05) 50%,
-    transparent 70%
-  );
-  filter: blur(20px);
-  z-index: -1;
-  animation: redPulse 4s ease-in-out infinite;
-}
-
-@keyframes redPulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.8; }
-}
-
-/* Контактная сетка */
+/* ===== ОСТАЛЬНЫЕ СТИЛИ (без изменений) ===== */
 .contact-grid-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -258,16 +152,6 @@
   line-height: 1.6;
   margin-bottom: 20px;
   color: var(--vinyl-muted);
-}
-
-.contact-card-badge {
-  display: inline-block;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  color: var(--vinyl-muted);
-  margin-top: 20px;
 }
 
 /* График работы */
@@ -319,35 +203,14 @@
   text-decoration: none;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(255, 60, 60, 0.1);
+  color: var(--vinyl-primary);
+  border-color: rgba(179, 0, 0, 0.3);
   transform: translateY(-2px);
-}
-
-/* Карта */
-.map-section {
-  margin: 80px auto;
-  max-width: 1000px;
-  padding: 0 20px;
-}
-
-.map-container {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.map-caption {
-  text-align: center;
-  color: rgba(255,255,255,0.5);
-  margin-top: 20px;
-  font-size: 1rem;
 }
 
 /* Форма */
@@ -364,6 +227,7 @@
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: white;
 }
 
 .contact-form-section p {
@@ -373,27 +237,258 @@
   font-size: 1.1rem;
 }
 
-/* Responsive */
+/* Карта */
+.map-section {
+  margin: 80px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+.map-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.map-caption {
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+/* Адаптивность */
 @media (max-width: 992px) {
-  .contacts-hero-wrapper {
-    flex-direction: column;
-    text-align: center;
-    gap: 50px;
+  .contacts-hero-record {
+    width: 350px;
+    height: 350px;
   }
   
-  .contacts-hero-main { max-width: 100%; }
-  .contacts-title-line { margin: 0 auto; }
-  .contacts-subtitle { margin-left: auto; margin-right: auto; }
-  .contacts-vinyl-simple { width: 250px; height: 250px; }
+  .contacts-record-glow {
+    width: 390px;
+    height: 390px;
+  }
+  
+  .contacts-metrics {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .metric-item {
+    padding: 15px 25px;
+  }
+  
+  .metric-number {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .contacts-hero-simple { padding: 80px 0 60px; }
-  .contacts-title { font-size: 2.5rem; }
-  .contact-metrics { flex-direction: column; gap: 15px; }
-  .metric-divider { width: 80%; height: 1px; }
+  .contacts-hero {
+    padding: 100px 0 80px;
+  }
   
-  .contact-grid-section { grid-template-columns: 1fr; gap: 20px; }
-  .contact-form-section { padding: 30px 20px; }
-  .contact-form-section h2 { font-size: 2rem; }
+  .contacts-hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .contacts-hero-subtitle {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  
+  .contacts-hero-record {
+    width: 280px;
+    height: 280px;
+    opacity: 0.15;
+  }
+  
+  .contacts-record-glow {
+    width: 320px;
+    height: 320px;
+    filter: blur(40px);
+  }
+  
+  .contacts-record-label {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .contacts-record-text {
+    font-size: 0.65rem;
+  }
+  
+  .contacts-hero-side-left,
+  .contacts-hero-side-right {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    letter-spacing: 4px;
+  }
+  
+  .contacts-metrics {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .metric-item {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .contact-grid-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .contact-form-section {
+    padding: 30px 20px;
+  }
+  
+  .contact-form-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contacts-hero {
+    padding: 80px 0 60px;
+  }
+  
+  .contacts-hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .contacts-hero-record {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .contacts-record-glow {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .contacts-hero-side-left,
+  .contacts-hero-side-right {
+    display: none;
+  }
+  
+  .metric-item {
+    padding: 12px 20px;
+  }
+  
+  .metric-number {
+    font-size: 1.8rem;
+  }
+}
+
+/* Красная бегущая строка на всю ширину - бесконечная */
+.running-line {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #b30000;
+  padding: 15px 0;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(179, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.running-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.running-line-content {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.running-line-content span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.running-line-content .separator {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  margin: 0 15px;
+}
+
+/* Бесконечная анимация */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Сдвигаем ровно на половину ширины */
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .running-line {
+    padding: 10px 0;
+  }
+  
+  .running-line-content {
+    animation: marquee 15s linear infinite; /* Быстрее на мобилках */
+  }
+  
+  .running-line-content span {
+    font-size: 1rem;
+    margin: 0 15px;
+  }
+  
+  .running-line-content .separator {
+    font-size: 1.2rem;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .running-line {
+    padding: 8px 0;
+  }
+  
+  .running-line-content {
+    animation: marquee 12s linear infinite; /* Ещё быстрее */
+  }
+  
+  .running-line-content span {
+    font-size: 0.9rem;
+    margin: 0 10px;
+    letter-spacing: 1px;
+  }
+  
+  .running-line-content .separator {
+    font-size: 1rem;
+    margin: 0 8px;
+  }
 }

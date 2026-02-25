@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useFavorites } from '../context/FavoritesContext';
 import ProductCard from '../components/ProductCard';
 import ProductModal from '../components/ProductModal';
+import '../styles/pages/Favorites.css'; 
 
 const Favorites = ({ onNavigate }) => {
   const { favoritesProducts, loading, refreshFavorites } = useFavorites();
@@ -35,23 +36,10 @@ const Favorites = ({ onNavigate }) => {
       <div className="container">
         
         {/* Заголовок */}
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          gap: '15px',
-          marginBottom: '40px',
-          marginTop: '40px'
-        }}>
-          <h1 className="section-title" style={{ marginBottom: 0 }}>
-            Моё избранное
-          </h1>
+        <div className="favorites-header">
+          <h1>Моё избранное</h1>
           {favoritesProducts.length > 0 && (
-            <span style={{
-              background: 'var(--vinyl-red)',
-              padding: '5px 15px',
-              borderRadius: '20px',
-              fontSize: '1rem'
-            }}>
+            <span className="favorites-count-badge">
               {favoritesProducts.length} {favoritesProducts.length === 1 ? 'товар' : 'товаров'}
             </span>
           )}
@@ -59,35 +47,21 @@ const Favorites = ({ onNavigate }) => {
 
         {/* Контент */}
         {favoritesProducts.length === 0 ? (
-          <div className="empty-favorites" style={{
-            textAlign: 'center',
-            padding: '80px 20px',
-            background: 'var(--vinyl-card)',
-            borderRadius: '20px',
-            border: '2px dashed var(--vinyl-border)'
-          }}>
-            <div style={{ fontSize: '5rem', marginBottom: '20px' }}>❤️</div>
-            <h2 style={{ fontSize: '2rem', marginBottom: '15px' }}>
-              Здесь пока пусто
-            </h2>
-            <p style={{ color: 'var(--vinyl-muted)', marginBottom: '30px', maxWidth: '400px', marginInline: 'auto' }}>
+          <div className="empty-favorites">
+            <div className="empty-favorites-icon">❤️</div>
+            <h2>Здесь пока пусто</h2>
+            <p>
               Добавляйте понравившиеся пластинки в избранное, чтобы не потерять их
             </p>
             <button 
               className="btn btn-primary"
               onClick={() => onNavigate('home')}
-              style={{ padding: '12px 40px', fontSize: '1.1rem' }}
             >
               Перейти в каталог
             </button>
           </div>
         ) : (
-          <div className="favorites-grid" style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '30px',
-            marginBottom: '60px'
-          }}>
+          <div className="favorites-grid">
             {favoritesProducts.map(product => (
               <ProductCard 
                 key={product.id} 

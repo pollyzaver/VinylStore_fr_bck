@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/pages/Contacts.css';
 
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,6 @@ const Contacts = () => {
       alert('Введите корректный номер телефона в формате +7 (XXX) XXX-XX-XX');
       return;
     }
-    // Здесь будет отправка формы
     console.log('Form submitted:', formData);
     alert('Сообщение отправлено!');
     setFormData({
@@ -53,156 +53,97 @@ const Contacts = () => {
     });
   };
 
+  // Формируем путь к изображению
+  const backgroundImageUrl = process.env.PUBLIC_URL + '/assets/contacts/vinylbg.jpg';
+
   return (
     <main className="main">
-      <div className="container">
-        {/* Hero с виниловой тематикой */}
-        <section className="contacts-hero-simple">
-          <div className="contacts-hero-wrapper">
-            
-            {/* Красная акцентная полоса */}
-            <div className="contacts-red-stripe"></div>
-            
-            {/* Основное содержимое */}
-            <div className="contacts-hero-main">
-              
-              {/* Заголовок с красным акцентом */}
-              <div className="contacts-title-wrapper">
-                <h1 className="contacts-title">
-                  <span className="contacts-title-part1">Свяжитесь</span>
-                  <span className="contacts-title-part2"> с нами</span>
-                </h1>
-                <div className="contacts-title-line"></div>
-              </div>
-              
-              {/* Подзаголовок */}
-              <p className="contacts-subtitle">
-                Готовы помочь с выбором пластинок, ответить на вопросы 
-                <span className="highlight-red"> и просто поговорить о музыке</span>
-              </p>
-              
-              {/* Контактные метрики */}
-              <div className="contact-metrics">
-                <div className="metric-item">
-                  <div className="metric-number">2</div>
-                  <div className="metric-label">часа</div>
-                  <div className="metric-description">Среднее время ответа</div>
-                </div>
-                <div className="metric-divider"></div>
-                <div className="metric-item">
-                  <div className="metric-number">24/7</div>
-                  <div className="metric-label">поддержка</div>
-                  <div className="metric-description">Техническая помощь</div>
-                </div>
-                <div className="metric-divider"></div>
-                <div className="metric-item">
-                  <div className="metric-number">100%</div>
-                  <div className="metric-label">отзывов</div>
-                  <div className="metric-description">Положительные отклики</div>
-                </div>
-              </div>
-              
-            </div>
-            
-            {/* Виниловая пластинка справа (упрощенная) */}
-            <div className="contacts-vinyl-simple">
-              <div className="simple-vinyl-disc">
-                <div className="simple-vinyl-groove"></div>
-                <div className="simple-vinyl-center">
-                  <div className="simple-vinyl-hole"></div>
-                </div>
-              </div>
-              <div className="simple-vinyl-red"></div>
-            </div>
-            
-          </div>
-        </section>
+      {/* Hero секция - на всю ширину */}
+      <section 
+        className="contacts-hero"
+        style={{
+          backgroundImage: `linear-gradient(
+            rgba(0, 0, 0, 0.7), 
+            rgba(0, 0, 0, 0.8)
+          ), url('${backgroundImageUrl}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          minHeight: '600px',
+          position: 'relative',
+          padding: '140px 0 100px',
+          overflow: 'hidden',
+          zIndex: 1
+        }}
+      >
 
-        {/* Контактная информация в сетке */}
-        <div className="contact-grid-section">
-          {/* Карточка с контактами */}
-          <div className="contact-info-card vinyl-card">
-            <div className="contact-card-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-            </div>
-            <h3 className="contact-card-title">Наш адрес</h3>
-            <p className="contact-card-text vinyl-muted">
-              г. Москва, ул. 11-я Парковая, 36<br />
-              Метро: Первомайская
+        <div className="container" style={{ position: 'relative', zIndex: 5 }}>
+          <div className="contacts-hero-content">
+            <h1 className="contacts-hero-title">Свяжитесь с нами</h1>
+            <p className="contacts-hero-subtitle">
+              Готовы помочь с выбором пластинок, ответить на вопросы и просто поговорить о музыке
             </p>
-            <div className="contact-card-badge">
-              🏢 Магазин винила
-            </div>
-          </div>
 
-          {/* Карточка с графиком */}
-          <div className="contact-info-card vinyl-card">
-            <div className="contact-card-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-              </svg>
-            </div>
-            <h3 className="contact-card-title">Часы работы</h3>
-            <ul className="schedule-list">
-              <li className="schedule-item">
-                <span className="schedule-day">Пн–Пт</span>
-                <span className="schedule-time">9:00 – 18:00</span>
-              </li>
-              <li className="schedule-item">
-                <span className="schedule-day">Суббота</span>
-                <span className="schedule-time">10:00 – 16:00</span>
-              </li>
-              <li className="schedule-item">
-                <span className="schedule-day">Воскресенье</span>
-                <span className="schedule-time">выходной</span>
-              </li>
-              <li className="schedule-item highlight">
-                <span className="schedule-day">Техподдержка</span>
-                <span className="schedule-time">круглосуточно</span>
-              </li>
-            </ul>
-            <div className="contact-card-badge">
-              🎧 Слушаем музыку
-            </div>
-          </div>
-
-          {/* Карточка с социальными сетями */}
-          <div className="contact-info-card vinyl-card">
-            <div className="contact-card-icon">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
-              </svg>
-            </div>
-            <h3 className="contact-card-title">Соцсети</h3>
-            <p className="contact-card-text vinyl-muted">
-              Следите за новыми поступлениями, акциями и мероприятиями
-            </p>
-            <div className="social-links">
-              <button 
-                className="social-link"
-                onClick={() => window.open('https://instagram.com', '_blank')}
-              >
-                Instagram
-              </button>
-              <button 
-                className="social-link"
-                onClick={() => window.open('https://telegram.org', '_blank')}
-              >
-                Telegram
-              </button>
-              <button 
-                className="social-link"
-                onClick={() => window.open('https://vk.com', '_blank')}
-              >
-                VK
-              </button>
+            {/* Контактные метрики */}
+            <div className="contacts-metrics">
+              <div className="metric-item">
+                <div className="metric-number">2</div>
+                <div className="metric-label">часа</div>
+                <div className="metric-description">Среднее время ответа</div>
+              </div>
+              <div className="metric-item">
+                <div className="metric-number">24/7</div>
+                <div className="metric-label">поддержка</div>
+                <div className="metric-description">Техническая помощь</div>
+              </div>
+              <div className="metric-item">
+                <div className="metric-number">100%</div>
+                <div className="metric-label">отзывов</div>
+                <div className="metric-description">Положительные отклики</div>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Форма обратной связи */}
+      {/* Красная бегущая строка - на всю ширину */}
+      <div className="running-line">
+        <div className="running-line-content">
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+          <span>VINYL STORE</span>
+          <span className="separator">✦</span>
+        </div>
+      </div>
+
+      {/* Форма обратной связи и карта - внутри container */}
+      <div className="container">
         <section className="contact-form-section vinyl-card" style={{padding: '50px', marginBottom: '80px', borderRadius: '16px'}}>
           <div className="section-content" style={{maxWidth: '800px', marginInline: 'auto'}}>
             <h2 style={{textAlign: 'center', fontSize: '2.5rem', marginBottom: '20px'}}>Форма обратной связи</h2>
