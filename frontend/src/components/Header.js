@@ -97,18 +97,6 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
 
           {/* Правая часть с иконками */}
           <div className="right-container">
-            {/* Избранное */}
-            <button 
-              className={`icon-button favorites-button ${favoritesCount > 0 ? 'has-items' : ''}`}
-              onClick={() => handleNavigation('favorites')}
-              aria-label="Избранное"
-              title="Избранное"
-            >
-              <HeartIcon filled={favoritesCount > 0} />
-              {favoritesCount > 0 && (
-                <span className="favorites-count">{favoritesCount}</span>
-              )}
-            </button>
 
             {/* Профиль / Вход */}
             {user ? (
@@ -130,6 +118,18 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
                 <LoginIcon />
               </button>
             )}
+
+            <button 
+              className={`icon-button favorites-button ${favoritesCount > 0 ? 'has-items' : ''}`}
+              onClick={() => handleNavigation('favorites')}
+              aria-label="Избранное"
+              title="Избранное"
+            >
+              <HeartIcon filled={favoritesCount > 0} />
+              {favoritesCount > 0 && (
+                <span className="favorites-count">{favoritesCount}</span>
+              )}
+            </button>
 
             {/* Корзина десктоп */}
             <button 

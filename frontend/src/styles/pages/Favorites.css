@@ -1,5 +1,3 @@
-/* Favorites.css - страница избранного в стиле Vinyl Store */
-
 .favorites-page {
   min-height: 70vh;
   padding: 20px 0 60px;
@@ -115,23 +113,6 @@
 .favorites-grid .product-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Индикатор, что товар в избранном (уже есть на карточке, но можно добавить дополнительный) */
-.favorites-grid .product-card::after {
-  content: '❤️';
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.2rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 5;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.favorites-grid .product-card:hover::after {
-  opacity: 1;
 }
 
 /* Анимации */

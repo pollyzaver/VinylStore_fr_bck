@@ -1,0 +1,277 @@
+.checkout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.checkout-modal-content {
+  background: var(--vinyl-card);
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh; /* Ограничиваем высоту 80% от высоты экрана */
+  border-radius: 20px;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  border: 1px solid var(--vinyl-border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.checkout-modal-header {
+  padding: 25px 30px 15px;
+  border-bottom: 1px solid var(--vinyl-border);
+  position: relative;
+  flex-shrink: 0; /* Не сжимается */
+}
+
+.checkout-modal-title {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding-right: 40px; /* Место для кнопки закрытия */
+}
+
+.checkout-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--vinyl-muted);
+  font-size: 2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.checkout-modal-close:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Контейнер с прокруткой */
+.checkout-modal-body {
+  padding: 20px 30px 30px;
+  overflow-y: auto; /* Включаем вертикальную прокрутку */
+  flex-grow: 1; /* Занимает всё доступное пространство */
+  scrollbar-width: thin; /* Тонкий скроллбар для Firefox */
+  scrollbar-color: var(--vinyl-primary) var(--vinyl-dark); /* Цвета скроллбара */
+}
+
+/* Стилизация скроллбара для Chrome/Safari */
+.checkout-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.checkout-modal-body::-webkit-scrollbar-track {
+  background: var(--vinyl-dark);
+  border-radius: 10px;
+}
+
+.checkout-modal-body::-webkit-scrollbar-thumb {
+  background: var(--vinyl-primary);
+  border-radius: 10px;
+}
+
+.checkout-modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--vinyl-primary-hover);
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkout-form-group label {
+  color: var(--vinyl-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.checkout-form-group input,
+.checkout-form-group textarea {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--vinyl-border);
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.checkout-form-group input:focus,
+.checkout-form-group textarea:focus {
+  outline: none;
+  border-color: var(--vinyl-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.checkout-form-group input::placeholder,
+.checkout-form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.checkout-summary {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px 0;
+  border: 1px solid var(--vinyl-border);
+}
+
+.checkout-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  color: var(--vinyl-text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.checkout-summary-row:last-child {
+  border-bottom: none;
+}
+
+.checkout-summary-row.total {
+  font-weight: 700;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.checkout-summary-row.total span:last-child {
+  color: var(--vinyl-primary);
+  font-size: 1.4rem;
+}
+
+.checkout-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.checkout-btn-back {
+  flex: 1;
+  padding: 14px;
+  background: transparent;
+  border: 2px solid var(--vinyl-border);
+  color: var(--vinyl-muted);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn-back:hover {
+  border-color: var(--vinyl-text);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.checkout-btn-submit {
+  flex: 1;
+  padding: 14px;
+  background: var(--vinyl-primary);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(179, 0, 0, 0.3);
+}
+
+.checkout-btn-submit:hover {
+  background: var(--vinyl-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(179, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .checkout-modal-content {
+    max-height: 85vh; /* Чуть больше на мобилках */
+  }
+  
+  .checkout-modal-header {
+    padding: 20px 20px 10px;
+  }
+  
+  .checkout-modal-title {
+    font-size: 1.8rem;
+  }
+  
+  .checkout-modal-body {
+    padding: 15px 20px 20px;
+  }
+  
+  .checkout-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .checkout-btn-back,
+  .checkout-btn-submit {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-modal-content {
+    max-height: 90vh;
+    border-radius: 15px;
+  }
+  
+  .checkout-modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .checkout-summary-row.total span:last-child {
+    font-size: 1.2rem;
+  }
+}

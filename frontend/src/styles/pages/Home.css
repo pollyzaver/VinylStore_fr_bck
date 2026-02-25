@@ -468,3 +468,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+.search-container input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+}
+
+.search-container input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.search-container div:focus-within {
+  border-color: var(--vinyl-primary);
+  box-shadow: 0 6px 16px rgba(179, 0, 0, 0.4);
+}

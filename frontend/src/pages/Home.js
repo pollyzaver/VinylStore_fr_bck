@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 // Удаляем эту строку:
 // import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
@@ -14,12 +14,19 @@ const Home = ({ onNavigate }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(9);
+  
+  // Новое состояние для поиска
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Ref для секции каталога
   const catalogRef = useRef(null);
+  const searchInputRef = useRef(null);
 
   // Загружаем данные с бэкенда при монтировании компонента
   useEffect(() => {
@@ -76,17 +83,73 @@ const Home = ({ onNavigate }) => {
     setIsModalOpen(true);
   };
 
-  // Фильтрация товаров
+  // Функция поиска по всем полям
+  const performSearch = (query, productsToSearch = products) => {
+    if (!query.trim()) {
+      return productsToSearch;
+    }
+
+    const searchTerms = query.toLowerCase().trim().split(' ');
+    
+    return productsToSearch.filter(product => {
+      const searchableText = `
+        ${product.title.toLowerCase()}
+        ${product.description.toLowerCase()}
+        ${product.genre.toLowerCase()}
+        ${product.category.toLowerCase()}
+        ${product.year.toString()}
+        ${product.format.toLowerCase()}
+        ${product.detailedInfo?.tags?.join(' ').toLowerCase() || ''}
+        ${product.detailedInfo?.label?.toLowerCase() || ''}
+        ${product.detailedInfo?.country?.toLowerCase() || ''}
+        ${product.detailedInfo?.tracklist?.a?.join(' ').toLowerCase() || ''}
+        ${product.detailedInfo?.tracklist?.b?.join(' ').toLowerCase() || ''}
+      `;
+      
+      return searchTerms.every(term => searchableText.includes(term));
+    });
+  };
+
+  // Фильтрация и поиск товаров
   useEffect(() => {
     if (products.length > 0) {
-      if (activeFilter === 'all') {
-        setFilteredProducts(products);
-      } else {
-        setFilteredProducts(products.filter(p => p.category === activeFilter));
+      let results = products;
+      
+      // Сначала применяем фильтр по категории
+      if (activeFilter !== 'all') {
+        results = results.filter(p => p.category === activeFilter);
       }
+      
+      // Затем применяем поиск по запросу
+      results = performSearch(searchQuery, results);
+      
+      setSearchResults(results);
+      setFilteredProducts(results);
       setCurrentPage(1);
     }
-  }, [activeFilter, products]);
+  }, [activeFilter, searchQuery, products]);
+
+  // Обработчик поиска с debounce
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    setIsSearching(true);
+    
+    // Используем setTimeout для debounce
+    const timer = setTimeout(() => {
+      setIsSearching(false);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  };
+
+  // Очистка поиска
+  const clearSearch = () => {
+    setSearchQuery('');
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
 
   // Функция для прокрутки к каталогу
   const scrollToCatalog = () => {
@@ -144,7 +207,7 @@ const Home = ({ onNavigate }) => {
 
   return (
     <main id="main-content" className="main-content">
-      {/* Hero Section */}
+      {/* Hero Section (без изменений) */}
       <section className="vinyl-hero" aria-labelledby="hero-title">
         {/* Виниловая пластинка */}
         <div className="vinyl-record">
@@ -190,7 +253,7 @@ const Home = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section (без изменений) */}
       <section id="features" className="features-section">
         <div className="container">
           <div className="section-content">
@@ -217,12 +280,98 @@ const Home = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Catalog Section с ref */}
+      {/* Catalog Section с поиском */}
       <section id="catalog" className="catalog-section" ref={catalogRef}>
         <div className="container">
           <div className="card">
             <h2 className="section-title">Популярные пластинки</h2>
             <p className="section-subtitle">Лучшие предложения этого месяца</p>
+
+            {/* 🔍 Поисковая строка */}
+            <div className="search-container" style={{
+              marginBottom: '30px',
+              maxWidth: '600px',
+              marginInline: 'auto',
+              position: 'relative'
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '50px',
+                padding: '5px 5px 5px 20px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                transition: 'all 0.3s ease'
+              }}>
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="rgba(255, 255, 255, 0.5)"
+                  style={{ marginRight: '10px' }}
+                >
+                  <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" 
+                    strokeWidth="2" 
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder="Поиск по названию, исполнителю, жанру, тегам..."
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  style={{
+                    flex: 1,
+                    background: 'none',
+                    border: 'none',
+                    padding: '12px 0',
+                    color: 'white',
+                    fontSize: '1rem',
+                    outline: 'none'
+                  }}
+                />
+                {searchQuery && (
+                  <button
+                    onClick={clearSearch}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: '8px 16px',
+                      color: 'rgba(255, 255, 255, 0.5)',
+                      cursor: 'pointer',
+                      fontSize: '1.2rem'
+                    }}
+                  >
+                    ✕
+                  </button>
+                )}
+                {isSearching && (
+                  <div style={{
+                    width: '20px',
+                    height: '20px',
+                    border: '2px solid rgba(255, 255, 255, 0.1)',
+                    borderTopColor: 'white',
+                    borderRadius: '50%',
+                    animation: 'spin 1s linear infinite',
+                    marginRight: '10px'
+                  }} />
+                )}
+              </div>
+              
+              {/* Результаты поиска */}
+              {searchQuery && filteredProducts.length > 0 && (
+                <div style={{
+                  marginTop: '8px',
+                  fontSize: '0.9rem',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  textAlign: 'center'
+                }}>
+                  Найдено пластинок: {filteredProducts.length}
+                </div>
+              )}
+            </div>
 
             <div className="catalog-filters">
               {filters.map(filter => (
@@ -240,7 +389,16 @@ const Home = ({ onNavigate }) => {
 
             {filteredProducts.length === 0 ? (
               <div className="no-products">
-                <p>В этой категории пока нет товаров</p>
+                <p>По вашему запросу ничего не найдено</p>
+                {searchQuery && (
+                  <button 
+                    className="btn btn-secondary"
+                    onClick={clearSearch}
+                    style={{ marginTop: '15px' }}
+                  >
+                    Очистить поиск
+                  </button>
+                )}
               </div>
             ) : (
               <>
@@ -289,7 +447,7 @@ const Home = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section (без изменений) */}
       <section className="faq-section">
         <div className="container">
           <div className="card">
@@ -334,7 +492,7 @@ const Home = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section (без изменений) */}
       <section className="cta-section">
         <div className="container">
           <div className="cta-content">
@@ -358,6 +516,13 @@ const Home = ({ onNavigate }) => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+
+      {/* Добавьте в ваш CSS файл анимацию для спиннера */}
+      <style jsx>{`
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </main>
   );
 };
