@@ -33,7 +33,6 @@ async function writeUsers(users) {
   }
 }
 
-// ===== РЕГИСТРАЦИЯ =====
 router.post('/register', [
   body('email').isEmail().withMessage('Некорректный email').normalizeEmail(),
   body('password').isLength({ min: 6 }).withMessage('Пароль должен быть минимум 6 символов'),

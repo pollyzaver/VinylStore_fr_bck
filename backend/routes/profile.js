@@ -24,7 +24,7 @@ async function authMiddleware(req, res, next) {
   }
 }
 
-// Вспомогательные функции
+// Вспомогательные функции для чтения/записи пользователей
 async function readUsers() {
   try {
     const data = await fs.readFile(USERS_FILE, 'utf8');
@@ -126,104 +126,234 @@ router.get('/profile', authMiddleware, async (req, res) => {
   }
 });
 
-// Вспомогательная функция для генерации профиля
+// ===== ОСНОВНАЯ ФУНКЦИЯ ГЕНЕРАЦИИ ПРОФИЛЯ =====
+/**
+ * Преобразует ответы пользователя на тест в структурированный профиль
+ * @param {Object} answers - Объект с ответами на вопросы (ключ - id вопроса)
+ * @returns {Object} profile - Структурированный профиль пользователя
+ */
 function generateProfileFromAnswers(answers) {
-  // Убеждаемся, что colors - это массив
-  let colors = answers[3];
-  if (!colors) {
-    colors = ['red', 'black'];
-  } else if (!Array.isArray(colors)) {
-    colors = [colors];
-  }
+  console.log('🎯 Генерируем профиль из ответов:', answers);
   
+  // Инициализируем профиль с пустыми значениями
   const profile = {
-    visualStyle: answers[1] || 'cyberpunk',
-    movie: answers[2] || 'blade_runner',
-    colors: colors,
-    timeOfDay: answers[4] || 'night',
-    primaryGenre: answers[5] || 'electronic',
-    aesthetic: answers[6] || 'gothic',
+    // === ВИЗУАЛЬНЫЕ И СИТУАТИВНЫЕ ПРЕДПОЧТЕНИЯ ===
+    preferredPlaces: [],        // из вопроса 1: лес, горы, море...
+    vinylPreference: null,      // из вопроса 4: vintage, new, underground
+    eveningVibe: null,          // из вопроса 6: как проводит вечер с винилом
     
-    vector: generateVector(answers),
+    // === МУЗЫКАЛЬНЫЕ ПРЕДПОЧТЕНИЯ ===
+    favoriteArtists: [],        // из вопроса 3: выбранные группы
+    lyricsImportance: null,     // из вопроса 5: отношение к текстам
     
-    genre: mapToGenre(answers),
-    mood: mapToMood(answers),
-    era: mapToEra(answers),
+    // === ЦЕННОСТИ И НАСТРОЕНИЕ ===
+    lifeQuotes: [],             // из вопроса 7: выбранные цитаты
+    colorPreferences: [],       // из вопроса 2: любимые цвета
+    
+    // === АГРЕГИРОВАННЫЕ ПАРАМЕТРЫ (для AI-рекомендаций) ===
+    genre: [],                  // итоговые жанры (собираются из всех ответов)
+    mood: [],                   // итоговое настроение (собирается из всех ответов)
+    era: 'all',                  // предпочитаемая эпоха
+    
+    // === ДЛЯ ОБРАТНОЙ СОВМЕСТИМОСТИ (не удалять!) ===
     listening_context: 'focused',
-    lyrics_importance: 7,
-    instrumental_complexity: 8
+    lyrics_importance: 5,
+    instrumental_complexity: 5
   };
 
-  return profile;
-}
+  // ===== ВОПРОС 1: Где бы вы хотели оказаться? =====
+  // Влияет на настроение и атмосферу
+  if (answers[1]) {
+    // Преобразуем в массив (на случай, если пришёл не массив)
+    profile.preferredPlaces = Array.isArray(answers[1]) ? answers[1] : [answers[1]];
+    
+    // Каждое место добавляет определённые настроения
+    if (profile.preferredPlaces.includes('forest') || profile.preferredPlaces.includes('mountains')) {
+      profile.mood.push('calm', 'peaceful');        // спокойствие
+    }
+    if (profile.preferredPlaces.includes('sea')) {
+      profile.mood.push('melancholy', 'contemplative'); // меланхолия
+    }
+    if (profile.preferredPlaces.includes('city_night')) {
+      profile.mood.push('energetic', 'modern');     // энергия, современность
+    }
+    if (profile.preferredPlaces.includes('book_store')) {
+      profile.mood.push('cozy', 'intellectual');    // уют, интеллектуальность
+    }
+    if (profile.preferredPlaces.includes('concert')) {
+      profile.mood.push('energetic', 'social');     // энергия, общение
+    }
+  }
 
-function generateVector(answers) {
-  const vector = [];
-  
-  if (answers[1]) vector.push(getHashValue(answers[1], 10));
-  if (answers[2]) vector.push(getHashValue(answers[2], 10));
+  // ===== ВОПРОС 2: Цвет пластинки =====
+  // Цвета связаны с музыкальными жанрами
+  if (answers[2]) {
+    profile.colorPreferences = Array.isArray(answers[2]) ? answers[2] : [answers[2]];
+    
+    // Маппинг цветов на жанры
+    const colorGenreMap = {
+      'black': ['rock', 'metal', 'post-punk'],      // чёрный - тяжёлые жанры
+      'red': ['rock', 'metal', 'punk'],             // красный - энергичные
+      'blue': ['jazz', 'blues', 'ambient'],         // синий - спокойные
+      'white': ['classical', 'ambient', 'minimal'], // белый - минимализм
+      'green': ['folk', 'indie', 'acoustic'],       // зелёный - природные
+      'gold': ['pop', 'disco', 'glam']              // золотой - яркие
+    };
+    
+    // Добавляем жанры для каждого выбранного цвета
+    profile.colorPreferences.forEach(color => {
+      const genres = colorGenreMap[color] || [];
+      profile.genre.push(...genres);
+    });
+  }
+
+  // ===== ВОПРОС 3: Любимые группы =====
+  // Самый важный вопрос для определения музыкального вкуса
   if (answers[3] && Array.isArray(answers[3])) {
-    answers[3].forEach(color => vector.push(getHashValue(color, 5)));
+    profile.favoriteArtists = answers[3];
+    
+    // Маппинг групп на жанры (можно расширять)
+    const artistGenreMap = {
+      'depeche_mode': ['electronic', 'synth-pop', 'post-punk'],
+      'the_beatles': ['rock', 'pop', 'psychedelic'],
+      'nirvana': ['grunge', 'rock', 'alternative'],
+      'radiohead': ['alternative', 'rock', 'experimental'],
+      'metallica': ['metal', 'thrash-metal', 'rock'],
+      'queen': ['rock', 'glam-rock', 'pop'],
+      'kiss': ['rock', 'glam-rock', 'hard-rock'],
+      'maneskin': ['rock', 'glam-rock', 'pop-rock'],
+      'kino': ['russian-rock', 'post-punk', 'new-wave'],
+      'rammstein': ['metal', 'industrial', 'german'],
+      'daft_punk': ['electronic', 'house', 'french-touch'],
+      'lana_del_rey': ['pop', 'indie-pop', 'dream-pop'],
+      'twenty_one_pilots': ['alternative', 'electropop', 'rap-rock'],
+      'kanye_west': ['hip-hop', 'rap', 'experimental'],
+      'miles_davis': ['jazz', 'fusion', 'cool-jazz']
+    };
+    
+    // Добавляем жанры выбранных групп
+    answers[3].forEach(artist => {
+      const genres = artistGenreMap[artist] || [];
+      profile.genre.push(...genres);
+      
+      // Также определяем настроение по группам
+      if (['depeche_mode', 'nirvana', 'radiohead', 'kino'].includes(artist)) {
+        profile.mood.push('melancholy', 'deep');        // меланхоличные
+      }
+      if (['metallica', 'rammstein', 'kiss'].includes(artist)) {
+        profile.mood.push('energetic', 'aggressive');   // энергичные
+      }
+      if (['the_beatles', 'queen', 'maneskin'].includes(artist)) {
+        profile.mood.push('uplifting', 'joyful');       // радостные
+      }
+    });
   }
-  if (answers[4]) vector.push(getHashValue(answers[4], 10));
-  if (answers[5]) vector.push(getHashValue(answers[5], 10));
-  if (answers[6]) vector.push(getHashValue(answers[6], 10));
-  
-  return vector;
-}
 
-function getHashValue(str, max) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i);
-    hash |= 0;
+  // ===== ВОПРОС 4: Какую пластинку купите? =====
+  // Определяет тип меломана и отношение к музыке
+  if (answers[4]) {
+    profile.vinylPreference = answers[4];
+    
+    if (answers[4] === 'vintage') {
+      profile.era = '60s-70s';                          // любит старую музыку
+      profile.mood.push('nostalgic');                    // ностальгичный
+      profile.lyrics_importance = 7;                     // тексты важны
+    } else if (answers[4] === 'new') {
+      profile.era = 'modern';                             // любит современное
+      profile.mood.push('refined');                       // требовательный
+      profile.instrumental_complexity = 8;                 // ценит качество звука
+    } else if (answers[4] === 'underground') {
+      profile.genre.push('indie', 'experimental', 'underground'); // ищет новое
+      profile.mood.push('curious', 'adventurous');        // любопытный
+    }
   }
-  return (Math.abs(hash) % max) / max;
-}
 
-function mapToGenre(answers) {
-  const genreMap = {
-    'cyberpunk': ['electronic', 'industrial'],
-    'gothic': ['rock', 'metal'],
-    'vaporwave': ['electronic', 'pop'],
-    'dreamy': ['ambient', 'indie'],
-    'blade_runner': ['electronic', 'ambient'],
-    'pulp_fiction': ['rock', 'pop'],
-    'interstellar': ['classical', 'ambient'],
-    'la_la_land': ['jazz', 'pop']
-  };
-  
-  const mainStyle = answers[1] || 'cyberpunk';
-  const movie = answers[2] || 'blade_runner';
-  
-  return genreMap[mainStyle] || genreMap[movie] || ['electronic', 'rock'];
-}
+  // ===== ВОПРОС 5: Вокал важен? =====
+  // Определяет важность текстов и язык
+  if (answers[5]) {
+    profile.lyricsImportance = answers[5];
+    
+    if (answers[5] === 'lyrics_english') {
+      profile.lyrics_importance = 9;                      // тексты критичны
+      profile.genre.push('singer-songwriter', 'indie-pop');
+    } else if (answers[5] === 'russian') {
+      profile.lyrics_importance = 9;
+      profile.genre.push('russian-rock', 'russian-pop', 'bard'); // русскоязычное
+    } else if (answers[5] === 'instrumental') {
+      profile.lyrics_importance = 2;                      // тексты не важны
+      profile.genre.push('ambient', 'classical', 'jazz', 'post-rock');
+    } else if (answers[5] === 'mixed') {
+      profile.lyrics_importance = 6;                      // среднее
+      profile.genre.push('pop', 'rock');
+    }
+  }
 
-function mapToMood(answers) {
-  const moodMap = {
-    'cyberpunk': ['energy', 'melancholy'],
-    'nature': ['calm', 'inspiration'],
-    'retro': ['nostalgia', 'calm'],
-    'gothic': ['melancholy', 'aggression'],
-    'vaporwave': ['nostalgia', 'calm'],
-    'dreamy': ['calm', 'inspiration']
-  };
-  
-  return moodMap[answers[1]] || ['energy', 'melancholy'];
-}
+  // ===== ВОПРОС 6: Как проведёте вечер? =====
+  // Определяет контекст прослушивания и настроение
+  if (answers[6]) {
+    profile.eveningVibe = answers[6];
+    
+    // Маппинг типа вечера на настроение
+    const vibeMoodMap = {
+      'solo_deep': ['introspective', 'focused', 'deep'],
+      'cozy_home': ['relaxed', 'cozy', 'comfortable'],
+      'friends_party': ['social', 'energetic', 'fun'],
+      'audiophile_session': ['analytical', 'perfectionist', 'detailed'],
+      'romantic_dinner': ['romantic', 'tender', 'sensual'],
+      'creative_inspiration': ['creative', 'inspired', 'productive']
+    };
+    
+    const moods = vibeMoodMap[answers[6]] || [];
+    profile.mood.push(...moods);
+  }
 
-function mapToEra(answers) {
-  const eraMap = {
-    'cyberpunk': '2010s',
-    'retro': '1980s',
-    'gothic': '1990s',
-    'vaporwave': '1980s',
-    'pulp_fiction': '1990s',
-    'interstellar': '2010s',
-    'la_la_land': '2010s'
-  };
+  // ===== ВОПРОС 7: Жизненные цитаты =====
+  // Определяет глубинные ценности и влияет на музыку
+  if (answers[7] && Array.isArray(answers[7])) {
+    profile.lifeQuotes = answers[7];
+    
+    // Каждая цитата добавляет свои жанры и настроения
+    answers[7].forEach(quote => {
+      if (quote === 'kino_change') {
+        profile.genre.push('russian-rock');
+        profile.mood.push('rebellious', 'hopeful');      // бунтарский, надеющийся
+      } else if (quote === 'queen_show') {
+        profile.mood.push('resilient', 'determined');    // стойкий
+      } else if (quote === 'kelly_stronger' || quote === 'elton_standing') {
+        profile.mood.push('empowered', 'strong');        // сильный
+      } else if (quote === 'depeche_mode') {
+        profile.genre.push('electronic');
+        profile.mood.push('introspective', 'dark');      // мрачный, задумчивый
+      } else if (quote === 'bonjovi_life') {
+        profile.mood.push('independent', 'confident');   // независимый
+      } else if (quote === 'rammstein_weh') {
+        profile.genre.push('industrial');
+        profile.mood.push('powerful', 'intense');        // мощный
+      } else if (quote === 'nirvana_smells') {
+        profile.genre.push('grunge');
+        profile.mood.push('angsty', 'authentic');        // искренний, бунтующий
+      }
+    });
+  }
+
+  // ===== ФИНАЛЬНАЯ ОБРАБОТКА =====
   
-  return eraMap[answers[2]] || eraMap[answers[1]] || 'all';
+  // Убираем дубликаты из genre и mood
+  profile.genre = [...new Set(profile.genre)];
+  profile.mood = [...new Set(profile.mood)];
+  
+  // Если жанров всё ещё нет, добавляем базовые
+  if (profile.genre.length === 0) {
+    profile.genre = ['rock', 'pop']; // дефолтные жанры
+  }
+  
+  // Если настроения нет, добавляем базовое
+  if (profile.mood.length === 0) {
+    profile.mood = ['balanced']; // дефолтное настроение
+  }
+
+  console.log('📊 Итоговый профиль:', JSON.stringify(profile, null, 2));
+  return profile;
 }
 
 module.exports = router;

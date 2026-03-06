@@ -169,12 +169,59 @@
     "password": "$2b$10$vvKm1KuSQ3CWxBBUEzdF/.Lj/tU74xhdhqlrXHs4b8RjXrMESIRBG",
     "name": "f3hfkwh",
     "avatar": null,
-    "testCompleted": false,
-    "testDate": null,
-    "profile": null,
+    "testCompleted": true,
+    "testDate": "2026-03-04T11:58:16.181Z",
+    "profile": {
+      "preferredPlaces": [
+        "concert"
+      ],
+      "vinylPreference": "vintage",
+      "eveningVibe": "solo_deep",
+      "favoriteArtists": [
+        "depeche_mode",
+        "nirvana",
+        "metallica",
+        "rammstein"
+      ],
+      "lyricsImportance": "language_no_matter",
+      "lifeQuotes": [
+        "depeche_mode"
+      ],
+      "colorPreferences": [
+        "red"
+      ],
+      "genre": [
+        "rock",
+        "metal",
+        "punk",
+        "electronic",
+        "synth-pop",
+        "post-punk",
+        "grunge",
+        "alternative",
+        "thrash-metal",
+        "industrial",
+        "german"
+      ],
+      "mood": [
+        "energetic",
+        "social",
+        "melancholy",
+        "deep",
+        "aggressive",
+        "nostalgic",
+        "introspective",
+        "focused",
+        "dark"
+      ],
+      "era": "60s-70s",
+      "listening_context": "focused",
+      "lyrics_importance": 7,
+      "instrumental_complexity": 5
+    },
     "favorites": [],
     "purchases": [],
     "createdAt": "2026-02-24T10:40:42.689Z",
-    "lastLogin": "2026-02-25T15:53:49.514Z"
+    "lastLogin": "2026-03-02T07:53:01.925Z"
   }
 ]

@@ -1,187 +1,396 @@
 {
-  "version": "2.0",
   "questions": [
-
     {
       "id": 1,
-      "type": "multiple",
-      "question": "Зачем вам чаще всего нужна музыка?",
+      "type": "image",
+      "question": "Где бы вы хотели оказаться прямо сейчас?",
       "options": [
-        {"value": "escape", "label": "Сбежать от реальности", "emoji": "🌌"},
-        {"value": "focus", "label": "Сконцентрироваться", "emoji": "🎧"},
-        {"value": "energy", "label": "Зарядиться энергией", "emoji": "⚡"},
-        {"value": "nostalgia", "label": "Ностальгия", "emoji": "📼"},
-        {"value": "emotion", "label": "Проживать эмоции", "emoji": "💔"},
-        {"value": "background", "label": "Фон для дел", "emoji": "☕"},
-        {"value": "skip", "label": "Сложно сказать", "emoji": "🤷"}
-      ],
-      "max": 2
-    },
-
-    {
-      "id": 2,
-      "type": "multiple",
-      "question": "Где музыка звучит чаще всего?",
-      "options": [
-        {"value": "home", "label": "Дома", "emoji": "🏡"},
-        {"value": "transport", "label": "В дороге", "emoji": "🚇"},
-        {"value": "work", "label": "Во время работы", "emoji": "💻"},
-        {"value": "walk", "label": "На прогулке", "emoji": "🚶"},
-        {"value": "night", "label": "Ночью в одиночестве", "emoji": "🌙"},
-        {"value": "skip", "label": "Не могу выбрать", "emoji": "🤷"}
-      ],
-      "max": 2
-    },
-
-    {
-      "id": 3,
-      "type": "multiple",
-      "question": "Какие культовые группы вам ближе всего?",
-      "options": [
-        {"value": "pinkfloyd", "label": "Pink Floyd"},
-        {"value": "beatles", "label": "The Beatles"},
-        {"value": "nirvana", "label": "Nirvana"},
-        {"value": "radiohead", "label": "Radiohead"},
-        {"value": "depeche", "label": "Depeche Mode"},
-        {"value": "metallica", "label": "Metallica"},
-        {"value": "queen", "label": "Queen"},
-        {"value": "bowie", "label": "David Bowie"},
-        {"value": "daftpunk", "label": "Daft Punk"},
-        {"value": "kino", "label": "Кино"},
-        {"value": "none", "label": "Ничего из списка"}
-      ],
-      "max": 3
-    },
-
-    {
-      "id": 4,
-      "type": "single",
-      "question": "Какая музыкальная эпоха кажется вам ближе?",
-      "options": [
-        {"value": "60s", "label": "1960-е — психоделика"},
-        {"value": "70s", "label": "1970-е — прогрессив"},
-        {"value": "80s", "label": "1980-е — постпанк"},
-        {"value": "90s", "label": "1990-е — гранж"},
-        {"value": "2000s", "label": "2000-е — инди"},
-        {"value": "modern", "label": "Современная"},
-        {"value": "skip", "label": "Сложно выбрать"}
+        {
+          "value": "forest",
+          "label": "Лес",
+          "image": "/assets/test/forest.jpg",
+          "description": "Тишина, свежесть, уединение"
+        },
+        {
+          "value": "mountains",
+          "label": "Горы",
+          "image": "/assets/test/mountains.jpg",
+          "description": "Высота, свобода, чистый воздух"
+        },
+        {
+          "value": "sea",
+          "label": "Море",
+          "image": "/assets/test/sea.jpg",
+          "description": "Волны, ветер, бескрайность"
+        },
+        {
+          "value": "city_night",
+          "label": "Ночной город",
+          "image": "/assets/test/city_night.jpg",
+          "description": "Неон, огни, мегаполис"
+        },
+        {
+          "value": "book_store",
+          "label": "Старый книжный",
+          "image": "/assets/test/book_store.jpg",
+          "description": "Тёплый плед, чай, покой"
+        },
+        {
+          "value": "concert",
+          "label": "Концерт",
+          "image": "/assets/test/concert.jpg",
+          "description": "Драйв, толпа, живой звук"
+        }
       ]
     },
-
+    {
+      "id": 2,
+      "type": "image_color",
+      "question": "Пластинку какого цвета вы бы предпочли послушать?",
+      "options": [
+        {
+          "value": "black",
+          "label": "Чёрный",
+          "image": "/assets/test/black.jpg",
+          "color": "#000000",
+          "description": "Классика, строгость, глубина"
+        },
+        {
+          "value": "red",
+          "label": "Красный",
+          "image": "/assets/test/red.jpg",
+          "color": "#ff0000",
+          "description": "Страсть, энергия, драйв"
+        },
+        {
+          "value": "blue",
+          "label": "Синий",
+          "image": "/assets/test/blue.jpg",
+          "color": "#0000ff",
+          "description": "Спокойствие, меланхолия, небо"
+        },
+        {
+          "value": "white",
+          "label": "Белый",
+          "image": "/assets/test/white.jpg",
+          "color": "#ffffff",
+          "description": "Чистота, минимализм, свет"
+        },
+        {
+          "value": "green",
+          "label": "Зелёный",
+          "image": "/assets/test/green.jpg",
+          "color": "#008000",
+          "description": "Природа, рост, гармония"
+        },
+        {
+          "value": "gold",
+          "label": "Золотой",
+          "image": "/assets/test/gold.jpg",
+          "color": "#ffd700",
+          "description": "Роскошь, элитарность, блеск"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "image-multiple",
+      "question": "Какие из перечисленных групп и исполнителей вам ближе всего?",
+      "options": [
+        {
+          "value": "depeche_mode",
+          "label": "Depeche Mode",
+          "image": "/assets/test/depeche-mode.jpg",
+          "genre": "electronic",
+          "description": "Электроника, мрачность, стиль"
+        },
+        {
+          "value": "the_beatles",
+          "label": "The Beatles",
+          "image": "/assets/test/beatles.jpg",
+          "genre": "rock",
+          "description": "Мелодизм, эпоха, легенда"
+        },
+        {
+          "value": "nirvana",
+          "label": "Nirvana",
+          "image": "/assets/test/nirvana.jpg",
+          "genre": "rock",
+          "description": "Гранж, энергия, бунт"
+        },
+        {
+          "value": "radiohead",
+          "label": "Radiohead",
+          "image": "/assets/test/radiohead.jpg",
+          "genre": "alternative",
+          "description": "Эксперимент, меланхолия, инди"
+        },
+        {
+          "value": "metallica",
+          "label": "Metallica",
+          "image": "/assets/test/metallica.jpg",
+          "genre": "metal",
+          "description": "Тяжесть, мощь, метал"
+        },
+        {
+          "value": "queen",
+          "label": "Queen",
+          "image": "/assets/test/queen.jpg",
+          "genre": "rock",
+          "description": "Помпезность, театральность, рок"
+        },
+        {
+          "value": "kiss",
+          "label": "Kiss",
+          "image": "/assets/test/kiss.jpg",
+          "genre": "rock",
+          "description": "Глэм-рок, шоу, макияж"
+        },
+        {
+          "value": "maneskin",
+          "label": "Måneskin",
+          "image": "/assets/test/maneskin.jpg",
+          "genre": "rock",
+          "description": "Современный рок, драйв, стиль"
+        },
+        {
+          "value": "kino",
+          "label": "Кино",
+          "image": "/assets/test/kino.jpg",
+          "genre": "rock",
+          "description": "Русский рок, поэзия, Цой"
+        },
+        {
+          "value": "rammstein",
+          "label": "Rammstein",
+          "image": "/assets/test/rammstein.jpg",
+          "genre": "metal",
+          "description": "Индастриал-метал, мощь, театр"
+        },
+        {
+          "value": "daft_punk",
+          "label": "Daft Punk",
+          "image": "/assets/test/daft-punk.jpg",
+          "genre": "electronic",
+          "description": "Электроника, хаус, будущее"
+        },
+        {
+          "value": "lana_del_rey",
+          "label": "Lana Del Rey",
+          "image": "/assets/test/lana-del-rey.jpg",
+          "genre": "pop",
+          "description": "Поп, меланхолия, эстетика"
+        },
+        {
+          "value": "twenty_one_pilots",
+          "label": "Twenty One Pilots",
+          "image": "/assets/test/twenty-one-pilots.jpg",
+          "genre": "alternative",
+          "description": "Альтернатива, хип-хоп, электроника"
+        },
+        {
+          "value": "kanye_west",
+          "label": "Kanye West",
+          "image": "/assets/test/kanye-west.jpg",
+          "genre": "hip-hop",
+          "description": "Хип-хоп, авангард, продюсирование"
+        },
+        {
+          "value": "miles_davis",
+          "label": "Miles Davis",
+          "image": "/assets/test/miles-davis.jpg",
+          "genre": "jazz",
+          "description": "Джаз, импровизация, стиль"
+        }
+      ],
+      "max": 4
+    },
+    {
+      "id": 4,
+      "type": "image",
+      "question": "Какую пластинку ты скорее купишь?",
+      "options": [
+        {
+          "value": "vintage",
+          "label": "Винтаж",
+          "image": "/assets/test/vintage-beatles.jpg",
+          "description": "Оригинальный пресс 60-х. Пусть шуршит, зато это история!",
+          "detailed": "Потёртая обложка, тёплый аналоговый звук, запах старой бумаги. Каждая царапина — часть истории.",
+          "tags": ["vintage", "authentic", "history", "analog-warmth", "collector", "mono-sound", "60s", "original-pressing"],
+          "music_values": ["authenticity", "nostalgia", "patina", "historical-value"]
+        },
+        {
+          "value": "new",
+          "label": "Новый",
+          "image": "/assets/test/new-vinyl.jpg",
+          "description": "Лимитированное переиздание на цветном виниле 180g. Важен идеальный звук и красивый артефакт.",
+          "detailed": "Глянцевая обложка, тяжёлый винил, идеальное качество звука. Красивый цветной диск — произведение искусства.",
+          "tags": ["audiophile", "collectible", "colored-vinyl", "perfect-sound", "180g", "remastered", "limited-edition", "sealed"],
+          "music_values": ["sound-quality", "aesthetics", "perfection", "collectibility"]
+        },
+        {
+          "value": "underground",
+          "label": "Андерграунд",
+          "image": "/assets/test/underground-vinyl.jpg",
+          "description": "Малоизвестная группа, гениальное звучание. Год и обложка не важны.",
+          "detailed": "Крафтовая обложка без надписей, независимый лейбл, музыка, которую почти никто не знает. Открытие!",
+          "tags": ["underground", "obscure", "hidden-gems", "discovery", "independent", "diy", "niche", "experimental"],
+          "music_values": ["discovery", "uniqueness", "innovation", "non-mainstream"]
+        }
+      ]
+    },
     {
       "id": 5,
       "type": "single",
-      "question": "Музыка для вас — это?",
+      "question": "Насколько для вас важен текст песни?",
       "options": [
-        {"value": "solo", "label": "Личный опыт", "emoji": "🎧"},
-        {"value": "friends", "label": "Компания друзей", "emoji": "🍻"},
-        {"value": "romance", "label": "Романтика", "emoji": "❤️"},
-        {"value": "party", "label": "Вечеринки", "emoji": "🪩"},
-        {"value": "skip", "label": "Не знаю", "emoji": "🤷"}
+        {
+          "value": "lyrics_crucial",
+          "label": "Смысл превыше всего",
+          "description": "Для меня тексты — это поэзия. Я внимательно слушаю слова, ищу глубину и смысл.",
+          "tags": ["lyrics-focused", "poetry", "deep-meaning", "storytelling", "philosophical"]
+        },
+        {
+          "value": "russian_only",
+          "label": "Только на родном языке",
+          "description": "Хочу понимать каждое слово. Слушаю преимущественно русскоязычную музыку.",
+          "tags": ["russian", "native-language", "local-scene", "understand-every-word"]
+        },
+        {
+          "value": "music_first",
+          "label": "Музыка важнее слов",
+          "description": "Мелодия, атмосфера, инструменты — вот что главное. Текст может быть любым.",
+          "tags": ["music-focused", "instrumental-leaning", "atmosphere", "melody-first"]
+        },
+        {
+          "value": "instrumental_only",
+          "label": "Вообще без слов",
+          "description": "Предпочитаю инструментальную музыку: джаз, классику, эмбиент, пост-рок.",
+          "tags": ["instrumental", "jazz", "classical", "ambient", "post-rock", "no-lyrics"]
+        },
+        {
+          "value": "language_no_matter",
+          "label": "Язык не важен",
+          "description": "Могу слушать на любом языке, если музыка хорошая. Текст — не главное.",
+          "tags": ["any-language", "international", "cosmopolitan", "music-over-words"]
+        }
       ]
     },
-
     {
       "id": 6,
-      "type": "single",
-      "question": "Насколько важны тексты песен?",
+      "type": "image",
+      "question": "Как бы вы провели вечер с винилом?",
       "options": [
-        {"value": "lyrics", "label": "Очень важны — это поэзия"},
-        {"value": "balance", "label": "И текст и звук"},
-        {"value": "sound", "label": "Главное атмосфера"},
-        {"value": "skip", "label": "Не задумывался"}
+        {
+          "value": "solo_deep",
+          "label": "Глубокое погружение",
+          "image": "/assets/test/headphones-closeup.jpg",
+          "description": "Наушники, полная темнота, альбом от начала до конца. Никаких помех.",
+          "detailed": "Выключаю свет, надеваю любимые наушники и растворяюсь в музыке. Каждая нота — откровение.",
+          "tags": ["focused-listening", "headphones", "introvert", "deep-listening", "solo", "immersive"],
+          "vibe": "Интровертный, медитативный"
+        },
+        {
+          "value": "cozy_home",
+          "label": "Домашний уют",
+          "image": "/assets/test/cozy-vinyl-corner.jpg",
+          "description": "Диван, плед, тёплый свет торшера. Музыка фоном к чашке чая.",
+          "detailed": "Пластинка играет негромко, я с книгой или просто лежу, наслаждаясь атмосферой.",
+          "tags": ["background", "cozy", "relaxed", "chill", "home", "comfort"],
+          "vibe": "Уютный, расслабленный"
+        },
+        {
+          "value": "friends_party",
+          "label": "Вечеринка для своих",
+          "image": "/assets/test/vinyl-party.jpg",
+          "description": "Друзья, вино, танцы. Кто принёс ту пластинку? Ставим погромче!",
+          "detailed": "Каждый приносит свою любимую пластинку. Микс жанров, споры, смех и спонтанные танцы.",
+          "tags": ["social", "party", "friends", "dancing", "sharing", "gathering"],
+          "vibe": "Социальный, энергичный"
+        },
+        {
+          "value": "audiophile_session",
+          "label": "Охота за звуком",
+          "image": "/assets/test/hifi-system.jpg",
+          "description": "Hi-End система, ламповый усилитель. Слышу разницу между прессами.",
+          "detailed": "Вечер начинается с выбора правильного издания. Сравниваю версии, ищу идеальный звук.",
+          "tags": ["audiophile", "hifi", "critical-listening", "tube-amp", "gear", "perfectionist"],
+          "vibe": "Техничный, сосредоточенный"
+        },
+        {
+          "value": "romantic_dinner",
+          "label": "Романтический вечер",
+          "image": "/assets/test/romantic-vinyl.jpg",
+          "description": "Ужин при свечах, джаз или соул. Идеальный саундтрек для двоих.",
+          "detailed": "Пластинка создаёт настроение. Мы разговариваем, улыбаемся, музыка объединяет.",
+          "tags": ["romantic", "couple", "dinner", "intimate", "soul", "jazz"],
+          "vibe": "Романтичный, нежный"
+        },
+        {
+          "value": "creative_inspiration",
+          "label": "Творческий вечер",
+          "image": "/assets/test/creative-vinyl.jpg",
+          "description": "Рисую/пишу/работаю под винил. Музыка помогает творить.",
+          "detailed": "Пластинка играет вдохновляющий фон для творчества. Рисую, пишу, создаю.",
+          "tags": ["creative", "inspiration", "work", "art", "background", "focus"],
+          "vibe": "Творческий, продуктивный"
+        }
       ]
     },
-
     {
       "id": 7,
       "type": "multiple",
-      "question": "Какие фильмы вам ближе по атмосфере?",
+      "question": "Какая из этих строк звучит саундтреком к твоей жизни?",
       "options": [
-        {"value": "arthouse", "label": "Артхаус и фестивальное кино 🎬"},
-        {"value": "scifi", "label": "Научная фантастика 🚀"},
-        {"value": "crime", "label": "Криминал и нуар 🕶️"},
-        {"value": "romance", "label": "Романтика ❤️"},
-        {"value": "horror", "label": "Хорроры 🩸"},
-        {"value": "classic", "label": "Классика кино 🎞️"},
-        {"value": "anime", "label": "Аниме 🌸"},
-        {"value": "skip", "label": "Редко смотрю фильмы"}
+        {
+          "value": "kino_change",
+          "quote": "Перемен! Требуют наши сердца!",
+          "artist": "Кино"
+        },
+        {
+          "value": "queen_show",
+          "quote": "The show must go on",
+          "artist": "Queen",
+          "description": "Шоу должно продолжаться"
+        },
+        {
+          "value": "kelly_stronger",
+          "quote": "What doesn't kill you makes you stronger",
+          "artist": "Kelly Clarkson",
+          "description": "Что тебя не убивает делает сильнее"
+        },
+        {
+          "value": "elton_standing",
+          "quote": "I'm still standing",
+          "artist": "Elton John",
+          "description": "Несгибаемость, выносливость, победа"
+        },
+        {
+          "value": "depeche_mode",
+          "quote": "Now I'm not looking for absolution, forgiveness for the things I do",
+          "artist": "Depeche mode",
+          "description": "Теперь я не ищу оправдания, прощения всем своим грехам"
+        },
+        {
+          "value": "bonjovi_life",
+          "quote": "It's my life",
+          "artist": "Bon Jovi",
+          "description": "Свобода выбора, индивидуальность, смелость"
+        },
+        {
+          "value": "rammstein_weh",
+          "quote": "Was mich nicht umbringt, macht mich stärker",
+          "artist": "Rammstein",
+          "description": "Сила через испытания, стойкость"
+        },
+        {
+          "value": "nirvana_smells",
+          "quote": "I found it hard, it's hard to find",
+          "artist": "Nirvana",
+          "description": "Поиск себя, отчуждение, искренность"
+        }
       ],
-      "max": 2
-    },
-
-    {
-      "id": 8,
-      "type": "multiple",
-      "question": "Какие цвета обложек винила вас привлекают?",
-      "options": [
-        {"value": "black", "label": "Чёрный", "color": "#000000"},
-        {"value": "red", "label": "Красный", "color": "#ff0000"},
-        {"value": "blue", "label": "Синий", "color": "#0000ff"},
-        {"value": "white", "label": "Белый", "color": "#ffffff"},
-        {"value": "yellow", "label": "Жёлтый", "color": "#ffff00"},
-        {"value": "purple", "label": "Фиолетовый", "color": "#800080"},
-        {"value": "green", "label": "Зелёный", "color": "#008000"},
-        {"value": "skip", "label": "Не обращаю внимания"}
-      ],
-      "max": 2
-    },
-
-    {
-      "id": 9,
-      "type": "single",
-      "question": "Если ночь и дождь за окном — что играет?",
-      "options": [
-        {"value": "ambient", "label": "Эмбиент"},
-        {"value": "jazz", "label": "Джаз"},
-        {"value": "postpunk", "label": "Постпанк"},
-        {"value": "classical", "label": "Классика"},
-        {"value": "silence", "label": "Тишина"},
-        {"value": "skip", "label": "Не знаю"}
-      ]
-    },
-
-    {
-      "id": 10,
-      "type": "single",
-      "question": "Ваш обычный ритм жизни?",
-      "options": [
-        {"value": "slow", "label": "Спокойный"},
-        {"value": "balanced", "label": "Сбалансированный"},
-        {"value": "fast", "label": "Быстрый"},
-        {"value": "chaotic", "label": "Хаотичный"},
-        {"value": "skip", "label": "Сложно сказать"}
-      ]
-    },
-
-    {
-      "id": 11,
-      "type": "multiple",
-      "question": "Что вас больше всего привлекает в виниле?",
-      "options": [
-        {"value": "sound", "label": "Аналоговый звук"},
-        {"value": "art", "label": "Обложки"},
-        {"value": "collect", "label": "Коллекционирование"},
-        {"value": "nostalgia", "label": "Ностальгия"},
-        {"value": "ritual", "label": "Сам процесс прослушивания"},
-        {"value": "skip", "label": "Пока не знаю"}
-      ],
-      "max": 2
-    },
-
-    {
-      "id": 12,
-      "type": "single",
-      "question": "Как вы обычно открываете новую музыку?",
-      "options": [
-        {"value": "friends", "label": "Через друзей"},
-        {"value": "internet", "label": "Интернет и соцсети"},
-        {"value": "recommendations", "label": "Алгоритмы рекомендаций"},
-        {"value": "random", "label": "Случайно"},
-        {"value": "vinylshop", "label": "В магазине винила"},
-        {"value": "skip", "label": "Не могу ответить"}
-      ]
+      "max": 3
     }
-
   ]
 }

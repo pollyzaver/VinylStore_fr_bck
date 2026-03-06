@@ -3,11 +3,13 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs').promises;
 const { nanoid } = require('nanoid');
-const aiRoutes = require('./routes/ai');
+const swaggerUi = require('swagger-ui-express');
+const specs = require('./swagger');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
+const aiRoutes = require('./routes/ai');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +22,13 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+// Swagger документация - доступна по /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'Vinyl Store API Documentation'
+}));
 
 // Логирование
 app.use((req, res, next) => {
@@ -216,9 +225,10 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на http://localhost:${PORT}`);
+  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
   console.log(`📦 API: http://localhost:${PORT}/api/products`);
+  console.log(`📚 Swagger документация: http://localhost:${PORT}/api-docs`);
   console.log(`🔐 Auth API: http://localhost:${PORT}/api/auth`);
   console.log(`👤 Profile API: http://localhost:${PORT}/api/profile`);
-  console.log(`🤖 AI API: http://localhost:${PORT}/api/ai`); // 👈 ДОБАВЛЕНО
+  console.log(`🤖 AI API: http://localhost:${PORT}/api/ai`);
 });

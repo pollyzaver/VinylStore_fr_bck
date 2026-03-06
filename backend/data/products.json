@@ -1022,7 +1022,74 @@
     "format": "12\" LP",
     "price": 5690,
     "category": "alternative",
-    "image": "/assets/around.jpg"
+    "image": "/assets/around.jpg",
+    "badge": null,
+    "detailedInfo": {
+      "description": "Второй студийный альбом американской альтернативной метал-группы Deftones, выпущенный в 1997 году. Эта пластинка стала важной вехой в развитии ню-метала и альтернативного метала, показав эволюцию группы в сторону более мелодичного, но не менее тяжелого звучания. Альбом содержит такие культовые треки как 'My Own Summer (Shove It)', 'Be Quiet and Drive (Far Away)' и заглавный 'Around the Fur', которые закрепили за группой статус одной из самых оригинальных команд своего поколения.",
+      "label": "Maverick Records",
+      "tracklist": {
+        "a": [
+          "My Own Summer (Shove It)",
+          "Lhabia",
+          "Mascara",
+          "Around the Fur",
+          "Rickets"
+        ],
+        "b": [
+          "Be Quiet and Drive (Far Away)",
+          "Lotion",
+          "Dai the Flu",
+          "Headup",
+          "MX"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:35",
+          "4:11",
+          "3:45",
+          "3:31",
+          "2:42"
+        ],
+        "b": [
+          "5:08",
+          "3:53",
+          "4:36",
+          "5:12",
+          "4:54"
+        ]
+      },
+      "highlights": [
+        "Оригинальный пресс 1997 года",
+        "Культовая обложка с фотографией модели",
+        "Продакшн Терри Дейта"
+      ],
+      "awards": [
+        "Золотой статус в США",
+        "Серебряный статус в Великобритании"
+      ],
+      "tags": [
+        "deftones",
+        "альтернатива",
+        "nu-metal",
+        "alternative-metal",
+        "90s",
+        "chino-moreno",
+        "sacto"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.7,
+      "stock": 3,
+      "barcode": "093624681216",
+      "edition": "Оригинальное издание 1997 года",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами песен",
+        "Оригинальный внутренний конверт"
+      ]
+    }
   },
   {
     "id": 16,
@@ -1034,7 +1101,118 @@
     "price": 4590,
     "category": "rock",
     "image": "/assets/the-wall.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Один из величайших концептуальных альбомов в истории рок-музыки, выпущенный группой Pink Floyd в 1979 году. Масштабная рок-опера, рассказывающая историю рок-звезды по имени Пинк, которая возводит эмоциональную стену между собой и окружающим миром. Альбом содержит бессмертные хиты 'Another Brick in the Wall (Part 2)', 'Comfortably Numb' и 'Hey You' и считается вершиной творчества группы и прогрессив-рока в целом.",
+      "label": "Harvest Records / EMI",
+      "tracklist": {
+        "a": [
+          "In the Flesh?",
+          "The Thin Ice",
+          "Another Brick in the Wall (Part 1)",
+          "The Happiest Days of Our Lives",
+          "Another Brick in the Wall (Part 2)",
+          "Mother"
+        ],
+        "b": [
+          "Goodbye Blue Sky",
+          "Empty Spaces",
+          "Young Lust",
+          "One of My Turns",
+          "Don't Leave Me Now",
+          "Another Brick in the Wall (Part 3)",
+          "Goodbye Cruel World"
+        ],
+        "c": [
+          "Hey You",
+          "Is There Anybody Out There?",
+          "Nobody Home",
+          "Vera",
+          "Bring the Boys Back Home",
+          "Comfortably Numb"
+        ],
+        "d": [
+          "The Show Must Go On",
+          "In the Flesh",
+          "Run Like Hell",
+          "Waiting for the Worms",
+          "Stop",
+          "The Trial",
+          "Outside the Wall"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:19",
+          "3:12",
+          "3:11",
+          "1:50",
+          "3:59",
+          "5:35"
+        ],
+        "b": [
+          "2:14",
+          "2:07",
+          "3:30",
+          "3:41",
+          "4:16",
+          "1:13",
+          "1:41"
+        ],
+        "c": [
+          "4:40",
+          "2:44",
+          "3:26",
+          "1:35",
+          "1:27",
+          "6:24"
+        ],
+        "d": [
+          "1:36",
+          "4:16",
+          "3:42",
+          "4:04",
+          "0:30",
+          "5:20",
+          "1:45"
+        ]
+      },
+      "highlights": [
+        "Ремастеринг 2011 года (Why Pink Floyd? серия)",
+        "Оригинальное оформление с работами Джеральда Скарфа",
+        "Полный буклет с текстами и иллюстрациями"
+      ],
+      "awards": [
+        "Премия Грэмми за лучший саундтрек (1981)",
+        "23-кратно платиновый статус в США",
+        "Платиновый статус в 15 странах",
+        "Включен в список 500 величайших альбомов всех времен по версии Rolling Stone"
+      ],
+      "tags": [
+        "pink-floyd",
+        "рок",
+        "progressive-rock",
+        "art-rock",
+        "concept-album",
+        "70s",
+        "classic-rock",
+        "roger-waters",
+        "david-gilmour"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 5,
+      "stock": 3,
+      "barcode": "5099902988218",
+      "edition": "Ремастированное издание 2011 года",
+      "features": [
+        "180-граммовый винил",
+        "Двойной альбом (2xLP) в разворотном конверте",
+        "Полноцветный буклет с текстами и иллюстрациями",
+        "Ремастеринг Джеймса Гатри"
+      ]
+    }
   },
   {
     "id": 17,
@@ -1232,7 +1410,80 @@
     "price": 4590,
     "category": "other",
     "image": "/assets/pulp-fiction.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Культовый саундтрек к одноименному фильму Квентина Тарантино, выпущенный в 1994 году. Эта подборка треков стала не просто музыкальным сопровождением к фильму, а полноценным культурным феноменом, возродившим интерес к серф-року, соулу и рокабилли 60-х и 70-х годов. Саундтрек идеально передает атмосферу фильма и содержит такие знаковые композиции как 'Misirlou' Дика Дейла, 'Girl, You'll Be a Woman Soon' Урге Оверкилла и 'Son of a Preacher Man' Дасти Спрингфилд.",
+      "label": "MCA Records",
+      "tracklist": {
+        "a": [
+          "Dick Dale & His Del-Tones - Misirlou",
+          "Kool & The Gang - Jungle Boogie",
+          "Al Green - Let's Stay Together",
+          "The Tornadoes - Bustin' Surfboards",
+          "Ricky Nelson - Lonesome Town",
+          "Dusty Springfield - Son of a Preacher Man"
+        ],
+        "b": [
+          "The Centurions - Bullwinkle Part II",
+          "The Revels - Comanche",
+          "Chuck Berry - You Never Can Tell",
+          "Maria McKee - If Love Is a Red Dress (Hang Me in Rags)",
+          "Urge Overkill - Girl, You'll Be a Woman Soon",
+          "The Statler Brothers - Flowers on the Wall"
+        ]
+      },
+      "durations": {
+        "a": [
+          "2:11",
+          "3:06",
+          "3:16",
+          "2:06",
+          "2:17",
+          "2:28"
+        ],
+        "b": [
+          "1:46",
+          "2:10",
+          "2:42",
+          "4:22",
+          "4:23",
+          "2:18"
+        ]
+      },
+      "highlights": [
+        "Оригинальное издание 1994 года",
+        "Подборка лучших треков 60-70х годов"
+      ],
+      "awards": [
+        "Премия Грэмми за лучший саундтрек (1995)",
+        "Платиновый статус в США",
+        "Золотой статус в Великобритании и Канаде"
+      ],
+      "tags": [
+        "pulp-fiction",
+        "soundtrack",
+        "tarantino",
+        "surf-rock",
+        "soul",
+        "rockabilly",
+        "90s",
+        "классика",
+        "uma-thurman"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.9,
+      "stock": 4,
+      "barcode": "008811119419",
+      "edition": "Оригинальное издание 1994 года",
+      "features": [
+        "140-граммовый винил",
+        "Разворотный конверт с кадрами из фильма",
+        "Вкладыш с описанием сцен из фильма",
+        "Оригинальный постер внутри"
+      ]
+    }
   },
   {
     "id": 30,
@@ -1719,7 +1970,74 @@
     "format": "12\" LP",
     "price": 6790,
     "category": "alternative",
-    "image": "/assets/queen-is-dead.jpg"
+    "image": "/assets/queen-is-dead.jpg",
+    "badge": null,
+    "detailedInfo": {
+      "description": "Третий студийный альбом британской группы The Smiths, выпущенный в 1986 году. Считается вершиной творчества коллектива и одним из величайших альбомов в истории инди-рока. Пластинка сочетает остроумные и язвительные тексты Моррисси с мелодичными гитарными партиями Джонни Марра. Содержит такие бессмертные треки как 'There Is a Light That Never Goes Out', 'The Boy with the Thorn in His Side' и заглавный 'The Queen Is Dead'.",
+      "label": "Rough Trade Records",
+      "tracklist": {
+        "a": [
+          "The Queen Is Dead",
+          "Frankly, Mr. Shankly",
+          "I Know It's Over",
+          "Never Had No One Ever",
+          "Cemetry Gates"
+        ],
+        "b": [
+          "Bigmouth Strikes Again",
+          "The Boy with the Thorn in His Side",
+          "Vicar in a Tutu",
+          "There Is a Light That Never Goes Out",
+          "Some Girls Are Bigger Than Others"
+        ]
+      },
+      "durations": {
+        "a": [
+          "6:24",
+          "2:17",
+          "5:48",
+          "3:36",
+          "2:39"
+        ],
+        "b": [
+          "3:12",
+          "3:15",
+          "2:31",
+          "4:02",
+          "3:14"
+        ]
+      },
+      "highlights": [
+        "Ремастеринг 2017 года",
+        "Оригинальная обложка с Аленом Делоном"
+      ],
+      "awards": [
+        "Платиновый статус в Великобритании",
+        "Включен в список 500 величайших альбомов всех времен"
+      ],
+      "tags": [
+        "the-smiths",
+        "альтернатива",
+        "indie-pop",
+        "jangle-pop",
+        "80s",
+        "morrissey",
+        "johnny-marr",
+        "manchester"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.9,
+      "stock": 2,
+      "barcode": "191404111314",
+      "edition": "Ремастированное издание 2017 года",
+      "features": [
+        "180-граммовый винил",
+        "Вкладыш с текстами",
+        "Gatefold обложка"
+      ]
+    }
   },
   {
     "id": 68,
@@ -1730,6 +2048,2213 @@
     "format": "12\" LP",
     "price": 7290,
     "category": "alternative",
-    "image": "/assets/unknown-pleasures.jpg"
+    "image": "/assets/unknown-pleasures.jpg",
+    "badge": null,
+    "detailedInfo": {
+      "description": "Дебютный альбом британской пост-панк группы Joy Division, выпущенный в 1979 году. Запродюсированный Мартином Хэннетом, альбом отличается минималистичным, мрачным звучанием, глубокими басовыми линиями и культовым баритоном Йена Кёртиса. Эта пластинка стала эталоном жанра и оказала колоссальное влияние на альтернативную музыку. Содержит такие классические треки как 'Disorder', 'She's Lost Control' и 'Shadowplay'.",
+      "label": "Factory Records",
+      "tracklist": {
+        "a": [
+          "Disorder",
+          "Day of the Lords",
+          "Candidate",
+          "Insight",
+          "New Dawn Fades"
+        ],
+        "b": [
+          "She's Lost Control",
+          "Shadowplay",
+          "Wilderness",
+          "Interzone",
+          "I Remember Nothing"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:32",
+          "4:43",
+          "3:05",
+          "4:30",
+          "4:51"
+        ],
+        "b": [
+          "3:47",
+          "3:50",
+          "2:35",
+          "2:25",
+          "6:00"
+        ]
+      },
+      "highlights": [
+        "Оригинальный пресс FACT 10",
+        "Культовая обложка с радиопульсаром"
+      ],
+      "awards": [
+        "Золотой статус в Великобритании",
+        "Включен в список 500 величайших альбомов всех времен"
+      ],
+      "tags": [
+        "joy-division",
+        "пост-панк",
+        "post-punk",
+        "new-wave",
+        "70s",
+        "ian-curtis",
+        "manchester",
+        "factory-records",
+        "peter-saville"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.9,
+      "stock": 3,
+      "barcode": "5060525432118",
+      "edition": "Ремастированное издание 2007 года",
+      "features": [
+        "180-граммовый винил",
+        "Внутренний конверт с текстами",
+        "Оригинальный дизайн Питера Сэвилла"
+      ]
+    }
+  },
+  {
+    "id": 69,
+    "title": "Heligoland",
+    "description": "Massive Attack",
+    "year": 2010,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "electronic",
+    "image": "/assets/heligoland.jpg",
+    "badge": "Новинка",
+    "detailedInfo": {
+      "description": "Четвертый студийный альбом британских пионеров трип-хопа Massive Attack, выпущенный в 2010 году после семилетнего перерыва. Пластинка продолжает фирменное мрачное и атмосферное звучание группы с акцентом на даб, электронику и политические тексты. В записи приняли участие звездные гости: Деймон Албарн (Blur, Gorillaz), Хоуп Сандовал (Mazzy Star), Гај Гарви (Elbow) и Мартина Топли-Бёрд.",
+      "label": "Virgin Records",
+      "tracklist": {
+        "a": [
+          "Pray for Rain",
+          "Babel",
+          "Splitting the Atom",
+          "Girl I Love You"
+        ],
+        "b": [
+          "Psyche",
+          "Flat of the Blade",
+          "Paradise Circus",
+          "Rush Minute",
+          "Saturday Come Slow",
+          "Atlas Air"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:44",
+          "5:19",
+          "5:16",
+          "5:26"
+        ],
+        "b": [
+          "3:24",
+          "4:30",
+          "4:57",
+          "4:50",
+          "3:43",
+          "4:42"
+        ]
+      },
+      "highlights": [
+        "Участие Деймона Албарна",
+        "Дизайн Роберта дель Ная"
+      ],
+      "awards": [
+        "Золотая пластинка в Великобритании"
+      ],
+      "tags": [
+        "massive-attack",
+        "электроника",
+        "trip-hop",
+        "downtempo",
+        "2010s",
+        "bristol",
+        "3d",
+        "dawn-allbarn"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.6,
+      "stock": 8,
+      "barcode": "5099962422815",
+      "edition": "Стандартное издание",
+      "features": [
+        "180-граммовый винил",
+        "Вкладыш с текстами",
+        "Gatefold обложка"
+      ]
+    }
+  },
+  {
+    "id": 70,
+    "title": "Ride the Lightning",
+    "description": "Metallica",
+    "year": 1984,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 6590,
+    "category": "metal",
+    "image": "/assets/ride-the-lightning.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Второй студийный альбом американской трэш-метал группы Metallica, выпущенный в 1984 году. Альбом ознаменовал творческий рост коллектива, сочетая агрессивный трэш с более сложными аранжировками, мелодичными гитарными соло и глубокими текстами. Содержит такие эталонные треки как 'Fade to Black', 'For Whom the Bell Tolls', 'Creeping Death' и заглавный инструментал 'Ride the Lightning'. Считается одним из величайших метал-альбомов всех времен.",
+      "label": "Megaforce Records",
+      "tracklist": {
+        "a": [
+          "Fight Fire with Fire",
+          "Ride the Lightning",
+          "For Whom the Bell Tolls",
+          "Fade to Black"
+        ],
+        "b": [
+          "Trapped Under Ice",
+          "Escape",
+          "Creeping Death",
+          "The Call of Ktulu"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:44",
+          "6:36",
+          "5:09",
+          "6:57"
+        ],
+        "b": [
+          "4:06",
+          "4:30",
+          "6:36",
+          "8:53"
+        ]
+      },
+      "highlights": [
+        "Оригинальный пресс Megaforce",
+        "Классическая обложка с электрокреслом"
+      ],
+      "awards": [
+        "Платиновый статус в США",
+        "Платиновый статус в Канаде"
+      ],
+      "tags": [
+        "metallica",
+        "метал",
+        "thrash-metal",
+        "heavy-metal",
+        "80s",
+        "cliff-burton",
+        "bay-area",
+        "james-hetfield"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.9,
+      "stock": 4,
+      "barcode": "020831376124",
+      "edition": "Ремастированное издание 2016 года",
+      "features": [
+        "180-граммовый винил",
+        "Вкладыш с текстами",
+        "Gatefold обложка"
+      ]
+    }
+  },
+  {
+    "id": 71,
+    "title": "Metallica",
+    "description": "Metallica (The Black Album)",
+    "year": 1991,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "metal",
+    "image": "/assets/black-album.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Пятый студийный альбом группы Metallica, известный как 'Черный альбом', выпущенный в 1991 году. Спроецированный Бобом Роком, альбом ознаменовал переход группы к более коммерческому и доступному звучанию, сохранив при этом тяжесть и характерный стиль. Пластинка стала огромным коммерческим прорывом, принесла группе мировую суперзвездность и содержит такие мегахиты как 'Enter Sandman', 'Nothing Else Matters', 'The Unforgiven' и 'Sad But True'.",
+      "label": "Elektra Records",
+      "tracklist": {
+        "a": [
+          "Enter Sandman",
+          "Sad But True",
+          "Holier Than Thou",
+          "The Unforgiven"
+        ],
+        "b": [
+          "Wherever I May Roam",
+          "Don't Tread on Me",
+          "Through the Never",
+          "Nothing Else Matters",
+          "Of Wolf and Man",
+          "The God That Failed",
+          "My Friend of Misery",
+          "The Struggle Within"
+        ]
+      },
+      "durations": {
+        "a": [
+          "5:32",
+          "5:25",
+          "3:48",
+          "6:23"
+        ],
+        "b": [
+          "6:43",
+          "3:59",
+          "4:04",
+          "6:28",
+          "4:17",
+          "5:09",
+          "6:49",
+          "3:54"
+        ]
+      },
+      "highlights": [
+        "Продюсирование Боба Рока",
+        "Минималистичная обложка со змеей"
+      ],
+      "awards": [
+        "16-кратно платиновый статус в США",
+        "Премия Грэмми за лучший метал-трек"
+      ],
+      "tags": [
+        "metallica",
+        "метал",
+        "heavy-metal",
+        "hard-rock",
+        "90s",
+        "black-album",
+        "bob-rock",
+        "enter-sandman"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.8,
+      "stock": 10,
+      "barcode": "075596111215",
+      "edition": "Ремастированное издание",
+      "features": [
+        "180-граммовый винил",
+        "Двойной альбом (2xLP)",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 72,
+    "title": "72 Seasons",
+    "description": "Metallica",
+    "year": 2023,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 7590,
+    "category": "metal",
+    "image": "/assets/72-seasons.jpg",
+    "badge": "Новинка",
+    "detailedInfo": {
+      "description": "Одиннадцатый студийный альбом группы Metallica, выпущенный в 2023 году. Название отсылает к первым 18 годам жизни (72 сезона), которые, по словам Джеймса Хэтфилда, формируют личность человека. Альбом возвращает группу к более энергичному и агрессивному звучанию, сочетая трэшевые корни с мелодичностью позднего периода. Пластинка содержит такие мощные треки как 'Lux Æterna', 'Screaming Suicide' и заглавный '72 Seasons'.",
+      "label": "Blackened Recordings",
+      "tracklist": {
+        "a": [
+          "72 Seasons",
+          "Shadows Follow",
+          "Screaming Suicide",
+          "Sleepwalk My Life Away"
+        ],
+        "b": [
+          "You Must Burn!",
+          "Lux Æterna",
+          "Crown of Barbed Wire",
+          "Chasing Light"
+        ],
+        "c": [
+          "If Darkness Had a Son",
+          "Too Far Gone?",
+          "Room of Mirrors"
+        ],
+        "d": [
+          "Inamorata"
+        ]
+      },
+      "durations": {
+        "a": [
+          "7:39",
+          "6:12",
+          "5:30",
+          "6:02"
+        ],
+        "b": [
+          "7:03",
+          "3:22",
+          "5:49",
+          "6:45"
+        ],
+        "c": [
+          "6:13",
+          "4:34",
+          "6:34"
+        ],
+        "d": [
+          "11:10"
+        ]
+      },
+      "highlights": [
+        "Первый альбом за 7 лет",
+        "Продюсирование Грега Фидельмана"
+      ],
+      "awards": [
+        "№1 в чартах 19 стран",
+        "Золотой статус в Германии"
+      ],
+      "tags": [
+        "metallica",
+        "метал",
+        "thrash-metal",
+        "heavy-metal",
+        "2020s",
+        "new-release",
+        "james-hetfield",
+        "lars-ulrich"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.5,
+      "stock": 15,
+      "barcode": "0081227841216",
+      "edition": "Стандартное издание",
+      "features": [
+        "140-граммовый винил",
+        "Двойной альбом (2xLP)",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 73,
+    "title": "Garage Inc.",
+    "description": "Metallica",
+    "year": 1998,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 8490,
+    "category": "metal",
+    "image": "/assets/garage-inc.jpg",
+    "badge": "Редкий",
+    "detailedInfo": {
+      "description": "Восьмой студийный альбом и сборник кавер-версий группы Metallica, выпущенный в 1998 году. Представляет собой двойной альбом, включающий новые записи кавер-версий (диск 1) и коллекцию ранее записанных каверов (диск 2), включая знаменитый EP 'Garage Days Re-Revisited'. Пластинка демонстрирует музыкальные корни группы и их любовь к NWOBHM, панк-року и классическому року. Содержит каверы на Black Sabbath, Thin Lizzy, Motörhead, Queen и многих других.",
+      "label": "Elektra Records",
+      "tracklist": {
+        "a": [
+          "Free Speech for the Dumb",
+          "It's Electric",
+          "Sabbra Cadabra",
+          "Turn the Page",
+          "Die, Die My Darling",
+          "Loverman"
+        ],
+        "b": [
+          "Mercyful Fate",
+          "Astronomy",
+          "Whiskey in the Jar",
+          "Tuesday's Gone",
+          "The More I See"
+        ],
+        "c": [
+          "Helpless",
+          "The Small Hours",
+          "The Wait",
+          "Crash Course in Brain Surgery",
+          "Last Caress / Green Hell"
+        ],
+        "d": [
+          "Am I Evil?",
+          "Blitzkrieg",
+          "Breadfan",
+          "The Prince",
+          "Stone Cold Crazy",
+          "So What?",
+          "Killing Time",
+          "Overkill",
+          "Damage Case",
+          "Stone Dead Forever",
+          "Too Late Too Late"
+        ]
+      },
+      "durations": {
+        "a": [
+          "2:36",
+          "3:34",
+          "4:21",
+          "6:07",
+          "2:28",
+          "7:29"
+        ],
+        "b": [
+          "4:49",
+          "8:00",
+          "5:05",
+          "8:06",
+          "4:48"
+        ],
+        "c": [
+          "6:39",
+          "6:44",
+          "4:56",
+          "3:40",
+          "4:37"
+        ],
+        "d": [
+          "5:00",
+          "3:37",
+          "5:43",
+          "4:26",
+          "2:19",
+          "5:30",
+          "3:04",
+          "4:19",
+          "4:06",
+          "5:46",
+          "3:27"
+        ]
+      },
+      "highlights": [
+        "Полное собрание каверов",
+        "Включает EP Garage Days"
+      ],
+      "awards": [
+        "3× платиновый статус в США",
+        "Платиновый статус в Европе"
+      ],
+      "tags": [
+        "metallica",
+        "метал",
+        "covers",
+        "hard-rock",
+        "90s",
+        "garage-days",
+        "compilation",
+        "box-set"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.6,
+      "stock": 2,
+      "barcode": "075596246015",
+      "edition": "Оригинальное издание 1998 года",
+      "features": [
+        "140-граммовый винил",
+        "Двойной альбом (2xLP)",
+        "Буклет с фотографиями"
+      ]
+    }
+  },
+  {
+    "id": 74,
+    "title": "...And Justice for All",
+    "description": "Metallica",
+    "year": 1988,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "metal",
+    "image": "/assets/and-justice-for-all.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Четвертый студийный альбом группы Metallica, выпущенный в 1988 году. Первая запись после гибели басиста Клиффа Бертона, с новым басистом Джейсоном Ньюстедом. Альбом отличается сложными структурами, техничными гитарными партиями и остросоциальными текстами, критикующими несправедливость судебной системы и политическую коррупцию. Содержит такие эпические треки как 'One', 'Blackened', 'Harvester of Sorrow' и заглавный '...And Justice for All'.",
+      "label": "Elektra Records",
+      "tracklist": {
+        "a": [
+          "Blackened",
+          "...And Justice for All",
+          "Eye of the Beholder",
+          "One"
+        ],
+        "b": [
+          "The Shortest Straw",
+          "Harvester of Sorrow",
+          "The Frayed Ends of Sanity",
+          "To Live Is to Die",
+          "Dyers Eve"
+        ]
+      },
+      "durations": {
+        "a": [
+          "6:41",
+          "9:45",
+          "6:25",
+          "7:26"
+        ],
+        "b": [
+          "6:35",
+          "5:44",
+          "7:43",
+          "9:48",
+          "5:13"
+        ]
+      },
+      "highlights": [
+        "Первый альбом с Джейсоном Ньюстедом",
+        "Политическая тематика текстов"
+      ],
+      "awards": [
+        "2× платиновый статус в США",
+        "Платиновый статус в Великобритании"
+      ],
+      "tags": [
+        "metallica",
+        "метал",
+        "thrash-metal",
+        "progressive-metal",
+        "80s",
+        "jason-newsted",
+        "one",
+        "political"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.7,
+      "stock": 3,
+      "barcode": "075596081214",
+      "edition": "Ремастированное издание 2018 года",
+      "features": [
+        "180-граммовый винил",
+        "Двойной альбом (2xLP)",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 75,
+    "title": "The Velvet Underground & Nico",
+    "description": "The Velvet Underground",
+    "year": 1967,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 8990,
+    "category": "rock",
+    "image": "/assets/velvet-underground-nico.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Дебютный альбом американской группы The Velvet Underground, выпущенный в 1967 году при участии певицы Нико. Запродюсированный Ло Ридом и Джоном Кейлом при поддержке Энди Уорхола, который также создал культовую обложку с бананом. Альбом радикально отличался от всего, что выходило в эпоху хиппи, исследуя темы наркотиков, депрессии и городского декаданса. Считается одним из самых влиятельных альбомов в истории рок-музыки, вдохновившим панк, арт-рок и альтернативную сцену.",
+      "label": "Verve Records",
+      "tracklist": {
+        "a": [
+          "Sunday Morning",
+          "I'm Waiting for the Man",
+          "Femme Fatale",
+          "Venus in Furs",
+          "Run Run Run",
+          "All Tomorrow's Parties"
+        ],
+        "b": [
+          "Heroin",
+          "There She Goes Again",
+          "I'll Be Your Mirror",
+          "The Black Angel's Death Song",
+          "European Son"
+        ]
+      },
+      "durations": {
+        "a": [
+          "2:54",
+          "4:39",
+          "2:38",
+          "5:12",
+          "4:22",
+          "5:59"
+        ],
+        "b": [
+          "7:12",
+          "2:41",
+          "2:14",
+          "3:11",
+          "7:40"
+        ]
+      },
+      "highlights": [
+        "Продюсирование Энди Уорхола",
+        "Культовая обложка с бананом"
+      ],
+      "awards": [
+        "Включен в Зал славы Грэмми",
+        "3 место в списке 500 величайших альбомов"
+      ],
+      "tags": [
+        "the-velvet-underground",
+        "nico",
+        "рок",
+        "art-rock",
+        "experimental-rock",
+        "60s",
+        "andy-warhol",
+        "lou-reed",
+        "john-cale",
+        "banana"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 5,
+      "stock": 2,
+      "barcode": "731455235110",
+      "edition": "Ремастированное издание 2012 года",
+      "features": [
+        "180-граммовый винил",
+        "Воспроизведение оригинальной обложки",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 76,
+    "title": "Led Zeppelin IV",
+    "description": "Led Zeppelin",
+    "year": 1971,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 8290,
+    "category": "rock",
+    "image": "/assets/led-zeppelin-iv.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Четвертый студийный альбом британской рок-группы Led Zeppelin, выпущенный в 1971 году. Официально не имеющий названия, альбом известен как Led Zeppelin IV, Four Symbols или Zoso. Считается вершиной творчества группы и одним из величайших рок-альбомов всех времен. Содержит легендарный хит 'Stairway to Heaven', а также такие классические треки как 'Black Dog', 'Rock and Roll' и 'Going to California'. Альбом демонстрирует все грани таланта группы — от тяжелого блюз-рока до фолковых баллад.",
+      "label": "Atlantic Records",
+      "tracklist": {
+        "a": [
+          "Black Dog",
+          "Rock and Roll",
+          "The Battle of Evermore",
+          "Stairway to Heaven"
+        ],
+        "b": [
+          "Misty Mountain Hop",
+          "Four Sticks",
+          "Going to California",
+          "When the Levee Breaks"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:55",
+          "3:40",
+          "5:38",
+          "8:03"
+        ],
+        "b": [
+          "4:39",
+          "4:46",
+          "3:31",
+          "7:08"
+        ]
+      },
+      "highlights": [
+        "Легендарный хит Stairway to Heaven",
+        "Загадочная обложка без названия"
+      ],
+      "awards": [
+        "23× платиновый статус в США",
+        "6× платиновый статус в Великобритании",
+        "Включен в список 500 величайших альбомов"
+      ],
+      "tags": [
+        "led-zeppelin",
+        "рок",
+        "hard-rock",
+        "blues-rock",
+        "folk-rock",
+        "70s",
+        "classic-rock",
+        "robert-plant",
+        "jimmy-page",
+        "john-bonham",
+        "john-paul-jones",
+        "stairway-to-heaven"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 5,
+      "stock": 5,
+      "barcode": "075678263515",
+      "edition": "Ремастированное издание 2014 года",
+      "features": [
+        "180-граммовый винил",
+        "Воспроизведение оригинальной обложки",
+        "Вкладыш с изображениями символов"
+      ]
+    }
+  },
+  {
+    "id": 77,
+    "title": "Never Mind the Bollocks, Here's the Sex Pistols",
+    "description": "Sex Pistols",
+    "year": 1977,
+    "genre": "Панк-рок",
+    "format": "12\" LP",
+    "price": 7890,
+    "category": "rock",
+    "image": "/assets/never-mind-the-bollocks.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Единственный студийный альбом британской панк-группы Sex Pistols, выпущенный в 1977 году. Эта пластинка стала манифестом панк-движения и одним из самых влиятельных альбомов в истории рок-музыки. Провокационные тексты Джонни Роттена, агрессивные гитарные риффы Стива Джонса и хаотичная энергетика группы бросили вызов музыкальному и социальному истеблишменту. Альбом содержит такие гимны поколения как 'Anarchy in the U.K.', 'God Save the Queen', 'Pretty Vacant' и 'Holidays in the Sun'.",
+      "label": "Virgin Records",
+      "tracklist": {
+        "a": [
+          "Holidays in the Sun",
+          "Bodies",
+          "No Feelings",
+          "Liar",
+          "God Save the Queen",
+          "Problems"
+        ],
+        "b": [
+          "Seventeen",
+          "Anarchy in the U.K.",
+          "Submission",
+          "Pretty Vacant",
+          "New York",
+          "EMI"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:22",
+          "3:03",
+          "2:50",
+          "2:41",
+          "3:20",
+          "4:10"
+        ],
+        "b": [
+          "2:02",
+          "3:32",
+          "4:12",
+          "3:18",
+          "3:07",
+          "3:10"
+        ]
+      },
+      "highlights": [
+        "Единственный студийный альбом",
+        "Скандальный дизайн Джейми Рида"
+      ],
+      "awards": [
+        "Платиновый статус в США",
+        "Платиновый статус в Великобритании"
+      ],
+      "tags": [
+        "sex-pistols",
+        "панк-рок",
+        "punk-rock",
+        "70s",
+        "johnny-rotten",
+        "sid-vicious",
+        "british-punk",
+        "anarchy",
+        "god-save-the-queen",
+        "jamie-reid"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.9,
+      "stock": 4,
+      "barcode": "5012981000114",
+      "edition": "Ремастированное издание",
+      "features": [
+        "180-граммовый винил",
+        "Оригинальная обложка с панк-типографикой",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 78,
+    "title": "Actually",
+    "description": "Pet Shop Boys",
+    "year": 1987,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 5890,
+    "category": "electronic",
+    "image": "/assets/actually.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Второй студийный альбом британского синти-поп дуэта Pet Shop Boys, выпущенный в 1987 году. Альбом укрепил успех дебюта и продемонстрировал новыый подход к написанию песен, сочетая танцевальные ритмы с остроумными текстами Нила Теннанта о жизни в большом городе, любви и политике. Содержит такие мегахиты как 'It's a Sin', 'What Have I Done to Deserve This?' (дуэт с Дасти Спрингфилд), 'Rent' и 'Heart'. Считается одним из лучших поп-альбомов 80-х.",
+      "label": "Parlophone",
+      "tracklist": {
+        "a": [
+          "One More Chance",
+          "What Have I Done to Deserve This?",
+          "Shopping",
+          "Rent",
+          "Hit Music"
+        ],
+        "b": [
+          "It's a Sin",
+          "I Want to Wake Up",
+          "Heart",
+          "King's Cross"
+        ]
+      },
+      "durations": {
+        "a": [
+          "5:30",
+          "4:20",
+          "3:37",
+          "3:33",
+          "4:44"
+        ],
+        "b": [
+          "4:59",
+          "5:08",
+          "3:58",
+          "5:10"
+        ]
+      },
+      "highlights": [
+        "Дуэт с Дасти Спрингфилд",
+        "Хит It's a Sin"
+      ],
+      "awards": [
+        "3× платиновый статус в Великобритании",
+        "Платиновый статус в США"
+      ],
+      "tags": [
+        "pet-shop-boys",
+        "электроника",
+        "synth-pop",
+        "dance-pop",
+        "80s",
+        "neil-tennant",
+        "chris-lowe",
+        "british",
+        "its-a-sin",
+        "dusty-springfield"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.8,
+      "stock": 6,
+      "barcode": "077779143215",
+      "edition": "Оригинальное издание 1987 года",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами",
+        "Оригинальный дизайн"
+      ]
+    }
+  },
+  {
+    "id": 79,
+    "title": "(What's the Story) Morning Glory?",
+    "description": "Oasis",
+    "year": 1995,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 6590,
+    "category": "rock",
+    "image": "/assets/morning-glory.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Второй студийный альбом британской брит-поп группы Oasis, выпущенный в 1995 году. Стал не только коммерческим прорывом, но и определил звучание целого поколения, став символом британского рока 90-х. Альбом содержит одни из самых узнаваемых песен в истории: 'Wonderwall', 'Don't Look Back in Anger', 'Champagne Supernova' и 'Some Might Say'. Запись происходила в разгар соперничества с Blur, что подогрело интерес публики и сделало альбом культурным феноменом.",
+      "label": "Creation Records",
+      "tracklist": {
+        "a": [
+          "Hello",
+          "Roll with It",
+          "Wonderwall",
+          "Don't Look Back in Anger",
+          "Hey Now!"
+        ],
+        "b": [
+          "Some Might Say",
+          "Cast No Shadow",
+          "She's Electric",
+          "Morning Glory",
+          "Champagne Supernova"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:23",
+          "3:59",
+          "4:18",
+          "4:48",
+          "5:41"
+        ],
+        "b": [
+          "5:29",
+          "4:51",
+          "3:40",
+          "5:03",
+          "7:27"
+        ]
+      },
+      "highlights": [
+        "Культовые хиты Wonderwall и Don't Look Back in Anger",
+        "Эпоха брит-попа"
+      ],
+      "awards": [
+        "4× платиновый статус в США",
+        "14× платиновый статус в Великобритании",
+        "Премия BRIT за лучший альбом"
+      ],
+      "tags": [
+        "oasis",
+        "рок",
+        "britpop",
+        "alternative-rock",
+        "90s",
+        "liam-gallagher",
+        "noel-gallagher",
+        "manchester",
+        "wonderwall",
+        "creation-records"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.9,
+      "stock": 8,
+      "barcode": "5055019600214",
+      "edition": "Ремастированное издание 2014 года",
+      "features": [
+        "180-граммовый винил",
+        "Gatefold обложка",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 80,
+    "title": "The Slow Rush",
+    "description": "Tame Impala",
+    "year": 2020,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 6190,
+    "category": "alternative",
+    "image": "/assets/the-slow-rush.jpg",
+    "badge": "Новинка",
+    "detailedInfo": {
+      "description": "Четвертый студийный альбом австралийского психоделического проекта Tame Impala, созданный Кевином Паркером, выпущенный в 2020 году. Альбом знаменует эволюцию звучания в сторону более диско-ориентированных ритмов, поп-мелодий и глубокого погружения в тему времени, памяти и взросления. Пластинка сочетает фирменные психоделические текстуры с танцевальными грувами и содержит такие треки как 'Borderline', 'Lost in Yesterday', 'Is It True' и 'The Moment'.",
+      "label": "Modular Recordings",
+      "tracklist": {
+        "a": [
+          "One More Year",
+          "Instant Destiny",
+          "Borderline",
+          "Posthumous Forgiveness",
+          "Breathe Deeper"
+        ],
+        "b": [
+          "Tomorrow's Dust",
+          "On Track",
+          "Lost in Yesterday",
+          "Is It True",
+          "It Might Be Time",
+          "Glimmer",
+          "One More Hour"
+        ]
+      },
+      "durations": {
+        "a": [
+          "5:22",
+          "3:14",
+          "3:57",
+          "6:05",
+          "6:12"
+        ],
+        "b": [
+          "5:26",
+          "5:01",
+          "4:09",
+          "3:58",
+          "4:33",
+          "1:48",
+          "7:12"
+        ]
+      },
+      "highlights": [
+        "Исследование темы времени",
+        "Диско-психоделия"
+      ],
+      "awards": [
+        "Премия ARIA за лучший рок-альбом",
+        "Номинация на Грэмми"
+      ],
+      "tags": [
+        "tame-impala",
+        "альтернатива",
+        "psychedelic-pop",
+        "neo-psychedelia",
+        "synth-pop",
+        "2020s",
+        "kevin-parker",
+        "australian",
+        "borderline"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Австралия",
+      "rating": 4.7,
+      "stock": 12,
+      "barcode": "602577639022",
+      "edition": "Стандартное издание",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами",
+        "Абстрактный дизайн обложки"
+      ]
+    }
+  },
+  {
+    "id": 81,
+    "title": "Favourite Worst Nightmare",
+    "description": "Arctic Monkeys",
+    "year": 2007,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 5790,
+    "category": "alternative",
+    "image": "/assets/favourite-worst-nightmare.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Второй студийный альбом британской инди-рок группы Arctic Monkeys, выпущенный в 2007 году. Пластинка развивает энергичное звучание дебюта, добавляя более сложные структуры, агрессивные гитарные партии и острые тексты Алекса Тернера. Альбом дебютировал на первом месте в британском чарте и укрепил статус группы как одного из главных явлений британского рока 2000-х. Содержит такие хиты как 'Brianstorm', 'Fluorescent Adolescent', 'Teddy Picker' и '505'.",
+      "label": "Domino Recording Company",
+      "tracklist": {
+        "a": [
+          "Brianstorm",
+          "Teddy Picker",
+          "D Is for Dangerous",
+          "Balaclava",
+          "Fluorescent Adolescent",
+          "Only Ones Who Know"
+        ],
+        "b": [
+          "Do Me a Favour",
+          "This House Is a Circus",
+          "If You Were There, Beware",
+          "The Bad Thing",
+          "Old Yellow Bricks",
+          "505"
+        ]
+      },
+      "durations": {
+        "a": [
+          "2:50",
+          "2:43",
+          "2:16",
+          "2:49",
+          "3:00",
+          "3:04"
+        ],
+        "b": [
+          "3:27",
+          "3:09",
+          "4:34",
+          "2:37",
+          "3:11",
+          "4:13"
+        ]
+      },
+      "highlights": [
+        "Британский чарт №1",
+        "Культовый трек 505"
+      ],
+      "awards": [
+        "Платиновый статус в Великобритании",
+        "Премия Mercury Prize (номинация)",
+        "Золотой статус в США"
+      ],
+      "tags": [
+        "arctic-monkeys",
+        "альтернатива",
+        "indie-rock",
+        "post-punk-revival",
+        "2000s",
+        "alex-turner",
+        "sheffield",
+        "british",
+        "505",
+        "fluorescent-adolescent"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.8,
+      "stock": 7,
+      "barcode": "5034202111212",
+      "edition": "Стандартное издание",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами",
+        "Оригинальный дизайн"
+      ]
+    }
+  },
+  {
+    "id": 82,
+    "title": "When We All Fall Asleep, Where Do We Go?",
+    "description": "Billie Eilish",
+    "year": 2019,
+    "genre": "Альтернатива",
+    "format": "12\" LP",
+    "price": 5390,
+    "category": "alternative",
+    "image": "/assets/when-we-all-fall-asleep.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Дебютный студийный альбом американской певицы Billie Eilish, выпущенный в 2019 году. Записанный и спродюсированный вместе с братом Финнеасом О'Коннеллом в домашней студии, альбом переопределил звучание поп-музыки конца 2010-х, сочетая мрачные тексты, шепотный вокал, экспериментальные биты и элементы электропопа, трэпа и индастриала. Пластинка содержит мегахиты 'bad guy', 'bury a friend', 'when the party's over' и 'wish you were gay' и стала культурным феноменом среди молодого поколения.",
+      "label": "Darkroom / Interscope Records",
+      "tracklist": {
+        "a": [
+          "!!!!!!!",
+          "bad guy",
+          "xanny",
+          "you should see me in a crown",
+          "all the good girls go to hell",
+          "wish you were gay",
+          "when the party's over"
+        ],
+        "b": [
+          "8",
+          "my strange addiction",
+          "bury a friend",
+          "ilomilo",
+          "listen before i go",
+          "i love you",
+          "goodbye"
+        ]
+      },
+      "durations": {
+        "a": [
+          "0:14",
+          "3:14",
+          "4:04",
+          "3:01",
+          "3:09",
+          "3:42",
+          "3:16"
+        ],
+        "b": [
+          "2:53",
+          "3:00",
+          "3:13",
+          "2:36",
+          "4:03",
+          "4:52",
+          "1:59"
+        ]
+      },
+      "highlights": [
+        "Продакшн Финнеаса",
+        "Мировой хит bad guy"
+      ],
+      "awards": [
+        "Премия Грэмми за альбом года",
+        "Премия Грэмми за лучший поп-альбом",
+        "Премия Грэмми за лучший вокальный поп-альбом"
+      ],
+      "tags": [
+        "billie-eilish",
+        "альтернатива",
+        "electropop",
+        "art-pop",
+        "2010s",
+        "finneas",
+        "bad-guy",
+        "teen-pop",
+        "dark-pop",
+        "interscope"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.8,
+      "stock": 10,
+      "barcode": "602577182303",
+      "edition": "Стандартное издание",
+      "features": [
+        "140-граммовый винил",
+        "Прозрачный винил (издание)",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 83,
+    "title": "Led Zeppelin",
+    "description": "Led Zeppelin",
+    "year": 1969,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 7990,
+    "category": "rock",
+    "image": "/assets/led-zeppelin-i.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Дебютный студийный альбом британской рок-группы Led Zeppelin, выпущенный в 1969 году. Эта пластинка произвела революцию в рок-музыке, заложив основы хард-рока и хэви-метала. Мощное звучание, виртуозные гитарные риффы Джимми Пейджа, экспрессивный вокал Роберта Планта и драйвовая ритм-секция Джона Бонэма и Джона Пола Джонса создали уникальный саунд. Альбом содержит такие классические треки как 'Good Times Bad Times', 'Dazed and Confused', 'Communication Breakdown' и 'Babe I'm Gonna Leave You'.",
+      "label": "Atlantic Records",
+      "tracklist": {
+        "a": [
+          "Good Times Bad Times",
+          "Babe I'm Gonna Leave You",
+          "You Shook Me",
+          "Dazed and Confused"
+        ],
+        "b": [
+          "Your Time Is Gonna Come",
+          "Black Mountain Side",
+          "Communication Breakdown",
+          "I Can't Quit You Baby",
+          "How Many More Times"
+        ]
+      },
+      "durations": {
+        "a": [
+          "2:46",
+          "6:42",
+          "6:28",
+          "6:27"
+        ],
+        "b": [
+          "4:34",
+          "2:05",
+          "2:30",
+          "4:42",
+          "8:28"
+        ]
+      },
+      "highlights": [
+        "Рождение хард-рока",
+        "Легендарный рифф Good Times Bad Times"
+      ],
+      "awards": [
+        "8× платиновый статус в США",
+        "Платиновый статус в Великобритании",
+        "Включен в Зал славы Грэмми"
+      ],
+      "tags": [
+        "led-zeppelin",
+        "рок",
+        "hard-rock",
+        "blues-rock",
+        "classic-rock",
+        "60s",
+        "jimmy-page",
+        "robert-plant",
+        "john-bonham",
+        "john-paul-jones",
+        "debut"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.9,
+      "stock": 4,
+      "barcode": "075678263508",
+      "edition": "Ремастированное издание 2014 года",
+      "features": [
+        "180-граммовый винил",
+        "Воспроизведение оригинальной обложки",
+        "Вкладыш с редкими фотографиями"
+      ]
+    }
+  },
+  {
+    "id": 84,
+    "title": "Iron Maiden",
+    "description": "Iron Maiden",
+    "year": 1980,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "metal",
+    "image": "/assets/iron-maiden-debut.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Дебютный студийный альбом британской хэви-метал группы Iron Maiden, выпущенный в 1980 году. Эта пластинка стала одним из ключевых релизов новой волны британского хэви-метала (NWOBHM). Альбом отличается сырым энергичным звучанием, фирменными гитарными гармониями и появлением первого воплощения талисмана группы — Эдди. Содержит такие классические треки как 'Running Free', 'Phantom of the Opera', 'Iron Maiden' и 'Prowler'.",
+      "label": "EMI Records",
+      "tracklist": {
+        "a": [
+          "Prowler",
+          "Remember Tomorrow",
+          "Running Free",
+          "Phantom of the Opera"
+        ],
+        "b": [
+          "Transylvania",
+          "Strange World",
+          "Charlotte the Harlot",
+          "Iron Maiden"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:56",
+          "5:28",
+          "3:18",
+          "7:08"
+        ],
+        "b": [
+          "4:06",
+          "5:32",
+          "4:13",
+          "3:38"
+        ]
+      },
+      "highlights": [
+        "Дебют талисмана Эдди",
+        "NWOBHM классика"
+      ],
+      "awards": [
+        "Золотой статус в Великобритании",
+        "Платиновый статус в Канаде"
+      ],
+      "tags": [
+        "iron-maiden",
+        "метал",
+        "heavy-metal",
+        "nwobhm",
+        "british-metal",
+        "80s",
+        "eddie",
+        "paul-dianno",
+        "steve-harris"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.7,
+      "stock": 3,
+      "barcode": "5099999342812",
+      "edition": "Ремастированное издание 2014 года",
+      "features": [
+        "180-граммовый винил",
+        "Оригинальная обложка с Эдди",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 85,
+    "title": "Both Sides of the Sky",
+    "description": "The Jimi Hendrix Experience",
+    "year": 2018,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 6790,
+    "category": "rock",
+    "image": "/assets/both-sides-of-the-sky.jpg",
+    "badge": "Редкий",
+    "detailedInfo": {
+      "description": "Посмертный сборник ранее не издававшихся записей Джими Хендрикса, выпущенный в 2018 году. Альбом является третьей частью серии, начатой с 'Valleys of Neptune' и 'People, Hell & Angels', и представляет студийные сессии 1968–1970 годов. Здесь собраны редкие треки, демонстрирующие разные грани таланта Хендрикса — от блюза до психоделического рока, включая совместные записи с Стивеном Стиллсом, Джонни Винтером и Лонни Янгбладом. Содержит версии песен 'Hear My Train A Comin'', 'Mannish Boy', 'Lover Man' и другие.",
+      "label": "Legacy Recordings",
+      "tracklist": {
+        "a": [
+          "Mannish Boy",
+          "Lover Man",
+          "Hear My Train A Comin'",
+          "Stepping Stone"
+        ],
+        "b": [
+          "$20 Fine",
+          "Power of Soul",
+          "Jungle",
+          "Things I Used to Do",
+          "Georgia Blues"
+        ]
+      },
+      "durations": {
+        "a": [
+          "5:01",
+          "3:06",
+          "6:55",
+          "3:13"
+        ],
+        "b": [
+          "4:06",
+          "5:55",
+          "3:28",
+          "3:42",
+          "4:20"
+        ]
+      },
+      "highlights": [
+        "Ранее не издававшиеся записи",
+        "Сессии 1968–1970 годов"
+      ],
+      "awards": [
+        "№1 в чарте Billboard Rock Albums",
+        "Вошёл в топ-10 Billboard 200"
+      ],
+      "tags": [
+        "jimi-hendrix",
+        "рок",
+        "psychedelic-rock",
+        "blues-rock",
+        "2010s",
+        "posthumous",
+        "compilation",
+        "guitar-legend",
+        "experience"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.5,
+      "stock": 2,
+      "barcode": "0190758123415",
+      "edition": "Стандартное издание",
+      "features": [
+        "180-граммовый винил",
+        "Буклет с редкими фотографиями",
+        "Gatefold обложка"
+      ]
+    }
+  },
+  {
+    "id": 86,
+    "title": "The 1st Album",
+    "description": "Modern Talking",
+    "year": 1985,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 5290,
+    "category": "electronic",
+    "image": "/assets/modern-talking-1st.jpg",
+    "badge": "Хит",
+    "detailedInfo": {
+      "description": "Дебютный студийный альбом немецкого диско-дуэта Modern Talking, выпущенный в 1985 году. Альбом мгновенно стал сенсацией в Европе и положил начало эпохе \"евродиско\". Характерное фальцетное пение Томаса Андерса и продакшн Дитера Болена создали уникальное звучание, покорившее миллионы слушателей. Главный хит 'You're My Heart, You're My Soul' стал гимном 80-х, а также популярностью пользовались 'You Can Win If You Want' и 'Cheri, Cheri Lady'.",
+      "label": "Hansa Records",
+      "tracklist": {
+        "a": [
+          "You're My Heart, You're My Soul",
+          "You Can Win If You Want",
+          "There's Too Much Blue in Missing You",
+          "Diamonds Never Made a Lady"
+        ],
+        "b": [
+          "The Night Is Yours — The Night Is Mine",
+          "Do You Wanna",
+          "Lucky Guy",
+          "One in a Million",
+          "Bells of Paris"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:48",
+          "3:55",
+          "4:11",
+          "3:35"
+        ],
+        "b": [
+          "3:36",
+          "4:22",
+          "3:30",
+          "3:41",
+          "4:16"
+        ]
+      },
+      "highlights": [
+        "Главный хит You're My Heart, You're My Soul",
+        "Эра евродиско"
+      ],
+      "awards": [
+        "4× платиновый статус в Германии",
+        "Платиновый статус по всей Европе"
+      ],
+      "tags": [
+        "modern-talking",
+        "электроника",
+        "euro-disco",
+        "synth-pop",
+        "80s",
+        "thomas-anders",
+        "dieter-bohlen",
+        "german",
+        "dieter-bohlen"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Германия",
+      "rating": 4.6,
+      "stock": 5,
+      "barcode": "4007191082145",
+      "edition": "Оригинальное издание 1985 года",
+      "features": [
+        "140-граммовый винил",
+        "Оригинальная обложка",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 87,
+    "title": "The Beatles",
+    "description": "The Beatles (White Album)",
+    "year": 1968,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 8990,
+    "category": "rock",
+    "image": "/assets/white-album.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Девятый студийный альбом группы The Beatles, выпущенный в 1968 году, известный как \"Белый альбом\" благодаря минималистичной обложке работы Ричарда Гамильтона. Двойной альбом демонстрирует эклектичное разнообразие стилей — от хард-рока и блюза до мюзик-холла и авангарда, отражая творческие разногласия внутри группы. Содержит такие бессмертные треки как 'Back in the U.S.S.R.', 'While My Guitar Gently Weeps', 'Blackbird', 'Helter Skelter' и 'Dear Prudence'.",
+      "label": "Apple Records",
+      "tracklist": {
+        "a": [
+          "Back in the U.S.S.R.",
+          "Dear Prudence",
+          "Glass Onion",
+          "Ob-La-Di, Ob-La-Da",
+          "Wild Honey Pie",
+          "The Continuing Story of Bungalow Bill"
+        ],
+        "b": [
+          "While My Guitar Gently Weeps",
+          "Happiness Is a Warm Gun",
+          "Martha My Dear",
+          "I'm So Tired",
+          "Blackbird",
+          "Piggies"
+        ],
+        "c": [
+          "Rocky Raccoon",
+          "Don't Pass Me By",
+          "Why Don't We Do It in the Road?",
+          "I Will",
+          "Julia"
+        ],
+        "d": [
+          "Birthday",
+          "Yer Blues",
+          "Mother Nature's Son",
+          "Everybody's Got Something to Hide Except Me and My Monkey",
+          "Sexy Sadie",
+          "Helter Skelter",
+          "Long, Long, Long"
+        ]
+      },
+      "durations": {
+        "a": [
+          "2:43",
+          "3:56",
+          "2:18",
+          "3:09",
+          "0:52",
+          "3:14"
+        ],
+        "b": [
+          "4:45",
+          "2:44",
+          "4:21",
+          "2:04",
+          "2:19",
+          "2:04"
+        ],
+        "c": [
+          "3:33",
+          "3:42",
+          "1:41",
+          "1:46",
+          "2:54"
+        ],
+        "d": [
+          "2:42",
+          "4:01",
+          "2:48",
+          "2:25",
+          "3:05",
+          "4:29",
+          "3:04"
+        ]
+      },
+      "highlights": [
+        "Культовая белая обложка",
+        "Эклектичное разнообразие стилей"
+      ],
+      "awards": [
+        "8× платиновый статус в США",
+        "2× платиновый статус в Великобритании",
+        "Включен в список 500 величайших альбомов"
+      ],
+      "tags": [
+        "the-beatles",
+        "рок",
+        "classic-rock",
+        "pop-rock",
+        "experimental",
+        "60s",
+        "white-album",
+        "lennon",
+        "mccartney",
+        "harrison",
+        "ringo",
+        "apple-records"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 5,
+      "stock": 2,
+      "barcode": "094638215211",
+      "edition": "Ремастированное издание 2012 года",
+      "features": [
+        "180-граммовый винил",
+        "Двойной альбом (2xLP)",
+        "Эксклюзивный постер с фотографиями"
+      ]
+    }
+  },
+  {
+    "id": 88,
+    "title": "Exciter",
+    "description": "Depeche Mode",
+    "image": "/assets/exciter.jpg",
+    "year": 2001,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "electronic",
+    "badge": null,
+    "detailedInfo": {
+      "description": "Десятый студийный альбом Depeche Mode, выпущенный в 2001 году. Пластинка ознаменовала отход от индустриального звучания в сторону более минималистичного и электронного саунда с элементами IDM и глитча. Продюсером выступил Марк Белл (Flood), а альбом содержит такие треки как 'Dream On', 'I Feel Loved' и 'Freelove'.",
+      "label": "Mute Records",
+      "tracklist": {
+        "a": [
+          "Dream On",
+          "Shine",
+          "The Sweetest Condition",
+          "When the Body Speaks"
+        ],
+        "b": [
+          "The Dead of Night",
+          "Lovetheme",
+          "Freelove",
+          "Comatose",
+          "I Feel Loved",
+          "Breathe",
+          "Easy Tiger"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:19",
+          "5:32",
+          "3:42",
+          "6:01"
+        ],
+        "b": [
+          "4:50",
+          "4:08",
+          "6:10",
+          "3:24",
+          "4:20",
+          "5:17",
+          "2:05"
+        ]
+      },
+      "highlights": [
+        "Продакшн Марка Белла (Flood)",
+        "Эксперименты с IDM"
+      ],
+      "awards": [
+        "Золотой статус в Германии"
+      ],
+      "tags": [
+        "depeche-mode",
+        "электроника",
+        "synth-pop",
+        "idm",
+        "2000s",
+        "mute-records"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.3,
+      "stock": 4,
+      "barcode": "724385624017",
+      "edition": "Оригинальное издание 2001 года",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 89,
+    "title": "Spirit",
+    "description": "Depeche Mode",
+    "image": "/assets/spirit.jpg",
+    "year": 2017,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 5290,
+    "category": "electronic",
+    "badge": "Новинка",
+    "detailedInfo": {
+      "description": "Четырнадцатый студийный альбом Depeche Mode, выпущенный в 2017 году. Это первая работа группы с продюсером Джеймсом Фордом (Simian Mobile Disco), которая привнесла более сырое, гитарное и политически окрашенное звучание. Альбом дебютировал на первом месте в чартах 11 стран и содержит синглы 'Where's the Revolution', 'Going Backwards' и 'Cover Me'.",
+      "label": "Columbia Records",
+      "tracklist": {
+        "a": [
+          "Going Backwards",
+          "Where's the Revolution",
+          "The Worst Crime",
+          "Scum"
+        ],
+        "b": [
+          "You Move",
+          "Cover Me",
+          "Eternal",
+          "Poison Heart",
+          "So Much Love",
+          "No More (This Is the Last Time)",
+          "Fail"
+        ]
+      },
+      "durations": {
+        "a": [
+          "5:43",
+          "4:59",
+          "3:48",
+          "3:14"
+        ],
+        "b": [
+          "3:50",
+          "4:57",
+          "2:24",
+          "2:27",
+          "4:03",
+          "4:12",
+          "5:07"
+        ]
+      },
+      "highlights": [
+        "Продюсирование Джеймса Форда",
+        "Политическая тематика"
+      ],
+      "awards": [
+        "№1 в чартах 11 стран"
+      ],
+      "tags": [
+        "depeche-mode",
+        "электроника",
+        "synth-rock",
+        "2010s",
+        "james-ford",
+        "columbia-records"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.4,
+      "stock": 6,
+      "barcode": "889854368018",
+      "edition": "Стандартное издание",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 90,
+    "title": "Music for the Masses",
+    "description": "Depeche Mode",
+    "image": "/assets/music-for-the-masses.jpg",
+    "year": 1987,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 6190,
+    "category": "electronic",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Шестой студийный альбом Depeche Mode, выпущенный в 1987 году. Эта пластинка стала поворотным моментом в карьере группы, ознаменовав переход к более мрачному, атмосферному и зрелому звучанию. Альбом содержит такие хиты как 'Never Let Me Down Again', 'Strangelove' и 'Behind the Wheel' и предвосхитил грандиозный успех последующего тура и альбома 'Violator'.",
+      "label": "Mute Records",
+      "tracklist": {
+        "a": [
+          "Never Let Me Down Again",
+          "The Things You Said",
+          "Strangelove",
+          "Sacred"
+        ],
+        "b": [
+          "Little 15",
+          "Behind the Wheel",
+          "I Want You Now",
+          "To Have and to Hold",
+          "Nothing"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:47",
+          "4:02",
+          "4:56",
+          "5:09"
+        ],
+        "b": [
+          "4:16",
+          "5:18",
+          "3:58",
+          "5:51",
+          "4:12"
+        ]
+      },
+      "highlights": [
+        "Ключевой альбом в дискографии",
+        "Хит Never Let Me Down Again"
+      ],
+      "awards": [
+        "Платиновый статус в США",
+        "Золотой статус в Германии"
+      ],
+      "tags": [
+        "depeche-mode",
+        "электроника",
+        "synth-pop",
+        "80s",
+        "классика",
+        "mute-records"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.8,
+      "stock": 3,
+      "barcode": "5016025601059",
+      "edition": "Ремастированное издание 2006 года",
+      "features": [
+        "180-граммовый винил",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 91,
+    "title": "See You on the Other Side",
+    "description": "Korn",
+    "image": "/assets/see-you-on-the-other-side.jpg",
+    "year": 2005,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 5890,
+    "category": "metal",
+    "badge": null,
+    "detailedInfo": {
+      "description": "Седьмой студийный альбом американской ню-метал группы Korn, выпущенный в 2005 году. Это первая работа группы после ухода гитариста Брайана \"Хэда\" Уэлча и первый альбом, спродюсированный The Matrix и Джонатаном Дэвисом. Пластинка демонстрирует эксперименты с электроникой и более мелодичным звучанием, сохраняя фирменную тяжесть. Содержит такие хиты как 'Twisted Transistor', 'Coming Undone' и 'Politics'.",
+      "label": "Virgin Records",
+      "tracklist": {
+        "a": [
+          "Twisted Transistor",
+          "Politics",
+          "Hypocrites",
+          "Souvenir"
+        ],
+        "b": [
+          "10 or a 2-Way",
+          "Throw Me Away",
+          "Love Song",
+          "Open Up",
+          "Coming Undone"
+        ]
+      },
+      "durations": {
+        "a": [
+          "3:08",
+          "3:09",
+          "3:49",
+          "3:50"
+        ],
+        "b": [
+          "3:41",
+          "4:24",
+          "4:18",
+          "6:14",
+          "3:19"
+        ]
+      },
+      "highlights": [
+        "Первый альбом без Хэда",
+        "Хит Twisted Transistor"
+      ],
+      "awards": [
+        "Золотой статус в США",
+        "Платиновый статус в Австралии"
+      ],
+      "tags": [
+        "korn",
+        "метал",
+        "nu-metal",
+        "alternative-metal",
+        "2000s",
+        "jonathan-davis",
+        "virgin-records"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.3,
+      "stock": 2,
+      "barcode": "0094633487615",
+      "edition": "Оригинальное издание 2005 года",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 92,
+    "title": "The Nothing",
+    "description": "Korn",
+    "image": "/assets/the-nothing.jpg",
+    "year": 2019,
+    "genre": "Метал",
+    "format": "12\" LP",
+    "price": 6290,
+    "category": "metal",
+    "badge": "Новинка",
+    "detailedInfo": {
+      "description": "Тринадцатый студийный альбом группы Korn, выпущенный в 2019 году. Пластинка посвящена памяти жены Джонатана Дэвиса, Девен, и отражает глубокую личную боль и эмоциональную травму. Альбом вернул группе признание критиков, сочетая классическое звучание Korn с современным продакшном. Содержит такие треки как 'You'll Never Find Me', 'Cold', 'Can You Hear Me' и 'Finally Free'.",
+      "label": "Roadrunner Records",
+      "tracklist": {
+        "a": [
+          "The End Begins",
+          "Cold",
+          "You'll Never Find Me",
+          "The Darkness Is Revealing"
+        ],
+        "b": [
+          "Idiosyncrasy",
+          "The Seduction of Indulgence",
+          "Finally Free",
+          "Can You Hear Me",
+          "The Ringmaster"
+        ]
+      },
+      "durations": {
+        "a": [
+          "1:31",
+          "3:46",
+          "3:41",
+          "3:40"
+        ],
+        "b": [
+          "4:39",
+          "3:46",
+          "3:53",
+          "2:53",
+          "3:00"
+        ]
+      },
+      "highlights": [
+        "Посвящение жене Джонатана",
+        "Возвращение к форме"
+      ],
+      "awards": [
+        "№1 в чарте Billboard Hard Rock"
+      ],
+      "tags": [
+        "korn",
+        "метал",
+        "nu-metal",
+        "alternative-metal",
+        "2010s",
+        "roadrunner-records"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "США",
+      "rating": 4.6,
+      "stock": 5,
+      "barcode": "016861753220",
+      "edition": "Стандартное издание",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": 93,
+    "title": "Hot Space",
+    "description": "Queen",
+    "image": "/assets/hot-space.jpg",
+    "year": 1982,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "rock",
+    "badge": "Редкий",
+    "detailedInfo": {
+      "description": "Десятый студийный альбом британской рок-группы Queen, выпущенный в 1982 году. Пластинка вызвала споры среди поклонников из-за сильного влияния диско, фанка и R&B, особенно заметного в главном хите 'Another One Bites the Dust' (записанном еще для предыдущего альбома) и совместной работе с Дэвидом Боуи — 'Under Pressure'. Несмотря на смешанные отзывы, альбом содержит интересные эксперименты группы со звуком.",
+      "label": "EMI Records",
+      "tracklist": {
+        "a": [
+          "Staying Power",
+          "Dancer",
+          "Back Chat",
+          "Body Language",
+          "Action This Day"
+        ],
+        "b": [
+          "Put Out the Fire",
+          "Life Is Real (Song for Lennon)",
+          "Calling All Girls",
+          "Las Palabras de Amor (The Words of Love)",
+          "Cool Cat",
+          "Under Pressure"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:10",
+          "3:48",
+          "4:36",
+          "4:33",
+          "3:32"
+        ],
+        "b": [
+          "3:19",
+          "3:32",
+          "3:52",
+          "4:31",
+          "3:26",
+          "4:02"
+        ]
+      },
+      "highlights": [
+        "Эксперименты с фанком и диско",
+        "Дуэт с Дэвидом Боуи"
+      ],
+      "awards": [
+        "Серебряный статус в Великобритании"
+      ],
+      "tags": [
+        "queen",
+        "рок",
+        "classic-rock",
+        "funk-rock",
+        "80s",
+        "freddie-mercury",
+        "david-bowie",
+        "brian-may",
+        "emi"
+      ],
+      "weight": "140 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.2,
+      "stock": 1,
+      "barcode": "5099924151218",
+      "edition": "Оригинальное издание 1982 года",
+      "features": [
+        "140-граммовый винил",
+        "Вкладыш с текстами"
+      ]
+    }
+  },
+  {
+    "id": "94",
+    "title": "Black Celebration",
+    "description": "Depeche Mode",
+    "year": 1986,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "electronic",
+    "image": "/assets/black-celebration.jpg",
+    "badge": "Классика",
+    "detailedInfo": {
+      "description": "Пятый студийный альбом Depeche Mode, выпущенный в 1986 году. Эта пластинка стала поворотным моментом в творчестве группы, ознаменовав окончательный переход от синти-попа к более мрачному, атмосферному и индустриальному звучанию. Альбом отличается глубокими текстами, экспериментальными звуковыми ландшафтами и задал тон всему последующему творчеству коллектива. Содержит такие культовые треки как 'Stripped', 'A Question of Lust', 'A Question of Time' и заглавный 'Black Celebration'.",
+      "label": "Mute Records",
+      "tracklist": {
+        "a": [
+          "Black Celebration",
+          "Fly on the Windscreen",
+          "A Question of Lust",
+          "Sometimes",
+          "It Doesn't Matter Two"
+        ],
+        "b": [
+          "A Question of Time",
+          "Stripped",
+          "Here Is the House",
+          "World Full of Nothing",
+          "Dressed in Black",
+          "New Dress"
+        ]
+      },
+      "durations": {
+        "a": [
+          "4:55",
+          "5:18",
+          "4:22",
+          "1:53",
+          "2:50"
+        ],
+        "b": [
+          "4:10",
+          "4:16",
+          "4:15",
+          "2:50",
+          "2:32",
+          "3:42"
+        ]
+      },
+      "highlights": [
+        "Рождение мрачного звучания",
+        "Культовый трек Stripped"
+      ],
+      "awards": [
+        "Золотой статус в Германии",
+        "Платиновый статус во Франции"
+      ],
+      "tags": [
+        "depeche-mode",
+        "электроника",
+        "synth-pop",
+        "dark-wave",
+        "industrial",
+        "80s",
+        "классика",
+        "mute-records",
+        "alan-wilder"
+      ],
+      "weight": "180 грамм",
+      "speed": "33⅓ об/мин",
+      "country": "Великобритания",
+      "rating": 4.9,
+      "stock": 3,
+      "barcode": "5016025601059",
+      "edition": "Ремастированное издание 2007 года",
+      "features": [
+        "180-граммовый винил",
+        "Вкладыш с текстами",
+        "Gatefold обложка"
+      ]
+    }
   }
 ]
