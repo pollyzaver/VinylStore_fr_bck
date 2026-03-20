@@ -15,16 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ===== CORS (универсальный для продакшена) =====
-app.use(cors({
-  origin: [
-    'http://localhost:3001',
-    'https://vinyl-store-frontend.vercel.app',
-    'https://vinylstore-fr-bck.onrender.com'
-  ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors({ origin: '*' }));
 
 app.use(express.json());
 
