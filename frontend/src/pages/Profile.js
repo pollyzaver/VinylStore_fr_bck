@@ -62,7 +62,7 @@ const Profile = ({ onNavigate }) => {
     try {
       console.log('🤖 Запрашиваем AI-рекомендации для пользователя:', user.id);
       
-      const response = await axios.post('http://localhost:3000/api/ai/smart-recommendations', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/ai/smart-recommendations`, {
         userId: user.id
       });
       
