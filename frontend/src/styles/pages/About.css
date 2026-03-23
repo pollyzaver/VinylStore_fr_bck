@@ -485,3 +485,213 @@
     display: none;
   }
 }
+
+/* ===== МОБИЛЬНАЯ КАРУСЕЛЬ СО СТРЕЛКАМИ ===== */
+.timeline-carousel {
+  position: relative;
+  margin: 20px 0 30px;
+  padding: 10px 0 30px;
+}
+
+.about-swiper {
+  padding-bottom: 30px !important;
+}
+
+.timeline-card {
+  background: var(--vinyl-card);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+  margin: 0 5px;
+}
+
+/* Красивый переливающийся год */
+.timeline-card-year {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.year-glow {
+  display: inline-block;
+  background: linear-gradient(135deg, #b30000, #ff6b6b, #b30000);
+  background-size: 200% 200%;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(179, 0, 0, 0.4);
+  animation: gradientShift 3s ease infinite, subtlePulse 2s ease-in-out infinite;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes subtlePulse {
+  0% { transform: scale(1); box-shadow: 0 4px 15px rgba(179, 0, 0, 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 6px 20px rgba(179, 0, 0, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 4px 15px rgba(179, 0, 0, 0.4); }
+}
+
+.timeline-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.timeline-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.timeline-card:hover .timeline-card-image img {
+  transform: scale(1.05);
+}
+
+.timeline-card-content {
+  padding: 20px;
+}
+
+.timeline-card-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.timeline-card-content p {
+  color: var(--vinyl-muted);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* ===== КАСТОМНЫЕ СТРЕЛКИ ===== */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.swiper-button-prev-custom {
+  left: 5px;
+}
+
+.swiper-button-next-custom {
+  right: 5px;
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+  background: var(--vinyl-red);
+  border-color: var(--vinyl-red);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.swiper-button-prev-custom svg,
+.swiper-button-next-custom svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+/* ===== ТОЧКИ ПАГИНАЦИИ (прижаты к карусели) ===== */
+.swiper-pagination {
+  position: relative !important;
+  bottom: 0 !important;
+  margin-top: 15px;
+  padding-bottom: 5px;
+}
+
+.swiper-pagination-bullet {
+  background: var(--vinyl-muted) !important;
+  opacity: 0.5;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s ease;
+  margin: 0 6px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--vinyl-red) !important;
+  opacity: 1;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* ===== АДАПТАЦИЯ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ ===== */
+@media (max-width: 480px) {
+  .timeline-carousel {
+    margin: 10px 0 20px;
+  }
+  
+  .timeline-card-content {
+    padding: 16px;
+  }
+  
+  .timeline-card-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .timeline-card-content p {
+    font-size: 0.85rem;
+  }
+  
+  .year-glow {
+    top: 10px;
+    right: 10px;
+    padding: 5px 12px;
+    font-size: 1rem;
+  }
+  
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .swiper-button-prev-custom svg,
+  .swiper-button-next-custom svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .swiper-pagination {
+    margin-top: 10px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    margin: 0 4px !important;
+  }
+  
+  .swiper-pagination-bullet-active {
+    width: 18px !important;
+  }
+}
