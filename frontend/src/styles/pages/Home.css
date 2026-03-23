@@ -597,3 +597,126 @@
     top: -80px;
   }
 }
+
+/* Предотвращаем конфликт при нажатии на кнопки */
+.product-card button {
+  touch-action: manipulation;
+}
+
+.pagination button {
+  touch-action: manipulation;
+  user-select: none;
+}
+
+/* Улучшаем тач-область на мобилках */
+@media (max-width: 768px) {
+  .pagination button,
+  .filter-button,
+  .favorite-button,
+  .add-to-cart-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Десктопные фильтры — показываем только на больших экранах */
+.desktop-filters {
+  display: flex;
+}
+
+.mobile-filters {
+  display: none;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.mobile-filters-btn {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--vinyl-light-bg);
+  border: 1px solid var(--vinyl-border);
+  border-radius: 30px;
+  color: white;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-filters-btn:hover {
+  border-color: var(--vinyl-primary);
+  background: rgba(255, 60, 60, 0.1);
+}
+
+.mobile-filters-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--vinyl-card);
+  border: 1px solid var(--vinyl-border);
+  border-radius: 16px;
+  padding: 8px;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-filter-option {
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: var(--vinyl-muted);
+  text-align: left;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.mobile-filter-option:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.mobile-filter-option.active {
+  background: var(--vinyl-primary);
+  color: white;
+}
+
+/* Мобильная версия (до 768px) */
+@media (max-width: 768px) {
+  .desktop-filters {
+    display: none;
+  }
+  
+  .mobile-filters {
+    display: block;
+  }
+}
+
+/* Увеличиваем поисковую строку на мобилках */
+@media (max-width: 768px) {
+  .search-container {
+    padding: 0 10px;
+    margin-bottom: 25px !important;
+  }
+
+  .search-container div {
+    padding: 5px 5px 5px 18px !important;
+    border-radius: 50px;
+  }
+
+  .search-container input {
+    font-size: 1rem !important;
+    padding: 12px 0 !important;
+  }
+
+  .search-container input::placeholder {
+    font-size: 0.9rem;
+  }
+}

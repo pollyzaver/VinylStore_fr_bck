@@ -27,6 +27,7 @@ const Home = ({ onNavigate }) => {
   // Ref для секции каталога
   const catalogRef = useRef(null);
   const searchInputRef = useRef(null);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // Загружаем данные с бэкенда при монтировании компонента
   useEffect(() => {
@@ -151,22 +152,31 @@ const Home = ({ onNavigate }) => {
     }
   };
 
-  // Функция для прокрутки к каталогу
+  // Функция для прокрутки к каталогу (только если страница изменилась и не первая)
   const scrollToCatalog = () => {
-    if (catalogRef.current) {
-      catalogRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+    if (catalogRef.current && currentPage !== 1) {
+      // Небольшая задержка для корректной прокрутки
+      setTimeout(() => {
+        catalogRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
     }
   };
 
-  // Прокрутка при смене страницы
+  // Прокрутка при смене страницы (только если не первая страница)
   useEffect(() => {
     if (currentPage > 1) {
       scrollToCatalog();
     }
   }, [currentPage]);
+
+  // Также добавьте обработчик для кликов по пагинации, чтобы предотвратить конфликты
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    // Не вызываем scrollToCatalog здесь, он сработает в useEffect
+  };
 
   // Если грузится - показываем загрузку
   if (loading) {
@@ -373,7 +383,8 @@ const Home = ({ onNavigate }) => {
               )}
             </div>
 
-            <div className="catalog-filters">
+            {/* Фильтры - десктопная версия */}
+            <div className="catalog-filters desktop-filters">
               {filters.map(filter => (
                 <button
                   key={filter.key}
@@ -385,6 +396,40 @@ const Home = ({ onNavigate }) => {
                   {filter.label}
                 </button>
               ))}
+            </div>
+
+            {/* Фильтры - мобильная версия (кнопка с выпадающим меню) */}
+            <div className="mobile-filters">
+              <button 
+                className="mobile-filters-btn"
+                onClick={() => setShowMobileFilters(!showMobileFilters)}
+                aria-expanded={showMobileFilters}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 6h18M6 12h12M10 18h4" strokeLinecap="round"/>
+                </svg>
+                Фильтр: {filters.find(f => f.key === activeFilter)?.label || 'Все'}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="6 9 12 15 18 9" strokeLinecap="round"/>
+                </svg>
+              </button>
+              
+              {showMobileFilters && (
+                <div className="mobile-filters-dropdown">
+                  {filters.map(filter => (
+                    <button
+                      key={filter.key}
+                      className={`mobile-filter-option ${activeFilter === filter.key ? 'active' : ''}`}
+                      onClick={() => {
+                        setActiveFilter(filter.key);
+                        setShowMobileFilters(false);
+                      }}
+                    >
+                      {filter.label}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {filteredProducts.length === 0 ? (
@@ -417,7 +462,7 @@ const Home = ({ onNavigate }) => {
                     <button 
                       className="pagination-prev" 
                       disabled={currentPage === 1}
-                      onClick={() => setCurrentPage(prev => prev - 1)}
+                      onClick={() => handlePageChange(currentPage - 1)}
                     >
                       ← Назад
                     </button>
@@ -426,7 +471,7 @@ const Home = ({ onNavigate }) => {
                         <button
                           key={page}
                           className={`pagination-page ${currentPage === page ? 'active' : ''}`}
-                          onClick={() => setCurrentPage(page)}
+                          onClick={() => handlePageChange(page)}
                         >
                           {page}
                         </button>
@@ -435,7 +480,7 @@ const Home = ({ onNavigate }) => {
                     <button 
                       className="pagination-next" 
                       disabled={currentPage === totalPages}
-                      onClick={() => setCurrentPage(prev => prev + 1)}
+                      onClick={() => handlePageChange(currentPage + 1)}
                     >
                       Вперед →
                     </button>

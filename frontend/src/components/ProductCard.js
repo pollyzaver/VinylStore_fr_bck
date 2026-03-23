@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
 
@@ -6,12 +6,13 @@ const ProductCard = ({ product, onProductClick }) => {
   const { addToCart } = useCart();
   const { addToFavorites, removeFromFavorites, isInFavorites } = useFavorites();
   const [isAdding, setIsAdding] = useState(false);
-  
-  // Используем функцию из контекста для проверки, а не локальное состояние
-  const isFavorite = isInFavorites(product.id);
+  const [isFavorite, setIsFavorite] = useState(isInFavorites(product.id));
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
+    e.preventDefault();
     setIsAdding(true);
     addToCart(product);
     
@@ -22,19 +23,49 @@ const ProductCard = ({ product, onProductClick }) => {
 
   const handleToggleFavorite = async (e) => {
     e.stopPropagation();
+    e.preventDefault();
     
     if (isFavorite) {
-      await removeFromFavorites(product.id);
+      const removed = await removeFromFavorites(product.id);
+      if (removed) setIsFavorite(false);
     } else {
-      await addToFavorites(product);
+      const added = await addToFavorites(product);
+      if (added) setIsFavorite(true);
     }
-    // Не обновляем локальное состояние, полагаемся на контекст
   };
 
-  const handleCardClick = () => {
+  const handleCardClick = (e) => {
+    // Не открываем модалку, если клик был по кнопке
+    if (e.target.closest('.favorite-button') || e.target.closest('.add-to-cart-btn')) {
+      return;
+    }
     if (onProductClick) {
       onProductClick(product);
     }
+  };
+
+  // Обработка тач-событий для мобильных
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchEnd - touchStart;
+    // Если свайп (скролл) - не открываем модалку
+    if (Math.abs(distance) > 10) return;
+    
+    if (!e.target.closest('.favorite-button') && !e.target.closest('.add-to-cart-btn')) {
+      if (onProductClick) {
+        onProductClick(product);
+      }
+    }
+    setTouchStart(null);
+    setTouchEnd(null);
   };
 
   return (
@@ -42,11 +73,18 @@ const ProductCard = ({ product, onProductClick }) => {
       className="product-card" 
       data-category={product.category}
       onClick={handleCardClick}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       style={{ cursor: 'pointer', position: 'relative' }}
     >
       <button 
         className={`favorite-button ${isFavorite ? 'active' : ''}`}
         onClick={handleToggleFavorite}
+        onTouchEnd={(e) => {
+          e.stopPropagation();
+          handleToggleFavorite(e);
+        }}
         aria-label={isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
         style={{
           position: 'absolute',
@@ -102,6 +140,10 @@ const ProductCard = ({ product, onProductClick }) => {
           <button 
             className={`add-to-cart-btn ${isAdding ? 'adding' : ''}`}
             onClick={handleAddToCart}
+            onTouchEnd={(e) => {
+              e.stopPropagation();
+              handleAddToCart(e);
+            }}
             aria-label={`Добавить ${product.title} в корзину за ${product.price} рублей`}
             disabled={isAdding}
           >
