@@ -2,15 +2,19 @@ import React, { createContext, useContext, useReducer } from 'react';
 
 const CartContext = createContext();
 
+// Открытка к пластинке стоит отдельно: 100 ₽ за каждую открытку в заказе.
+export const CARD_PRICE = 100;
+
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
-      const existingItem = state.items.find(item => item.id === action.payload.id);
+      const keyOf = i => i.lineId || i.id;
+      const existingItem = state.items.find(item => keyOf(item) === keyOf(action.payload));
       if (existingItem) {
         return {
           ...state,
           items: state.items.map(item =>
-            item.id === action.payload.id
+            keyOf(item) === keyOf(action.payload)
               ? { ...item, quantity: item.quantity + 1 }
               : item
           )
@@ -24,14 +28,24 @@ const cartReducer = (state, action) => {
     case 'REMOVE_FROM_CART':
       return {
         ...state,
-        items: state.items.filter(item => item.id !== action.payload)
+        items: state.items.filter(item => (item.lineId || item.id) !== action.payload)
+      };
+
+    case 'REMOVE_CARD':
+      return {
+        ...state,
+        items: state.items.map(item => {
+          if ((item.lineId || item.id) !== action.payload) return item;
+          const { card, ...rest } = item;
+          return rest;
+        })
       };
 
     case 'UPDATE_QUANTITY':
       return {
         ...state,
         items: state.items.map(item =>
-          item.id === action.payload.id
+          (item.lineId || item.id) === action.payload.id
             ? { ...item, quantity: action.payload.quantity }
             : item
         )
@@ -59,6 +73,10 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
   };
 
+  const removeCard = (lineId) => {
+    dispatch({ type: 'REMOVE_CARD', payload: lineId });
+  };
+
   const updateQuantity = (productId, quantity) => {
     if (quantity <= 0) {
       removeFromCart(productId);
@@ -72,7 +90,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const getCartTotal = () => {
-    return cart.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cart.items.reduce((total, item) => total + ((item.price + (item.card ? CARD_PRICE : 0)) * item.quantity), 0);
   };
 
   const getCartItemsCount = () => {
@@ -84,6 +102,7 @@ export const CartProvider = ({ children }) => {
       cart,
       addToCart,
       removeFromCart,
+      removeCard,
       updateQuantity,
       clearCart,
       getCartTotal,

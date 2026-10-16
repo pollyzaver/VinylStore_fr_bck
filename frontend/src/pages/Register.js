@@ -113,7 +113,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
               width: '80px',
               height: '80px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #222, #111)',
+              background: 'linear-gradient(135deg, #2a140b, #120503)',
               margin: '0 auto 20px',
               border: '3px solid var(--vinyl-red)',
               display: 'flex',
@@ -123,7 +123,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
               <span style={{ fontSize: '32px' }}>🎵</span>
             </div>
             <h1 className="section-title" style={{ marginBottom: '10px' }}>
-              Создать Vinyl ID
+              Создать аккаунт
             </h1>
             <p className="section-subtitle" style={{ marginBottom: '30px' }}>
               Присоединяйтесь к сообществу
@@ -142,7 +142,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
               <div style={{
                 background: 'rgba(255, 0, 0, 0.1)',
                 border: '1px solid var(--vinyl-red)',
-                color: '#ff4444',
+                color: '#e0545a',
                 padding: '12px',
                 borderRadius: '10px',
                 marginBottom: '20px',

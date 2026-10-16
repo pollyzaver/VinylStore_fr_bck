@@ -32,15 +32,12 @@ const Login = ({ onNavigate }) => {
       setError('');
       
       const response = await login(formData);
-      console.log('✅ Успешный вход:', response);
       
       // Функция для перенаправления
       const goTo = (page) => {
-        console.log(`➡️ Перенаправление на ${page}`);
         if (onNavigate) {
           onNavigate(page);
         } else {
-          console.log('⚠️ onNavigate не найдена, использую window.location');
           window.location.href = `/${page}`;
         }
       };
@@ -78,7 +75,7 @@ const Login = ({ onNavigate }) => {
               width: '80px',
               height: '80px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #222, #111)',
+              background: 'linear-gradient(135deg, #2a140b, #120503)',
               margin: '0 auto 20px',
               border: '3px solid var(--vinyl-red)',
               boxShadow: '0 0 30px rgba(255,0,0,0.3)',
@@ -98,7 +95,7 @@ const Login = ({ onNavigate }) => {
               С возвращением!
             </h1>
             <p className="section-subtitle" style={{ marginBottom: '30px' }}>
-              Войдите в свой Vinyl ID
+              Войдите в аккаунт
             </p>
           </div>
 
@@ -114,7 +111,7 @@ const Login = ({ onNavigate }) => {
               <div style={{
                 background: 'rgba(255, 0, 0, 0.1)',
                 border: '1px solid var(--vinyl-red)',
-                color: '#ff4444',
+                color: '#e0545a',
                 padding: '12px',
                 borderRadius: '10px',
                 marginBottom: '20px',

@@ -88,19 +88,16 @@ export const api = {
   // 👇 НОВЫЕ МЕТОДЫ ДЛЯ ИЗБРАННОГО
   addToFavorites: async (productId) => {
     // TODO: Реализовать на бэкенде
-    console.log('Add to favorites:', productId);
     return { success: true };
   },
 
   removeFromFavorites: async (productId) => {
     // TODO: Реализовать на бэкенде
-    console.log('Remove from favorites:', productId);
     return { success: true };
   },
 
   getFavorites: async () => {
     // TODO: Реализовать на бэкенде
-    console.log('Get favorites');
     return [];
   }
 };

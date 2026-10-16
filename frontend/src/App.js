@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Home from './pages/Home';
-import About from './pages/About';
-import Contacts from './pages/Contacts';
+import Solco from './pages/Solco';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Test from './pages/Test';
+import Taste from './pages/Taste';
+import Events from './pages/Events';
 import Profile from './pages/Profile';
 import { FavoritesProvider } from './context/FavoritesContext';
-import Favorites from './pages/Favorites';
 
 import './styles/global/variables.css';
 import './styles/global/reset.css';
 import './styles/global/utilities.css';
+import './styles/global/brand.css';
 import './styles/components/Buttons.css';
 import './styles/components/Header.css';
 import './styles/components/Footer.css';
@@ -28,36 +28,37 @@ import './styles/components/Pagination.css';
 import './styles/components/Accordion.css';
 import './styles/components/Forms.css';
 import './styles/pages/Home.css';
-import './styles/pages/About.css';
-import './styles/pages/Contacts.css';
+import './styles/pages/Hero.css';
+import './styles/pages/Solco.css';
 import './styles/pages/Auth.css';
 import './styles/pages/Profile.css';
+import './styles/global/brand-overrides.css';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
 
-  console.log('Current page:', currentPage);
+  useEffect(() => { if (currentPage !== 'catalog') window.scrollTo({ top: 0 }); }, [currentPage]);
 
   const renderPage = () => {
-    console.log('Rendering page:', currentPage);
     
     switch (currentPage) {
       case 'about':
-        return <About onNavigate={setCurrentPage} />;
       case 'contacts':
-        return <Contacts onNavigate={setCurrentPage} />;
+        return <Solco onNavigate={setCurrentPage} />;
+      case 'events':
+        return <Events onNavigate={setCurrentPage} />;
+      case 'catalog':
+        return <Home onNavigate={setCurrentPage} focusCatalog />;
       case 'register':
         return <Register onNavigate={setCurrentPage} />;
       case 'login':
         return <Login onNavigate={setCurrentPage} />;
       case 'favorites':
-        return <Favorites onNavigate={setCurrentPage} />;
+        return <Profile onNavigate={setCurrentPage} />;
       case 'test':
-        console.log('✅ Rendering Test component');
-        return <Test onNavigate={setCurrentPage} />;
+        return <Taste onNavigate={setCurrentPage} />;
       case 'profile':
-        console.log('✅ Rendering Profile component');
         return <Profile onNavigate={setCurrentPage} />;
       default:
         return <Home onNavigate={setCurrentPage} />;
@@ -76,7 +77,7 @@ function App() {
             />
             {renderPage()}
             <Footer />
-            <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+            <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} onNavigate={setCurrentPage} />
           </div>
         </CartProvider>
       </FavoritesProvider>
