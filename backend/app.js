@@ -8,8 +8,8 @@ const specs = require('./swagger');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
-const profileRoutes = require('./routes/profile');
-const aiRoutes = require('./routes/ai');
+const tasteRoutes = require('./routes/taste');
+const requireAdmin = require('./middleware/admin');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -54,8 +54,7 @@ async function writeProducts(products) {
 
 // ===== ROUTES =====
 app.use('/api/auth', authRoutes);
-app.use('/api/profile', profileRoutes);
-app.use('/api/ai', aiRoutes);
+app.use('/api/taste', tasteRoutes);
 
 // ===== PRODUCTS =====
 
@@ -86,7 +85,7 @@ app.get('/api/products/:id', async (req, res) => {
 });
 
 // CREATE
-app.post('/api/products', async (req, res) => {
+app.post('/api/products', requireAdmin, async (req, res) => {
   const products = await readProducts();
   const { title, description, price } = req.body;
 
@@ -109,7 +108,7 @@ app.post('/api/products', async (req, res) => {
 });
 
 // DELETE
-app.delete('/api/products/:id', async (req, res) => {
+app.delete('/api/products/:id', requireAdmin, async (req, res) => {
   const products = await readProducts();
   const filtered = products.filter(p => p.id != req.params.id);
 

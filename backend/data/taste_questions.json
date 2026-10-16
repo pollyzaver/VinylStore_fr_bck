@@ -1,0 +1,963 @@
+{
+  "questions": [
+    {
+      "id": "weather",
+      "kind": "scene",
+      "required": true,
+      "title": "Первый кадр",
+      "question": "Какой кадр больше всего похож на твою музыку?",
+      "options": [
+        {
+          "id": "storm",
+          "label": "Гроза над городом",
+          "signals": [
+            [
+              "energy",
+              9,
+              1
+            ],
+            [
+              "dark",
+              7,
+              0.8
+            ],
+            [
+              "raw",
+              7,
+              0.6
+            ]
+          ]
+        },
+        {
+          "id": "fog",
+          "label": "Туман над рекой",
+          "signals": [
+            [
+              "energy",
+              2,
+              1
+            ],
+            [
+              "dark",
+              6,
+              0.8
+            ],
+            [
+              "density",
+              6,
+              0.5
+            ],
+            [
+              "vocal",
+              3,
+              0.4
+            ]
+          ]
+        },
+        {
+          "id": "morning",
+          "label": "Яркое утро после дождя",
+          "signals": [
+            [
+              "dark",
+              1,
+              1
+            ],
+            [
+              "energy",
+              6,
+              0.8
+            ],
+            [
+              "melodic",
+              8,
+              0.6
+            ]
+          ]
+        },
+        {
+          "id": "winter",
+          "label": "Зимний вечер у окна",
+          "signals": [
+            [
+              "energy",
+              2,
+              1
+            ],
+            [
+              "organic",
+              8,
+              0.6
+            ],
+            [
+              "melodic",
+              7,
+              0.6
+            ],
+            [
+              "dark",
+              4,
+              0.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "volume",
+      "kind": "slider",
+      "required": true,
+      "title": "Ручка громкости",
+      "question": "Куда ты выкрутишь ручку, когда играет любимая песня?",
+      "ui": {
+        "left": "Едва слышно",
+        "right": "Чтобы дрожали стёкла"
+      },
+      "map": [
+        {
+          "axis": "energy",
+          "lo": 1,
+          "hi": 9,
+          "w": 1.6
+        },
+        {
+          "axis": "raw",
+          "lo": 2,
+          "hi": 7,
+          "w": 0.5
+        }
+      ]
+    },
+    {
+      "id": "tempo",
+      "kind": "tap",
+      "required": false,
+      "title": "Ритм",
+      "question": "Постучи в такт любимой песне",
+      "bpm": [
+        60,
+        180
+      ],
+      "ui": {
+        "hint": "Стучи по кругу пять раз подряд",
+        "skip": "Не могу поймать ритм"
+      },
+      "map": [
+        {
+          "axis": "tempo",
+          "lo": 1,
+          "hi": 9,
+          "w": 1.6
+        }
+      ]
+    },
+    {
+      "id": "place",
+      "kind": "scene",
+      "required": true,
+      "title": "Где это играет",
+      "question": "Где ты чаще всего слушаешь музыку?",
+      "options": [
+        {
+          "id": "home",
+          "label": "Дома, в наушниках, чтобы никто не мешал",
+          "signals": [
+            [
+              "tempo",
+              3,
+              0.8
+            ],
+            [
+              "density",
+              7,
+              0.6
+            ],
+            [
+              "energy",
+              3,
+              0.5
+            ]
+          ]
+        },
+        {
+          "id": "party",
+          "label": "С друзьями, чтобы все двигались",
+          "signals": [
+            [
+              "tempo",
+              8,
+              0.9
+            ],
+            [
+              "energy",
+              8,
+              0.7
+            ]
+          ]
+        },
+        {
+          "id": "road",
+          "label": "В дороге: окно, город, километры",
+          "signals": [
+            [
+              "tempo",
+              6,
+              0.8
+            ],
+            [
+              "melodic",
+              6,
+              0.4
+            ]
+          ]
+        },
+        {
+          "id": "kitchen",
+          "label": "На кухне, пока готовлю или убираюсь",
+          "signals": [
+            [
+              "tempo",
+              4,
+              0.8
+            ],
+            [
+              "organic",
+              8,
+              0.5
+            ],
+            [
+              "melodic",
+              8,
+              0.6
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hook",
+      "kind": "scene",
+      "required": true,
+      "title": "Голос",
+      "question": "Что в музыке для тебя главное?",
+      "options": [
+        {
+          "id": "voice",
+          "label": "Голос и слова",
+          "signals": [
+            [
+              "vocal",
+              9.5,
+              1.6
+            ],
+            [
+              "melodic",
+              7,
+              0.5
+            ]
+          ]
+        },
+        {
+          "id": "atmos",
+          "label": "Звук и атмосфера, слова неважны",
+          "signals": [
+            [
+              "vocal",
+              1.5,
+              1.6
+            ],
+            [
+              "density",
+              7,
+              0.6
+            ]
+          ]
+        },
+        {
+          "id": "drive",
+          "label": "Ритм и драйв",
+          "signals": [
+            [
+              "vocal",
+              4,
+              1.0
+            ],
+            [
+              "tempo",
+              7,
+              0.6
+            ],
+            [
+              "energy",
+              7,
+              0.6
+            ]
+          ]
+        },
+        {
+          "id": "players",
+          "label": "Игра музыкантов вживую",
+          "signals": [
+            [
+              "vocal",
+              3,
+              1.2
+            ],
+            [
+              "organic",
+              10,
+              1.0
+            ],
+            [
+              "raw",
+              5,
+              0.3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "song",
+      "kind": "scene",
+      "required": true,
+      "title": "Что дослушаешь",
+      "question": "Какой трек ты дослушаешь до конца?",
+      "options": [
+        {
+          "id": "chorus",
+          "label": "Песня с запоминающимся припевом",
+          "signals": [
+            [
+              "melodic",
+              9.5,
+              1.6
+            ],
+            [
+              "vocal",
+              7,
+              0.4
+            ]
+          ]
+        },
+        {
+          "id": "epic",
+          "label": "Длинная вещь, которая медленно нарастает",
+          "signals": [
+            [
+              "melodic",
+              5,
+              1.0
+            ],
+            [
+              "density",
+              8,
+              0.8
+            ],
+            [
+              "tempo",
+              3,
+              0.5
+            ]
+          ]
+        },
+        {
+          "id": "beat",
+          "label": "Бит и ритм, мелодия не нужна",
+          "signals": [
+            [
+              "melodic",
+              2.5,
+              1.6
+            ],
+            [
+              "tempo",
+              7,
+              0.5
+            ],
+            [
+              "organic",
+              1,
+              0.5
+            ]
+          ]
+        },
+        {
+          "id": "noise",
+          "label": "Шум и эксперимент",
+          "signals": [
+            [
+              "melodic",
+              1,
+              1.6
+            ],
+            [
+              "raw",
+              9,
+              0.9
+            ],
+            [
+              "dark",
+              6,
+              0.4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sound",
+      "kind": "scene",
+      "required": true,
+      "title": "Звук",
+      "question": "Какой звук приятнее?",
+      "options": [
+        {
+          "id": "clean",
+          "label": "Чистый и отполированный",
+          "signals": [
+            [
+              "raw",
+              1,
+              1.2
+            ],
+            [
+              "organic",
+              4,
+              0.8
+            ]
+          ]
+        },
+        {
+          "id": "rough",
+          "label": "Живой, с шероховатостями",
+          "signals": [
+            [
+              "raw",
+              9,
+              1.4
+            ],
+            [
+              "organic",
+              9,
+              0.9
+            ]
+          ]
+        },
+        {
+          "id": "future",
+          "label": "Синтетический, из будущего",
+          "signals": [
+            [
+              "organic",
+              0.5,
+              1.5
+            ],
+            [
+              "raw",
+              1,
+              0.8
+            ]
+          ]
+        },
+        {
+          "id": "film",
+          "label": "Тёплый, как старая плёнка",
+          "signals": [
+            [
+              "organic",
+              9,
+              1.2
+            ],
+            [
+              "raw",
+              4,
+              0.8
+            ],
+            [
+              "dark",
+              3,
+              0.4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "band",
+      "kind": "mix",
+      "required": true,
+      "max": 6,
+      "title": "Состав",
+      "question": "Собери состав своей любимой песни: что в ней играет?",
+      "w": {
+        "organic": 1.2,
+        "melodic": 0.6,
+        "raw": 0.8,
+        "energy": 0.4,
+        "vocal": 0.8,
+        "density": 1.5
+      },
+      "options": [
+        {
+          "id": "guitar",
+          "label": "Акустическая гитара",
+          "vals": {
+            "organic": 9,
+            "melodic": 7
+          }
+        },
+        {
+          "id": "dist",
+          "label": "Электрогитара с перегрузом",
+          "vals": {
+            "organic": 9,
+            "raw": 8,
+            "energy": 7
+          }
+        },
+        {
+          "id": "bass",
+          "label": "Бас",
+          "vals": {
+            "organic": 8
+          }
+        },
+        {
+          "id": "drums",
+          "label": "Живые барабаны",
+          "vals": {
+            "organic": 9,
+            "energy": 6
+          }
+        },
+        {
+          "id": "machine",
+          "label": "Драм-машина",
+          "vals": {
+            "organic": 0
+          }
+        },
+        {
+          "id": "synth",
+          "label": "Синтезаторы",
+          "vals": {
+            "organic": 0,
+            "melodic": 6
+          }
+        },
+        {
+          "id": "piano",
+          "label": "Пианино",
+          "vals": {
+            "organic": 9,
+            "melodic": 8
+          }
+        },
+        {
+          "id": "strings",
+          "label": "Струнные",
+          "vals": {
+            "organic": 10,
+            "melodic": 8
+          }
+        },
+        {
+          "id": "brass",
+          "label": "Духовые",
+          "vals": {
+            "organic": 10
+          }
+        },
+        {
+          "id": "voice",
+          "label": "Голос",
+          "vals": {
+            "vocal": 9
+          }
+        }
+      ]
+    },
+    {
+      "id": "mood",
+      "kind": "pad",
+      "required": true,
+      "title": "Настроение",
+      "question": "Поставь точку: какое настроение у музыки, которую слушаешь чаще всего?",
+      "ui": {
+        "xl": "грустное",
+        "xr": "светлое",
+        "yt": "бодрое",
+        "yb": "спокойное"
+      },
+      "x": [
+        {
+          "axis": "dark",
+          "lo": 9,
+          "hi": 1,
+          "w": 1.6
+        },
+        {
+          "axis": "melodic",
+          "lo": 5,
+          "hi": 8,
+          "w": 0.4
+        }
+      ],
+      "y": [
+        {
+          "axis": "energy",
+          "lo": 1,
+          "hi": 9,
+          "w": 0.7
+        },
+        {
+          "axis": "tempo",
+          "lo": 2,
+          "hi": 7,
+          "w": 0.5
+        }
+      ]
+    },
+    {
+      "id": "era",
+      "kind": "multi",
+      "required": false,
+      "title": "Эпоха",
+      "question": "Из какого времени тебе ближе звук?",
+      "options": [
+        {
+          "id": "60_70",
+          "label": "60-е и 70-е",
+          "decades": [
+            1960,
+            1970
+          ]
+        },
+        {
+          "id": "80",
+          "label": "80-е",
+          "decades": [
+            1980
+          ]
+        },
+        {
+          "id": "90",
+          "label": "90-е",
+          "decades": [
+            1990
+          ]
+        },
+        {
+          "id": "00",
+          "label": "2000-е",
+          "decades": [
+            2000
+          ]
+        },
+        {
+          "id": "10_20",
+          "label": "2010-е и сейчас",
+          "decades": [
+            2010,
+            2020
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exclude",
+      "kind": "multi",
+      "required": false,
+      "title": "Исключения",
+      "question": "Что точно не твоё?",
+      "options": [
+        {
+          "id": "metal",
+          "label": "Метал",
+          "categories": [
+            "metal"
+          ]
+        },
+        {
+          "id": "rock",
+          "label": "Рок",
+          "categories": [
+            "rock"
+          ]
+        },
+        {
+          "id": "electro",
+          "label": "Электроника",
+          "categories": [
+            "electronic",
+            "ambient"
+          ]
+        },
+        {
+          "id": "hiphop",
+          "label": "Хип-хоп",
+          "categories": [
+            "hiphop"
+          ]
+        },
+        {
+          "id": "jazz",
+          "label": "Джаз",
+          "categories": [
+            "jazz"
+          ]
+        },
+        {
+          "id": "pop",
+          "label": "Поп",
+          "categories": [
+            "pop"
+          ]
+        },
+        {
+          "id": "folk",
+          "label": "Фолк",
+          "categories": [
+            "folk",
+            "blues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "likes",
+      "kind": "multi",
+      "required": false,
+      "max": 4,
+      "title": "Опора",
+      "question": "Отметь, кого слушаешь с удовольствием (можно пропустить, если никого не узнаёшь)",
+      "options": [
+        {
+          "id": "dm",
+          "label": "Depeche Mode",
+          "artists": [
+            "Depeche Mode"
+          ]
+        },
+        {
+          "id": "rammstein",
+          "label": "Rammstein",
+          "artists": [
+            "Rammstein"
+          ]
+        },
+        {
+          "id": "metallica",
+          "label": "Metallica",
+          "artists": [
+            "Metallica"
+          ]
+        },
+        {
+          "id": "radiohead",
+          "label": "Radiohead",
+          "artists": [
+            "Radiohead"
+          ]
+        },
+        {
+          "id": "nirvana",
+          "label": "Nirvana",
+          "artists": [
+            "Nirvana"
+          ]
+        },
+        {
+          "id": "floyd",
+          "label": "Pink Floyd",
+          "artists": [
+            "Pink Floyd"
+          ]
+        },
+        {
+          "id": "massive",
+          "label": "Massive Attack",
+          "artists": [
+            "Massive Attack"
+          ]
+        },
+        {
+          "id": "lana",
+          "label": "Lana Del Rey",
+          "artists": [
+            "Lana Del Rey"
+          ]
+        },
+        {
+          "id": "miles",
+          "label": "Miles Davis",
+          "artists": [
+            "Miles Davis"
+          ]
+        },
+        {
+          "id": "nina",
+          "label": "Nina Simone",
+          "artists": [
+            "Nina Simone"
+          ]
+        },
+        {
+          "id": "marvin",
+          "label": "Marvin Gaye",
+          "artists": [
+            "Marvin Gaye"
+          ]
+        },
+        {
+          "id": "daft",
+          "label": "Daft Punk",
+          "artists": [
+            "Daft Punk"
+          ]
+        },
+        {
+          "id": "kendrick",
+          "label": "Kendrick Lamar",
+          "artists": [
+            "Kendrick Lamar"
+          ]
+        },
+        {
+          "id": "bon",
+          "label": "Bon Iver",
+          "artists": [
+            "Bon Iver"
+          ]
+        },
+        {
+          "id": "aphex",
+          "label": "Aphex Twin",
+          "artists": [
+            "Aphex Twin"
+          ]
+        },
+        {
+          "id": "kino",
+          "label": "Кино",
+          "artists": [
+            "Кино"
+          ]
+        },
+        {
+          "id": "beatles",
+          "label": "The Beatles",
+          "artists": [
+            "The Beatles"
+          ]
+        },
+        {
+          "id": "queen",
+          "label": "Queen",
+          "artists": [
+            "Queen"
+          ]
+        },
+        {
+          "id": "zep",
+          "label": "Led Zeppelin",
+          "artists": [
+            "Led Zeppelin"
+          ]
+        },
+        {
+          "id": "fleetwood",
+          "label": "Fleetwood Mac",
+          "artists": [
+            "Fleetwood Mac"
+          ]
+        },
+        {
+          "id": "mj",
+          "label": "Michael Jackson",
+          "artists": [
+            "Michael Jackson"
+          ]
+        },
+        {
+          "id": "arctic",
+          "label": "Arctic Monkeys",
+          "artists": [
+            "Arctic Monkeys"
+          ]
+        },
+        {
+          "id": "oasis",
+          "label": "Oasis",
+          "artists": [
+            "Oasis"
+          ]
+        },
+        {
+          "id": "cure",
+          "label": "The Cure",
+          "artists": [
+            "The Cure"
+          ]
+        },
+        {
+          "id": "billie",
+          "label": "Billie Eilish",
+          "artists": [
+            "Billie Eilish"
+          ]
+        },
+        {
+          "id": "weeknd",
+          "label": "The Weeknd",
+          "artists": [
+            "The Weeknd"
+          ]
+        },
+        {
+          "id": "adele",
+          "label": "Adele",
+          "artists": [
+            "Adele"
+          ]
+        },
+        {
+          "id": "amy",
+          "label": "Amy Winehouse",
+          "artists": [
+            "Amy Winehouse"
+          ]
+        },
+        {
+          "id": "cas",
+          "label": "Cigarettes After Sex",
+          "artists": [
+            "Cigarettes After Sex"
+          ]
+        },
+        {
+          "id": "tame",
+          "label": "Tame Impala",
+          "artists": [
+            "Tame Impala"
+          ]
+        },
+        {
+          "id": "bowie",
+          "label": "David Bowie",
+          "artists": [
+            "David Bowie"
+          ]
+        },
+        {
+          "id": "stevie",
+          "label": "Stevie Wonder",
+          "artists": [
+            "Stevie Wonder"
+          ]
+        }
+      ]
+    }
+  ]
+}

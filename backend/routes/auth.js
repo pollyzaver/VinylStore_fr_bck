@@ -38,12 +38,10 @@ router.post('/register', [
   body('password').isLength({ min: 6 }).withMessage('Пароль должен быть минимум 6 символов'),
   body('name').notEmpty().withMessage('Имя обязательно').trim().escape()
 ], async (req, res) => {
-  console.log('📝 Получен запрос на регистрацию:', req.body);
   
   // Проверяем валидацию
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log('❌ Ошибки валидации:', errors.array());
     return res.status(400).json({ errors: errors.array() });
   }
 
@@ -52,18 +50,14 @@ router.post('/register', [
     
     // Читаем пользователей
     const users = await readUsers();
-    console.log(`👥 Текущее количество пользователей: ${users.length}`);
 
     // Проверяем, не занят ли email
     if (users.find(u => u.email === email)) {
-      console.log('❌ Email уже занят:', email);
       return res.status(400).json({ error: 'Email уже зарегистрирован' });
     }
 
     // Хешируем пароль
-    console.log('🔐 Хешируем пароль...');
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log('✅ Пароль захеширован');
 
     // Создаём нового пользователя
     const newUser = {
@@ -81,20 +75,17 @@ router.post('/register', [
       lastLogin: new Date().toISOString()
     };
 
-    console.log('👤 Новый пользователь:', { ...newUser, password: '***' });
 
     // Добавляем в массив
     users.push(newUser);
     
     // Сохраняем в файл
-    console.log('💾 Сохраняем в файл...');
     const saved = await writeUsers(users);
     
     if (!saved) {
       throw new Error('Не удалось сохранить пользователя');
     }
     
-    console.log('✅ Пользователь сохранён');
 
     // Создаём JWT токен
     const token = jwt.sign(
@@ -106,7 +97,6 @@ router.post('/register', [
     // Не отправляем пароль
     const { password: _, ...userWithoutPassword } = newUser;
 
-    console.log('✅ Регистрация успешна');
     res.status(201).json({
       message: 'Регистрация успешна',
       token,
@@ -124,7 +114,6 @@ router.post('/login', [
   body('email').isEmail().normalizeEmail(),
   body('password').notEmpty()
 ], async (req, res) => {
-  console.log('📝 Получен запрос на вход:', req.body);
   
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -138,14 +127,12 @@ router.post('/login', [
     // Ищем пользователя
     const user = users.find(u => u.email === email);
     if (!user) {
-      console.log('❌ Пользователь не найден:', email);
       return res.status(400).json({ error: 'Неверный email или пароль' });
     }
 
     // Проверяем пароль
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      console.log('❌ Неверный пароль для:', email);
       return res.status(400).json({ error: 'Неверный email или пароль' });
     }
 
@@ -162,7 +149,6 @@ router.post('/login', [
 
     const { password: _, ...userWithoutPassword } = user;
 
-    console.log('✅ Вход успешен для:', email);
     res.json({
       message: 'Вход выполнен',
       token,

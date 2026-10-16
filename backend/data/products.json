@@ -69,6 +69,16 @@
         "Оригинальный вкладыш",
         "Цифровая загрузка"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 1,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 2
     }
   },
   {
@@ -140,6 +150,16 @@
         "Плакат",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 7,
+      "organic": 3,
+      "density": 7,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 3
     }
   },
   {
@@ -214,6 +234,16 @@
         "Двойной LP",
         "Вкладыш"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 3,
+      "dark": 9,
+      "organic": 3,
+      "density": 7,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 3
     }
   },
   {
@@ -225,7 +255,17 @@
     "format": "12\" LP",
     "price": 5990,
     "category": "alternative",
-    "image": "/assets/WithoutyouI'mnothing.jpg"
+    "image": "/assets/WithoutyouI'mnothing.jpg",
+    "taste": {
+      "energy": 7,
+      "tempo": 6,
+      "dark": 8,
+      "organic": 8,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 6
+    }
   },
   {
     "id": 5,
@@ -302,6 +342,16 @@
         "Плотный конверт",
         "Вкладыш с текстами песен"
       ]
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 5,
+      "dark": 8,
+      "organic": 4,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 3
     }
   },
   {
@@ -362,6 +412,16 @@
         "Логотип группы на этикетке",
         "Сделано в Германии"
       ]
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 2,
+      "dark": 4,
+      "organic": 9,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 9,
+      "raw": 2
     }
   },
   {
@@ -439,6 +499,16 @@
         "Внутренний конверт с текстами песен",
         "Цифровой код для загрузки"
       ]
+    },
+    "taste": {
+      "energy": 1,
+      "tempo": 2,
+      "dark": 5,
+      "organic": 7,
+      "density": 3,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 1
     }
   },
   {
@@ -524,6 +594,16 @@
         "Складной разворот (gatefold)",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 9,
+      "tempo": 6,
+      "dark": 10,
+      "organic": 3,
+      "density": 9,
+      "vocal": 6,
+      "melodic": 3,
+      "raw": 8
     }
   },
   {
@@ -604,6 +684,16 @@
         "Цифровая загрузка",
         "Плакат внутри"
       ]
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 7,
+      "dark": 6,
+      "organic": 8,
+      "density": 8,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 5
     }
   },
   {
@@ -686,6 +776,16 @@
         "Вкладыш с текстами и редкими фотографиями",
         "Цифровая загрузка"
       ]
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 3,
+      "dark": 8,
+      "organic": 7,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 7,
+      "raw": 3
     }
   },
   {
@@ -766,6 +866,16 @@
         "Эксклюзивные фотографии группы",
         "Лимитированный тираж"
       ]
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 5,
+      "dark": 8,
+      "organic": 4,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 3
     }
   },
   {
@@ -845,6 +955,16 @@
         "Тексты всех песен",
         "Редкий коллекционный экземпляр"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 4,
+      "dark": 7,
+      "organic": 8,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 3
     }
   },
   {
@@ -925,6 +1045,16 @@
         "Вкладыш с текстами",
         "Оригинальные сэмпл-кредиты"
       ]
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 2,
+      "dark": 9,
+      "organic": 4,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 4
     }
   },
   {
@@ -1011,6 +1141,16 @@
         "Вкладыш с текстами",
         "Коллекционный выпуск"
       ]
+    },
+    "taste": {
+      "energy": 10,
+      "tempo": 9,
+      "dark": 8,
+      "organic": 9,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 4,
+      "raw": 7
     }
   },
   {
@@ -1089,6 +1229,16 @@
         "Вкладыш с текстами песен",
         "Оригинальный внутренний конверт"
       ]
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 6,
+      "dark": 8,
+      "organic": 9,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 6
     }
   },
   {
@@ -1212,6 +1362,16 @@
         "Полноцветный буклет с текстами и иллюстрациями",
         "Ремастеринг Джеймса Гатри"
       ]
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 4,
+      "dark": 8,
+      "organic": 8,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 3
     }
   },
   {
@@ -1223,7 +1383,17 @@
     "format": "12\" LP",
     "price": 3890,
     "category": "electronic",
-    "image": "/assets/ultra.jpg"
+    "image": "/assets/ultra.jpg",
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 6,
+      "organic": 2,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 2
+    }
   },
   {
     "id": 18,
@@ -1283,6 +1453,16 @@
         "Редкая ранняя версия обложки",
         "Лайв-трек на стороне B"
       ]
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 5,
+      "dark": 8,
+      "organic": 5,
+      "density": 7,
+      "vocal": 6,
+      "melodic": 5,
+      "raw": 4
     }
   },
   {
@@ -1295,7 +1475,17 @@
     "price": 6190,
     "category": "rock",
     "image": "/assets/am.jpg",
-    "badge": "Хит"
+    "badge": "Хит",
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 9,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 4
+    }
   },
   {
     "id": 20,
@@ -1306,7 +1496,17 @@
     "format": "12\" LP",
     "price": 5590,
     "category": "alternative",
-    "image": "/assets/meds.jpg"
+    "image": "/assets/meds.jpg",
+    "taste": {
+      "energy": 6,
+      "tempo": 6,
+      "dark": 7,
+      "organic": 8,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 5
+    }
   },
   {
     "id": 21,
@@ -1318,7 +1518,17 @@
     "price": 4890,
     "category": "rock",
     "image": "/assets/the-doors.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 6,
+      "tempo": 6,
+      "dark": 6,
+      "organic": 9,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 6
+    }
   },
   {
     "id": 22,
@@ -1330,7 +1540,17 @@
     "price": 6090,
     "category": "alternative",
     "image": "/assets/the-bends.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 5,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 4
+    }
   },
   {
     "id": 23,
@@ -1341,7 +1561,17 @@
     "format": "12\" LP",
     "price": 5790,
     "category": "pop",
-    "image": "/assets/ultraviolence.jpg"
+    "image": "/assets/ultraviolence.jpg",
+    "taste": {
+      "energy": 3,
+      "tempo": 2,
+      "dark": 7,
+      "organic": 7,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 3
+    }
   },
   {
     "id": 24,
@@ -1353,7 +1583,17 @@
     "price": 3990,
     "category": "alternative",
     "image": "/assets/we-are-chaos.jpg",
-    "badge": "Новинка"
+    "badge": "Новинка",
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 8,
+      "organic": 5,
+      "density": 6,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 4
+    }
   },
   {
     "id": 25,
@@ -1364,7 +1604,17 @@
     "format": "12\" LP",
     "price": 4290,
     "category": "rock",
-    "image": "/assets/emigrate.jpg"
+    "image": "/assets/emigrate.jpg",
+    "taste": {
+      "energy": 8,
+      "tempo": 6,
+      "dark": 7,
+      "organic": 8,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 5
+    }
   },
   {
     "id": 26,
@@ -1376,7 +1626,17 @@
     "price": 4890,
     "category": "alternative",
     "image": "/assets/significant-other.jpg",
-    "badge": "Хит"
+    "badge": "Хит",
+    "taste": {
+      "energy": 8,
+      "tempo": 7,
+      "dark": 6,
+      "organic": 8,
+      "density": 6,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 6
+    }
   },
   {
     "id": 27,
@@ -1387,7 +1647,17 @@
     "format": "12\" LP",
     "price": 3590,
     "category": "electronic",
-    "image": "/assets/body-pop.jpg"
+    "image": "/assets/body-pop.jpg",
+    "taste": {
+      "energy": 6,
+      "tempo": 8,
+      "dark": 6,
+      "organic": 1,
+      "density": 6,
+      "vocal": 7,
+      "melodic": 7,
+      "raw": 2
+    }
   },
   {
     "id": 28,
@@ -1398,7 +1668,17 @@
     "format": "12\" LP",
     "price": 6190,
     "category": "electronic",
-    "image": "/assets/tanzomat.jpg"
+    "image": "/assets/tanzomat.jpg",
+    "taste": {
+      "energy": 6,
+      "tempo": 7,
+      "dark": 6,
+      "organic": 1,
+      "density": 6,
+      "vocal": 6,
+      "melodic": 5,
+      "raw": 3
+    }
   },
   {
     "id": 29,
@@ -1483,6 +1763,16 @@
         "Вкладыш с описанием сцен из фильма",
         "Оригинальный постер внутри"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 5,
+      "organic": 7,
+      "density": 6,
+      "vocal": 4,
+      "melodic": 5,
+      "raw": 6
     }
   },
   {
@@ -1495,7 +1785,17 @@
     "price": 4990,
     "category": "alternative",
     "image": "/assets/nevermind.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 8,
+      "tempo": 6,
+      "dark": 6,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 7
+    }
   },
   {
     "id": 31,
@@ -1507,7 +1807,17 @@
     "price": 4190,
     "category": "pop",
     "image": "/assets/after-hours.jpg",
-    "badge": "Хит"
+    "badge": "Хит",
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 7,
+      "organic": 1,
+      "density": 6,
+      "vocal": 9,
+      "melodic": 8,
+      "raw": 2
+    }
   },
   {
     "id": 32,
@@ -1519,7 +1829,17 @@
     "price": 4390,
     "category": "rock",
     "image": "/assets/dynasty.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 7,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 8,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 3
+    }
   },
   {
     "id": 33,
@@ -1531,7 +1851,17 @@
     "price": 4490,
     "category": "rock",
     "image": "/assets/destroyer.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 8,
+      "tempo": 6,
+      "dark": 4,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 4
+    }
   },
   {
     "id": 34,
@@ -1543,7 +1873,17 @@
     "price": 4690,
     "category": "metal",
     "image": "/assets/slipknot.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 10,
+      "tempo": 8,
+      "dark": 9,
+      "organic": 8,
+      "density": 9,
+      "vocal": 6,
+      "melodic": 3,
+      "raw": 8
+    }
   },
   {
     "id": 35,
@@ -1555,7 +1895,17 @@
     "price": 5290,
     "category": "rock",
     "image": "/assets/abbey-road.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 3,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 10,
+      "raw": 2
+    }
   },
   {
     "id": 36,
@@ -1567,7 +1917,17 @@
     "price": 8790,
     "category": "metal",
     "image": "/assets/vulgar-display.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 10,
+      "tempo": 7,
+      "dark": 7,
+      "organic": 9,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 3,
+      "raw": 7
+    }
   },
   {
     "id": 37,
@@ -1578,7 +1938,17 @@
     "format": "12\" LP",
     "price": 7990,
     "category": "alternative",
-    "image": "/assets/saturday-night.jpg"
+    "image": "/assets/saturday-night.jpg",
+    "taste": {
+      "energy": 7,
+      "tempo": 5,
+      "dark": 7,
+      "organic": 8,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 5
+    }
   },
   {
     "id": 38,
@@ -1589,7 +1959,17 @@
     "format": "12\" LP",
     "price": 5190,
     "category": "alternative",
-    "image": "/assets/life-is-killing.jpg"
+    "image": "/assets/life-is-killing.jpg",
+    "taste": {
+      "energy": 5,
+      "tempo": 4,
+      "dark": 8,
+      "organic": 8,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 7,
+      "raw": 4
+    }
   },
   {
     "id": 39,
@@ -1601,7 +1981,17 @@
     "price": 6490,
     "category": "alternative",
     "image": "/assets/bloody-kisses.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 6,
+      "tempo": 4,
+      "dark": 9,
+      "organic": 8,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 5
+    }
   },
   {
     "id": 40,
@@ -1613,7 +2003,17 @@
     "price": 2190,
     "category": "metal",
     "image": "/assets/deutschland.jpg",
-    "badge": "Хит"
+    "badge": "Хит",
+    "taste": {
+      "energy": 7,
+      "tempo": 5,
+      "dark": 7,
+      "organic": 4,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 2
+    }
   },
   {
     "id": 41,
@@ -1624,7 +2024,17 @@
     "format": "12\" LP",
     "price": 5890,
     "category": "metal",
-    "image": "/assets/rosenrot.jpg"
+    "image": "/assets/rosenrot.jpg",
+    "taste": {
+      "energy": 7,
+      "tempo": 5,
+      "dark": 7,
+      "organic": 5,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 7,
+      "raw": 3
+    }
   },
   {
     "id": 42,
@@ -1636,7 +2046,17 @@
     "price": 6990,
     "category": "metal",
     "image": "/assets/herzeleid.jpg",
-    "badge": "Коллекционное"
+    "badge": "Коллекционное",
+    "taste": {
+      "energy": 9,
+      "tempo": 6,
+      "dark": 8,
+      "organic": 4,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 4
+    }
   },
   {
     "id": 43,
@@ -1648,7 +2068,17 @@
     "price": 5490,
     "category": "metal",
     "image": "/assets/zeit.jpg",
-    "badge": "Новинка"
+    "badge": "Новинка",
+    "taste": {
+      "energy": 5,
+      "tempo": 4,
+      "dark": 7,
+      "organic": 4,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 7,
+      "raw": 2
+    }
   },
   {
     "id": 44,
@@ -1659,7 +2089,17 @@
     "format": "12\" LP",
     "price": 6190,
     "category": "metal",
-    "image": "/assets/liebe.jpg"
+    "image": "/assets/liebe.jpg",
+    "taste": {
+      "energy": 8,
+      "tempo": 6,
+      "dark": 8,
+      "organic": 4,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 3
+    }
   },
   {
     "id": 45,
@@ -1671,7 +2111,17 @@
     "price": 4790,
     "category": "pop",
     "image": "/assets/21.jpg",
-    "badge": "Бестселлер"
+    "badge": "Бестселлер",
+    "taste": {
+      "energy": 4,
+      "tempo": 3,
+      "dark": 5,
+      "organic": 8,
+      "density": 5,
+      "vocal": 10,
+      "melodic": 9,
+      "raw": 2
+    }
   },
   {
     "id": 46,
@@ -1682,7 +2132,17 @@
     "format": "12\" LP",
     "price": 5290,
     "category": "alternative",
-    "image": "/assets/currents.jpg"
+    "image": "/assets/currents.jpg",
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 4,
+      "organic": 3,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 8,
+      "raw": 2
+    }
   },
   {
     "id": 47,
@@ -1693,7 +2153,17 @@
     "format": "12\" LP",
     "price": 4890,
     "category": "alternative",
-    "image": "/assets/iloveyou.jpg"
+    "image": "/assets/iloveyou.jpg",
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 5,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 3
+    }
   },
   {
     "id": 48,
@@ -1704,7 +2174,17 @@
     "format": "12\" LP",
     "price": 4990,
     "category": "pop",
-    "image": "/assets/born.jpg"
+    "image": "/assets/born.jpg",
+    "taste": {
+      "energy": 4,
+      "tempo": 3,
+      "dark": 6,
+      "organic": 5,
+      "density": 7,
+      "vocal": 9,
+      "melodic": 8,
+      "raw": 2
+    }
   },
   {
     "id": 49,
@@ -1715,7 +2195,17 @@
     "format": "12\" LP",
     "price": 5190,
     "category": "pop",
-    "image": "/assets/honeymoon.jpg"
+    "image": "/assets/honeymoon.jpg",
+    "taste": {
+      "energy": 2,
+      "tempo": 2,
+      "dark": 6,
+      "organic": 5,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 6,
+      "raw": 2
+    }
   },
   {
     "id": 50,
@@ -1727,7 +2217,17 @@
     "price": 5390,
     "category": "pop",
     "image": "/assets/didyou.jpg",
-    "badge": "Новинка"
+    "badge": "Новинка",
+    "taste": {
+      "energy": 2,
+      "tempo": 2,
+      "dark": 6,
+      "organic": 6,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 6,
+      "raw": 3
+    }
   },
   {
     "id": 51,
@@ -1738,7 +2238,17 @@
     "format": "12\" LP",
     "price": 4590,
     "category": "alternative",
-    "image": "/assets/ohmyheart.jpg"
+    "image": "/assets/ohmyheart.jpg",
+    "taste": {
+      "energy": 6,
+      "tempo": 7,
+      "dark": 5,
+      "organic": 8,
+      "density": 6,
+      "vocal": 9,
+      "melodic": 8,
+      "raw": 4
+    }
   },
   {
     "id": 52,
@@ -1750,7 +2260,17 @@
     "price": 5690,
     "category": "electronic",
     "image": "/assets/euphoria.jpg",
-    "badge": "Саундтрек"
+    "badge": "Саундтрек",
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 7,
+      "organic": 1,
+      "density": 6,
+      "vocal": 6,
+      "melodic": 5,
+      "raw": 3
+    }
   },
   {
     "id": 53,
@@ -1762,7 +2282,17 @@
     "price": 7490,
     "category": "rock",
     "image": "/assets/dark-side.jpg",
-    "badge": "Легенда"
+    "badge": "Легенда",
+    "taste": {
+      "energy": 5,
+      "tempo": 4,
+      "dark": 6,
+      "organic": 8,
+      "density": 8,
+      "vocal": 6,
+      "melodic": 7,
+      "raw": 3
+    }
   },
   {
     "id": 54,
@@ -1774,7 +2304,17 @@
     "price": 6890,
     "category": "rock",
     "image": "/assets/rumours.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 3,
+      "organic": 9,
+      "density": 6,
+      "vocal": 9,
+      "melodic": 10,
+      "raw": 2
+    }
   },
   {
     "id": 55,
@@ -1786,7 +2326,17 @@
     "price": 6290,
     "category": "metal",
     "image": "/assets/painkiller.jpg",
-    "badge": "Классика"
+    "badge": "Классика",
+    "taste": {
+      "energy": 10,
+      "tempo": 9,
+      "dark": 5,
+      "organic": 9,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 4,
+      "raw": 5
+    }
   },
   {
     "id": 56,
@@ -1798,7 +2348,17 @@
     "price": 5890,
     "category": "metal",
     "image": "/assets/follow-the-leader.jpg",
-    "badge": "Культовый"
+    "badge": "Культовый",
+    "taste": {
+      "energy": 9,
+      "tempo": 7,
+      "dark": 7,
+      "organic": 8,
+      "density": 7,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 7
+    }
   },
   {
     "id": 57,
@@ -1809,7 +2369,17 @@
     "format": "12\" LP",
     "price": 5790,
     "category": "alternative",
-    "image": "/assets/to-pimp.jpg"
+    "image": "/assets/to-pimp.jpg",
+    "taste": {
+      "energy": 6,
+      "tempo": 6,
+      "dark": 6,
+      "organic": 7,
+      "density": 8,
+      "vocal": 8,
+      "melodic": 4,
+      "raw": 5
+    }
   },
   {
     "id": 58,
@@ -1820,7 +2390,17 @@
     "format": "12\" LP",
     "price": 5290,
     "category": "pop",
-    "image": "/assets/back-to-black.jpg"
+    "image": "/assets/back-to-black.jpg",
+    "taste": {
+      "energy": 5,
+      "tempo": 4,
+      "dark": 5,
+      "organic": 9,
+      "density": 6,
+      "vocal": 10,
+      "melodic": 9,
+      "raw": 3
+    }
   },
   {
     "id": 59,
@@ -1831,7 +2411,17 @@
     "format": "12\" LP",
     "price": 5490,
     "category": "alternative",
-    "image": "/assets/in-rainbows.jpg"
+    "image": "/assets/in-rainbows.jpg",
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 5,
+      "organic": 6,
+      "density": 7,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 3
+    }
   },
   {
     "id": 60,
@@ -1842,7 +2432,17 @@
     "format": "12\" LP",
     "price": 4990,
     "category": "rock",
-    "image": "/assets/hot-fuss.jpg"
+    "image": "/assets/hot-fuss.jpg",
+    "taste": {
+      "energy": 7,
+      "tempo": 7,
+      "dark": 4,
+      "organic": 7,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 9,
+      "raw": 3
+    }
   },
   {
     "id": 62,
@@ -1853,7 +2453,17 @@
     "format": "12\" LP",
     "price": 5490,
     "category": "pop",
-    "image": "/assets/thriller.jpg"
+    "image": "/assets/thriller.jpg",
+    "taste": {
+      "energy": 6,
+      "tempo": 7,
+      "dark": 3,
+      "organic": 5,
+      "density": 7,
+      "vocal": 9,
+      "melodic": 10,
+      "raw": 1
+    }
   },
   {
     "id": 62,
@@ -1865,7 +2475,17 @@
     "price": 7190,
     "category": "rock",
     "image": "/assets/ziggy.jpg",
-    "badge": "Винтаж"
+    "badge": "Винтаж",
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 3,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 9,
+      "raw": 4
+    }
   },
   {
     "id": 63,
@@ -1877,7 +2497,17 @@
     "price": 7890,
     "category": "rock",
     "image": "/assets/sgt-pepper.jpg",
-    "badge": "Коллекционное"
+    "badge": "Коллекционное",
+    "taste": {
+      "energy": 4,
+      "tempo": 5,
+      "dark": 3,
+      "organic": 9,
+      "density": 8,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 3
+    }
   },
   {
     "id": 64,
@@ -1935,6 +2565,16 @@
       "weight": "180 грамм",
       "speed": "45 об/мин",
       "country": "США"
+    },
+    "taste": {
+      "energy": 10,
+      "tempo": 8,
+      "dark": 7,
+      "organic": 9,
+      "density": 8,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 6
     }
   },
   {
@@ -1947,7 +2587,17 @@
     "price": 5290,
     "category": "rock",
     "image": "/assets/whatever-people-say.jpg",
-    "badge": "Дебют"
+    "badge": "Дебют",
+    "taste": {
+      "energy": 8,
+      "tempo": 8,
+      "dark": 5,
+      "organic": 9,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 7
+    }
   },
   {
     "id": 66,
@@ -1959,7 +2609,17 @@
     "price": 8990,
     "category": "alternative",
     "image": "/assets/blonde.jpg",
-    "badge": "Раритет"
+    "badge": "Раритет",
+    "taste": {
+      "energy": 3,
+      "tempo": 3,
+      "dark": 6,
+      "organic": 4,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 6,
+      "raw": 3
+    }
   },
   {
     "id": 67,
@@ -2037,6 +2697,16 @@
         "Вкладыш с текстами",
         "Gatefold обложка"
       ]
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 6,
+      "dark": 5,
+      "organic": 9,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 5
     }
   },
   {
@@ -2116,6 +2786,16 @@
         "Внутренний конверт с текстами",
         "Оригинальный дизайн Питера Сэвилла"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 9,
+      "organic": 8,
+      "density": 4,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 7
     }
   },
   {
@@ -2193,6 +2873,16 @@
         "Вкладыш с текстами",
         "Gatefold обложка"
       ]
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 3,
+      "dark": 7,
+      "organic": 4,
+      "density": 6,
+      "vocal": 6,
+      "melodic": 5,
+      "raw": 3
     }
   },
   {
@@ -2267,6 +2957,16 @@
         "Вкладыш с текстами",
         "Gatefold обложка"
       ]
+    },
+    "taste": {
+      "energy": 9,
+      "tempo": 7,
+      "dark": 7,
+      "organic": 9,
+      "density": 7,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 6
     }
   },
   {
@@ -2349,6 +3049,16 @@
         "Двойной альбом (2xLP)",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 9,
+      "density": 6,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 3
     }
   },
   {
@@ -2439,6 +3149,16 @@
         "Двойной альбом (2xLP)",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 9,
+      "tempo": 7,
+      "dark": 6,
+      "organic": 9,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 4
     }
   },
   {
@@ -2559,6 +3279,16 @@
         "Двойной альбом (2xLP)",
         "Буклет с фотографиями"
       ]
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 6,
+      "dark": 6,
+      "organic": 9,
+      "density": 6,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 5
     }
   },
   {
@@ -2635,6 +3365,16 @@
         "Двойной альбом (2xLP)",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 9,
+      "tempo": 7,
+      "dark": 7,
+      "organic": 9,
+      "density": 9,
+      "vocal": 6,
+      "melodic": 3,
+      "raw": 4
     }
   },
   {
@@ -2717,6 +3457,16 @@
         "Воспроизведение оригинальной обложки",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 7,
+      "organic": 8,
+      "density": 4,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 9
     }
   },
   {
@@ -2796,6 +3546,16 @@
         "Воспроизведение оригинальной обложки",
         "Вкладыш с изображениями символов"
       ]
+    },
+    "taste": {
+      "energy": 7,
+      "tempo": 5,
+      "dark": 5,
+      "organic": 9,
+      "density": 6,
+      "vocal": 7,
+      "melodic": 7,
+      "raw": 5
     }
   },
   {
@@ -2880,6 +3640,16 @@
         "Оригинальная обложка с панк-типографикой",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 10,
+      "tempo": 9,
+      "dark": 5,
+      "organic": 9,
+      "density": 3,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 10
     }
   },
   {
@@ -2958,6 +3728,16 @@
         "Вкладыш с текстами",
         "Оригинальный дизайн"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 1,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 10,
+      "raw": 1
     }
   },
   {
@@ -3039,6 +3819,16 @@
         "Gatefold обложка",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 7,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 10,
+      "raw": 4
     }
   },
   {
@@ -3122,6 +3912,16 @@
         "Вкладыш с текстами",
         "Абстрактный дизайн обложки"
       ]
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 3,
+      "organic": 3,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 8,
+      "raw": 2
     }
   },
   {
@@ -3207,6 +4007,16 @@
         "Вкладыш с текстами",
         "Оригинальный дизайн"
       ]
+    },
+    "taste": {
+      "energy": 9,
+      "tempo": 9,
+      "dark": 5,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 6
     }
   },
   {
@@ -3296,6 +4106,16 @@
         "Прозрачный винил (издание)",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 3,
+      "dark": 8,
+      "organic": 2,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 5,
+      "raw": 3
     }
   },
   {
@@ -3376,6 +4196,16 @@
         "Воспроизведение оригинальной обложки",
         "Вкладыш с редкими фотографиями"
       ]
+    },
+    "taste": {
+      "energy": 7,
+      "tempo": 5,
+      "dark": 5,
+      "organic": 9,
+      "density": 6,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 6
     }
   },
   {
@@ -3451,6 +4281,16 @@
         "Оригинальная обложка с Эдди",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 9,
+      "tempo": 8,
+      "dark": 5,
+      "organic": 9,
+      "density": 7,
+      "vocal": 6,
+      "melodic": 5,
+      "raw": 7
     }
   },
   {
@@ -3528,6 +4368,16 @@
         "Буклет с редкими фотографиями",
         "Gatefold обложка"
       ]
+    },
+    "taste": {
+      "energy": 7,
+      "tempo": 6,
+      "dark": 5,
+      "organic": 9,
+      "density": 6,
+      "vocal": 6,
+      "melodic": 6,
+      "raw": 8
     }
   },
   {
@@ -3605,6 +4455,16 @@
         "Оригинальная обложка",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 7,
+      "dark": 2,
+      "organic": 1,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 10,
+      "raw": 1
     }
   },
   {
@@ -3724,6 +4584,16 @@
         "Двойной альбом (2xLP)",
         "Эксклюзивный постер с фотографиями"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 4,
+      "organic": 9,
+      "density": 7,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 4
     }
   },
   {
@@ -3800,6 +4670,16 @@
         "140-граммовый винил",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 3,
+      "dark": 6,
+      "organic": 1,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 2
     }
   },
   {
@@ -3876,6 +4756,16 @@
         "140-граммовый винил",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 4,
+      "dark": 7,
+      "organic": 1,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 3
     }
   },
   {
@@ -3949,13 +4839,23 @@
         "180-граммовый винил",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 1,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 2
     }
   },
   {
     "id": 91,
     "title": "See You on the Other Side",
     "description": "Korn",
-    "image": "/assets/see-you-on-the-other-side.jpg",
+    "image": "/assets/covers/new/91.jpg",
     "year": 2005,
     "genre": "Метал",
     "format": "12\" LP",
@@ -4023,13 +4923,24 @@
         "140-граммовый винил",
         "Вкладыш с текстами"
       ]
-    }
+    },
+    "taste": {
+      "energy": 7,
+      "tempo": 5,
+      "dark": 8,
+      "organic": 7,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 4
+    },
+    "coverMissing": false
   },
   {
     "id": 92,
     "title": "The Nothing",
     "description": "Korn",
-    "image": "/assets/the-nothing.jpg",
+    "image": "/assets/covers/new/92.jpg",
     "year": 2019,
     "genre": "Метал",
     "format": "12\" LP",
@@ -4095,7 +5006,18 @@
         "140-граммовый винил",
         "Вкладыш с текстами"
       ]
-    }
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 5,
+      "dark": 9,
+      "organic": 7,
+      "density": 7,
+      "vocal": 7,
+      "melodic": 5,
+      "raw": 5
+    },
+    "coverMissing": false
   },
   {
     "id": 93,
@@ -4174,6 +5096,16 @@
         "140-граммовый винил",
         "Вкладыш с текстами"
       ]
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 7,
+      "dark": 3,
+      "organic": 3,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 2
     }
   },
   {
@@ -4255,6 +5187,2097 @@
         "Вкладыш с текстами",
         "Gatefold обложка"
       ]
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 8,
+      "organic": 1,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 2
+    }
+  },
+  {
+    "id": 95,
+    "title": "Kind of Blue",
+    "description": "Miles Davis",
+    "year": 1959,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "jazz",
+    "image": "/assets/covers/new/95.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Miles Davis, 1959.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 3,
+      "dark": 5,
+      "organic": 10,
+      "density": 4,
+      "vocal": 0,
+      "melodic": 7,
+      "raw": 3
+    }
+  },
+  {
+    "id": 96,
+    "title": "A Love Supreme",
+    "description": "John Coltrane",
+    "year": 1965,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "jazz",
+    "image": "/assets/covers/new/96.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "John Coltrane, 1965.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Impulse!"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 10,
+      "density": 6,
+      "vocal": 1,
+      "melodic": 5,
+      "raw": 5
+    }
+  },
+  {
+    "id": 97,
+    "title": "Time Out",
+    "description": "The Dave Brubeck Quartet",
+    "year": 1959,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "jazz",
+    "image": "/assets/covers/new/97.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "The Dave Brubeck Quartet, 1959.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 10,
+      "density": 5,
+      "vocal": 0,
+      "melodic": 8,
+      "raw": 2
+    }
+  },
+  {
+    "id": 98,
+    "title": "Waltz for Debby",
+    "description": "Bill Evans Trio",
+    "year": 1962,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "jazz",
+    "image": "/assets/covers/new/98.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Bill Evans Trio, 1962.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Riverside"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 3,
+      "dark": 4,
+      "organic": 10,
+      "density": 3,
+      "vocal": 0,
+      "melodic": 8,
+      "raw": 2
+    }
+  },
+  {
+    "id": 99,
+    "title": "Chet Baker Sings",
+    "description": "Chet Baker",
+    "year": 1956,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 3490,
+    "category": "jazz",
+    "image": "/assets/covers/new/99.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Chet Baker, 1956.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Pacific Jazz"
+    },
+    "taste": {
+      "energy": 1,
+      "tempo": 2,
+      "dark": 4,
+      "organic": 10,
+      "density": 2,
+      "vocal": 7,
+      "melodic": 9,
+      "raw": 2
+    }
+  },
+  {
+    "id": 100,
+    "title": "Blue Train",
+    "description": "John Coltrane",
+    "year": 1958,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "jazz",
+    "image": "/assets/covers/new/100.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "John Coltrane, 1958.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Blue Note"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 4,
+      "organic": 10,
+      "density": 5,
+      "vocal": 0,
+      "melodic": 7,
+      "raw": 3
+    }
+  },
+  {
+    "id": 101,
+    "title": "Moanin'",
+    "description": "Art Blakey & The Jazz Messengers",
+    "year": 1958,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "jazz",
+    "image": "/assets/covers/new/101.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Art Blakey & The Jazz Messengers, 1958.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Blue Note"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 10,
+      "density": 5,
+      "vocal": 0,
+      "melodic": 8,
+      "raw": 4
+    }
+  },
+  {
+    "id": 102,
+    "title": "Mingus Ah Um",
+    "description": "Charles Mingus",
+    "year": 1959,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "jazz",
+    "image": "/assets/covers/new/102.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Charles Mingus, 1959.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 4,
+      "organic": 10,
+      "density": 7,
+      "vocal": 0,
+      "melodic": 6,
+      "raw": 5
+    }
+  },
+  {
+    "id": 103,
+    "title": "Ella and Louis",
+    "description": "Ella Fitzgerald & Louis Armstrong",
+    "year": 1956,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "jazz",
+    "image": "/assets/covers/new/103.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Ella Fitzgerald & Louis Armstrong, 1956.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Verve"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 3,
+      "dark": 2,
+      "organic": 10,
+      "density": 4,
+      "vocal": 9,
+      "melodic": 9,
+      "raw": 1
+    }
+  },
+  {
+    "id": 104,
+    "title": "Getz/Gilberto",
+    "description": "Stan Getz & João Gilberto",
+    "year": 1964,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "jazz",
+    "image": "/assets/covers/new/104.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Stan Getz & João Gilberto, 1964.",
+      "country": "США",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Verve"
+    },
+    "taste": {
+      "energy": 1,
+      "tempo": 3,
+      "dark": 3,
+      "organic": 10,
+      "density": 3,
+      "vocal": 6,
+      "melodic": 9,
+      "raw": 1
+    }
+  },
+  {
+    "id": 105,
+    "title": "Head Hunters",
+    "description": "Herbie Hancock",
+    "year": 1973,
+    "genre": "Джаз-фанк",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "jazz",
+    "image": "/assets/covers/new/105.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Herbie Hancock, 1973.",
+      "country": "США",
+      "tags": [
+        "джаз-фанк"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 7,
+      "dark": 3,
+      "organic": 6,
+      "density": 7,
+      "vocal": 0,
+      "melodic": 6,
+      "raw": 3
+    }
+  },
+  {
+    "id": 106,
+    "title": "The Köln Concert",
+    "description": "Keith Jarrett",
+    "year": 1975,
+    "genre": "Джаз",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "jazz",
+    "image": "/assets/covers/new/106.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Keith Jarrett, 1975.",
+      "country": "Германия",
+      "tags": [
+        "джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "ECM"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 3,
+      "dark": 4,
+      "organic": 10,
+      "density": 4,
+      "vocal": 0,
+      "melodic": 6,
+      "raw": 4
+    }
+  },
+  {
+    "id": 107,
+    "title": "What's Going On",
+    "description": "Marvin Gaye",
+    "year": 1971,
+    "genre": "Соул",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "soul",
+    "image": "/assets/covers/new/107.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Marvin Gaye, 1971.",
+      "country": "США",
+      "tags": [
+        "соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Tamla"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 4,
+      "organic": 9,
+      "density": 7,
+      "vocal": 9,
+      "melodic": 9,
+      "raw": 2
+    }
+  },
+  {
+    "id": 108,
+    "title": "Songs in the Key of Life",
+    "description": "Stevie Wonder",
+    "year": 1976,
+    "genre": "Соул",
+    "format": "12\" LP",
+    "price": 3490,
+    "category": "soul",
+    "image": "/assets/covers/new/108.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Stevie Wonder, 1976.",
+      "country": "США",
+      "tags": [
+        "соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Tamla"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 2,
+      "organic": 7,
+      "density": 8,
+      "vocal": 9,
+      "melodic": 9,
+      "raw": 2
+    }
+  },
+  {
+    "id": 109,
+    "title": "I Never Loved a Man the Way I Love You",
+    "description": "Aretha Franklin",
+    "year": 1967,
+    "genre": "Соул",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "soul",
+    "image": "/assets/covers/new/109.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Aretha Franklin, 1967.",
+      "country": "США",
+      "tags": [
+        "соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Atlantic"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 9,
+      "density": 5,
+      "vocal": 10,
+      "melodic": 8,
+      "raw": 5
+    }
+  },
+  {
+    "id": 110,
+    "title": "Innervisions",
+    "description": "Stevie Wonder",
+    "year": 1973,
+    "genre": "Соул",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "soul",
+    "image": "/assets/covers/new/110.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Stevie Wonder, 1973.",
+      "country": "США",
+      "tags": [
+        "соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Tamla"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 6,
+      "density": 7,
+      "vocal": 9,
+      "melodic": 9,
+      "raw": 2
+    }
+  },
+  {
+    "id": 111,
+    "title": "Let's Get It On",
+    "description": "Marvin Gaye",
+    "year": 1973,
+    "genre": "Соул",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "soul",
+    "image": "/assets/covers/new/111.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Marvin Gaye, 1973.",
+      "country": "США",
+      "tags": [
+        "соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Tamla"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 5,
+      "dark": 3,
+      "organic": 9,
+      "density": 6,
+      "vocal": 9,
+      "melodic": 9,
+      "raw": 2
+    }
+  },
+  {
+    "id": 112,
+    "title": "Voodoo",
+    "description": "D'Angelo",
+    "year": 2000,
+    "genre": "Нео-соул",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "soul",
+    "image": "/assets/covers/new/112.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "D'Angelo, 2000.",
+      "country": "США",
+      "tags": [
+        "нео-соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Virgin"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 3,
+      "dark": 5,
+      "organic": 8,
+      "density": 7,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 4
+    }
+  },
+  {
+    "id": 113,
+    "title": "The Miseducation of Lauryn Hill",
+    "description": "Lauryn Hill",
+    "year": 1998,
+    "genre": "Соул",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "soul",
+    "image": "/assets/covers/new/113.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Lauryn Hill, 1998.",
+      "country": "США",
+      "tags": [
+        "соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Ruffhouse / Columbia"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 5,
+      "dark": 3,
+      "organic": 7,
+      "density": 6,
+      "vocal": 9,
+      "melodic": 9,
+      "raw": 3
+    }
+  },
+  {
+    "id": 114,
+    "title": "Superfly",
+    "description": "Curtis Mayfield",
+    "year": 1972,
+    "genre": "Фанк-соул",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "soul",
+    "image": "/assets/covers/new/114.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Curtis Mayfield, 1972.",
+      "country": "США",
+      "tags": [
+        "фанк-соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Curtom"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 5,
+      "organic": 8,
+      "density": 7,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 3
+    }
+  },
+  {
+    "id": 115,
+    "title": "There's a Riot Goin' On",
+    "description": "Sly & The Family Stone",
+    "year": 1971,
+    "genre": "Фанк",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "soul",
+    "image": "/assets/covers/new/115.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Sly & The Family Stone, 1971.",
+      "country": "США",
+      "tags": [
+        "фанк"
+      ],
+      "isDemoEntry": true,
+      "label": "Epic"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 6,
+      "organic": 8,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 7
+    }
+  },
+  {
+    "id": 116,
+    "title": "Illmatic",
+    "description": "Nas",
+    "year": 1994,
+    "genre": "Хип-хоп",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "hiphop",
+    "image": "/assets/covers/new/116.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Nas, 1994.",
+      "country": "США",
+      "tags": [
+        "хип-хоп"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 3,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 6,
+      "raw": 5
+    }
+  },
+  {
+    "id": 117,
+    "title": "The Low End Theory",
+    "description": "A Tribe Called Quest",
+    "year": 1991,
+    "genre": "Хип-хоп",
+    "format": "12\" LP",
+    "price": 3490,
+    "category": "hiphop",
+    "image": "/assets/covers/new/117.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "A Tribe Called Quest, 1991.",
+      "country": "США",
+      "tags": [
+        "хип-хоп"
+      ],
+      "isDemoEntry": true,
+      "label": "Jive"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 3,
+      "organic": 6,
+      "density": 6,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 4
+    }
+  },
+  {
+    "id": 118,
+    "title": "Madvillainy",
+    "description": "Madvillain",
+    "year": 2004,
+    "genre": "Хип-хоп",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "hiphop",
+    "image": "/assets/covers/new/118.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Madvillain, 2004.",
+      "country": "США",
+      "tags": [
+        "хип-хоп"
+      ],
+      "isDemoEntry": true,
+      "label": "Stones Throw"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 7,
+      "dark": 5,
+      "organic": 3,
+      "density": 7,
+      "vocal": 9,
+      "melodic": 5,
+      "raw": 8
+    }
+  },
+  {
+    "id": 119,
+    "title": "Donuts",
+    "description": "J Dilla",
+    "year": 2006,
+    "genre": "Хип-хоп, инструментал",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "hiphop",
+    "image": "/assets/covers/new/119.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "J Dilla, 2006.",
+      "country": "США",
+      "tags": [
+        "хип-хоп, инструментал"
+      ],
+      "isDemoEntry": true,
+      "label": "Stones Throw"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 6,
+      "dark": 4,
+      "organic": 3,
+      "density": 7,
+      "vocal": 0,
+      "melodic": 8,
+      "raw": 5
+    }
+  },
+  {
+    "id": 120,
+    "title": "good kid, m.A.A.d city",
+    "description": "Kendrick Lamar",
+    "year": 2012,
+    "genre": "Хип-хоп",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "hiphop",
+    "image": "/assets/covers/new/120.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Kendrick Lamar, 2012.",
+      "country": "США",
+      "tags": [
+        "хип-хоп"
+      ],
+      "isDemoEntry": true,
+      "label": "Top Dawg / Aftermath / Interscope"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 2,
+      "density": 7,
+      "vocal": 9,
+      "melodic": 6,
+      "raw": 4
+    }
+  },
+  {
+    "id": 121,
+    "title": "Selected Ambient Works 85–92",
+    "description": "Aphex Twin",
+    "year": 1992,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "electronic",
+    "image": "/assets/covers/new/121.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Aphex Twin, 1992.",
+      "country": "Великобритания",
+      "tags": [
+        "электроника"
+      ],
+      "isDemoEntry": true,
+      "label": "Apollo"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 5,
+      "dark": 4,
+      "organic": 0,
+      "density": 6,
+      "vocal": 0,
+      "melodic": 7,
+      "raw": 4
+    }
+  },
+  {
+    "id": 122,
+    "title": "Ambient 1: Music for Airports",
+    "description": "Brian Eno",
+    "year": 1978,
+    "genre": "Эмбиент",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "ambient",
+    "image": "/assets/covers/new/122.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Brian Eno, 1978.",
+      "country": "Великобритания",
+      "tags": [
+        "эмбиент"
+      ],
+      "isDemoEntry": true,
+      "label": "Polydor / E.G."
+    },
+    "taste": {
+      "energy": 0,
+      "tempo": 0,
+      "dark": 4,
+      "organic": 2,
+      "density": 2,
+      "vocal": 0,
+      "melodic": 6,
+      "raw": 2
+    }
+  },
+  {
+    "id": 123,
+    "title": "Homework",
+    "description": "Daft Punk",
+    "year": 1997,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "electronic",
+    "image": "/assets/covers/new/123.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Daft Punk, 1997.",
+      "country": "Франция",
+      "tags": [
+        "электроника"
+      ],
+      "isDemoEntry": true,
+      "label": "Virgin"
+    },
+    "taste": {
+      "energy": 8,
+      "tempo": 8,
+      "dark": 4,
+      "organic": 0,
+      "density": 7,
+      "vocal": 1,
+      "melodic": 6,
+      "raw": 6
+    }
+  },
+  {
+    "id": 124,
+    "title": "Discovery",
+    "description": "Daft Punk",
+    "year": 2001,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "electronic",
+    "image": "/assets/covers/new/124.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Daft Punk, 2001.",
+      "country": "Франция",
+      "tags": [
+        "электроника"
+      ],
+      "isDemoEntry": true,
+      "label": "Virgin"
+    },
+    "taste": {
+      "energy": 7,
+      "tempo": 8,
+      "dark": 2,
+      "organic": 0,
+      "density": 7,
+      "vocal": 3,
+      "melodic": 10,
+      "raw": 1
+    }
+  },
+  {
+    "id": 125,
+    "title": "Random Access Memories",
+    "description": "Daft Punk",
+    "year": 2013,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "electronic",
+    "image": "/assets/covers/new/125.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Daft Punk, 2013.",
+      "country": "Франция",
+      "tags": [
+        "электроника"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 2,
+      "organic": 7,
+      "density": 8,
+      "vocal": 5,
+      "melodic": 9,
+      "raw": 1
+    }
+  },
+  {
+    "id": 126,
+    "title": "Kid A",
+    "description": "Radiohead",
+    "year": 2000,
+    "genre": "Электроника, арт-рок",
+    "format": "12\" LP",
+    "price": 3490,
+    "category": "alternative",
+    "image": "/assets/covers/new/126.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Radiohead, 2000.",
+      "country": "Великобритания",
+      "tags": [
+        "электроника, арт-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Parlophone"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 8,
+      "organic": 1,
+      "density": 6,
+      "vocal": 7,
+      "melodic": 4,
+      "raw": 4
+    }
+  },
+  {
+    "id": 127,
+    "title": "Untrue",
+    "description": "Burial",
+    "year": 2007,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "electronic",
+    "image": "/assets/covers/new/127.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Burial, 2007.",
+      "country": "Великобритания",
+      "tags": [
+        "электроника"
+      ],
+      "isDemoEntry": true,
+      "label": "Hyperdub"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 9,
+      "organic": 0,
+      "density": 5,
+      "vocal": 5,
+      "melodic": 5,
+      "raw": 5
+    }
+  },
+  {
+    "id": 128,
+    "title": "Endtroducing.....",
+    "description": "DJ Shadow",
+    "year": 1996,
+    "genre": "Электроника, трип-хоп",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "electronic",
+    "image": "/assets/covers/new/128.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "DJ Shadow, 1996.",
+      "country": "США",
+      "tags": [
+        "электроника, трип-хоп"
+      ],
+      "isDemoEntry": true,
+      "label": "Mo' Wax"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 5,
+      "dark": 7,
+      "organic": 2,
+      "density": 7,
+      "vocal": 0,
+      "melodic": 6,
+      "raw": 5
+    }
+  },
+  {
+    "id": 129,
+    "title": "Moon Safari",
+    "description": "Air",
+    "year": 1998,
+    "genre": "Электроника",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "electronic",
+    "image": "/assets/covers/new/129.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Air, 1998.",
+      "country": "Франция",
+      "tags": [
+        "электроника"
+      ],
+      "isDemoEntry": true,
+      "label": "Source / Virgin"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 4,
+      "dark": 2,
+      "organic": 3,
+      "density": 5,
+      "vocal": 3,
+      "melodic": 9,
+      "raw": 1
+    }
+  },
+  {
+    "id": 130,
+    "title": "Substrata",
+    "description": "Biosphere",
+    "year": 1997,
+    "genre": "Эмбиент",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "ambient",
+    "image": "/assets/covers/new/130.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Biosphere, 1997.",
+      "country": "Норвегия",
+      "tags": [
+        "эмбиент"
+      ],
+      "isDemoEntry": true,
+      "label": "Touch"
+    },
+    "taste": {
+      "energy": 1,
+      "tempo": 2,
+      "dark": 7,
+      "organic": 0,
+      "density": 4,
+      "vocal": 0,
+      "melodic": 4,
+      "raw": 3
+    }
+  },
+  {
+    "id": 131,
+    "title": "Blue",
+    "description": "Joni Mitchell",
+    "year": 1971,
+    "genre": "Фолк",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "folk",
+    "image": "/assets/covers/new/131.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Joni Mitchell, 1971.",
+      "country": "США",
+      "tags": [
+        "фолк"
+      ],
+      "isDemoEntry": true,
+      "label": "Reprise"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 3,
+      "dark": 4,
+      "organic": 10,
+      "density": 2,
+      "vocal": 10,
+      "melodic": 8,
+      "raw": 3
+    }
+  },
+  {
+    "id": 132,
+    "title": "Pink Moon",
+    "description": "Nick Drake",
+    "year": 1972,
+    "genre": "Фолк",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "folk",
+    "image": "/assets/covers/new/132.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Nick Drake, 1972.",
+      "country": "Великобритания",
+      "tags": [
+        "фолк"
+      ],
+      "isDemoEntry": true,
+      "label": "Island"
+    },
+    "taste": {
+      "energy": 1,
+      "tempo": 3,
+      "dark": 6,
+      "organic": 10,
+      "density": 1,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 4
+    }
+  },
+  {
+    "id": 133,
+    "title": "Harvest",
+    "description": "Neil Young",
+    "year": 1972,
+    "genre": "Фолк-рок",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "folk",
+    "image": "/assets/covers/new/133.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Neil Young, 1972.",
+      "country": "США",
+      "tags": [
+        "фолк-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Reprise"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 4,
+      "organic": 10,
+      "density": 4,
+      "vocal": 9,
+      "melodic": 8,
+      "raw": 5
+    }
+  },
+  {
+    "id": 134,
+    "title": "Nebraska",
+    "description": "Bruce Springsteen",
+    "year": 1982,
+    "genre": "Фолк-рок",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "folk",
+    "image": "/assets/covers/new/134.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Bruce Springsteen, 1982.",
+      "country": "США",
+      "tags": [
+        "фолк-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 3,
+      "dark": 7,
+      "organic": 10,
+      "density": 2,
+      "vocal": 9,
+      "melodic": 6,
+      "raw": 8
+    }
+  },
+  {
+    "id": 135,
+    "title": "Tapestry",
+    "description": "Carole King",
+    "year": 1971,
+    "genre": "Поп-фолк",
+    "format": "12\" LP",
+    "price": 3490,
+    "category": "folk",
+    "image": "/assets/covers/new/135.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Carole King, 1971.",
+      "country": "США",
+      "tags": [
+        "поп-фолк"
+      ],
+      "isDemoEntry": true,
+      "label": "Ode"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 2,
+      "organic": 10,
+      "density": 4,
+      "vocal": 10,
+      "melodic": 10,
+      "raw": 2
+    }
+  },
+  {
+    "id": 136,
+    "title": "For Emma, Forever Ago",
+    "description": "Bon Iver",
+    "year": 2007,
+    "genre": "Инди-фолк",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "folk",
+    "image": "/assets/covers/new/136.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Bon Iver, 2007.",
+      "country": "США",
+      "tags": [
+        "инди-фолк"
+      ],
+      "isDemoEntry": true,
+      "label": "Jagjaguwar"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 2,
+      "dark": 6,
+      "organic": 10,
+      "density": 3,
+      "vocal": 9,
+      "melodic": 6,
+      "raw": 6
+    }
+  },
+  {
+    "id": 137,
+    "title": "Fleet Foxes",
+    "description": "Fleet Foxes",
+    "year": 2008,
+    "genre": "Инди-фолк",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "folk",
+    "image": "/assets/covers/new/137.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Fleet Foxes, 2008.",
+      "country": "США",
+      "tags": [
+        "инди-фолк"
+      ],
+      "isDemoEntry": true,
+      "label": "Sub Pop"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 3,
+      "organic": 10,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 8,
+      "raw": 3
+    }
+  },
+  {
+    "id": 138,
+    "title": "Carrie & Lowell",
+    "description": "Sufjan Stevens",
+    "year": 2015,
+    "genre": "Инди-фолк",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "folk",
+    "image": "/assets/covers/new/138.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Sufjan Stevens, 2015.",
+      "country": "США",
+      "tags": [
+        "инди-фолк"
+      ],
+      "isDemoEntry": true,
+      "label": "Asthmatic Kitty"
+    },
+    "taste": {
+      "energy": 1,
+      "tempo": 2,
+      "dark": 7,
+      "organic": 10,
+      "density": 3,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 5
+    }
+  },
+  {
+    "id": 139,
+    "title": "Punisher",
+    "description": "Phoebe Bridgers",
+    "year": 2020,
+    "genre": "Инди-рок",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "folk",
+    "image": "/assets/covers/new/139.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Phoebe Bridgers, 2020.",
+      "country": "США",
+      "tags": [
+        "инди-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Dead Oceans"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 3,
+      "dark": 6,
+      "organic": 8,
+      "density": 5,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 3
+    }
+  },
+  {
+    "id": 140,
+    "title": "Loveless",
+    "description": "My Bloody Valentine",
+    "year": 1991,
+    "genre": "Шугейз",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "alternative",
+    "image": "/assets/covers/new/140.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "My Bloody Valentine, 1991.",
+      "country": "Ирландия",
+      "tags": [
+        "шугейз"
+      ],
+      "isDemoEntry": true,
+      "label": "Creation"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 8,
+      "density": 10,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 6
+    }
+  },
+  {
+    "id": 141,
+    "title": "Souvlaki",
+    "description": "Slowdive",
+    "year": 1993,
+    "genre": "Шугейз",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "alternative",
+    "image": "/assets/covers/new/141.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Slowdive, 1993.",
+      "country": "Великобритания",
+      "tags": [
+        "шугейз"
+      ],
+      "isDemoEntry": true,
+      "label": "Creation"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 3,
+      "dark": 5,
+      "organic": 8,
+      "density": 8,
+      "vocal": 7,
+      "melodic": 6,
+      "raw": 4
+    }
+  },
+  {
+    "id": 142,
+    "title": "Heaven or Las Vegas",
+    "description": "Cocteau Twins",
+    "year": 1990,
+    "genre": "Дрим-поп",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "alternative",
+    "image": "/assets/covers/new/142.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Cocteau Twins, 1990.",
+      "country": "Великобритания",
+      "tags": [
+        "дрим-поп"
+      ],
+      "isDemoEntry": true,
+      "label": "4AD"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 3,
+      "organic": 8,
+      "density": 7,
+      "vocal": 8,
+      "melodic": 7,
+      "raw": 2
+    }
+  },
+  {
+    "id": 143,
+    "title": "Ágætis byrjun",
+    "description": "Sigur Rós",
+    "year": 1999,
+    "genre": "Пост-рок",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "alternative",
+    "image": "/assets/covers/new/143.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Sigur Rós, 1999.",
+      "country": "Исландия",
+      "tags": [
+        "пост-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Smekkleysa"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 3,
+      "dark": 5,
+      "organic": 9,
+      "density": 7,
+      "vocal": 6,
+      "melodic": 6,
+      "raw": 3
+    }
+  },
+  {
+    "id": 144,
+    "title": "Lift Your Skinny Fists Like Antennas to Heaven",
+    "description": "Godspeed You! Black Emperor",
+    "year": 2000,
+    "genre": "Пост-рок",
+    "format": "12\" LP",
+    "price": 3490,
+    "category": "alternative",
+    "image": "/assets/covers/new/144.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Godspeed You! Black Emperor, 2000.",
+      "country": "Канада",
+      "tags": [
+        "пост-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Constellation"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 3,
+      "dark": 9,
+      "organic": 10,
+      "density": 9,
+      "vocal": 0,
+      "melodic": 3,
+      "raw": 6
+    }
+  },
+  {
+    "id": 145,
+    "title": "Young Team",
+    "description": "Mogwai",
+    "year": 1997,
+    "genre": "Пост-рок",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "alternative",
+    "image": "/assets/covers/new/145.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Mogwai, 1997.",
+      "country": "Великобритания",
+      "tags": [
+        "пост-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Chemikal Underground"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 4,
+      "dark": 6,
+      "organic": 9,
+      "density": 8,
+      "vocal": 1,
+      "melodic": 4,
+      "raw": 6
+    }
+  },
+  {
+    "id": 146,
+    "title": "Is This It",
+    "description": "The Strokes",
+    "year": 2001,
+    "genre": "Гаражный рок",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "rock",
+    "image": "/assets/covers/new/146.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "The Strokes, 2001.",
+      "country": "США",
+      "tags": [
+        "гаражный рок"
+      ],
+      "isDemoEntry": true,
+      "label": "RCA"
+    },
+    "taste": {
+      "energy": 7,
+      "tempo": 7,
+      "dark": 4,
+      "organic": 9,
+      "density": 4,
+      "vocal": 7,
+      "melodic": 8,
+      "raw": 7
+    }
+  },
+  {
+    "id": 147,
+    "title": "Pet Sounds",
+    "description": "The Beach Boys",
+    "year": 1966,
+    "genre": "Поп-рок",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "rock",
+    "image": "/assets/covers/new/147.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "The Beach Boys, 1966.",
+      "country": "США",
+      "tags": [
+        "поп-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Capitol"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 2,
+      "organic": 9,
+      "density": 8,
+      "vocal": 8,
+      "melodic": 10,
+      "raw": 2
+    }
+  },
+  {
+    "id": 148,
+    "title": "Once Upon a Time in the West",
+    "description": "Ennio Morricone",
+    "year": 1969,
+    "genre": "Саундтрек",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "other",
+    "image": "/assets/covers/new/148.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Ennio Morricone, 1969.",
+      "country": "Италия",
+      "tags": [
+        "саундтрек"
+      ],
+      "isDemoEntry": true,
+      "label": "RCA"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 4,
+      "dark": 5,
+      "organic": 9,
+      "density": 6,
+      "vocal": 3,
+      "melodic": 8,
+      "raw": 4
+    }
+  },
+  {
+    "id": 149,
+    "title": "Interstellar (Original Motion Picture Soundtrack)",
+    "description": "Hans Zimmer",
+    "year": 2014,
+    "genre": "Саундтрек",
+    "format": "12\" LP",
+    "price": 5490,
+    "category": "other",
+    "image": "/assets/covers/new/149.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Hans Zimmer, 2014.",
+      "country": "США",
+      "tags": [
+        "саундтрек"
+      ],
+      "isDemoEntry": true,
+      "label": "WaterTower Music"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 3,
+      "dark": 6,
+      "organic": 4,
+      "density": 8,
+      "vocal": 0,
+      "melodic": 7,
+      "raw": 2
+    }
+  },
+  {
+    "id": 150,
+    "title": "Exodus",
+    "description": "Bob Marley & The Wailers",
+    "year": 1977,
+    "genre": "Регги",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "reggae",
+    "image": "/assets/covers/new/150.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Bob Marley & The Wailers, 1977.",
+      "country": "Ямайка",
+      "tags": [
+        "регги"
+      ],
+      "isDemoEntry": true,
+      "label": "Island"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 5,
+      "dark": 3,
+      "organic": 9,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 9,
+      "raw": 3
+    }
+  },
+  {
+    "id": 151,
+    "title": "Legend",
+    "description": "Bob Marley & The Wailers",
+    "year": 1984,
+    "genre": "Регги",
+    "format": "12\" LP",
+    "price": 4490,
+    "category": "reggae",
+    "image": "/assets/covers/new/151.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Bob Marley & The Wailers, 1984.",
+      "country": "Ямайка",
+      "tags": [
+        "регги"
+      ],
+      "isDemoEntry": true,
+      "label": "Island / Tuff Gong"
+    },
+    "taste": {
+      "energy": 4,
+      "tempo": 5,
+      "dark": 2,
+      "organic": 9,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 10,
+      "raw": 2
+    }
+  },
+  {
+    "id": 152,
+    "title": "Buena Vista Social Club",
+    "description": "Buena Vista Social Club",
+    "year": 1997,
+    "genre": "Мировая музыка",
+    "format": "12\" LP",
+    "price": 3990,
+    "category": "world",
+    "image": "/assets/covers/new/152.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Buena Vista Social Club, 1997.",
+      "country": "Куба",
+      "tags": [
+        "мировая музыка"
+      ],
+      "isDemoEntry": true,
+      "label": "World Circuit"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 5,
+      "dark": 2,
+      "organic": 10,
+      "density": 5,
+      "vocal": 7,
+      "melodic": 9,
+      "raw": 3
+    }
+  },
+  {
+    "id": 153,
+    "title": "King of the Delta Blues Singers",
+    "description": "Robert Johnson",
+    "year": 1961,
+    "genre": "Блюз",
+    "format": "12\" LP",
+    "price": 3490,
+    "category": "blues",
+    "image": "/assets/covers/new/153.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Robert Johnson, 1961.",
+      "country": "США",
+      "tags": [
+        "блюз"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 2,
+      "tempo": 3,
+      "dark": 6,
+      "organic": 10,
+      "density": 1,
+      "vocal": 8,
+      "melodic": 6,
+      "raw": 9
+    }
+  },
+  {
+    "id": 154,
+    "title": "At Folsom Prison",
+    "description": "Johnny Cash",
+    "year": 1968,
+    "genre": "Кантри",
+    "format": "12\" LP",
+    "price": 7490,
+    "category": "blues",
+    "image": "/assets/covers/new/154.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Johnny Cash, 1968.",
+      "country": "США",
+      "tags": [
+        "кантри"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 5,
+      "tempo": 6,
+      "dark": 5,
+      "organic": 10,
+      "density": 3,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 8
+    }
+  },
+  {
+    "id": 155,
+    "title": "I Put a Spell on You",
+    "description": "Nina Simone",
+    "year": 1965,
+    "genre": "Джаз, соул",
+    "format": "12\" LP",
+    "price": 6990,
+    "category": "jazz",
+    "image": "/assets/covers/new/155.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Nina Simone, 1965.",
+      "country": "США",
+      "tags": [
+        "джаз, соул"
+      ],
+      "isDemoEntry": true,
+      "label": "Philips"
+    },
+    "taste": {
+      "energy": 3,
+      "tempo": 4,
+      "dark": 5,
+      "organic": 10,
+      "density": 4,
+      "vocal": 9,
+      "melodic": 8,
+      "raw": 4
+    }
+  },
+  {
+    "id": 156,
+    "title": "Lady in Satin",
+    "description": "Billie Holiday",
+    "year": 1958,
+    "genre": "Вокальный джаз",
+    "format": "12\" LP",
+    "price": 6490,
+    "category": "jazz",
+    "image": "/assets/covers/new/156.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Billie Holiday, 1958.",
+      "country": "США",
+      "tags": [
+        "вокальный джаз"
+      ],
+      "isDemoEntry": true,
+      "label": "Columbia"
+    },
+    "taste": {
+      "energy": 1,
+      "tempo": 2,
+      "dark": 6,
+      "organic": 10,
+      "density": 4,
+      "vocal": 9,
+      "melodic": 7,
+      "raw": 3
+    }
+  },
+  {
+    "id": 157,
+    "title": "Группа крови",
+    "description": "Кино",
+    "year": 1988,
+    "genre": "Рок",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "rock",
+    "image": "/assets/covers/new/157.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Кино, 1988.",
+      "country": "СССР",
+      "tags": [
+        "рок"
+      ],
+      "isDemoEntry": true
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 5,
+      "dark": 6,
+      "organic": 8,
+      "density": 5,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 5
+    }
+  },
+  {
+    "id": 158,
+    "title": "Ace of Spades",
+    "description": "Motörhead",
+    "year": 1980,
+    "genre": "Хард-рок / метал",
+    "format": "12\" LP",
+    "price": 5990,
+    "category": "metal",
+    "image": "/assets/covers/new/158.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Motörhead, 1980.",
+      "country": "Великобритания",
+      "tags": [
+        "метал",
+        "хард-рок"
+      ],
+      "isDemoEntry": true,
+      "label": "Bronze"
+    },
+    "taste": {
+      "energy": 10,
+      "tempo": 9,
+      "dark": 6,
+      "organic": 7,
+      "density": 8,
+      "vocal": 6,
+      "melodic": 4,
+      "raw": 10
+    }
+  },
+  {
+    "id": 159,
+    "title": "Svalutation",
+    "description": "Adriano Celentano",
+    "year": 1976,
+    "genre": "Поп / фанк",
+    "format": "12\" LP",
+    "price": 4990,
+    "category": "pop",
+    "image": "/assets/covers/new/159.jpg",
+    "coverMissing": false,
+    "priceIsPlaceholder": true,
+    "detailedInfo": {
+      "description": "Adriano Celentano, 1976.",
+      "country": "Италия",
+      "tags": [
+        "итальянская эстрада",
+        "поп"
+      ],
+      "isDemoEntry": true,
+      "label": "Clan Celentano"
+    },
+    "taste": {
+      "energy": 6,
+      "tempo": 6,
+      "dark": 2,
+      "organic": 8,
+      "density": 6,
+      "vocal": 8,
+      "melodic": 8,
+      "raw": 3
     }
   }
 ]
