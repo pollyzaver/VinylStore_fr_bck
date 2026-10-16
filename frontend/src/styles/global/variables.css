@@ -1,14 +1,33 @@
 :root {
-  /* Colors */
-  --vinyl-primary: #b30000;
-  --vinyl-primary-hover: #ca2735;
-  --vinyl-dark: #121212;
-  --vinyl-card: #1e1e1e;
-  --vinyl-border: #444;
-  --vinyl-text: #ffffff;
-  --vinyl-muted: #cccccc;
-  --vinyl-light-bg: #2a2a2a;
-  
+  /* Solco palette: «Погреб» + «Бумага» */
+  --cellar: #120503;
+  --surface: #1b0a06;
+  --surface-2: #1e0c07;
+  --oak: #3a1d10;
+  --wine: #6a0d12;
+  --signal: #b3262d;
+  --signal-hover: #c9363d;
+  --amber: #cf8b3e;
+  --paper: #f3e9d2;
+  --muted: #a89a86;
+
+  /* Legacy names used across the stylesheets, now mapped to Solco */
+  --vinyl-primary: var(--signal);
+  --vinyl-primary-hover: var(--signal-hover);
+  --vinyl-red: var(--signal);
+  --vinyl-secondary: var(--amber);
+  --vinyl-dark: var(--cellar);
+  --vinyl-card: var(--surface-2);
+  --vinyl-border: var(--oak);
+  --vinyl-text: var(--paper);
+  --vinyl-muted: var(--muted);
+  --vinyl-light-bg: #2a140b;
+
+  /* Fonts */
+  --font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --font-ui: 'Golos Text', 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;

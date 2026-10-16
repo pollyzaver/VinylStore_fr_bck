@@ -1,186 +1,150 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { useFavorites } from '../context/FavoritesContext';
+import Logo from './Logo';
 import '../styles/components/Header.css';
 
-// Иконка корзины
-const CartIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="9" cy="21" r="1.5" />
-    <circle cx="20" cy="21" r="1.5" />
-    <path d="M1 2h3l2.5 12.5a2 2 0 0 0 2 1.5h10a2 2 0 0 0 2-1.5L23 6H5.5" strokeLinecap="round"/>
+// Иконки: один набор, линия 1.5, скруглённые концы, сетка 24×24
+const Svg = ({ children }) => (
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+       strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+    {children}
   </svg>
 );
 
-// Иконка входа
-const LoginIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-    <polyline points="10 17 15 12 10 7" />
-    <line x1="15" y1="12" x2="3" y2="12" />
-  </svg>
+// «Мои диски»: пластинка
+const DiscIcon = () => (
+  <Svg>
+    <circle cx="12" cy="12" r="9" />
+    <circle cx="12" cy="12" r="2.6" />
+    <path d="M18 12a6 6 0 0 0-6-6" />
+  </Svg>
 );
 
-// Иконка избранного
-const HeartIcon = ({ filled = false }) => (
-  <svg viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-  </svg>
+// Корзина: бумажный пакет из магазина
+const BagIcon = () => (
+  <Svg>
+    <path d="M5.5 8.5h13l-.9 11h-11.2z" />
+    <path d="M9 8.5V7.4a3 3 0 0 1 6 0v1.1" />
+  </Svg>
 );
+
+const NAV = [
+  { id: 'catalog', label: 'Пластинки', match: ['catalog'] },
+  { id: 'test', label: 'Тест', match: ['test'] },
+  { id: 'events', label: 'Афиша', match: ['events', 'about', 'contacts'] },
+];
 
 const Header = ({ onCartClick, onNavigate, currentPage }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [stuck, setStuck] = useState(false);
   const { getCartItemsCount } = useCart();
   const { user } = useAuth();
-  const { getFavoritesCount } = useFavorites();
+  const count = getCartItemsCount();
 
-  const handleNavigation = (page) => {
-    console.log('Navigating to:', page);
+  const go = (page) => {
     onNavigate(page);
-    setIsMenuOpen(false);
+    setOpen(false);
   };
 
-  const cartItemsCount = getCartItemsCount();
-  const favoritesCount = getFavoritesCount();
+  // тень и плотность фона появляются после прокрутки
+  useEffect(() => {
+    const on = () => setStuck(window.scrollY > 8);
+    on();
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
+
+  // мобильное меню: Esc закрывает, страница под ним не прокручивается
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    const onResize = () => { if (window.innerWidth > 768) setOpen(false); };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('resize', onResize);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [open]);
+
+  const profileActive = currentPage === 'profile' || currentPage === 'favorites';
 
   return (
-    <>
-      <header className="site-header" role="banner">
-        <div className="container">
-          {/* Левая часть с логотипом */}
-          <div className="logo-container">
-            <button 
-              className="logo"
-              onClick={() => handleNavigation('home')}
-              aria-label="На главную"
-            >
-              VinylStore
-            </button>
-          </div>
+    <header className={`hd ${stuck ? 'is-stuck' : ''} ${open ? 'is-open' : ''}`} role="banner">
+      <div className="hd-in">
+        <button type="button" className="hd-logo" onClick={() => go('home')} aria-label="Solco, на главную">
+          <Logo size={34} />
+        </button>
 
-          {/* Центральная часть с навигацией */}
-          <div className="nav-wrapper">
-            <nav 
-              id="primary-navigation" 
-              className={`site-nav ${isMenuOpen ? 'active' : ''}`}
-              aria-label="Основная навигация"
-            >
-              <ul className="nav-menu">
-                <li className="nav-item">
-                  <button 
-                    className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}
-                    onClick={() => handleNavigation('home')}
-                  >
-                    Главная
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button 
-                    className={`nav-link ${currentPage === 'about' ? 'active' : ''}`}
-                    onClick={() => handleNavigation('about')}
-                  >
-                    О нас
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button 
-                    className={`nav-link ${currentPage === 'contacts' ? 'active' : ''}`}
-                    onClick={() => handleNavigation('contacts')}
-                  >
-                    Контакты
-                  </button>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          {/* Правая часть с иконками */}
-          <div className="right-container">
-
-            {/* Профиль / Вход */}
-            {user ? (
-              <button 
-                className="avatar-button"
-                onClick={() => handleNavigation('profile')}
-                aria-label="Профиль"
-                title="Профиль"
+        <nav className="hd-nav" aria-label="Основная навигация">
+          {NAV.map((n) => {
+            const on = n.match.includes(currentPage);
+            return (
+              <button
+                key={n.id}
+                type="button"
+                className={`hd-link ${on ? 'on' : ''}`}
+                aria-current={on ? 'page' : undefined}
+                onClick={() => go(n.id)}
               >
-                {user.name[0].toUpperCase()}
+                {n.label}
               </button>
-            ) : (
-              <button 
-                className="icon-button login-button"
-                onClick={() => handleNavigation('login')}
-                aria-label="Войти"
-                title="Войти"
-              >
-                <LoginIcon />
-              </button>
-            )}
+            );
+          })}
+        </nav>
 
-            <button 
-              className={`icon-button favorites-button ${favoritesCount > 0 ? 'has-items' : ''}`}
-              onClick={() => handleNavigation('favorites')}
-              aria-label="Избранное"
-              title="Избранное"
-            >
-              <HeartIcon filled={favoritesCount > 0} />
-              {favoritesCount > 0 && (
-                <span className="favorites-count">{favoritesCount}</span>
-              )}
+        <div className="hd-tools">
+          {user ? (
+            <button type="button" className={`hd-ib hd-avatar ${profileActive ? 'on' : ''}`} onClick={() => go('profile')} aria-label="Профиль" title="Профиль">
+              {user.name[0].toUpperCase()}
             </button>
+          ) : (
+            <button type="button" className={`hd-ib ${profileActive ? 'on' : ''}`} onClick={() => go('profile')} aria-label="Мои открытки" title="Мои открытки">
+              <DiscIcon />
+            </button>
+          )}
 
-            {/* Корзина десктоп */}
-            <button 
-              className="icon-button cart-button-desktop"
-              onClick={onCartClick}
-              aria-label="Корзина"
-              title="Корзина"
-            >
-              <CartIcon />
-              {cartItemsCount > 0 && (
-                <span className="icon-count">{cartItemsCount}</span>
-              )}
-            </button>
+          <button type="button" className="hd-ib" onClick={() => { setOpen(false); onCartClick(); }} aria-label={count ? `Корзина, товаров: ${count}` : 'Корзина'} title="Корзина">
+            <BagIcon />
+            {count > 0 && <span className="hd-count">{count}</span>}
+          </button>
 
-            {/* Корзина мобильная */}
-            <button 
-              className="icon-button cart-button-mobile"
-              onClick={onCartClick}
-              aria-label="Корзина"
-              title="Корзина"
-            >
-              <CartIcon />
-              {cartItemsCount > 0 && (
-                <span className="icon-count">{cartItemsCount}</span>
-              )}
-            </button>
-
-            {/* Бургер-меню */}
-            <button 
-              className={`nav-toggle ${isMenuOpen ? 'active' : ''}`}
-              aria-label="Меню"
-              aria-expanded={isMenuOpen}
-              aria-controls="primary-navigation"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </button>
-          </div>
+          <button
+            type="button"
+            className="hd-burger"
+            aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
+            aria-expanded={open}
+            aria-controls="hd-menu"
+            onClick={() => setOpen(!open)}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
         </div>
-      </header>
+      </div>
 
-      {/* Оверлей для мобильного меню */}
-      <div 
-        className={`overlay ${isMenuOpen ? 'active' : ''}`} 
-        tabIndex="-1" 
-        aria-hidden="true"
-        onClick={() => setIsMenuOpen(false)}
-      />
-    </>
+      <div id="hd-menu" className="hd-menu" aria-hidden={!open}>
+        <nav aria-label="Меню">
+          <ol>
+            {NAV.map((n, i) => (
+              <li key={n.id} style={{ '--i': i }}>
+                <button type="button" className={n.match.includes(currentPage) ? 'on' : ''} tabIndex={open ? 0 : -1} onClick={() => go(n.id)}>
+                  <span>{n.label}</span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </nav>
+        <div className="hd-menu-foot">
+          <button type="button" tabIndex={open ? 0 : -1} onClick={() => go('profile')}><DiscIcon />{user ? 'Профиль' : 'Мои открытки'}</button>
+          <button type="button" tabIndex={open ? 0 : -1} onClick={() => { setOpen(false); onCartClick(); }}><BagIcon />Корзина{count > 0 ? ` · ${count}` : ''}</button>
+        </div>
+      </div>
+    </header>
   );
 };
 

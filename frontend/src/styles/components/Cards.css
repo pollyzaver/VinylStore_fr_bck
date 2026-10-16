@@ -87,7 +87,7 @@
 .stat-number {
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: var(--vinyl-primary);
+  color: var(--amber);
   margin-bottom: var(--space-xs);
 }
 

@@ -31,7 +31,7 @@
   background: var(--vinyl-primary-hover);
   border-color: var(--vinyl-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(179, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(179, 38, 45, 0.4);
 }
 
 /* Secondary button (для кнопки "В избранное" в модалке) */
@@ -53,7 +53,7 @@
 .btn-outline {
   background: transparent;
   border-color: var(--vinyl-primary);
-  color: var(--vinyl-primary);
+  color: var(--amber);
 }
 
 .button-outline:hover,
@@ -74,7 +74,7 @@
 
 .btn-white:hover {
   background: white;
-  color: var(--vinyl-primary);
+  color: var(--amber);
   transform: translateY(-2px);
 }
 
@@ -95,7 +95,7 @@
 .add-to-cart-btn:hover {
   background: var(--vinyl-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(179, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(179, 38, 45, 0.4);
 }
 
 .add-to-cart-btn.adding {
@@ -156,7 +156,7 @@
 
 /* Remove button */
 .remove-btn {
-  background: #ff4444;
+  background: #e0545a;
   color: white;
   border: none;
   padding: var(--space-xs) var(--space-sm);
@@ -167,7 +167,7 @@
 }
 
 .remove-btn:hover {
-  background: #cc0000;
+  background: #8e1c22;
 }
 
 /* Modal add button (в модальном окне) */
@@ -223,12 +223,12 @@
 }
 
 .wishlist-btn.active {
-  border-color: #b30000;
+  border-color: #b3262d;
 }
 
 .wishlist-btn.active svg {
-  fill: #b30000;
-  stroke: #b30000;
+  fill: #b3262d;
+  stroke: #b3262d;
 }
 
 .wishlist-btn:hover {
@@ -237,5 +237,5 @@
 }
 
 .wishlist-btn.active:hover {
-  border-color: #b30000;
+  border-color: #b3262d;
 }

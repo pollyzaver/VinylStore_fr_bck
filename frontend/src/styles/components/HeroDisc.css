@@ -1,0 +1,81 @@
+/* диск героя: движение задаёт JS (HeroDisc.js), CSS-вращение отключено */
+.hdisc-move { position: relative; width: 100%; height: 100%; will-change: transform; }
+.solco-hero__svg.hdisc-svg { animation: none; position: relative; z-index: 1; will-change: transform; }
+.hdisc-ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--amber);
+  opacity: 0;
+  animation: hdisc-wave 7.2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes hdisc-wave {
+  0% { transform: scale(0.98); opacity: 0.28; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+/* блики на винил: свет стоит на месте, пока диск вращается под ним.
+   Угол света (--ga) меняет JS: он медленно дрейфует и следует за курсором. */
+.hdisc-gloss {
+  position: absolute;
+  inset: 1.5%;
+  z-index: 2;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  /* не трогаем этикетку в центре и самый край */
+  -webkit-mask-image: radial-gradient(circle, transparent 0 19%, #000 21%, #000 96%, transparent 100%);
+  mask-image: radial-gradient(circle, transparent 0 19%, #000 21%, #000 96%, transparent 100%);
+}
+.hdisc-gloss--a {
+  /* две широкие мягкие полосы света друг напротив друга, как на настоящей пластинке */
+  background: conic-gradient(from var(--ga, 30deg),
+    transparent 0deg, rgba(243, 233, 210, 0.05) 14deg, rgba(243, 233, 210, 0.24) 26deg, rgba(243, 233, 210, 0.05) 40deg, transparent 54deg,
+    transparent 180deg, rgba(243, 233, 210, 0.04) 194deg, rgba(243, 233, 210, 0.16) 206deg, rgba(243, 233, 210, 0.04) 220deg, transparent 234deg 360deg);
+}
+.hdisc-gloss--b {
+  /* тонкий резкий блик внутри широкого, чуть теплее */
+  background: conic-gradient(from calc(var(--ga, 30deg) + 14deg),
+    transparent 0deg, rgba(255, 244, 220, 0.5) 6deg, transparent 12deg,
+    transparent 180deg, rgba(255, 244, 220, 0.3) 186deg, transparent 192deg 360deg);
+  filter: blur(1.2px);
+  opacity: 0.8;
+}
+/* мелкая «канавочная» рябь внутри бликов: свет цепляется за дорожки */
+.hdisc-gloss--c {
+  background:
+    repeating-radial-gradient(circle, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 7px),
+    conic-gradient(from var(--ga, 30deg), transparent 0deg, #000 24deg, transparent 56deg, transparent 180deg, #000 206deg, transparent 236deg 360deg);
+  background-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+/* узор фона едет медленнее страницы и чуть смещается за курсором */
+.solco-hero.solco-pattern::before { background-position: var(--px, 0px) var(--py, 0px); }
+@media (prefers-reduced-motion: reduce) {
+  .hdisc-ripple { animation: none; opacity: 0; }
+  .hdisc-gloss { opacity: 0.8; }
+  .solco-hero__svg.hdisc-svg { animation: none; }
+}
+
+/* Узор на первом экране проявляется волной от диска: кольца вспыхивают и остаются */
+@property --rv { syntax: '<length>'; inherits: false; initial-value: 1600px; }
+@keyframes ring-wave { from { --rv: 0px; } to { --rv: 1600px; } }
+.solco-hero.solco-pattern::before {
+  -webkit-mask-image: radial-gradient(circle at 72% 48%, #000 calc(var(--rv) - 160px), transparent var(--rv)), linear-gradient(to bottom, #000 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(circle at 72% 48%, #000 calc(var(--rv) - 160px), transparent var(--rv)), linear-gradient(to bottom, #000 0%, #000 40%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+  animation: ring-wave 4.6s cubic-bezier(.4,.1,.4,1) .3s both;
+}
+.solco-hero.solco-pattern::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: var(--ring-tile); background-size: 200px 200px; background-position: var(--px, 0px) var(--py, 0px);
+  opacity: .3; filter: brightness(1.1);
+  -webkit-mask-image: radial-gradient(circle at 72% 48%, transparent calc(var(--rv) - 320px), #000 calc(var(--rv) - 110px), transparent var(--rv)), linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+  mask-image: radial-gradient(circle at 72% 48%, transparent calc(var(--rv) - 320px), #000 calc(var(--rv) - 110px), transparent var(--rv)), linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+  animation: ring-wave 4.6s cubic-bezier(.4,.1,.4,1) .3s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .solco-hero.solco-pattern::before, .solco-hero.solco-pattern::after { animation: none; }
+}

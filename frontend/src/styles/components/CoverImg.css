@@ -1,0 +1,4 @@
+.ci-ph { position: relative; width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: #120503; overflow: hidden; }
+.ci-disc { width: 78%; line-height: 0; }
+.ci-disc svg { width: 100%; height: auto; display: block; }
+.ci-cap { position: absolute; left: 8%; right: 8%; bottom: 6%; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

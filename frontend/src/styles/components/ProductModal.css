@@ -121,19 +121,19 @@
   display: inline-flex;
   align-items: center;
   background: transparent;
-  color: #b30000;
+  color: #b3262d;
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.3px;
-  border: 1px solid rgba(179, 0, 0, 0.3);
+  border: 1px solid rgba(179, 38, 45, 0.3);
   transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .feature-tag:hover {
-  border-color: #b30000;
+  border-color: #b3262d;
 }
 
 /* QUICK INFO */
@@ -166,12 +166,12 @@
 .stock-available::before { content: '✓ '; }
 
 .stock-unavailable {
-  color: #F44336;
+  color: #e0545a;
 }
 .stock-unavailable::before { content: '✗ '; }
 
 .stock-low {
-  color: #FF9800;
+  color: #cf8b3e;
 }
 .stock-low::before { content: '⚠ '; }
 
@@ -287,12 +287,12 @@
 }
 
 .wishlist-btn.active {
-  border-color: #b30000;
+  border-color: #b3262d;
 }
 
 .wishlist-btn.active svg {
-  fill: #b30000;
-  stroke: #b30000;
+  fill: #b3262d;
+  stroke: #b3262d;
 }
 
 .wishlist-btn:hover {
@@ -301,7 +301,7 @@
 
 .wishlist-btn.active:hover {
   transform: translateY(-1px);
-  border-color: #b30000;
+  border-color: #b3262d;
 }
 
 /* ДОСТАВКА */
@@ -352,7 +352,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: #b30000;
+  background: #b3262d;
 }
 
 .tabs-content {
@@ -408,7 +408,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #b30000;
+  color: #b3262d;
   font-weight: bold;
   font-size: 1rem;
 }
@@ -417,7 +417,7 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #b30000;
+  color: #b3262d;
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -432,7 +432,7 @@
 
 .award-badge {
   background: rgba(255, 193, 7, 0.1);
-  color: #FFC107;
+  color: #cf8b3e;
   padding: 8px 16px;
   border-radius: 30px;
   font-size: 0.9rem;
@@ -559,9 +559,9 @@
 }
 
 .tag:hover {
-  background: rgba(179, 0, 0, 0.1);
-  color: #b30000;
-  border-color: rgba(179, 0, 0, 0.3);
+  background: rgba(179, 38, 45, 0.1);
+  color: #b3262d;
+  border-color: rgba(179, 38, 45, 0.3);
 }
 
 /* АДАПТИВНОСТЬ */

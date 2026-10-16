@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
+import CoverImg from './CoverImg';
 import { useFavorites } from '../context/FavoritesContext';
 
 const ProductModal = ({ product, isOpen, onClose }) => {
@@ -83,11 +84,7 @@ const ProductModal = ({ product, isOpen, onClose }) => {
           {/* Левая колонка - изображение */}
           <div className="modal-left">
             <div className="modal-image-container">
-              <img 
-                src={process.env.PUBLIC_URL + product.image} 
-                alt={`Обложка альбома ${product.title}`}
-                className="modal-main-image"
-              />
+              <CoverImg product={product} className="modal-main-image" alt={`Обложка альбома ${product.title}`} />
               {product.badge && (
                 <div className={`product-badge badge-${product.badge.toLowerCase()}`}>
                   {product.badge}
@@ -199,8 +196,8 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                   className={`btn btn-secondary wishlist-btn ${isFavorite ? 'active' : ''}`}
                   onClick={handleToggleFavorite}
                   style={{
-                    backgroundColor: isFavorite ? 'rgba(255, 68, 68, 0.2)' : '',
-                    borderColor: isFavorite ? '#ff4444' : ''
+                    backgroundColor: isFavorite ? 'rgba(224, 84, 90, 0.2)' : '',
+                    borderColor: isFavorite ? '#e0545a' : ''
                   }}
                 >
                   <span className="btn-icon">
@@ -208,8 +205,8 @@ const ProductModal = ({ product, isOpen, onClose }) => {
                       width="20" 
                       height="20" 
                       viewBox="0 0 24 24" 
-                      fill={isFavorite ? '#ff4444' : 'none'} 
-                      stroke={isFavorite ? '#ff4444' : 'currentColor'} 
+                      fill={isFavorite ? '#e0545a' : 'none'} 
+                      stroke={isFavorite ? '#e0545a' : 'currentColor'} 
                       strokeWidth="2"
                     >
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>

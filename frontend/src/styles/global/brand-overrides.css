@@ -1,0 +1,62 @@
+/* Solco overrides: loaded last, so they win over the older component styles. */
+
+/* Product card */
+.product-card { background: var(--surface-2); border-color: var(--oak); }
+.product-card:hover { border-color: var(--amber); }
+.product-title { font-family: var(--font-ui); font-weight: 600; }
+.product-description { color: var(--muted); }
+.product-badge {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--signal);
+  color: var(--paper);
+}
+.product-year,
+.product-genre,
+.product-format {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border-color: var(--oak);
+  color: var(--muted);
+}
+.product-price {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  background: none;
+  -webkit-text-fill-color: var(--paper);
+  color: var(--paper);
+  text-shadow: none;
+}
+
+/* Section headings and eyebrow-like subtitles */
+.section-title { font-family: var(--font-ui); font-weight: 700; letter-spacing: -0.01em; text-wrap: balance; }
+.section-subtitle { color: var(--muted); }
+
+/* Feature cards: quiet icon, mono accent */
+.feature-card { background: var(--surface-2); border: 1px solid var(--oak); }
+.feature-icon { color: var(--amber); }
+.feature-card:hover { border-color: var(--amber); }
+
+/* Cards and forms */
+.card { background: var(--surface-2); border-color: var(--oak); box-shadow: none; }
+input, textarea, select { font-family: var(--font-ui); }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.8; }
+
+/* Primary buttons everywhere */
+.btn-primary { background: var(--signal); border-color: var(--signal); color: var(--paper); }
+.btn-primary:hover { background: var(--signal-hover); border-color: var(--signal-hover); }
+
+/* Loading and error states */
+.loading-container,
+.error-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg);
+  text-align: center;
+}
+.error-container h2 { font-family: var(--font-ui); margin-bottom: var(--space-md); }
+.error-container p { color: var(--muted); margin-bottom: var(--space-xl); }
