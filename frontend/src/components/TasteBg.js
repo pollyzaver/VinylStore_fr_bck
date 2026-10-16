@@ -13,7 +13,7 @@ const TasteBg = ({ pulse = 0, progress = 0, discSelector = '.tz-tilt' }) => {
     if (pulse > s.pulse) {
       const el = document.querySelector(discSelector);
       const r = el ? el.getBoundingClientRect() : null;
-      s.rings.push({ t: 0, x: r ? r.left + r.width / 2 : innerWidth / 2, y: r ? r.top + r.height / 2 : innerHeight / 2, r0: r ? r.width / 2 : 200 });
+      s.rings.push({ t: 0, x: r ? r.left + r.width / 2 : window.innerWidth / 2, y: r ? r.top + r.height / 2 : window.innerHeight / 2, r0: r ? r.width / 2 : 200 });
       s.kick = r ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null;
     }
     s.pulse = pulse;
@@ -29,7 +29,7 @@ const TasteBg = ({ pulse = 0, progress = 0, discSelector = '.tz-tilt' }) => {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
 
     const size = () => {
-      w = innerWidth; h = innerHeight;
+      w = window.innerWidth; h = window.innerHeight;
       c.width = w * dpr; c.height = h * dpr;
       g.setTransform(dpr, 0, 0, dpr, 0, 0);
       const n = w < 700 ? 38 : 80;

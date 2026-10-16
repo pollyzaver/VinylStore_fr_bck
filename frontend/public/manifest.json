@@ -1,0 +1,11 @@
+{
+  "short_name": "Solco",
+  "name": "Solco: магазин винила",
+  "icons": [
+    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#120503",
+  "background_color": "#120503"
+}
