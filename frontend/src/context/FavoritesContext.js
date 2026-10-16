@@ -1,98 +1,58 @@
 import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
-import { useAuth } from './AuthContext';
 import { api } from '../api';
 
 const FavoritesContext = createContext();
 
 export const useFavorites = () => useContext(FavoritesContext);
 
+const KEY = 'solco.fav';
+
+function readIds() {
+  try {
+    const a = JSON.parse(localStorage.getItem(KEY) || '[]');
+    return Array.isArray(a) ? a : [];
+  } catch (e) { return []; }
+}
+
+// Избранное хранится в браузере и не требует входа.
 export const FavoritesProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(readIds);
   const [favoritesProducts, setFavoritesProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
 
-  // ОПРЕДЕЛЯЕМ loadFavorites ПЕРЕД useEffect
+  useEffect(() => {
+    try { localStorage.setItem(KEY, JSON.stringify(favorites)); } catch (e) { /* ок */ }
+  }, [favorites]);
+
   const loadFavorites = useCallback(async () => {
+    if (favorites.length === 0) { setFavoritesProducts([]); return; }
     try {
       setLoading(true);
-      // Загружаем избранное пользователя (из user.favorites)
-      const userFavorites = user?.favorites || [];
-      setFavorites(userFavorites);
-      
-      // Загружаем полные данные о товарах
-      if (userFavorites.length > 0) {
-        const allProducts = await api.getProducts();
-        const favProducts = allProducts.filter(p => userFavorites.includes(p.id));
-        setFavoritesProducts(favProducts);
-      } else {
-        setFavoritesProducts([]);
-      }
+      const all = await api.getProducts();
+      const ids = favorites.map(String);
+      setFavoritesProducts(all.filter(p => ids.includes(String(p.id))));
     } catch (error) {
       console.error('Error loading favorites:', error);
     } finally {
       setLoading(false);
     }
-  }, [user]); // Добавляем user как зависимость
+  }, [favorites]);
 
-  // Загружаем избранное при входе пользователя
-  useEffect(() => {
-    if (user) {
-      loadFavorites();
-    } else {
-      setFavorites([]);
-      setFavoritesProducts([]);
-    }
-  }, [user, loadFavorites]); // Добавляем loadFavorites в зависимости
+  useEffect(() => { loadFavorites(); }, [loadFavorites]);
 
   const addToFavorites = async (product) => {
-    try {
-      // TODO: Отправить запрос на сервер для добавления в избранное
-      // const response = await api.addToFavorites(product.id);
-      
-      // Пока работаем локально
-      const newFavorites = [...favorites, product.id];
-      setFavorites(newFavorites);
-      setFavoritesProducts([...favoritesProducts, product]);
-      
-      // Обновляем user.favorites (временное решение)
-      if (user) {
-        user.favorites = newFavorites;
-      }
-      
-      return true;
-    } catch (error) {
-      console.error('Error adding to favorites:', error);
-      return false;
-    }
+    setFavorites(f => (f.map(String).includes(String(product.id)) ? f : [...f, product.id]));
+    setFavoritesProducts(p => (p.some(x => String(x.id) === String(product.id)) ? p : [...p, product]));
+    return true;
   };
 
   const removeFromFavorites = async (productId) => {
-    try {
-      // TODO: Отправить запрос на сервер для удаления из избранного
-      
-      const newFavorites = favorites.filter(id => id !== productId);
-      const newProducts = favoritesProducts.filter(p => p.id !== productId);
-      
-      setFavorites(newFavorites);
-      setFavoritesProducts(newProducts);
-      
-      // Обновляем user.favorites (временное решение)
-      if (user) {
-        user.favorites = newFavorites;
-      }
-      
-      return true;
-    } catch (error) {
-      console.error('Error removing from favorites:', error);
-      return false;
-    }
+    setFavorites(f => f.filter(id => String(id) !== String(productId)));
+    setFavoritesProducts(p => p.filter(x => String(x.id) !== String(productId)));
+    return true;
   };
 
-  const isInFavorites = (productId) => {
-    return favorites.includes(productId);
-  };
-
+  const isInFavorites = (productId) => favorites.map(String).includes(String(productId));
   const getFavoritesCount = () => favorites.length;
 
   return (

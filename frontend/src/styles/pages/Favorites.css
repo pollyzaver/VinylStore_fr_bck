@@ -16,7 +16,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(135deg, #fff, var(--vinyl-muted));
+  background: linear-gradient(135deg, #f3e9d2, var(--vinyl-muted));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -43,7 +43,7 @@
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 10px rgba(179, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(179, 38, 45, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
 }
@@ -92,7 +92,7 @@
 
 .empty-favorites .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(179, 0, 0, 0.3);
+  box-shadow: 0 5px 20px rgba(179, 38, 45, 0.3);
 }
 
 /* Сетка избранного */
@@ -251,5 +251,5 @@
 }
 
 .favorites-grid::-webkit-scrollbar-thumb:hover {
-  background: #8b0000;
+  background: #6a0d12;
 }

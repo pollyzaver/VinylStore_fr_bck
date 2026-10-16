@@ -1,0 +1,226 @@
+/* Solco: страница теста («Нарисуем твой диск»). Префикс .tz- */
+.tz { min-height: calc(100vh - 140px); background: var(--cellar); color: var(--paper); padding: 40px 0 72px; }
+.tz-wrap {
+  max-width: 1180px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center;
+}
+.tz-wrap.tz-single { display: block; text-align: center; padding-top: 80px; }
+.tz-wrap.tz-result { display: block; }
+
+.tz-eyebrow { margin: 0 0 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--amber); }
+.tz-h { margin: 0 0 16px; font-family: var(--font-ui); font-weight: 600; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.08; text-wrap: balance; color: var(--paper); }
+.tz-q { font-size: clamp(26px, 3.4vw, 40px); margin-bottom: 26px; }
+.tz-h2 { margin: 64px 0 24px; font-family: var(--font-ui); font-weight: 600; font-size: 28px; }
+.tz-lead { margin: 0 0 28px; font-size: 18px; line-height: 1.55; color: var(--muted); max-width: 52ch; }
+.tz-hint { margin: 14px 0 0; font-size: 14px; color: var(--muted); }
+
+/* диск */
+.tz-stage { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.tz-disc { display: block; line-height: 0; }
+.tz-disc svg { width: 100%; height: auto; display: block; }
+.tz-disc-big { width: min(480px, 78vw); }
+.tz-disc-static { width: 100%; }
+.tz-spin svg { animation: tz-rot 90s linear infinite; }
+.tz-pulse { animation: tz-pulse .6s ease; }
+@keyframes tz-rot { to { transform: rotate(360deg); } }
+@keyframes tz-pulse { 0% { transform: scale(1); } 35% { transform: scale(1.035); } 100% { transform: scale(1); } }
+.tz-live { margin: 0; min-height: 1.4em; font-family: var(--font-mono); font-size: 13px; letter-spacing: .08em; color: var(--muted); text-align: center; }
+
+/* карточка вопроса */
+.tz-card { animation: tz-in .35s ease both; }
+@keyframes tz-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.tz-progress { display: flex; gap: 4px; margin-bottom: 22px; }
+.tz-progress i { flex: 1; height: 3px; background: var(--oak); }
+.tz-progress i.on { background: var(--signal); }
+
+.tz-opts { display: grid; gap: 10px; }
+.tz-opt {
+  all: unset; box-sizing: border-box; cursor: pointer; padding: 18px 20px; border: 1px solid var(--oak); border-radius: 4px;
+  background: var(--surface-2); font-size: 18px; line-height: 1.3; transition: border-color .2s, background .2s, transform .2s;
+}
+.tz-opt:hover { border-color: var(--amber); transform: translateX(3px); }
+.tz-opt.sel { border-color: var(--signal); background: #2a0d0e; }
+.tz-opt:focus-visible, .tz-duel-card:focus-visible, .tz-chip:focus-visible, .tz-btn:focus-visible, .tz-link:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+.tz-duel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.tz-duel-card {
+  all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 10px 10px 14px;
+  border: 1px solid var(--oak); border-radius: 4px; background: var(--surface-2); transition: border-color .2s, transform .2s;
+}
+.tz-duel-card:hover { border-color: var(--amber); transform: translateY(-3px); }
+.tz-duel-card.sel { border-color: var(--signal); }
+.tz-duel-card strong { font-size: 16px; font-weight: 600; }
+.tz-duel-card span { font-size: 14px; color: var(--muted); }
+.tz-duel-pic, .tz-rec-pic { position: relative; aspect-ratio: 1; margin-bottom: 8px; background: var(--cellar); overflow: hidden; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+.tz-cover { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.tz-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.tz-chip { all: unset; box-sizing: border-box; cursor: pointer; padding: 11px 18px; border: 1px solid var(--oak); border-radius: 40px; font-size: 16px; background: var(--surface-2); transition: border-color .2s, background .2s; }
+.tz-chip:hover { border-color: var(--amber); }
+.tz-chip.sel { border-color: var(--amber); background: #2b1a0a; color: var(--amber); }
+
+.tz-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.tz-btn { all: unset; box-sizing: border-box; cursor: pointer; padding: 14px 24px; border-radius: 4px; background: var(--signal); color: var(--paper); font-size: 16px; font-weight: 500; transition: background .2s; }
+.tz-btn:hover { background: var(--signal-hover); }
+.tz-btn-ghost { background: transparent; border: 1px solid var(--oak); padding: 13px 22px; }
+.tz-btn-ghost:hover { background: transparent; border-color: var(--amber); }
+.tz-link { all: unset; cursor: pointer; margin-top: 18px; font-size: 15px; color: var(--muted); border-bottom: 1px solid var(--oak); align-self: flex-start; }
+.tz-link:hover { color: var(--amber); border-color: var(--amber); }
+.tz-back { display: inline-block; margin-top: 26px; }
+
+/* результат */
+.tz-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.tz-hero .tz-disc-big { width: min(500px, 100%); margin: 0 auto; }
+.tz-axes { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 12px; max-width: 460px; }
+.tz-axes li { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 12px; align-items: center; font-size: 13px; color: var(--muted); }
+.tz-axis-l { text-align: right; } .tz-axis-r { text-align: left; }
+.tz-axis-bar { position: relative; height: 2px; background: var(--oak); }
+.tz-axis-bar i { position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--amber); }
+
+.tz-recs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; }
+.tz-rec h3 { margin: 6px 0 2px; font-size: 18px; font-weight: 600; }
+.tz-rec-meta { margin: 0 0 8px; font-size: 14px; color: var(--muted); }
+.tz-rec-why { margin: 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.tz-match { position: absolute; right: 8px; top: 8px; padding: 4px 9px; border-radius: 40px; background: rgba(18, 5, 3, .88); border: 1px solid var(--amber); font-family: var(--font-mono); font-size: 13px; color: var(--amber); }
+
+.tz-spinner { width: 44px; height: 44px; margin: 0 auto; border: 3px solid var(--oak); border-top-color: var(--signal); border-radius: 50%; animation: tz-rot 1s linear infinite; }
+
+@media (max-width: 860px) {
+  .tz { padding-top: 20px; }
+  .tz-wrap { grid-template-columns: 1fr; gap: 28px; }
+  .tz-disc-big { width: min(300px, 70vw); }
+  .tz-hero { grid-template-columns: 1fr; gap: 28px; }
+  .tz-recs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tz-btn { flex: 1 1 100%; text-align: center; }
+  .tz-axes li { grid-template-columns: 1fr 70px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tz-spin svg, .tz-pulse, .tz-card { animation: none; }
+  .tz-opt, .tz-duel-card { transition: none; }
+}
+
+.tz-wrap.tz-single .tz-lead { margin-left: auto; margin-right: auto; }
+.tz-wrap.tz-single .tz-actions { justify-content: center; }
+
+.tz-word { display: inline-block; white-space: nowrap; margin-right: .35em; }
+.tz-word:not(:last-child)::after { content: ' ·'; color: var(--amber); }
+.tz-link { display: block; }
+.tz-back { margin-top: 18px; }
+
+/* карточки-картинки */
+.tz-vgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tz-vcard { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 8px; padding: 8px 8px 12px; border: 1px solid var(--oak); border-radius: 4px; background: var(--surface-2); transition: border-color .2s, transform .2s; }
+.tz-vcard:hover { border-color: var(--amber); transform: translateY(-3px); }
+.tz-vcard.sel { border-color: var(--signal); }
+.tz-vcard span { font-size: 15px; line-height: 1.3; padding: 0 2px; }
+.tz-vcard:focus-visible, .tz-tap-btn:focus-visible, .tz-pad:focus-visible, .tz-range:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.tz-art { display: block; width: 100%; aspect-ratio: 16 / 10; border-radius: 2px; }
+.tz-btn[disabled] { opacity: .4; cursor: default; }
+
+/* ручка громкости */
+.tz-vol { display: grid; gap: 14px; justify-items: center; }
+.tz-knob { width: min(220px, 56vw); height: auto; }
+.tz-range { width: 100%; accent-color: var(--signal); }
+.tz-range-l { width: 100%; display: flex; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--muted); }
+
+/* постукивание */
+.tz-tap { display: grid; gap: 12px; justify-items: center; }
+.tz-tap-btn { all: unset; box-sizing: border-box; cursor: pointer; width: 190px; height: 190px; border-radius: 50%; border: 2px solid var(--oak); background: var(--surface-2); display: grid; place-content: center; text-align: center; transition: transform .12s, border-color .12s, background .12s; user-select: none; touch-action: manipulation; }
+.tz-tap-btn span { font-family: var(--font-mono); font-size: 44px; color: var(--paper); }
+.tz-tap-btn small { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }
+.tz-tap-btn.hit { transform: scale(.95); border-color: var(--signal); background: #2a0d0e; }
+
+/* планшет настроения */
+.tz-pad-wrap { display: grid; gap: 8px; justify-items: center; }
+.tz-pad-row { display: flex; align-items: center; gap: 10px; width: 100%; }
+.tz-pad-t, .tz-pad-b, .tz-pad-l, .tz-pad-r { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
+.tz-pad-l, .tz-pad-r { flex: none; writing-mode: vertical-rl; }
+.tz-pad-l { transform: rotate(180deg); }
+.tz-pad { position: relative; flex: 1; aspect-ratio: 1; max-width: 360px; margin: 0 auto; border: 1px solid var(--oak); border-radius: 4px; background: radial-gradient(circle at 50% 50%, #2a1209, var(--surface-2)); cursor: crosshair; touch-action: none; }
+.tz-pad-cx, .tz-pad-cy { position: absolute; background: var(--oak); opacity: .6; }
+.tz-pad-cx { left: 50%; top: 0; bottom: 0; width: 1px; }
+.tz-pad-cy { top: 50%; left: 0; right: 0; height: 1px; }
+.tz-pad-dot { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: var(--signal); border: 3px solid var(--paper); box-shadow: 0 0 0 6px rgba(179, 38, 45, .25); }
+@media (max-width: 860px) { .tz-tap-btn { width: 160px; height: 160px; } }
+
+/* выбор «для кого» и кнопки у рекомендаций */
+.tz-who { margin-top: 10px; }
+.tz-gift-note { margin: 0 0 18px; padding: 12px 14px; border-left: 2px solid var(--amber); background: rgba(207, 139, 62, 0.08); color: var(--paper); font-size: 15px; line-height: 1.5; }
+.tz-gift-note b, .tz-gift-warn b { color: var(--amber); font-weight: 600; }
+.tz-gift-warn { margin-top: 18px; max-width: 46ch; padding: 12px 14px; border-left: 2px solid var(--oak); color: var(--muted); font-size: 14px; line-height: 1.55; }
+.tz-rec-btns { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; margin-top: 10px; }
+.tz-rec-btns .tz-link { margin-top: 6px; font-size: 14px; }
+
+/* карточки рекомендаций открывают окно пластинки */
+.tz-rec-open { all: unset; display: block; cursor: pointer; width: 100%; }
+.tz-rec-open:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.tz-rec h3 .tz-rec-name { display: inline; width: auto; }
+.tz-rec-open:hover .tz-rec-pic { box-shadow: 0 0 0 1px var(--amber); }
+.tz-rec h3 .tz-rec-name:hover { color: var(--amber); }
+
+/* ---- оживление страницы теста ---- */
+.tz { position: relative; }
+.tz > .tz-wrap { position: relative; z-index: 2; }
+
+/* диск: наклон за курсором, блик, волна при ответе */
+.tz-tilt { position: relative; border-radius: 50%; transform: perspective(900px) rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg)); transition: transform .35s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+.tz-glare { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; mix-blend-mode: screen; opacity: 0; transition: opacity .35s;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,244,220,.28), rgba(255,244,220,.07) 28%, transparent 55%); }
+.tz-tilt:hover .tz-glare { opacity: 1; }
+.tz-ripple { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--amber); pointer-events: none; animation: tz-ripple .9s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes tz-ripple { from { opacity: .7; transform: scale(.96); } to { opacity: 0; transform: scale(1.22); } }
+.tz-live { animation: tz-in .5s ease both; }
+
+/* переход между вопросами: вперёд справа, назад слева */
+.tz-card.tz-d-f { animation: tz-fwd .42s cubic-bezier(.2,.7,.2,1) both; }
+.tz-card.tz-d-b { animation: tz-back .42s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes tz-fwd { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes tz-back { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+
+/* прогресс */
+.tz-progress { margin-bottom: 10px; }
+.tz-progress button { all: unset; flex: 1; height: 14px; position: relative; cursor: default; }
+.tz-progress button::before { content: ''; position: absolute; left: 0; right: 0; top: 5px; height: 3px; background: var(--oak); transition: background .4s, transform .3s; transform-origin: left; }
+.tz-progress button.on::before { background: var(--signal); }
+.tz-progress button:not([disabled]) { cursor: pointer; }
+.tz-progress button:not([disabled]):hover::before { background: var(--amber); transform: scaleY(1.8); }
+.tz-progress button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.tz-count { margin: 0 0 18px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; color: var(--muted); }
+.tz-count b { color: var(--amber); font-weight: 500; }
+
+/* отклик на нажатие */
+.tz-opt:active, .tz-vcard:active { transform: scale(.985); }
+.tz-opt.sel, .tz-vcard.sel, .tz-duel-card.sel { animation: tz-pop .4s cubic-bezier(.3,1.6,.5,1); }
+.tz-chip.sel { animation: tz-pop .35s cubic-bezier(.3,1.6,.5,1); }
+@keyframes tz-pop { 0% { transform: scale(.96); } 100% { transform: scale(1); } }
+
+/* низ карточки: назад и пропустить */
+.tz-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--oak); }
+.tz-foot-b { all: unset; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 6px 2px; transition: color .2s, transform .2s; }
+.tz-foot-b:hover { color: var(--amber); }
+.tz-skip:hover { transform: translateX(3px); }
+.tz-foot-b:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+/* результат */
+.tz-res .tz-hero .tz-disc-big { animation: tz-land 1.1s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes tz-land { from { opacity: 0; transform: rotate(-120deg) scale(.7); } to { opacity: 1; transform: none; } }
+.tz-res .tz-hero-text > * { animation: tz-in .6s ease both; }
+.tz-res .tz-hero-text > :nth-child(2) { animation-delay: .15s; }
+.tz-res .tz-hero-text > :nth-child(3) { animation-delay: .3s; }
+.tz-res .tz-hero-text > :nth-child(4) { animation-delay: .45s; }
+.tz-res .tz-hero-text > :nth-child(5) { animation-delay: .6s; }
+.tz-axis-bar i { transition: left 1.1s cubic-bezier(.2,.8,.2,1); }
+.tz-rec-pic { transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+.tz-rec:hover .tz-rec-pic { transform: translateY(-4px) rotate(-1deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tz-tilt, .tz-card.tz-d-f, .tz-card.tz-d-b, .tz-live, .tz-ripple, .tz-res .tz-hero .tz-disc-big, .tz-res .tz-hero-text > *, .tz-opt.sel, .tz-vcard.sel, .tz-chip.sel { animation: none !important; transition: none !important; }
+  .tz-rec-pic, .tz-axis-bar i { transition: none; }
+}
+
+/* живой фон теста */
+.tz-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+/* дымка проходит под открыткой: сама открытка и её поля лежат выше */
+.tz-giftzone { position: relative; isolation: isolate; }
+.tz-giftzone > .cr-haze { z-index: -1; }
