@@ -46,6 +46,20 @@ apiClient.interceptors.response.use(
 // Чтение можно повторять, пока сервер просыпается
 const get = (url) => withRetry(() => apiClient.get(url));
 
+// Полный список без фильтров нужен нескольким экранам (каталог, избранное, окно пластинки).
+// Держим один общий запрос и отдаём его всем: пять минут или до правки каталога не перезапрашиваем.
+const LIST_TTL = 5 * 60 * 1000;
+let listCache = null;
+let listAt = 0;
+const loadList = () => {
+  if (!listCache || Date.now() - listAt > LIST_TTL) {
+    listAt = Date.now();
+    listCache = get('/products').then((r) => r.data).catch((e) => { listCache = null; throw e; });
+  }
+  return listCache.then((list) => list.slice());
+};
+const dropList = () => { listCache = null; };
+
 export const api = {
   // Товары
   getProducts: async (filters = {}) => {
@@ -57,8 +71,8 @@ export const api = {
     if (filters.genre) params.append('genre', filters.genre);
     if (filters.inStock) params.append('inStock', filters.inStock);
     
-    const url = `/products${params.toString() ? `?${params.toString()}` : ''}`;
-    const response = await get(url);
+    if (!params.toString()) return loadList();
+    const response = await get(`/products?${params.toString()}`);
     return response.data;
   },
   
@@ -69,16 +83,19 @@ export const api = {
   
   createProduct: async (product) => {
     const response = await apiClient.post('/products', product);
+    dropList();
     return response.data;
   },
   
   updateProduct: async (id, product) => {
     const response = await apiClient.patch(`/products/${id}`, product);
+    dropList();
     return response.data;
   },
   
   deleteProduct: async (id) => {
     const response = await apiClient.delete(`/products/${id}`);
+    dropList();
     return response.data;
   },
   

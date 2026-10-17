@@ -4,11 +4,7 @@ import { api } from '../api';
 
 // Единое окно пластинки (то же, что открывается с полки каталога).
 // Рекомендации из теста и избранное хранят только часть полей, поэтому полные данные берём из каталога по id.
-let cache = null;
-const loadAll = () => {
-  if (!cache) cache = api.getProducts().catch((e) => { cache = null; throw e; });
-  return cache;
-};
+const loadAll = () => api.getProducts();
 
 const ProductSheet = ({ ids, openId, onClose }) => {
   const [all, setAll] = useState(null);

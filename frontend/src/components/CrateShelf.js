@@ -20,6 +20,15 @@ const coverSrc = (product) => (product.image && !product.coverMissing ? process.
 const catNo = (product) => `[${String(product.id).padStart(3, '0')}]`;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
+// Обложки грузим только рядом с текущим конвертом: видно около четырёх по сторонам, ещё два берём про запас.
+// Загруженное не выгружаем, чтобы при возврате назад ничего не мигало.
+const WARM = 6;
+const warmRange = (c, n) => {
+  const out = [];
+  for (let k = Math.max(0, c - WARM); k <= Math.min(n - 1, c + WARM); k++) out.push(k);
+  return out;
+};
+
 // Средний цвет обложки для этикетки диска. Слишком тёмные обложки пропускаем.
 const averageColor = (img) => {
   try {
@@ -38,12 +47,13 @@ const averageColor = (img) => {
   }
 };
 
-const Cover = ({ product, onColor }) => {
+const Cover = ({ product, onColor, load = true }) => {
   const { t, tr } = useI18n();
   const [broken, setBroken] = useState(false);
   const src = coverSrc(product);
   // новая пластинка в том же окне: сбрасываем ошибку прошлой обложки
   useEffect(() => { setBroken(false); }, [src]);
+  if (!load) return <div className="cr-cover-wait" aria-hidden="true" />;
   if (!src || broken) {
     return (
       <div className="cr-cover-fallback" role="img" aria-label={`${tr.name(product.title)}, ${tr.name(product.description)}`}>
@@ -57,6 +67,7 @@ const Cover = ({ product, onColor }) => {
       src={src}
       alt={t('cr.cover', { title: tr.name(product.title), artist: tr.name(product.description) })}
       draggable="false"
+      decoding="async"
       onError={() => setBroken(true)}
       onLoad={(e) => onColor && onColor(averageColor(e.currentTarget))}
     />
@@ -220,6 +231,8 @@ const CrateShelf = ({ products }) => {
   const [shown, setShown] = useState(0);
   const [openIndex, setOpenIndex] = useState(-1);
   const [labels, setLabels] = useState({});
+  const [warm, setWarm] = useState(() => new Set(warmRange(0, N)));
+  const listRef = useRef(products);
 
   // функции пересоздаются на каждом рендере и читают актуальные N и refs
   api.current.layout = () => {
@@ -353,6 +366,19 @@ const CrateShelf = ({ products }) => {
     setOpenIndex((i) => (i < 0 || !N ? i : (i + n + N) % N));
   }, [N]);
 
+  // по мере прокрутки (и при новом списке) открываем загрузку обложек вокруг текущей позиции
+  useEffect(() => {
+    const fresh = listRef.current !== products;
+    listRef.current = products;
+    const c = clamp(Math.round(st.current.pos), 0, Math.max(N - 1, 0));
+    setWarm((prev) => {
+      const next = fresh ? new Set() : new Set(prev);
+      const before = next.size;
+      warmRange(c, N).forEach((k) => next.add(k));
+      return fresh || next.size !== before ? next : prev;
+    });
+  }, [shown, products, N]);
+
   const current = products[shown] || null;
   const open = openIndex >= 0 ? products[openIndex] : null;
 
@@ -405,7 +431,7 @@ const CrateShelf = ({ products }) => {
                 <div className="cr-spin" style={{ '--lab': labels[p.id] || FALLBACK_LABELS[i % FALLBACK_LABELS.length] }} />
               </div>
               <div className="cr-cover">
-                <Cover product={p} onColor={(c) => c && setLabels((m) => (m[p.id] === c ? m : { ...m, [p.id]: c }))} />
+                <Cover product={p} load={warm.has(i)} onColor={(c) => c && setLabels((m) => (m[p.id] === c ? m : { ...m, [p.id]: c }))} />
               </div>
             </div>
           </button>
