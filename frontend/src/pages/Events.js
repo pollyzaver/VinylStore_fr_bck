@@ -140,7 +140,7 @@ const Events = ({ onNavigate }) => {
             <p className="ev-lead">{t('ev.hostText')}</p>
           </div>
           <div className="ev-host-a">
-            <a className="btn btn-primary" href="https://t.me/meinewelllt">{t('ev.tg')}</a>
+            <a className="btn btn-primary" href="https://t.me/pollinaver">{t('ev.tg')}</a>
             <button type="button" className="ev-link" onClick={() => onNavigate('about')}>{t('ev.about')}</button>
           </div>
         </Reveal>

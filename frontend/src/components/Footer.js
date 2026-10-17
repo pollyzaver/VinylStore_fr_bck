@@ -9,7 +9,7 @@ const Footer = () => {
     <div className="container footer-line">
       <Logo size={26} />
       <p className="footer-line__links">
-        <a href="https://t.me/meinewelllt">Telegram</a>
+        <a href="https://t.me/pollinaver">Telegram</a>
         <a href="https://vk.com/p.zavershinskaya">VK</a>
         <a href="https://wa.me/79501893557">WhatsApp</a>
         <a href="mailto:pollzyaver777@gmail.com">pollzyaver777@gmail.com</a>

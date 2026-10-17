@@ -44,7 +44,7 @@ const Solco = ({ onNavigate }) => {
           <div><dt>{t('ab.mail')}</dt><dd><a href="mailto:pollzyaver777@gmail.com">pollzyaver777@gmail.com</a></dd></div>
           <div><dt>{t('ab.address')}</dt><dd>{t('ab.addressV')}</dd></div>
           <div><dt>{t('ab.social')}</dt><dd>
-            <a href="https://t.me/meinewelllt">Telegram</a>
+            <a href="https://t.me/pollinaver">Telegram</a>
             <a href="https://vk.com/p.zavershinskaya">VK</a>
             <a href="https://wa.me/79501893557">WhatsApp</a>
           </dd></div>

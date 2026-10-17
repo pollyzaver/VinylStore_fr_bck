@@ -230,7 +230,7 @@ const Home = ({ onNavigate, focusCatalog }) => {
             <Reveal className="fq-side">
               <p className="ct-eyebrow">{t('faq.eyebrow')}</p>
               <h2 className="ct-title">{t('faq.title')}</h2>
-              <p className="fq-lead">{lead[0]}<a href="https://t.me/meinewelllt">Telegram</a>{lead[1]}</p>
+              <p className="fq-lead">{lead[0]}<a href="https://t.me/pollinaver">Telegram</a>{lead[1]}</p>
             </Reveal>
             <Reveal className="fq-list" delay={120}>
               {Array.from({ length: FAQ_COUNT }, (_, i) => ({ q: t(`faq.${i + 1}.q`), a: t(`faq.${i + 1}.a`) })).map((item, i) => (
