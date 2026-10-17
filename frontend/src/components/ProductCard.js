@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import CoverImg from './CoverImg';
 import { useFavorites } from '../context/FavoritesContext';
+import { useI18n } from '../i18n/I18nContext';
 
 const ProductCard = ({ product, onProductClick }) => {
+  const { t, tr, fmtMoney } = useI18n();
   const { addToCart } = useCart();
   const { addToFavorites, removeFromFavorites, isInFavorites } = useFavorites();
   const [isAdding, setIsAdding] = useState(false);
@@ -86,7 +88,7 @@ const ProductCard = ({ product, onProductClick }) => {
           e.stopPropagation();
           handleToggleFavorite(e);
         }}
-        aria-label={isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
+        aria-label={isFavorite ? t('pc.unfav') : t('pc.fav')}
         style={{
           position: 'absolute',
           top: '10px',
@@ -118,22 +120,22 @@ const ProductCard = ({ product, onProductClick }) => {
       </button>
 
       <div className="product-image">
-        {product.badge && <div className="product-badge">{product.badge}</div>}
-        <CoverImg product={product} alt={`Обложка альбома ${product.title} - ${product.description}`} loading="lazy" />
+        {product.badge && <div className="product-badge">{tr.badge(product.badge)}</div>}
+        <CoverImg product={product} alt={t('pc.coverAlt', { title: tr.name(product.title), artist: tr.name(product.description) })} loading="lazy" />
       </div>
       
       <div className="product-info">
-        <h3 className="product-title">{product.title}</h3>
-        <p className="product-description">{product.description}</p>
+        <h3 className="product-title">{tr.name(product.title)}</h3>
+        <p className="product-description">{tr.name(product.description)}</p>
         
         <div className="product-meta">
           <span className="product-year">{product.year}</span>
-          <span className="product-genre">{product.genre}</span>
-          <span className="product-format">{product.format}</span>
+          <span className="product-genre">{tr.genre(product.genre)}</span>
+          <span className="product-format">{tr.format(product.format)}</span>
         </div>
         
         <div className="product-footer">
-          <div className="product-price">{product.price.toLocaleString()} ₽</div>
+          <div className="product-price">{fmtMoney(product.price)}</div>
           <button 
             className={`add-to-cart-btn ${isAdding ? 'adding' : ''}`}
             onClick={handleAddToCart}
@@ -141,10 +143,10 @@ const ProductCard = ({ product, onProductClick }) => {
               e.stopPropagation();
               handleAddToCart(e);
             }}
-            aria-label={`Добавить ${product.title} в корзину за ${product.price} рублей`}
+            aria-label={t('pc.addAria', { title: tr.name(product.title), price: product.price })}
             disabled={isAdding}
           >
-            {isAdding ? 'Добавляется...' : 'Добавить в корзину'}
+            {isAdding ? t('pc.adding') : t('pc.add')}
           </button>
         </div>
       </div>

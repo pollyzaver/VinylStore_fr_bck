@@ -1,6 +1,7 @@
 // Solco: движок вкуса. Ответы теста -> вектор вкуса по 8 осям -> совпадение с пластинками.
 const model = require('../data/taste_model.json');
 const questionsFile = require('../data/taste_questions.json');
+const i18n = require('./tasteI18n');
 
 const AXES = model.axes.map(a => a.key);
 const AXIS = Object.fromEntries(model.axes.map(a => [a.key, a]));
@@ -122,7 +123,26 @@ function eraFactor(decades, year) {
   return CFG.eraFactor.far;
 }
 
-function explain(profile, p) {
+// Тексты результата на нужном языке: русский по умолчанию, остальные из tasteI18n
+const RU_TEXT = {
+  match: 'Совпадает: ',
+  diff: 'Отличие: у неё {adj} подача.',
+  generic: 'Близка по общему ощущению.',
+  omni: 'Всеядный слушатель',
+  yours: 'Твоя музыка: {adjs}.',
+  any: 'Тебе подходит самая разная музыка.',
+};
+function words(lang) {
+  const p = i18n.pack(lang);
+  return {
+    axis: p ? Object.fromEntries(AXES.map(a => [a, { ...AXIS[a], ...p.axes[a] }])) : AXIS,
+    noun: p ? p.noun : NOUN,
+    text: p ? p.text : RU_TEXT,
+  };
+}
+
+function explain(profile, p, W = words()) {
+  const AXISL = W.axis;
   const good = [], bad = [];
   AXES.forEach(a => {
     const u = profile.values[a], c = profile.conf[a], pv = p.taste[a];
@@ -134,14 +154,15 @@ function explain(profile, p) {
   });
   good.sort((x, y) => y.score - x.score);
   bad.sort((x, y) => y.diff - x.diff);
-  const adj = g => AXIS[g.a][p.taste[g.a] >= 5 ? 'highAdj' : 'lowAdj'];
+  const adj = g => AXISL[g.a][p.taste[g.a] >= 5 ? 'highAdj' : 'lowAdj'];
   let text = '';
-  if (good.length) text = 'Совпадает: ' + good.slice(0, 2).map(adj).join(', ') + '.';
-  if (bad.length) text += (text ? ' ' : '') + `Отличие: у неё ${AXIS[bad[0].a][bad[0].dir]} подача.`;
-  return text || 'Близка по общему ощущению.';
+  if (good.length) text = W.text.match + good.slice(0, 2).map(adj).join(', ') + '.';
+  if (bad.length) text += (text ? ' ' : '') + W.text.diff.replace('{adj}', AXISL[bad[0].a][bad[0].dir]);
+  return text || W.text.generic;
 }
 
-function rank(profile, products, { limit = 12 } = {}) {
+function rank(profile, products, { limit = 12, lang } = {}) {
+  const W = words(lang);
   const user = AXES.map(a => profile.values[a]);
   const liked = new Set(profile.likedArtists);
   const scored = products.map(p => {
@@ -173,7 +194,7 @@ function rank(profile, products, { limit = 12 } = {}) {
       id: s.product.id, title: s.product.title, artist: s.artist, year: s.product.year,
       category: s.product.category, image: s.product.image, coverMissing: !!s.product.coverMissing,
       price: s.product.price, taste: s.product.taste, match: Math.round(Math.min(99, s.score)),
-      why: explain(profile, s.product),
+      why: explain(profile, s.product, W),
     });
     if (out.length >= limit) break;
   }
@@ -186,19 +207,20 @@ const NOUN = {
   melodic: ['эксперимент', 'мелодия'], raw: ['глянец', 'шероховатость'],
 };
 
-function describe(profile) {
+function describe(profile, lang) {
+  const W = words(lang);
   const ranked = AXES.map(a => ({ a, s: Math.abs(profile.values[a] - 5) * profile.conf[a] }))
     .sort((x, y) => y.s - x.s).slice(0, 3).filter(x => x.s > 0.8);
   const hi = a => profile.values[a] >= 5 ? 1 : 0;
-  const title = ranked.length ? ranked.map(x => NOUN[x.a][hi(x.a)]).join(' · ') : 'Всеядный слушатель';
-  const adjs = ranked.map(x => AXIS[x.a][hi(x.a) ? 'highAdj' : 'lowAdj']);
-  const text = adjs.length ? `Твоя музыка: ${adjs.join(', ')}.` : 'Тебе подходит самая разная музыка.';
+  const title = ranked.length ? ranked.map(x => W.noun[x.a][hi(x.a)]).join(' · ') : W.text.omni;
+  const adjs = ranked.map(x => W.axis[x.a][hi(x.a) ? 'highAdj' : 'lowAdj']);
+  const text = adjs.length ? W.text.yours.replace('{adjs}', adjs.join(', ')) : W.text.any;
   return { title, text, values: profile.values };
 }
 
 function run(answers, products, opts) {
   const profile = buildProfile(answers, products);
-  return { profile: describe(profile), recommendations: rank(profile, products, opts) };
+  return { profile: describe(profile, opts && opts.lang), recommendations: rank(profile, products, opts) };
 }
 
 module.exports = { run, buildProfile, rank, describe, CFG, QUESTIONS, AXES, artistOf };

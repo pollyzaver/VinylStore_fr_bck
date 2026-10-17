@@ -8,20 +8,15 @@ import Haze from '../components/Haze';
 import HowItWorks from '../components/HowItWorks';
 import { shuffleByPopularity } from '../utils/popularity';
 import { api } from '../api'; // Добавляем импорт API
+import { useI18n } from '../i18n/I18nContext';
 import '../styles/pages/Catalog.css';
 
-const FAQ = [
-  { q: 'Как работает тест?', a: 'Это одиннадцать коротких вопросов: про погоду за окном, громкость, ритм, место, где ты слушаешь, и так далее. По ответам рисуется диск вкуса, а под него подбираются девять пластинок из каталога с процентом совпадения. Тест занимает около двух минут и не обязателен: пластинки можно просто заказать из каталога. Результат вместе с открыткой сохраняется в профиле, входить для этого не нужно.' },
-  { q: 'Можно ли пройти тест для другого человека?', a: 'Да, в начале выбери «В подарок» и отвечай так, как ответил бы тот, кому дарим. Диск, подборка и открытка получатся его, а не твои.' },
-  { q: 'Как добавить открытку к заказу?', a: 'Открытка появляется после теста: диск рисуется по твоим ответам, а ты можешь написать пару слов. Нажми «Добавить к заказу», и мы вложим её в коробку, это 100 ₽ к цене пластинки. В корзине открытку можно убрать. Можно и скачать открытку файлом, чтобы распечатать самой. Для подарка выбери в тесте «В подарок» и отвечай так, как ответил бы получатель: тогда в открытке появятся поля «Кому» и «От кого».' },
-  { q: 'Доставка и оплата', a: 'Доставка бесплатная. По Москве привозим курьером в день заказа, если оформить его до 15:00. По России отправляем СДЭК или Почтой России, обычно это 2–7 дней. Оплатить можно картой на сайте или при получении.' },
-  { q: 'В каком состоянии пластинки?', a: 'Новые отправляем запечатанными. Б/у пластинки мы прослушиваем перед отправкой и честно описываем состояние по шкале Goldmine: NM, VG+ или VG. Состояние и нюансы можно уточнить у нас до оплаты.' },
-  { q: 'Можно ли вернуть пластинку?', a: 'Да, в течение 14 дней, если пластинка не была в использовании и сохранила упаковку. Если пришёл брак или помятая обложка, заменим пластинку или вернём деньги, достаточно написать нам и приложить фото.' },
-  { q: 'Что делать, если нужной пластинки нет?', a: 'Напиши нам название и исполнителя, и мы привезём её под заказ за 7–14 дней или сообщим, как только она появится в наличии.' },
-  { q: 'Как хранить и ухаживать за винилом?', a: 'Храни пластинки вертикально, подальше от батарей и прямого солнца. Пыль убирай антистатической щёткой, а конверты держи в защитных внутренних пакетах.' },
-];
+
+const FAQ_COUNT = 8;
+const CATEGORY_KEYS = ['rock', 'metal', 'alternative', 'electronic', 'pop', 'jazz', 'soul', 'hiphop', 'folk', 'blues', 'reggae', 'ambient', 'world', 'other'];
 
 const Home = ({ onNavigate, focusCatalog }) => {
+  const { t } = useI18n();
   const [openFaq, setOpenFaq] = useState(-1);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -51,7 +46,7 @@ const Home = ({ onNavigate, focusCatalog }) => {
       setFilteredProducts(ordered); // Изначально показываем все товары
       setError(null);
     } catch (err) {
-      setError('Не удалось загрузить товары. Проверьте, запущен ли бэкенд.');
+      setError(true);
       console.error('Ошибка загрузки:', err);
     } finally {
       setLoading(false);
@@ -59,11 +54,10 @@ const Home = ({ onNavigate, focusCatalog }) => {
   };
 
   const filters = useMemo(() => {
-    const LABELS = { rock: 'Рок', metal: 'Метал', alternative: 'Альтернатива', electronic: 'Электроника', pop: 'Поп', jazz: 'Джаз', soul: 'Соул', hiphop: 'Хип-хоп', folk: 'Фолк', blues: 'Блюз', reggae: 'Регги', ambient: 'Эмбиент', world: 'Мир', other: 'Разное' };
     const count = {};
     products.forEach(p => { count[p.category] = (count[p.category] || 0) + 1; });
-    return [{ key: 'all', label: 'Все', count: products.length }, ...Object.keys(LABELS).filter(k => count[k]).map(k => ({ key: k, label: LABELS[k], count: count[k] }))];
-  }, [products]);
+    return [{ key: 'all', label: t('cat.all'), count: products.length }, ...CATEGORY_KEYS.filter(k => count[k]).map(k => ({ key: k, label: t(`cat.${k}`), count: count[k] }))];
+  }, [products, t]);
   
   const resetAll = () => { setSearchQuery(''); setActiveFilter('all'); };
 
@@ -129,21 +123,23 @@ const Home = ({ onNavigate, focusCatalog }) => {
     if (focusCatalog && !loading && catalogRef.current) catalogRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [focusCatalog, loading]);
 
+  const lead = t('faq.lead', { link: '\u0000' }).split('\u0000');
+
   return (
     <main id="main-content" className="main-content">
       {/* Hero: Solco */}
       <section className="solco-hero solco-pattern" aria-labelledby="hero-title">
         <div className="container solco-hero__inner">
           <div className="solco-hero__text">
-            <p className="solco-hero__eyebrow">Магазин винила · Москва</p>
-            <h1 id="hero-title" className="hero-title">Винил, который угадывает твой вкус</h1>
+            <p className="solco-hero__eyebrow">{t('hero.eyebrow')}</p>
+            <h1 id="hero-title" className="hero-title">{t('hero.title')}</h1>
             <p className="hero-subtitle">
-              Выбирай пластинки сам или пройди короткий тест: он нарисует диск твоего вкуса, подберёт пластинки и сделает открытку, которую можно добавить к заказу.
+              {t('hero.sub')}
             </p>
             <div className="hero-actions">
-              <a href="#catalog" className="btn btn-primary">Смотреть пластинки</a>
+              <a href="#catalog" className="btn btn-primary">{t('hero.browse')}</a>
               <button className="btn btn-white" onClick={() => onNavigate('test')}>
-                Подобрать по вкусу
+                {t('hero.match')}
               </button>
             </div>
           </div>
@@ -159,8 +155,8 @@ const Home = ({ onNavigate, focusCatalog }) => {
           <div className="ct">
             <Reveal as="header" className="ct-head">
               <div>
-                <p className="ct-eyebrow">КАТАЛОГ{loading ? '' : ` · ${products.length}`}</p>
-                <h2 className="ct-title">Пластинки</h2>
+                <p className="ct-eyebrow">{t('ct.eyebrow')}{loading ? '' : ` · ${products.length}`}</p>
+                <h2 className="ct-title">{t('ct.title')}</h2>
               </div>
               <label className="ct-search">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
@@ -170,13 +166,13 @@ const Home = ({ onNavigate, focusCatalog }) => {
                 <input
                   ref={searchInputRef}
                   type="text"
-                  placeholder="Название, исполнитель, жанр"
-                  aria-label="Поиск по каталогу"
+                  placeholder={t('ct.searchPh')}
+                  aria-label={t('ct.searchLabel')}
                   value={searchQuery}
                   onChange={handleSearchChange}
                 />
                 {searchQuery && (
-                  <button type="button" className="ct-clear" onClick={clearSearch} aria-label="Очистить поиск">✕</button>
+                  <button type="button" className="ct-clear" onClick={clearSearch} aria-label={t('ct.clear')}>✕</button>
                 )}
               </label>
             </Reveal>
@@ -184,17 +180,17 @@ const Home = ({ onNavigate, focusCatalog }) => {
             {loading ? (
               <div className="ct-loading" role="status">
                 <div className="vinyl-spinner"></div>
-                <p>Загружаем пластинки…</p>
+                <p>{t('ct.loading')}</p>
               </div>
             ) : error ? (
               <div className="ct-empty">
-                <h3>Не получилось загрузить пластинки</h3>
-                <p>{error}</p>
-                <button onClick={loadProducts}>Попробовать снова</button>
+                <h3>{t('ct.errTitle')}</h3>
+                <p>{t('ct.err')}</p>
+                <button onClick={loadProducts}>{t('ct.retry')}</button>
               </div>
             ) : (
               <>
-            <div className="ct-filters" role="group" aria-label="Жанры">
+            <div className="ct-filters" role="group" aria-label={t('ct.genres')}>
               {filters.map(filter => (
                 <button
                   key={filter.key}
@@ -208,14 +204,14 @@ const Home = ({ onNavigate, focusCatalog }) => {
             </div>
 
             {(searchQuery || activeFilter !== 'all') && filteredProducts.length > 0 && (
-              <p className="ct-found">Найдено: {filteredProducts.length}</p>
+              <p className="ct-found">{t('ct.found', { n: filteredProducts.length })}</p>
             )}
 
             {filteredProducts.length === 0 ? (
               <div className="ct-empty">
-                <h3>Ничего не нашлось</h3>
-                <p>Попробуй другое слово или выбери другой жанр.</p>
-                <button onClick={resetAll}>Показать все</button>
+                <h3>{t('ct.emptyTitle')}</h3>
+                <p>{t('ct.empty')}</p>
+                <button onClick={resetAll}>{t('ct.showAll')}</button>
               </div>
             ) : (
               <CrateShelf products={filteredProducts} />
@@ -232,13 +228,13 @@ const Home = ({ onNavigate, focusCatalog }) => {
         <div className="container">
           <div className="fq">
             <Reveal className="fq-side">
-              <p className="ct-eyebrow">ВОПРОСЫ И ОТВЕТЫ</p>
-              <h2 className="ct-title">Перед покупкой</h2>
-              <p className="fq-lead">Нет ответа на свой вопрос? Напиши нам в <a href="https://t.me/meinewelllt">Telegram</a>, отвечаем в течение дня.</p>
+              <p className="ct-eyebrow">{t('faq.eyebrow')}</p>
+              <h2 className="ct-title">{t('faq.title')}</h2>
+              <p className="fq-lead">{lead[0]}<a href="https://t.me/meinewelllt">Telegram</a>{lead[1]}</p>
             </Reveal>
             <Reveal className="fq-list" delay={120}>
-              {FAQ.map((item, i) => (
-                <div key={item.q} className={`fq-item ${openFaq === i ? 'open' : ''}`}>
+              {Array.from({ length: FAQ_COUNT }, (_, i) => ({ q: t(`faq.${i + 1}.q`), a: t(`faq.${i + 1}.a`) })).map((item, i) => (
+                <div key={i} className={`fq-item ${openFaq === i ? 'open' : ''}`}>
                   <button className="fq-q" aria-expanded={openFaq === i} onClick={() => setOpenFaq(openFaq === i ? -1 : i)}>
                     <span className="fq-n">{String(i + 1).padStart(2, '0')}</span>
                     <span>{item.q}</span>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useI18n } from '../i18n/I18nContext';
 
 const Login = ({ onNavigate }) => {
+  const { t, tr } = useI18n();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -23,7 +25,7 @@ const Login = ({ onNavigate }) => {
     e.preventDefault();
     
     if (!formData.email || !formData.password) {
-      setError('Заполните все поля');
+      setError(t('au.fillAll'));
       return;
     }
 
@@ -50,11 +52,10 @@ const Login = ({ onNavigate }) => {
       
     } catch (err) {
       console.error('❌ Login error:', err);
-      setError(
-        err.response?.data?.error || 
-        err.response?.data?.message || 
-        'Ошибка при входе. Проверьте email и пароль.'
-      );
+      setError(tr.server(
+        err.response?.data?.error ||
+        err.response?.data?.message
+      ) || t('au.loginFail'));
     } finally {
       setLoading(false);
     }
@@ -92,10 +93,10 @@ const Login = ({ onNavigate }) => {
               }} />
             </div>
             <h1 className="section-title" style={{ marginBottom: '10px' }}>
-              С возвращением!
+              {t('au.welcome')}
             </h1>
             <p className="section-subtitle" style={{ marginBottom: '30px' }}>
-              Войдите в аккаунт
+              {t('au.signInTo')}
             </p>
           </div>
 
@@ -154,7 +155,7 @@ const Login = ({ onNavigate }) => {
                   color: 'var(--vinyl-muted)',
                   fontSize: '0.9rem'
                 }}>
-                  Пароль
+                  {t('au.password')}
                 </label>
                 <input
                   type="password"
@@ -193,9 +194,9 @@ const Login = ({ onNavigate }) => {
                       animation: 'spin 1s linear infinite',
                       marginRight: '10px'
                     }} />
-                    Вход...
+                    {t('au.signingIn')}
                   </>
-                ) : 'Войти'}
+                ) : t('au.signIn')}
               </button>
 
               {/* Ссылки */}
@@ -219,7 +220,7 @@ const Login = ({ onNavigate }) => {
                   onMouseEnter={(e) => e.target.style.color = 'var(--vinyl-red)'}
                   onMouseLeave={(e) => e.target.style.color = 'var(--vinyl-muted)'}
                 >
-                  Нет аккаунта?
+                  {t('au.noAccount')}
                 </button>
                 
                 <button
@@ -236,7 +237,7 @@ const Login = ({ onNavigate }) => {
                   onMouseEnter={(e) => e.target.style.color = 'var(--vinyl-red)'}
                   onMouseLeave={(e) => e.target.style.color = 'var(--vinyl-muted)'}
                 >
-                  Забыли пароль?
+                  {t('au.forgot')}
                 </button>
               </div>
             </form>
@@ -250,7 +251,7 @@ const Login = ({ onNavigate }) => {
             fontSize: '0.9rem',
             fontStyle: 'italic'
           }}>
-            "Музыка — это язык, который не нужно переводить"
+            {t('au.quote')}
           </div>
         </div>
       </div>

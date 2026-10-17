@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Reveal from '../components/Reveal';
 import Haze from '../components/Haze';
-import { EVENTS, EVENT_TYPES, ARCHIVE, dayNum, monthShort, weekday, longDate } from '../data/events';
+import { EVENTS, EVENT_TYPES, ARCHIVE, dayNum } from '../data/events';
+import { useI18n } from '../i18n/I18nContext';
 import '../styles/pages/Events.css';
 
 const KEY = 'solco.tickets';
 const img = (name) => `${process.env.PUBLIC_URL}/assets/events/${name}.jpg`;
-const rub = (n) => (n === 0 ? 'Бесплатно' : `${n.toLocaleString('ru-RU')} ₽`);
-const seatWord = (n) => { const a = n % 100, b = n % 10; return a > 10 && a < 20 ? 'мест' : b === 1 ? 'место' : b > 1 && b < 5 ? 'места' : 'мест'; };
 
 function readTickets() {
   try { const a = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; }
@@ -25,6 +24,8 @@ const maskPhone = (v) => {
 };
 
 const Events = ({ onNavigate }) => {
+  const { t, fmtMoney, longDate, monthShort, weekday } = useI18n();
+  const rub = (n) => (n === 0 ? t('ev.free') : fmtMoney(n));
   const [type, setType] = useState('all');
   const [tickets, setTickets] = useState(readTickets);
   const [booking, setBooking] = useState(null);       // событие, на которое записываемся
@@ -40,7 +41,7 @@ const Events = ({ onNavigate }) => {
     return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); };
   }, [booking]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const booked = (id) => tickets.filter(t => t.eventId === id).reduce((n, t) => n + t.seats, 0);
+  const booked = (id) => tickets.filter(x => x.eventId === id).reduce((n, x) => n + x.seats, 0);
   const left = (e) => Math.max(0, e.left - booked(e.id));
   const list = useMemo(() => EVENTS.filter(e => type === 'all' || e.type === type), [type]);
   const next = EVENTS[0];
@@ -51,7 +52,7 @@ const Events = ({ onNavigate }) => {
   const submit = (ev) => {
     ev.preventDefault();
     if (!phoneOk || !form.name.trim()) return;
-    setTickets(t => [...t, { eventId: booking.id, name: form.name.trim(), phone: form.phone, seats: form.seats, at: new Date().toISOString() }]);
+    setTickets(list => [...list, { eventId: booking.id, name: form.name.trim(), phone: form.phone, seats: form.seats, at: new Date().toISOString() }]);
     setDone(true);
   };
 
@@ -61,12 +62,12 @@ const Events = ({ onNavigate }) => {
       <section className="ev-hero">
         <div className="ev-hero-bg" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/contacts/vinylbg.jpg)` }} aria-hidden="true" />
         <div className="container ev-hero-in">
-          <p className="ct-eyebrow">SOLCO LIVE · ОСЕНЬ 2026</p>
-          <h1 className="ev-h1">Вечера, где пластинки звучат вживую</h1>
-          <p className="ev-lead">Прослушивания, диджей-сеты, обмен пластинками и мастер-классы. Небольшие вечера в приглушённом свете, на хорошем звуке и среди своих.</p>
+          <p className="ct-eyebrow">{t('ev.eyebrow')}</p>
+          <h1 className="ev-h1">{t('ev.h1')}</h1>
+          <p className="ev-lead">{t('ev.lead')}</p>
           <div className="ev-hero-a">
-            <a className="btn btn-primary" href="#ev-list">Смотреть афишу</a>
-            <button className="btn btn-white" type="button" onClick={() => open(next)}>Записаться на {longDate(next.date)}</button>
+            <a className="btn btn-primary" href="#ev-list">{t('ev.see')}</a>
+            <button className="btn btn-white" type="button" onClick={() => open(next)}>{t('ev.signUpFor', { date: longDate(next.date) })}</button>
           </div>
         </div>
       </section>
@@ -74,12 +75,12 @@ const Events = ({ onNavigate }) => {
       <section className="container ev-sec" id="ev-list">
         <Reveal className="ev-head">
           <div>
-            <p className="ct-eyebrow">АФИША</p>
-            <h2 className="ct-title">Ближайшие вечера</h2>
+            <p className="ct-eyebrow">{t('ev.poster')}</p>
+            <h2 className="ct-title">{t('ev.upcoming')}</h2>
           </div>
-          <div className="ct-filters ev-filters" role="group" aria-label="Тип события">
-            {EVENT_TYPES.map(t => (
-              <button key={t.key} type="button" className={`ct-filter ${type === t.key ? 'on' : ''}`} aria-pressed={type === t.key} onClick={() => setType(t.key)}>{t.label}</button>
+          <div className="ct-filters ev-filters" role="group" aria-label={t('ev.typeLabel')}>
+            {EVENT_TYPES.map(k => (
+              <button key={k} type="button" className={`ct-filter ${type === k ? 'on' : ''}`} aria-pressed={type === k} onClick={() => setType(k)}>{t(`ev.type.${k}`)}</button>
             ))}
           </div>
         </Reveal>
@@ -87,12 +88,12 @@ const Events = ({ onNavigate }) => {
         <div className="ev-list">
           {list.map((e, i) => {
             const l = left(e);
-            const mine = tickets.some(t => t.eventId === e.id);
+            const mine = tickets.some(x => x.eventId === e.id);
             return (
               <Reveal as="article" className="ev-card" key={e.id} delay={(i % 2) * 80}>
                 <div className="ev-photo">
                   <img src={img(e.photo)} alt="" loading="lazy" />
-                  <span className="ev-type">{e.typeLabel}</span>
+                  <span className="ev-type">{t(`ev.kind.${e.type}`)}</span>
                 </div>
                 <div className="ev-stub" aria-label={`${longDate(e.date)}, ${e.time}`}>
                   <b>{dayNum(e.date)}</b>
@@ -100,32 +101,32 @@ const Events = ({ onNavigate }) => {
                   <i>{weekday(e.date)} · {e.time}</i>
                 </div>
                 <div className="ev-body">
-                  <h3>{e.title}</h3>
-                  <p>{e.text}</p>
+                  <h3>{t(`ev.${e.id}.title`)}</h3>
+                  <p>{t(`ev.${e.id}.text`)}</p>
                   <ul className="ev-meta">
-                    <li>{e.place}</li>
+                    <li>{t('ev.place')}</li>
                     <li>{rub(e.price)}</li>
-                    <li className={l <= 5 ? 'few' : ''}>{l === 0 ? 'Мест нет' : `Осталось ${l} ${seatWord(l)}`}</li>
+                    <li className={l <= 5 ? 'few' : ''}>{l === 0 ? t('ev.soldOut') : t('ev.left', { n: l })}</li>
                   </ul>
-                  <button type="button" className="ev-btn" disabled={l === 0} onClick={() => open(e)}>{mine ? 'Вы записаны · ещё место' : l === 0 ? 'Мест нет' : 'Записаться'}</button>
+                  <button type="button" className="ev-btn" disabled={l === 0} onClick={() => open(e)}>{mine ? t('ev.mine') : l === 0 ? t('ev.soldOut') : t('ev.signUp')}</button>
                 </div>
               </Reveal>
             );
           })}
-          {list.length === 0 && <p className="ev-none">В этой категории пока ничего нет. Загляни позже.</p>}
+          {list.length === 0 && <p className="ev-none">{t('ev.none')}</p>}
         </div>
       </section>
 
       <section className="container ev-sec ev-arch">
         <Reveal>
-          <p className="ct-eyebrow">КАК ЭТО БЫЛО</p>
-          <h2 className="ct-title ev-title-s">Прошедшие вечера</h2>
+          <p className="ct-eyebrow">{t('ev.pastEyebrow')}</p>
+          <h2 className="ct-title ev-title-s">{t('ev.past')}</h2>
         </Reveal>
         <Reveal className="ev-arch-row" delay={100}>
           {ARCHIVE.map(a => (
             <figure key={a.id} className="ev-shot">
               <img src={img(a.photo)} alt="" loading="lazy" />
-              <figcaption><b>{a.title}</b><span>{longDate(a.date)}</span></figcaption>
+              <figcaption><b>{t(`ev.${a.id}.title`)}</b><span>{longDate(a.date)}</span></figcaption>
             </figure>
           ))}
         </Reveal>
@@ -134,49 +135,49 @@ const Events = ({ onNavigate }) => {
       <section className="container ev-sec ev-host">
         <Reveal className="ev-host-in">
           <div>
-            <p className="ct-eyebrow">СВОЙ ВЕЧЕР</p>
-            <h2 className="ct-title ev-title-s">Хочешь провести вечер у нас?</h2>
-            <p className="ev-lead">День рождения, прослушивание любимого альбома, встреча клуба. Дадим студию, аппаратуру и подборку пластинок под настроение.</p>
+            <p className="ct-eyebrow">{t('ev.hostEyebrow')}</p>
+            <h2 className="ct-title ev-title-s">{t('ev.host')}</h2>
+            <p className="ev-lead">{t('ev.hostText')}</p>
           </div>
           <div className="ev-host-a">
-            <a className="btn btn-primary" href="https://t.me/meinewelllt">Написать в Telegram</a>
-            <button type="button" className="ev-link" onClick={() => onNavigate('about')}>О магазине и контакты →</button>
+            <a className="btn btn-primary" href="https://t.me/meinewelllt">{t('ev.tg')}</a>
+            <button type="button" className="ev-link" onClick={() => onNavigate('about')}>{t('ev.about')}</button>
           </div>
         </Reveal>
       </section>
 
       {booking && (
-        <div className="ev-modal" role="dialog" aria-modal="true" aria-label={`Запись: ${booking.title}`} onMouseDown={(e) => { if (e.target === e.currentTarget) close(); }}>
+        <div className="ev-modal" role="dialog" aria-modal="true" aria-label={t('ev.modalLabel', { title: t(`ev.${booking.id}.title`) })} onMouseDown={(e) => { if (e.target === e.currentTarget) close(); }}>
           <div className="ev-sheet">
-            <button type="button" className="ev-x" onClick={close} aria-label="Закрыть">✕</button>
+            <button type="button" className="ev-x" onClick={close} aria-label={t('ev.close')}>✕</button>
             {done ? (
               <div className="ev-ok">
-                <p className="ct-eyebrow">ВЫ В СПИСКЕ</p>
-                <h3>Ждём тебя, {form.name.trim().split(' ')[0]}</h3>
-                <p>{booking.title} · {longDate(booking.date)}, {booking.time}. Мест: {form.seats}. Адрес и детали пришлём сообщением на {form.phone}.</p>
-                <button type="button" className="ev-btn" onClick={close}>Хорошо</button>
-                <p className="ev-fine">Это учебный проект: запись хранится только в твоём браузере.</p>
+                <p className="ct-eyebrow">{t('ev.okEyebrow')}</p>
+                <h3>{t('ev.okTitle', { name: form.name.trim().split(' ')[0] })}</h3>
+                <p>{t('ev.okText', { title: t(`ev.${booking.id}.title`), date: longDate(booking.date), time: booking.time, seats: form.seats, phone: form.phone })}</p>
+                <button type="button" className="ev-btn" onClick={close}>{t('ev.okBtn')}</button>
+                <p className="ev-fine">{t('ev.fine')}</p>
               </div>
             ) : (
               <form onSubmit={submit} noValidate>
-                <p className="ct-eyebrow">ЗАПИСЬ · {longDate(booking.date).toUpperCase()}, {booking.time}</p>
-                <h3>{booking.title}</h3>
-                <label className="ev-f"><span>Как тебя зовут</span>
+                <p className="ct-eyebrow">{t('ev.formEyebrow', { date: longDate(booking.date).toUpperCase(), time: booking.time })}</p>
+                <h3>{t(`ev.${booking.id}.title`)}</h3>
+                <label className="ev-f"><span>{t('ev.name')}</span>
                   <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} autoComplete="given-name" required autoFocus />
                 </label>
-                <label className="ev-f"><span>Телефон</span>
+                <label className="ev-f"><span>{t('ev.phone')}</span>
                   <input value={form.phone} inputMode="tel" placeholder="+7 (900) 000-00-00" autoComplete="tel"
                     onChange={(e) => setForm({ ...form, phone: maskPhone(e.target.value) })} />
                 </label>
-                <div className="ev-f"><span>Сколько мест</span>
+                <div className="ev-f"><span>{t('ev.seats')}</span>
                   <div className="ev-step">
-                    <button type="button" onClick={() => setForm(f => ({ ...f, seats: Math.max(1, f.seats - 1) }))} aria-label="Меньше">−</button>
+                    <button type="button" onClick={() => setForm(f => ({ ...f, seats: Math.max(1, f.seats - 1) }))} aria-label={t('ev.less')}>−</button>
                     <b>{form.seats}</b>
-                    <button type="button" onClick={() => setForm(f => ({ ...f, seats: Math.min(Math.min(4, left(booking)), f.seats + 1) }))} aria-label="Больше">+</button>
+                    <button type="button" onClick={() => setForm(f => ({ ...f, seats: Math.min(Math.min(4, left(booking)), f.seats + 1) }))} aria-label={t('ev.more')}>+</button>
                   </div>
                 </div>
-                <div className="ev-sum"><span>К оплате на входе</span><b>{booking.price === 0 ? 'Бесплатно' : `${(booking.price * form.seats).toLocaleString('ru-RU')} ₽`}</b></div>
-                <button type="submit" className="ev-btn ev-wide" disabled={!phoneOk || !form.name.trim()}>Записаться</button>
+                <div className="ev-sum"><span>{t('ev.toPay')}</span><b>{booking.price === 0 ? t('ev.free') : fmtMoney(booking.price * form.seats)}</b></div>
+                <button type="submit" className="ev-btn ev-wide" disabled={!phoneOk || !form.name.trim()}>{t('ev.signUp')}</button>
               </form>
             )}
           </div>

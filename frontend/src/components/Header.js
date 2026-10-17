@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import Logo from './Logo';
+import { useI18n, LANGS } from '../i18n/I18nContext';
 import '../styles/components/Header.css';
+import '../styles/components/LangSwitch.css';
 
 // Иконки: один набор, линия 1.5, скруглённые концы, сетка 24×24
 const Svg = ({ children }) => (
@@ -30,16 +32,37 @@ const BagIcon = () => (
 );
 
 const NAV = [
-  { id: 'catalog', label: 'Пластинки', match: ['catalog'] },
-  { id: 'test', label: 'Тест', match: ['test'] },
-  { id: 'events', label: 'Афиша', match: ['events', 'about', 'contacts'] },
+  { id: 'catalog', key: 'nav.catalog', match: ['catalog'] },
+  { id: 'test', key: 'nav.test', match: ['test'] },
+  { id: 'events', key: 'nav.events', match: ['events', 'about', 'contacts'] },
 ];
+
+// Переключатель языка: две кнопки RU / EN. Выбор запоминается и меняет все тексты сайта
+const LangSwitch = ({ lang, setLang, t, tabIndex }) => (
+  <div className="hd-lang" role="group" aria-label={t('hd.lang')}>
+    {LANGS.map((l) => (
+      <button
+        key={l.code}
+        type="button"
+        className={lang === l.code ? 'on' : ''}
+        aria-pressed={lang === l.code}
+        aria-label={t('hd.langPick', { name: l.name })}
+        lang={l.code}
+        tabIndex={tabIndex}
+        onClick={() => setLang(l.code)}
+      >
+        {l.label}
+      </button>
+    ))}
+  </div>
+);
 
 const Header = ({ onCartClick, onNavigate, currentPage }) => {
   const [open, setOpen] = useState(false);
   const [stuck, setStuck] = useState(false);
   const { getCartItemsCount } = useCart();
   const { user } = useAuth();
+  const { t, lang, setLang } = useI18n();
   const count = getCartItemsCount();
 
   const go = (page) => {
@@ -76,11 +99,11 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
   return (
     <header className={`hd ${stuck ? 'is-stuck' : ''} ${open ? 'is-open' : ''}`} role="banner">
       <div className="hd-in">
-        <button type="button" className="hd-logo" onClick={() => go('home')} aria-label="Solco, на главную">
+        <button type="button" className="hd-logo" onClick={() => go('home')} aria-label={t('hd.home')}>
           <Logo size={34} />
         </button>
 
-        <nav className="hd-nav" aria-label="Основная навигация">
+        <nav className="hd-nav" aria-label={t('nav.main')}>
           {NAV.map((n) => {
             const on = n.match.includes(currentPage);
             return (
@@ -91,24 +114,25 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
                 aria-current={on ? 'page' : undefined}
                 onClick={() => go(n.id)}
               >
-                {n.label}
+                {t(n.key)}
               </button>
             );
           })}
         </nav>
 
         <div className="hd-tools">
+          <LangSwitch lang={lang} setLang={setLang} t={t} />
           {user ? (
-            <button type="button" className={`hd-ib hd-avatar ${profileActive ? 'on' : ''}`} onClick={() => go('profile')} aria-label="Профиль" title="Профиль">
+            <button type="button" className={`hd-ib hd-avatar ${profileActive ? 'on' : ''}`} onClick={() => go('profile')} aria-label={t('hd.profile')} title={t('hd.profile')}>
               {user.name[0].toUpperCase()}
             </button>
           ) : (
-            <button type="button" className={`hd-ib ${profileActive ? 'on' : ''}`} onClick={() => go('profile')} aria-label="Мои открытки" title="Мои открытки">
+            <button type="button" className={`hd-ib ${profileActive ? 'on' : ''}`} onClick={() => go('profile')} aria-label={t('hd.cards')} title={t('hd.cards')}>
               <DiscIcon />
             </button>
           )}
 
-          <button type="button" className="hd-ib" onClick={() => { setOpen(false); onCartClick(); }} aria-label={count ? `Корзина, товаров: ${count}` : 'Корзина'} title="Корзина">
+          <button type="button" className="hd-ib" onClick={() => { setOpen(false); onCartClick(); }} aria-label={count ? t('hd.cartCount', { n: count }) : t('hd.cart')} title={t('hd.cart')}>
             <BagIcon />
             {count > 0 && <span className="hd-count">{count}</span>}
           </button>
@@ -116,7 +140,7 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
           <button
             type="button"
             className="hd-burger"
-            aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
+            aria-label={open ? t('hd.menuClose') : t('hd.menuOpen')}
             aria-expanded={open}
             aria-controls="hd-menu"
             onClick={() => setOpen(!open)}
@@ -128,20 +152,21 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
       </div>
 
       <div id="hd-menu" className="hd-menu" aria-hidden={!open}>
-        <nav aria-label="Меню">
+        <nav aria-label={t('nav.menu')}>
           <ol>
             {NAV.map((n, i) => (
               <li key={n.id} style={{ '--i': i }}>
                 <button type="button" className={n.match.includes(currentPage) ? 'on' : ''} tabIndex={open ? 0 : -1} onClick={() => go(n.id)}>
-                  <span>{n.label}</span>
+                  <span>{t(n.key)}</span>
                 </button>
               </li>
             ))}
           </ol>
         </nav>
         <div className="hd-menu-foot">
-          <button type="button" tabIndex={open ? 0 : -1} onClick={() => go('profile')}><DiscIcon />{user ? 'Профиль' : 'Мои открытки'}</button>
-          <button type="button" tabIndex={open ? 0 : -1} onClick={() => { setOpen(false); onCartClick(); }}><BagIcon />Корзина{count > 0 ? ` · ${count}` : ''}</button>
+          <LangSwitch lang={lang} setLang={setLang} t={t} tabIndex={open ? 0 : -1} />
+          <button type="button" tabIndex={open ? 0 : -1} onClick={() => go('profile')}><DiscIcon />{user ? t('hd.profile') : t('hd.cards')}</button>
+          <button type="button" tabIndex={open ? 0 : -1} onClick={() => { setOpen(false); onCartClick(); }}><BagIcon />{t('hd.cart')}{count > 0 ? ` · ${count}` : ''}</button>
         </div>
       </div>
     </header>

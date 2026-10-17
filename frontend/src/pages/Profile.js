@@ -6,14 +6,15 @@ import ProductCard from '../components/ProductCard';
 import ProductSheet from '../components/ProductSheet';
 import { CardThumb, downloadCard } from '../components/GiftCard';
 import { getDiscs, removeDisc, setOpen, defaultCard } from '../utils/discs';
+import { useI18n } from '../i18n/I18nContext';
 import '../styles/pages/Favorites.css';
 import '../styles/pages/MyDiscs.css';
 
-const fmt = iso => {
-  try { return new Date(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return ''; }
-};
-
 const Profile = ({ onNavigate }) => {
+  const { t, tr, lang, locale, fmtMoney } = useI18n();
+  const fmt = iso => {
+    try { return new Date(iso).toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return ''; }
+  };
   const { user, logout } = useAuth();
   const { addToCart } = useCart();
   const { favoritesProducts, favorites, loading } = useFavorites();
@@ -41,32 +42,32 @@ const Profile = ({ onNavigate }) => {
       <div className="md-wrap">
         <header className="md-head">
           <div>
-            <h1 className="tz-h">{user ? user.name : 'Мой Solco'}</h1>
+            <h1 className="tz-h">{user ? user.name : t('pf.mySolco')}</h1>
           </div>
           <div className="md-acc">
             {user ? (
               <>
                 <span>{user.email}</span>
-                <button className="tz-link" onClick={() => { logout(); onNavigate('home'); }}>Выйти</button>
+                <button className="tz-link" onClick={() => { logout(); onNavigate('home'); }}>{t('pf.logout')}</button>
               </>
             ) : (
               <>
-                <button className="tz-link" onClick={() => onNavigate('login')}>Войти</button>
-                <button className="tz-link" onClick={() => onNavigate('register')}>Регистрация</button>
+                <button className="tz-link" onClick={() => onNavigate('login')}>{t('pf.login')}</button>
+                <button className="tz-link" onClick={() => onNavigate('register')}>{t('pf.register')}</button>
               </>
             )}
           </div>
         </header>
-        <p className="md-note">Открытки и избранное хранятся в этом браузере, входить не обязательно. Каждый пройденный тест оставляет здесь свою открытку. Корзина открывается значком справа сверху.</p>
+        <p className="md-note">{t('pf.note')}</p>
 
         <section className="md-sec">
-          <h2 className="md-h">Мои открытки <i>{discs.length}</i></h2>
+          <h2 className="md-h">{t('pf.cards')} <i>{discs.length}</i></h2>
         {(
           discs.length === 0 ? (
             <div className="md-empty">
-              <h2>Пока нет ни одной открытки</h2>
-              <p>Пройди тест, и здесь появится открытка с диском твоего вкуса и подходящими пластинками. Её можно добавить к заказу или скачать и распечатать. Тест можно пройти для себя или в подарок.</p>
-              <button className="tz-btn" onClick={() => onNavigate('test')}>Пройти тест</button>
+              <h2>{t('pf.noCards')}</h2>
+              <p>{t('pf.noCardsText')}</p>
+              <button className="tz-btn" onClick={() => onNavigate('test')}>{t('pf.takeQuiz')}</button>
             </div>
           ) : (
             <div className="md-list">
@@ -74,34 +75,34 @@ const Profile = ({ onNavigate }) => {
                 <article className="md-card" key={d.id}>
                   <CardThumb className="md-thumb" values={d.profile.values} title={d.profile.title} card={{ ...defaultCard(), ...(d.card || {}) }} mode={d.mode || 'self'} />
                   <div className="md-body">
-                    <p className="md-meta">{fmt(d.date)} · {d.mode === 'gift' ? `В подарок${d.card && d.card.to ? ` · ${d.card.to}` : ''}` : 'Для себя'}</p>
+                    <p className="md-meta">{fmt(d.date)} · {d.mode === 'gift' ? `${t('pf.gift')}${d.card && d.card.to ? ` · ${d.card.to}` : ''}` : t('pf.self')}</p>
                     <h2>{String(d.profile.title).split(' · ').join(' · ')}</h2>
                     <p className="md-text">{d.profile.text}</p>
                     <ul className="md-recs">
                       {d.recs.slice(0, 3).map(r => (
                         <li key={r.id}>
-                          <span><button className="md-open" onClick={() => setSheet({ id: r.id, ids: d.recs.slice(0, 3).map(x => x.id) })}><b>{r.title}</b></button> <em>{r.artist}</em></span>
+                          <span><button className="md-open" onClick={() => setSheet({ id: r.id, ids: d.recs.slice(0, 3).map(x => x.id) })}><b>{tr.name(r.title)}</b></button> <em>{tr.name(r.artist)}</em></span>
                           <span className="md-buy">
-                            <button className="tz-link" onClick={() => buy(r, d, false)}>{added[`${d.id}:${r.id}`] ? 'В корзине ✓' : `В корзину · ${r.price.toLocaleString()} ₽`}</button>
-                            <button className="tz-link" onClick={() => buy(r, d, true)}>{added[`${d.id}:${r.id}:c`] ? 'С открыткой ✓' : '+ с открыткой · 100 ₽'}</button>
+                            <button className="tz-link" onClick={() => buy(r, d, false)}>{added[`${d.id}:${r.id}`] ? t('pf.inCart') : `${t('pf.toCart')} · ${fmtMoney(r.price)}`}</button>
+                            <button className="tz-link" onClick={() => buy(r, d, true)}>{added[`${d.id}:${r.id}:c`] ? t('pf.withCardDone') : t('pf.withCard')}</button>
                           </span>
                         </li>
                       ))}
                     </ul>
                     <div className="md-actions">
-                      <button className="tz-btn" onClick={() => open(d, true)}>Править открытку</button>
-                      <button className="tz-btn tz-btn-ghost" onClick={() => open(d, false)}>Результат теста</button>
-                      <button className="tz-btn tz-btn-ghost" onClick={() => downloadCard(d.profile.values, d.profile.title, { ...defaultCard(), ...(d.card || {}) }, d.mode || 'self')}>Скачать PNG</button>
+                      <button className="tz-btn" onClick={() => open(d, true)}>{t('pf.editCard')}</button>
+                      <button className="tz-btn tz-btn-ghost" onClick={() => open(d, false)}>{t('pf.result')}</button>
+                      <button className="tz-btn tz-btn-ghost" onClick={() => downloadCard(d.profile.values, d.profile.title, { ...defaultCard(), ...(d.card || {}) }, d.mode || 'self', lang)}>{t('pf.png')}</button>
                       {askDel === d.id ? (
-                        <span className="md-del">Удалить? <button className="tz-link" onClick={() => del(d.id)}>Да</button> <button className="tz-link" onClick={() => setAskDel(null)}>Нет</button></span>
+                        <span className="md-del">{t('pf.delAsk')} <button className="tz-link" onClick={() => del(d.id)}>{t('pf.yes')}</button> <button className="tz-link" onClick={() => setAskDel(null)}>{t('pf.no')}</button></span>
                       ) : (
-                        <button className="tz-link" onClick={() => setAskDel(d.id)}>Удалить</button>
+                        <button className="tz-link" onClick={() => setAskDel(d.id)}>{t('pf.del')}</button>
                       )}
                     </div>
                   </div>
                 </article>
               ))}
-              <button className="tz-btn tz-btn-ghost md-more" onClick={() => onNavigate('test')}>Пройти тест ещё раз</button>
+              <button className="tz-btn tz-btn-ghost md-more" onClick={() => onNavigate('test')}>{t('pf.again')}</button>
             </div>
           )
         )}
@@ -109,14 +110,14 @@ const Profile = ({ onNavigate }) => {
         </section>
 
         <section className="md-sec" id="favorites">
-          <h2 className="md-h">Избранное <i>{favorites.length}</i></h2>
+          <h2 className="md-h">{t('pf.favorites')} <i>{favorites.length}</i></h2>
         {(
           loading ? <div className="tz-spinner" /> :
           favoritesProducts.length === 0 ? (
             <div className="md-empty">
-              <h2>В избранном пусто</h2>
-              <p>Нажми на сердечко у пластинки в каталоге, чтобы она появилась здесь.</p>
-              <button className="tz-btn" onClick={() => onNavigate('catalog')}>В каталог</button>
+              <h2>{t('pf.noFav')}</h2>
+              <p>{t('pf.noFavText')}</p>
+              <button className="tz-btn" onClick={() => onNavigate('catalog')}>{t('pf.toCatalog')}</button>
             </div>
           ) : (
             <div className="favorites-grid md-fav">

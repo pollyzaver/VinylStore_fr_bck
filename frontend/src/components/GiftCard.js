@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { discSvg } from '../utils/tasteDisc';
 import { useCart } from '../context/CartContext';
+import { useI18n } from '../i18n/I18nContext';
 import '../styles/components/GiftCard.css';
 
 const W = 1800;
@@ -25,13 +26,28 @@ function wrap(g, text, maxW) {
 const SANS = '"Golos Text", "Inter", "Helvetica Neue", Arial, sans-serif';
 const MONO = '"IBM Plex Mono", ui-monospace, monospace';
 
+// Тексты, которые рисуются прямо на открытке (canvas не умеет ходить в словарь сам)
+const CARD_TEXT = {
+  ru: {
+    phGift: 'Здесь будет твоё послание. Напиши, почему именно эта музыка.',
+    phSelf: 'Здесь можно оставить заметку себе: почему эта музыка и когда её слушать.',
+    dear: 'Тебе,',
+  },
+  en: {
+    phGift: 'Your message will be here. Write why exactly this music.',
+    phSelf: 'Leave a note to yourself here: why this music and when to listen to it.',
+    dear: 'For you,',
+  },
+};
+
 const THEMES = {
   dark:  { bg: '#120503', ink: '#f3e9d2', body: '#e6dcc6', cap: '#cf8b3e', line: '#3a1d10', ghost: 'rgba(230,220,198,0.4)' },
   light: { bg: '#f3e9d2', ink: '#120503', body: '#2b1710', cap: '#a89a86', line: '#d8c9a9', ghost: 'rgba(43,23,16,0.4)' },
 };
 
 // mode: 'self' (только текст, заголовок — название вкуса) | 'gift' (кому, от кого, текст)
-export function drawCard(canvas, { to, from, text, title, theme = 'dark', layout = 'edge', mode = 'self' }, discImg) {
+export function drawCard(canvas, { to, from, text, title, theme = 'dark', layout = 'edge', mode = 'self', lang = 'ru' }, discImg) {
+  const words = CARD_TEXT[lang] || CARD_TEXT.ru;
   canvas.width = W;
   canvas.height = H;
   const g = canvas.getContext('2d');
@@ -41,12 +57,10 @@ export function drawCard(canvas, { to, from, text, title, theme = 'dark', layout
   g.textBaseline = 'alphabetic';
 
   const gift = mode === 'gift';
-  const placeholder = gift
-    ? 'Здесь будет твоё послание. Напиши, почему именно эта музыка.'
-    : 'Здесь можно оставить заметку себе: почему эта музыка и когда её слушать.';
+  const placeholder = gift ? words.phGift : words.phSelf;
   const body = text || placeholder;
   const caption = 'SOLCO';
-  const heading = gift ? (to ? `${to},` : 'Тебе,') : ''; // название вкуса на открытке не печатаем
+  const heading = gift ? (to ? `${to},` : words.dear) : ''; // название вкуса на открытке не печатаем
   const signature = gift ? from : '';
 
   if (layout === 'center') {
@@ -118,24 +132,25 @@ export const cardSeed = (title) => `gift-${title || 'solco'}`;
 
 // Миниатюра открытки для профиля
 export const CardThumb = ({ values, title, card, mode, className = '' }) => {
+  const { t, lang } = useI18n();
   const ref = useRef(null);
   const img = useDiscImage(values, cardSeed(title));
   useEffect(() => {
-    if (ref.current) drawCard(ref.current, { ...card, title, mode }, img);
-  }, [card, title, mode, img]);
+    if (ref.current) drawCard(ref.current, { ...card, title, mode, lang }, img);
+  }, [card, title, mode, img, lang]);
   useEffect(() => {
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ref.current && drawCard(ref.current, { ...card, title, mode }, img));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ref.current && drawCard(ref.current, { ...card, title, mode, lang }, img));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  return <canvas ref={ref} className={`gc-canvas ${className}`} aria-label="Открытка" />;
+  return <canvas ref={ref} className={`gc-canvas ${className}`} aria-label={t('gc.card')} />;
 };
 
-export function downloadCard(values, title, card, mode) {
+export function downloadCard(values, title, card, mode, lang = 'ru') {
   const svg = discSvg(values, { size: 1200, seed: cardSeed(title) });
   const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml;charset=utf-8' }));
   const img = new Image();
   img.onload = () => {
     const c = document.createElement('canvas');
-    drawCard(c, { ...card, title, mode }, img);
+    drawCard(c, { ...card, title, mode, lang }, img);
     URL.revokeObjectURL(url);
     c.toBlob(b => {
       const a = document.createElement('a');
@@ -150,18 +165,19 @@ export function downloadCard(values, title, card, mode) {
 // Конструктор открытки. Состояние (card) живёт выше, чтобы его можно было сохранить и положить в корзину.
 const GiftCard = ({ values, title, recs, selectedId, onSelect, mode = 'self', card, onChange, onGiftTest }) => {
   const { addToCart } = useCart();
+  const { t, tr, lang, fmtMoney } = useI18n();
   const canvas = useRef(null);
   const [added, setAdded] = useState(false);
   const img = useDiscImage(values, cardSeed(title));
   const gift = mode === 'gift';
 
   useEffect(() => {
-    if (canvas.current) drawCard(canvas.current, { ...card, title, mode }, img);
-  }, [card, title, mode, img]);
+    if (canvas.current) drawCard(canvas.current, { ...card, title, mode, lang }, img);
+  }, [card, title, mode, img, lang]);
 
   useEffect(() => {
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(() => canvas.current && drawCard(canvas.current, { ...card, title, mode }, img));
+      document.fonts.ready.then(() => canvas.current && drawCard(canvas.current, { ...card, title, mode, lang }, img));
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -169,7 +185,7 @@ const GiftCard = ({ values, title, recs, selectedId, onSelect, mode = 'self', ca
   const pick = (k, v) => { setAdded(false); onChange({ ...card, [k]: v }); };
   const rec = recs.find(r => r.id === selectedId) || recs[0];
 
-  const download = () => downloadCard(values, title, card, mode);
+  const download = () => downloadCard(values, title, card, mode, lang);
 
   const add = () => {
     addToCart({
@@ -188,61 +204,59 @@ const GiftCard = ({ values, title, recs, selectedId, onSelect, mode = 'self', ca
 
   return (
     <section className="gc" id="gift-card">
-      <p className="tz-eyebrow">{gift ? 'ПОДАРОК · ОТКРЫТКА' : 'БОНУС К ЗАКАЗУ'}</p>
-      <h2 className="tz-h2">{gift ? 'Открытка для подарка' : 'Твоя открытка'}</h2>
+      <p className="tz-eyebrow">{gift ? t('gc.eyebrowGift') : t('gc.eyebrowSelf')}</p>
+      <h2 className="tz-h2">{gift ? t('gc.titleGift') : t('gc.titleSelf')}</h2>
       <p className="tz-lead gc-lead">
-        {gift
-          ? 'Диск нарисован по ответам получателя. Напиши пару слов, и мы вложим открытку в коробку с пластинкой. Или скачай её и распечатай сама.'
-          : 'Тест нарисовал для тебя открытку с твоим диском. Добавь её к заказу, и мы вложим её в коробку за 100 ₽. Можно скачать и распечатать самой бесплатно.'}
+        {gift ? t('gc.leadGift') : t('gc.leadSelf')}
       </p>
 
       <div className="gc-grid">
         <div className="gc-form">
           <div className="gc-f">
-            <span>Тема</span>
-            <div className="gc-seg" role="radiogroup" aria-label="Тема открытки">
-              {[['dark', 'Тёмная'], ['light', 'Светлая']].map(([v, l]) => (
+            <span>{t('gc.theme')}</span>
+            <div className="gc-seg" role="radiogroup" aria-label={t('gc.themeLabel')}>
+              {[['dark', t('gc.dark')], ['light', t('gc.light')]].map(([v, l]) => (
                 <button key={v} type="button" role="radio" aria-checked={card.theme === v} className={card.theme === v ? 'on' : ''} onClick={() => pick('theme', v)}>{l}</button>
               ))}
             </div>
           </div>
           <div className="gc-f">
-            <span>Расположение</span>
-            <div className="gc-seg" role="radiogroup" aria-label="Расположение на открытке">
-              {[['edge', 'Диск сбоку'], ['center', 'Диск по центру']].map(([v, l]) => (
+            <span>{t('gc.layout')}</span>
+            <div className="gc-seg" role="radiogroup" aria-label={t('gc.layoutLabel')}>
+              {[['edge', t('gc.edge')], ['center', t('gc.center')]].map(([v, l]) => (
                 <button key={v} type="button" role="radio" aria-checked={card.layout === v} className={card.layout === v ? 'on' : ''} onClick={() => pick('layout', v)}>{l}</button>
               ))}
             </div>
           </div>
 
           {gift && (
-            <label className="gc-f"><span>Кому</span>
-              <input value={card.to} onChange={set('to')} maxLength={40} placeholder="Маше" />
+            <label className="gc-f"><span>{t('gc.to')}</span>
+              <input value={card.to} onChange={set('to')} maxLength={40} placeholder={t('gc.toPh')} />
             </label>
           )}
-          <label className="gc-f"><span>{gift ? 'Что написать' : 'Текст открытки'} <small>необязательно</small></span>
-            <textarea value={card.text} onChange={set('text')} maxLength={MAX_TEXT} rows={5} placeholder={gift ? 'С днём рождения! Послушай это в тёмный осенний вечер.' : 'Вечерняя музыка, чтобы остаться с собой.'} />
+          <label className="gc-f"><span>{gift ? t('gc.writeGift') : t('gc.writeSelf')} <small>{t('gc.optional')}</small></span>
+            <textarea value={card.text} onChange={set('text')} maxLength={MAX_TEXT} rows={5} placeholder={gift ? t('gc.phGift') : t('gc.phSelf')} />
             <em>{card.text.length}/{MAX_TEXT}</em>
           </label>
           {gift && (
-            <label className="gc-f"><span>От кого</span>
-              <input value={card.from} onChange={set('from')} maxLength={40} placeholder="Поля" />
+            <label className="gc-f"><span>{t('gc.from')}</span>
+              <input value={card.from} onChange={set('from')} maxLength={40} placeholder={t('gc.fromPh')} />
             </label>
           )}
 
           {!gift && onGiftTest && (
             <p className="gc-note">
-              Хочешь подарить? Пройди тест ещё раз в режиме «В подарок» и отвечай так, как ответил бы получатель: тогда диск и подборка будут про него.
-              {' '}<button type="button" className="tz-link" onClick={onGiftTest}>Пройти тест для подарка</button>
+              {t('gc.giftNote')}
+              {' '}<button type="button" className="tz-link" onClick={onGiftTest}>{t('gc.giftTest')}</button>
             </p>
           )}
 
           <div className="gc-f">
-            <span>К какой пластинке в заказе</span>
+            <span>{t('gc.which')}</span>
             <div className="gc-recs">
               {recs.map(r => (
                 <button key={r.id} type="button" className={`tz-chip ${rec && rec.id === r.id ? 'sel' : ''}`} aria-pressed={!!rec && rec.id === r.id} onClick={() => { setAdded(false); onSelect(r.id); }}>
-                  {r.title}
+                  {tr.name(r.title)}
                 </button>
               ))}
             </div>
@@ -250,12 +264,12 @@ const GiftCard = ({ values, title, recs, selectedId, onSelect, mode = 'self', ca
         </div>
 
         <div className="gc-preview">
-          <canvas ref={canvas} className="gc-canvas" aria-label="Предпросмотр открытки" />
+          <canvas ref={canvas} className="gc-canvas" aria-label={t('gc.preview')} />
           <div className="tz-actions gc-actions">
-            <button className="tz-btn" onClick={add}>{added ? 'Добавлено в корзину ✓' : `Добавить к заказу · ${rec ? rec.price.toLocaleString() : ''} ₽`}</button>
-            <button className="tz-btn tz-btn-ghost" onClick={download}>Скачать, чтобы распечатать</button>
+            <button className="tz-btn" onClick={add}>{added ? t('gc.added') : `${t('gc.add')} · ${rec ? fmtMoney(rec.price) : ''}`}</button>
+            <button className="tz-btn tz-btn-ghost" onClick={download}>{t('gc.download')}</button>
           </div>
-          <p className="tz-hint">Открытка в заказе стоит 100 ₽, а файл можно скачать бесплатно. PNG 15×10 см, 300 dpi.</p>
+          <p className="tz-hint">{t('gc.hint')}</p>
         </div>
       </div>
     </section>

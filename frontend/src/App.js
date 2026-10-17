@@ -12,6 +12,7 @@ import Taste from './pages/Taste';
 import Events from './pages/Events';
 import Profile from './pages/Profile';
 import { FavoritesProvider } from './context/FavoritesContext';
+import { I18nProvider } from './i18n/I18nContext';
 
 import './styles/global/variables.css';
 import './styles/global/reset.css';
@@ -66,6 +67,7 @@ function App() {
   };
 
   return (
+    <I18nProvider>
     <AuthProvider>
       <FavoritesProvider>
         <CartProvider>
@@ -82,6 +84,7 @@ function App() {
         </CartProvider>
       </FavoritesProvider>
     </AuthProvider>
+    </I18nProvider>
   );
 }
 

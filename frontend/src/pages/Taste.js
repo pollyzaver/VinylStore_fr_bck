@@ -10,6 +10,7 @@ import Reveal from '../components/Reveal';
 import { saveDisc, slimRec, getDiscs, takeOpen, updateDisc, defaultCard } from '../utils/discs';
 import { useCart } from '../context/CartContext';
 import { tasteAPI } from '../api/taste';
+import { useI18n } from '../i18n/I18nContext';
 import '../styles/pages/Taste.css';
 
 export const TASTE_STORE_KEY = 'solco.taste';
@@ -21,11 +22,12 @@ function Disc({ values, seed, label, className = '' }) {
 }
 
 function Cover({ item }) {
+  const { tr } = useI18n();
   const [broken, setBroken] = useState(false);
   if (!item.image || item.coverMissing || broken) {
-    return <Disc values={item.taste} label={item.title} className="tz-disc-static" />;
+    return <Disc values={item.taste} label={tr.name(item.title)} className="tz-disc-static" />;
   }
-  return <img className="tz-cover" src={item.image} alt={item.title} onError={() => setBroken(true)} />;
+  return <img className="tz-cover" src={item.image} alt={tr.name(item.title)} onError={() => setBroken(true)} />;
 }
 
 export function downloadDisc(values, name) {
@@ -51,6 +53,9 @@ export function downloadDisc(values, name) {
 }
 
 const Taste = ({ onNavigate }) => {
+  const { t, tr, lang, fmtMoney } = useI18n();
+  const langRef = useRef(lang);
+  langRef.current = lang;
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
   const [step, setStep] = useState(0);            // 0 вступление, 1..n вопросы, n+1 результат
@@ -69,6 +74,8 @@ const Taste = ({ onNavigate }) => {
   const [ripple, setRipple] = useState(0);
   const [axisOn, setAxisOn] = useState(false);
   const stageRef = useRef(null);
+  const liveAnswers = useRef({});
+  const resultAnswers = useRef(null);
   const { addToCart } = useCart();
   const timer = useRef(null);
   const stepRef = useRef(0);
@@ -91,11 +98,17 @@ const Taste = ({ onNavigate }) => {
     const t = setTimeout(() => setAxisOn(true), 500);
     return () => clearTimeout(t);
   }, [step]);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  // вопросы и тексты приходят с сервера сразу на нужном языке, при смене языка загружаем заново
   useEffect(() => {
-    tasteAPI.questions().then(setData).catch(() => setError(true));
-    tasteAPI.result({}, 1).then(r => { setLive(r.profile); setShown(r.profile); }).catch(() => {});
-    return () => clearTimeout(timer.current);
-  }, []);
+    tasteAPI.questions(lang).then(d => { setData(d); setError(false); }).catch(() => setError(true));
+    tasteAPI.result(liveAnswers.current, 1, lang).then(r => { setLive(r.profile); setShown(r.profile); }).catch(() => {});
+    if (resultAnswers.current) {
+      tasteAPI.result(resultAnswers.current, 12, lang).then(r => {
+        setResult(prev => (prev ? { ...r, profile: { ...r.profile, seedTitle: prev.profile.seedTitle || prev.profile.title } } : prev));
+      }).catch(() => {});
+    }
+  }, [lang]);
 
   // открыть сохранённый диск из профиля
   useEffect(() => {
@@ -123,7 +136,8 @@ const Taste = ({ onNavigate }) => {
 
   const refresh = useCallback((next) => {
     const at = stepRef.current;
-    tasteAPI.result(next, 1).then(r => {
+    liveAnswers.current = next;
+    tasteAPI.result(next, 1, langRef.current).then(r => {
       setLive(r.profile);
       // ответ пришёл уже после перехода к другому вопросу
       if (stepRef.current !== at) setShown(r.profile);
@@ -132,7 +146,8 @@ const Taste = ({ onNavigate }) => {
 
   const finish = async (final) => {
     try {
-      const r = await tasteAPI.result(final, 12);
+      const r = await tasteAPI.result(final, 12, langRef.current);
+      resultAnswers.current = final;
       setResult(r);
       setLive(r.profile);
       try { localStorage.setItem(TASTE_STORE_KEY, JSON.stringify({ answers: final, ...r, date: new Date().toISOString() })); } catch (e) { /* без хранилища тоже работает */ }
@@ -204,14 +219,15 @@ const Taste = ({ onNavigate }) => {
   };
   const beat = () => { setPulse(true); setTimeout(() => setPulse(false), 160); };
 
-  const restart = () => { setAnswers({}); setResult(null); setStep(0); setAddedId(null); setGiftRec(null); setCard(defaultCard()); setDiscId(null); setDir('b'); refresh({}); };
+  const restart = () => { resultAnswers.current = null; setAnswers({}); setResult(null); setStep(0); setAddedId(null); setGiftRec(null); setCard(defaultCard()); setDiscId(null); setDir('b'); refresh({}); };
   const start = (m) => { setMode(m); setDir('f'); setStep(1); };
+  const seedTitle = result ? (result.profile.seedTitle || result.profile.title) : '';
   const buy = (r, withCard) => {
     const item = { id: r.id, title: r.title, description: r.artist, image: r.image, coverMissing: r.coverMissing, taste: r.taste, price: r.price };
     if (withCard) {
       const gift = mode === 'gift';
       item.lineId = `card-${r.id}-${Date.now()}`;
-      item.card = { to: gift ? card.to.trim() : '', from: gift ? card.from.trim() : '', text: card.text.trim(), taste: result.profile.title, seed: `gift-${result.profile.title}`, theme: card.theme, layout: card.layout, mode };
+      item.card = { to: gift ? card.to.trim() : '', from: gift ? card.from.trim() : '', text: card.text.trim(), taste: seedTitle, seed: `gift-${seedTitle}`, theme: card.theme, layout: card.layout, mode };
     }
     addToCart(item);
     setAddedId(`${r.id}${withCard ? ':c' : ''}`);
@@ -222,9 +238,9 @@ const Taste = ({ onNavigate }) => {
   if (error) {
     return (
       <div className="tz"><div className="tz-wrap tz-single">
-        <h1 className="tz-h">Не получилось загрузить тест</h1>
-        <p className="tz-lead">Проверь, что сервер запущен, и попробуй ещё раз.</p>
-        <button className="tz-btn" onClick={() => window.location.reload()}>Обновить</button>
+        <h1 className="tz-h">{t('tz.errTitle')}</h1>
+        <p className="tz-lead">{t('tz.errText')}</p>
+        <button className="tz-btn" onClick={() => window.location.reload()}>{t('tz.reload')}</button>
       </div></div>
     );
   }
@@ -237,9 +253,9 @@ const Taste = ({ onNavigate }) => {
       <div className="tz tz-res">
         <div className="tz-wrap tz-result">
           <div className="tz-hero">
-            <Disc values={vals} className="tz-disc-big tz-spin" label="Твой диск" />
+            <Disc values={vals} className="tz-disc-big tz-spin" label={t('tz.yourDisc')} />
             <div className="tz-hero-text">
-              <p className="tz-eyebrow">{mode === 'gift' ? 'ДИСК ВКУСА В ПОДАРОК' : 'ТВОЙ ДИСК'}</p>
+              <p className="tz-eyebrow">{mode === 'gift' ? t('tz.eyebrowGift') : t('tz.eyebrowSelf')}</p>
               <h1 className="tz-h">{String(result.profile.title).split(' · ').map((w, i) => <span key={i} className="tz-word">{w}</span>)}</h1>
               <p className="tz-lead">{result.profile.text}</p>
               <ul className="tz-axes">
@@ -252,25 +268,25 @@ const Taste = ({ onNavigate }) => {
                 ))}
               </ul>
               <div className="tz-actions">
-                <button className="tz-btn" onClick={toCard}>Открытка к заказу</button>
-                <button className="tz-btn tz-btn-ghost" onClick={() => onNavigate('profile')}>Мои открытки</button>
-                <button className="tz-btn tz-btn-ghost" onClick={restart}>Пройти заново</button>
+                <button className="tz-btn" onClick={toCard}>{t('tz.toCard')}</button>
+                <button className="tz-btn tz-btn-ghost" onClick={() => onNavigate('profile')}>{t('tz.myCards')}</button>
+                <button className="tz-btn tz-btn-ghost" onClick={restart}>{t('tz.again')}</button>
               </div>
             </div>
           </div>
-          <h2 className="tz-h2">Тебе подойдёт</h2>
+          <h2 className="tz-h2">{t('tz.fits')}</h2>
           <div className="tz-recs">
             {result.recommendations.slice(0, 9).map((r, i) => (
               <Reveal as="article" className="tz-rec" key={r.id} delay={(i % 3) * 90}>
-                <button className="tz-rec-open" onClick={() => setSheetId(r.id)} aria-label={`Открыть: ${r.title}`}>
+                <button className="tz-rec-open" onClick={() => setSheetId(r.id)} aria-label={t('tz.open', { title: tr.name(r.title) })}>
                   <div className="tz-rec-pic"><Cover item={r} /><span className="tz-match">{r.match}%</span></div>
                 </button>
-                <h3><button className="tz-rec-open tz-rec-name" onClick={() => setSheetId(r.id)}>{r.title}</button></h3>
-                <p className="tz-rec-meta">{r.artist} · {r.year}</p>
+                <h3><button className="tz-rec-open tz-rec-name" onClick={() => setSheetId(r.id)}>{tr.name(r.title)}</button></h3>
+                <p className="tz-rec-meta">{tr.name(r.artist)} · {r.year}</p>
                 <p className="tz-rec-why">{r.why}</p>
                 <div className="tz-rec-btns">
-                  <button className="tz-link" onClick={() => buy(r)}>{addedId === String(r.id) ? 'В корзине ✓' : `В корзину · ${r.price.toLocaleString()} ₽`}</button>
-                  <button className="tz-link" onClick={() => buy(r, true)}>{addedId === `${r.id}:c` ? 'С открыткой ✓' : '+ с открыткой · 100 ₽'}</button>
+                  <button className="tz-link" onClick={() => buy(r)}>{addedId === String(r.id) ? t('tz.inCart') : `${t('tz.toCart')} · ${fmtMoney(r.price)}`}</button>
+                  <button className="tz-link" onClick={() => buy(r, true)}>{addedId === `${r.id}:c` ? t('tz.withCardDone') : t('tz.withCard')}</button>
                 </div>
               </Reveal>
             ))}
@@ -280,7 +296,7 @@ const Taste = ({ onNavigate }) => {
           <Haze scope=".tz-giftzone" />
           <GiftCard
             values={vals}
-            title={result.profile.title}
+            title={seedTitle}
             recs={result.recommendations.slice(0, 9)}
             selectedId={giftRec}
             onSelect={setGiftRec}
@@ -305,37 +321,37 @@ const Taste = ({ onNavigate }) => {
       <div className="tz-wrap">
         <div className="tz-stage">
           <div className="tz-tilt" ref={stageRef} onPointerMove={tilt} onPointerLeave={untilt}>
-            <Disc values={values} className={`tz-disc-big tz-spin ${pulse ? 'tz-pulse' : ''}`} label="Твой диск вкуса" />
+            <Disc values={values} className={`tz-disc-big tz-spin ${pulse ? 'tz-pulse' : ''}`} label={t('tz.yourDiscTaste')} />
             <i className="tz-glare" aria-hidden="true" />
             {ripple > 0 && <i className="tz-ripple" key={ripple} aria-hidden="true" />}
           </div>
-          <p className="tz-live" key={shown ? shown.title : 'empty'}>{step === 0 ? 'Пока диск пустой' : (shown ? shown.title : '')}</p>
+          <p className="tz-live" key={shown ? shown.title : 'empty'}>{step === 0 ? t('tz.empty') : (shown ? shown.title : '')}</p>
         </div>
 
         <div className={`tz-card tz-d-${dir}`} key={step}>
           {step === 0 && (
             <>
-              <p className="tz-eyebrow">ТЕСТ ВКУСА</p>
-              <h1 className="tz-h">Нарисуем твой диск</h1>
-              <p className="tz-lead">{n} коротких вопросов. С каждым ответом диск справа меняется, а в конце ты получишь диск вкуса, пластинки, которые под него подходят, и открытку в подарок к заказу.</p>
-              <p className="tz-hint">Для кого выбираем?</p>
+              <p className="tz-eyebrow">{t('tz.eyebrow')}</p>
+              <h1 className="tz-h">{t('tz.title')}</h1>
+              <p className="tz-lead">{t('tz.lead', { n })}</p>
+              <p className="tz-hint">{t('tz.who')}</p>
               <div className="tz-actions tz-who">
-                <button className="tz-btn" onClick={() => start('self')}>Для себя</button>
-                <button className="tz-btn tz-btn-ghost" onClick={() => start('gift')}>В подарок</button>
+                <button className="tz-btn" onClick={() => start('self')}>{t('tz.self')}</button>
+                <button className="tz-btn tz-btn-ghost" onClick={() => start('gift')}>{t('tz.gift')}</button>
               </div>
-              <p className="tz-hint tz-gift-warn"><b>Если выбираешь «В подарок»</b>, отвечай так, как ответил бы человек, которому дарим. Тогда диск, подборка и открытка будут про него: в открытке появятся поля «Кому», «От кого» и текст.</p>
+              <p className="tz-hint tz-gift-warn"><b>{t('tz.warnB')}</b>{t('tz.warn')}</p>
             </>
           )}
 
           {q && (
             <>
-              <div className="tz-progress" aria-label={`Вопрос ${step} из ${n}`}>
+              <div className="tz-progress" aria-label={t('tz.progress', { step, n })}>
                 {questions.map((x, i) => (
-                  <button key={x.id} type="button" className={i < step ? 'on' : ''} disabled={i >= step - 1} aria-label={`Вернуться к вопросу ${i + 1}`} onClick={() => go(i + 1)} />
+                  <button key={x.id} type="button" className={i < step ? 'on' : ''} disabled={i >= step - 1} aria-label={t('tz.backTo', { i: i + 1 })} onClick={() => go(i + 1)} />
                 ))}
               </div>
               <p className="tz-count"><b>{String(step).padStart(2, '0')}</b> / {String(n).padStart(2, '0')}</p>
-              {mode === 'gift' && step === 1 && <p className="tz-hint tz-gift-note"><b>Подарок.</b> Отвечай так, как ответил бы тот, кому дарим, а не как ты сама.</p>}
+              {mode === 'gift' && step === 1 && <p className="tz-hint tz-gift-note"><b>{t('tz.giftB')}</b>{t('tz.giftNote')}</p>}
               <p className="tz-eyebrow">{q.title.toUpperCase()}</p>
               <h2 className="tz-h tz-q">{q.question}</h2>
 
@@ -364,7 +380,7 @@ const Taste = ({ onNavigate }) => {
 
               {(q.kind === 'slider' || q.kind === 'tap' || q.kind === 'pad') && (
                 <div className="tz-actions">
-                  <button className="tz-btn" disabled={!answered} onClick={() => advance(answers)}>{step >= n ? 'Показать мой диск' : 'Дальше'}</button>
+                  <button className="tz-btn" disabled={!answered} onClick={() => advance(answers)}>{step >= n ? t('tz.show') : t('tz.next')}</button>
                 </div>
               )}
 
@@ -374,12 +390,12 @@ const Taste = ({ onNavigate }) => {
                     {['a', 'b'].map(side => (
                       <button key={side} className={`tz-duel-card ${answers[q.id] === side ? 'sel' : ''}`} onClick={() => pick(side)}>
                         <div className="tz-duel-pic"><Cover item={q[side]} /></div>
-                        <strong>{q[side].title}</strong>
-                        <span>{q[side].artist} · {q[side].year}</span>
+                        <strong>{tr.name(q[side].title)}</strong>
+                        <span>{tr.name(q[side].artist)} · {q[side].year}</span>
                       </button>
                     ))}
                   </div>
-                  <button className="tz-link" onClick={() => pick('both')}>Не могу выбрать</button>
+                  <button className="tz-link" onClick={() => pick('both')}>{t('tz.cant')}</button>
                 </>
               )}
 
@@ -391,16 +407,16 @@ const Taste = ({ onNavigate }) => {
                       return <button key={o.id} className={`tz-chip ${on ? 'sel' : ''}`} onClick={() => toggle(o.id)} aria-pressed={on}>{o.label}</button>;
                     })}
                   </div>
-                  {q.max && <p className="tz-hint">Можно выбрать до {q.max}</p>}
+                  {q.max && <p className="tz-hint">{t('tz.upTo', { max: q.max })}</p>}
                   <div className="tz-actions">
-                    <button className="tz-btn" disabled={!answered} onClick={() => advance(answers)}>{step >= n ? 'Показать мой диск' : 'Дальше'}</button>
+                    <button className="tz-btn" disabled={!answered} onClick={() => advance(answers)}>{step >= n ? t('tz.show') : t('tz.next')}</button>
                   </div>
                 </>
               )}
 
               <div className="tz-foot">
-                {step > 1 ? <button type="button" className="tz-foot-b" onClick={() => go(step - 1)}>← Назад</button> : <span />}
-                <button type="button" className="tz-foot-b tz-skip" onClick={skip}>{(q.ui && q.ui.skip) || 'Пропустить'} →</button>
+                {step > 1 ? <button type="button" className="tz-foot-b" onClick={() => go(step - 1)}>{t('tz.back')}</button> : <span />}
+                <button type="button" className="tz-foot-b tz-skip" onClick={skip}>{(q.ui && q.ui.skip) || t('tz.skip')} →</button>
               </div>
             </>
           )}

@@ -1,7 +1,10 @@
 import React from 'react';
 import Logo from './Logo';
+import { useI18n } from '../i18n/I18nContext';
 
-const Footer = () => (
+const Footer = () => {
+  const { t } = useI18n();
+  return (
   <footer className="site-footer site-footer--line">
     <div className="container footer-line">
       <Logo size={26} />
@@ -11,9 +14,10 @@ const Footer = () => (
         <a href="https://wa.me/79501893557">WhatsApp</a>
         <a href="mailto:pollzyaver777@gmail.com">pollzyaver777@gmail.com</a>
       </p>
-      <p className="footer-line__copy">&copy; 2026 Solco</p>
+      <p className="footer-line__copy">{t('ft.copy')}</p>
     </div>
   </footer>
-);
+  );
+};
 
 export default Footer;

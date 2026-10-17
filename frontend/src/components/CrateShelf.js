@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
+import { useI18n } from '../i18n/I18nContext';
 import '../styles/components/CrateShelf.css';
 
 // Solco Crate: полка квадратных конвертов. Прокрутка колесом, перетаскиванием
@@ -38,22 +39,23 @@ const averageColor = (img) => {
 };
 
 const Cover = ({ product, onColor }) => {
+  const { t, tr } = useI18n();
   const [broken, setBroken] = useState(false);
   const src = coverSrc(product);
   // новая пластинка в том же окне: сбрасываем ошибку прошлой обложки
   useEffect(() => { setBroken(false); }, [src]);
   if (!src || broken) {
     return (
-      <div className="cr-cover-fallback" role="img" aria-label={`${product.title}, ${product.description}`}>
-        <span className={HAS_RU.test(product.title) ? '' : 'cr-display'}>{product.title}</span>
-        <small>{product.description}</small>
+      <div className="cr-cover-fallback" role="img" aria-label={`${tr.name(product.title)}, ${tr.name(product.description)}`}>
+        <span className={HAS_RU.test(tr.name(product.title)) ? '' : 'cr-display'}>{tr.name(product.title)}</span>
+        <small>{tr.name(product.description)}</small>
       </div>
     );
   }
   return (
     <img
       src={src}
-      alt={`Обложка: ${product.title}, ${product.description}`}
+      alt={t('cr.cover', { title: tr.name(product.title), artist: tr.name(product.description) })}
       draggable="false"
       onError={() => setBroken(true)}
       onLoad={(e) => onColor && onColor(averageColor(e.currentTarget))}
@@ -64,6 +66,7 @@ const Cover = ({ product, onColor }) => {
 /* ---------- карточка пластинки (достаём конверт) ---------- */
 
 export const CrateSheet = ({ product, index, total, label, onClose, onStep }) => {
+  const { t, tr, fmtMoney } = useI18n();
   const { addToCart } = useCart();
   const { addToFavorites, removeFromFavorites, isInFavorites } = useFavorites();
   const [phase, setPhase] = useState('in'); // in -> out -> play
@@ -122,18 +125,18 @@ export const CrateSheet = ({ product, index, total, label, onClose, onStep }) =>
   };
 
   const rows = [
-    ['Год', product.year],
-    ['Лейбл', info.label],
-    ['Жанр', product.genre],
-    ['Страна', info.country],
-    ['Формат', product.format],
+    [t('cr.year'), product.year],
+    [t('cr.label'), info.label],
+    [t('cr.genre'), tr.genre(product.genre)],
+    [t('cr.country'), tr.country(info.country)],
+    [t('cr.format'), tr.format(product.format)],
   ].filter(([, v]) => v);
 
   const trackCol = (title, list) =>
     list && list.length ? (
       <div key={title}>
         <h3>{title}</h3>
-        <ol>{list.map((t, i) => <li key={i}>{t}</li>)}</ol>
+        <ol>{list.map((name, i) => <li key={i}>{name}</li>)}</ol>
       </div>
     ) : null;
 
@@ -142,22 +145,22 @@ export const CrateSheet = ({ product, index, total, label, onClose, onStep }) =>
       className="cr-veil"
       role="dialog"
       aria-modal="true"
-      aria-label={`Пластинка: ${product.title}`}
+      aria-label={t('cr.record', { title: tr.name(product.title) })}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div className="cr-tools">
         {total > 1 && (
           <>
             <p className="cr-pos">{String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}</p>
-          <button type="button" className="cr-btn-ghost cr-ib" onClick={() => onStep(-1)} aria-label="Предыдущая пластинка">
+          <button type="button" className="cr-btn-ghost cr-ib" onClick={() => onStep(-1)} aria-label={t('cr.prev')}>
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
-          <button type="button" className="cr-btn-ghost cr-ib" onClick={() => onStep(1)} aria-label="Следующая пластинка">
+          <button type="button" className="cr-btn-ghost cr-ib" onClick={() => onStep(1)} aria-label={t('cr.next')}>
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </button>
           </>
         )}
-        <button ref={closeRef} type="button" className="cr-btn-ghost cr-ib cr-close" onClick={onClose} aria-label="Закрыть">
+        <button ref={closeRef} type="button" className="cr-btn-ghost cr-ib cr-close" onClick={onClose} aria-label={t('cr.close')}>
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
         </button>
       </div>
@@ -169,10 +172,10 @@ export const CrateSheet = ({ product, index, total, label, onClose, onStep }) =>
         </div>
         <div className="cr-info">
           <div className="cr-cat">
-            Диск {catNo(product)}{product.badge && <em>{product.badge}</em>}
+            {t('cr.disc')} {catNo(product)}{product.badge && <em>{tr.badge(product.badge)}</em>}
           </div>
-          <h2 className={HAS_RU.test(product.title) ? '' : 'cr-display'}>{product.title}</h2>
-          <p className="cr-artist">{product.description}</p>
+          <h2 className={HAS_RU.test(tr.name(product.title)) ? '' : 'cr-display'}>{tr.name(product.title)}</h2>
+          <p className="cr-artist">{tr.name(product.description)}</p>
           <dl>
             {rows.map(([k, v]) => (
               <React.Fragment key={k}><dt>{k}</dt><dd>{v}</dd></React.Fragment>
@@ -180,21 +183,21 @@ export const CrateSheet = ({ product, index, total, label, onClose, onStep }) =>
           </dl>
           {tracks && (
             <div className="cr-tl">
-              {trackCol('Сторона A', tracks.a)}
-              {trackCol('Сторона B', tracks.b)}
+              {trackCol(t('cr.sideA'), tracks.a)}
+              {trackCol(t('cr.sideB'), tracks.b)}
             </div>
           )}
           <div className="cr-now" aria-live="polite">
             <span className="cr-eq" aria-hidden="true"><i /><i /><i /><i /></span>
-            <span>{phase === 'play' ? 'Играет' : 'Достаём'}</span>
+            <span>{phase === 'play' ? t('cr.playing') : t('cr.pulling')}</span>
           </div>
           <div className="cr-buy">
-            <span className="cr-price">{Number(product.price).toLocaleString('ru-RU')} ₽</span>
+            <span className="cr-price">{fmtMoney(product.price)}</span>
             <button type="button" className="cr-btn" onClick={handleBuy}>
-              {added ? 'Добавлено' : 'В корзину'}
+              {added ? t('cr.added') : t('cr.buy')}
             </button>
             <button type="button" className="cr-btn-ghost" onClick={handleFav} aria-pressed={fav}>
-              {fav ? '♥ В избранном' : '♡ В избранное'}
+              {fav ? t('cr.faved') : t('cr.fav')}
             </button>
           </div>
         </div>
@@ -207,6 +210,7 @@ export const CrateSheet = ({ product, index, total, label, onClose, onStep }) =>
 /* ---------- полка ---------- */
 
 const CrateShelf = ({ products }) => {
+  const { t, tr } = useI18n();
   const N = products.length;
   const shelfRef = useRef(null);
   const barRef = useRef(null);
@@ -382,7 +386,7 @@ const CrateShelf = ({ products }) => {
         ref={shelfRef}
         className="cr-shelf"
         role="group"
-        aria-label="Полка с пластинками. Листай колесом, перетаскиванием или стрелками"
+        aria-label={t('cr.shelf')}
         tabIndex={-1}
         onPointerDown={onPointerDown}
         onKeyDown={onKeyDown}
@@ -393,7 +397,7 @@ const CrateShelf = ({ products }) => {
             ref={(el) => { cardRefs.current[i] = el; }}
             type="button"
             className="cr-card"
-            aria-label={`${p.title}, ${p.description}`}
+            aria-label={`${tr.name(p.title)}, ${tr.name(p.description)}`}
             onClick={() => onCardClick(i)}
           >
             <div className="cr-frame">
@@ -411,13 +415,13 @@ const CrateShelf = ({ products }) => {
       {current && (
         <div className="cr-cap">
           <div>
-            <div className={`cr-t ${HAS_RU.test(current.title) ? '' : 'cr-display'}`}>{current.title}</div>
-            <div className="cr-a">{current.description} · {current.year}</div>
+            <div className={`cr-t ${HAS_RU.test(tr.name(current.title)) ? '' : 'cr-display'}`}>{tr.name(current.title)}</div>
+            <div className="cr-a">{tr.name(current.description)} · {current.year}</div>
           </div>
           <div className="cr-ctl">
             <span className="cr-n">{String(shown + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}</span>
-            <button type="button" className="cr-btn-ghost" onClick={() => go(-1)} aria-label="Предыдущая">←</button>
-            <button type="button" className="cr-btn-ghost" onClick={() => go(1)} aria-label="Следующая">→</button>
+            <button type="button" className="cr-btn-ghost" onClick={() => go(-1)} aria-label={t('cr.prevShort')}>←</button>
+            <button type="button" className="cr-btn-ghost" onClick={() => go(1)} aria-label={t('cr.nextShort')}>→</button>
           </div>
         </div>
       )}

@@ -1,0 +1,39 @@
+/* Переключатель языка RU / EN: пилюля из двух кнопок */
+.hd-lang {
+  display: inline-flex;
+  align-items: center;
+  height: 42px;
+  padding: 3px;
+  border: 1px solid var(--oak);
+  border-radius: 999px;
+  box-sizing: border-box;
+}
+.hd-lang button {
+  height: 100%;
+  min-width: 38px;
+  padding: 0 10px;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: var(--ash, #a89a86);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hd-lang button:hover { color: var(--paper); }
+.hd-lang button.on { background: var(--amber); color: #120503; }
+.hd-lang button:focus-visible { outline-offset: 1px; }
+
+/* в мобильном меню переключатель занимает свой ряд */
+.hd-menu-foot .hd-lang { flex-basis: 100%; width: fit-content; }
+.hd-menu-foot .hd-lang button { padding: 0 14px; min-height: 0; border: 0; border-radius: 999px; }
+.hd-menu-foot .hd-lang button.on { background: var(--amber); color: #120503; }
+
+@media (max-width: 768px) {
+  .hd-tools .hd-lang { display: none; }
+}
+@media (min-width: 769px) {
+  .hd-menu-foot .hd-lang { display: none; }
+}

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useI18n } from '../i18n/I18nContext';
 
 const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
+  const { t, tr } = useI18n();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,17 +28,17 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
-      setError('Заполните все поля');
+      setError(t('au.fillAll'));
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Пароли не совпадают');
+      setError(t('au.mismatch'));
       return;
     }
 
     if (formData.password.length < 6) {
-      setError('Пароль должен быть минимум 6 символов');
+      setError(t('au.short'));
       return;
     }
 
@@ -59,11 +61,10 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
       
     } catch (err) {
       console.error('Register error:', err);
-      setError(
-        err.response?.data?.error || 
-        err.response?.data?.message || 
-        'Ошибка при регистрации'
-      );
+      setError(tr.server(
+        err.response?.data?.error ||
+        err.response?.data?.message
+      ) || t('au.registerFail'));
     } finally {
       setLoading(false);
     }
@@ -90,9 +91,9 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
               }}>
                 ✓
               </div>
-              <h2 style={{ marginBottom: '15px' }}>Регистрация успешна!</h2>
+              <h2 style={{ marginBottom: '15px' }}>{t('au.regOk')}</h2>
               <p style={{ color: 'var(--vinyl-muted)', marginBottom: '20px' }}>
-                Сейчас вы будете перенаправлены на музыкальный тест...
+                {t('au.regRedirect')}
               </p>
               <div className="vinyl-spinner" style={{ width: '40px', height: '40px', margin: '0 auto' }} />
             </div>
@@ -123,10 +124,10 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
               <span style={{ fontSize: '32px' }}>🎵</span>
             </div>
             <h1 className="section-title" style={{ marginBottom: '10px' }}>
-              Создать аккаунт
+              {t('au.create')}
             </h1>
             <p className="section-subtitle" style={{ marginBottom: '30px' }}>
-              Присоединяйтесь к сообществу
+              {t('au.join')}
             </p>
           </div>
 
@@ -162,14 +163,14 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                   color: 'var(--vinyl-muted)',
                   fontSize: '0.9rem'
                 }}>
-                  Ваше имя
+                  {t('au.name')}
                 </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Александр"
+                  placeholder={t('au.namePh')}
                   className="vinyl-input"
                   style={{ width: '100%' }}
                   disabled={loading}
@@ -207,7 +208,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                   color: 'var(--vinyl-muted)',
                   fontSize: '0.9rem'
                 }}>
-                  Пароль (минимум 6 символов)
+                  {t('au.passwordMin')}
                 </label>
                 <input
                   type="password"
@@ -229,7 +230,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                   color: 'var(--vinyl-muted)',
                   fontSize: '0.9rem'
                 }}>
-                  Подтвердите пароль
+                  {t('au.confirm')}
                 </label>
                 <input
                   type="password"
@@ -268,9 +269,9 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                       animation: 'spin 1s linear infinite',
                       marginRight: '10px'
                     }} />
-                    Регистрация...
+                    {t('au.registering')}
                   </>
-                ) : 'Зарегистрироваться'}
+                ) : t('au.register')}
               </button>
 
               {/* Ссылка на вход */}
@@ -278,7 +279,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                 textAlign: 'center',
                 fontSize: '0.9rem'
               }}>
-                <span style={{ color: 'var(--vinyl-muted)' }}>Уже есть аккаунт? </span>
+                <span style={{ color: 'var(--vinyl-muted)' }}>{t('au.haveAccount')}</span>
                 <button
                   type="button"
                   onClick={() => onNavigate('login')} // 👈 ИСПОЛЬЗУЕМ onNavigate
@@ -291,7 +292,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                     fontSize: '0.9rem'
                   }}
                 >
-                  Войти
+                  {t('au.signIn')}
                 </button>
               </div>
             </form>
