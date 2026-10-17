@@ -1,8 +1,8 @@
 import axios from 'axios';
+import { API_URL, REQUEST_TIMEOUT, withRetry } from './http';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://vinylstore-fr-bck.onrender.com/api';
-
+// Оба запроса ничего не меняют на сервере (результат только считается), поэтому их можно повторять
 export const tasteAPI = {
-  questions: async (lang = 'ru') => (await axios.get(`${API_URL}/taste/questions`, { params: { lang } })).data,
-  result: async (answers, limit = 12, lang = 'ru') => (await axios.post(`${API_URL}/taste/result`, { answers, limit, lang })).data,
+  questions: async (lang = 'ru') => (await withRetry(() => axios.get(`${API_URL}/taste/questions`, { params: { lang }, timeout: REQUEST_TIMEOUT }))).data,
+  result: async (answers, limit = 12, lang = 'ru') => (await withRetry(() => axios.post(`${API_URL}/taste/result`, { answers, limit, lang }, { timeout: REQUEST_TIMEOUT }))).data,
 };

@@ -9,7 +9,7 @@ const DISC = discSvg({ energy: 4, tempo: 4, dark: 6, organic: 8, density: 5, voc
 const Solco = ({ onNavigate }) => {
   const { t } = useI18n();
   return (
-  <main className="sl">
+  <div className="sl">
     <div className="sl-wrap">
       <section className="sl-intro">
         <div>
@@ -51,7 +51,7 @@ const Solco = ({ onNavigate }) => {
         </dl>
       </section>
     </div>
-  </main>
+  </div>
   );
 };
 

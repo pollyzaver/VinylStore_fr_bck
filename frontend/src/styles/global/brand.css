@@ -14,6 +14,26 @@ body {
   outline-offset: 3px;
 }
 
+/* Ссылка «Перейти к содержимому»: прячется за край экрана и выезжает при фокусе с клавиатуры */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1500; /* выше шапки (1000), ниже корзины (2000) */
+  padding: 12px 20px;
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--cellar);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; }
+
+/* main получает фокус программно (после skip-ссылки), рамка вокруг всей страницы не нужна */
+#main-content:focus { outline: none; }
+
 /* Display type: Bodoni Moda Italic, low optical size so hairlines stay sturdy.
    Latin only. Russian text always stays in Golos Text. */
 .display,

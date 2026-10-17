@@ -17,7 +17,10 @@ export const AuthProvider = ({ children }) => {
       setUser(userData);
     } catch (error) {
       console.error('Failed to load user:', error);
-      logout();
+      // Выходим, только если сервер отверг токен. Если он просто не ответил
+      // (просыпается, нет сети), человек остаётся вошедшим и при следующей загрузке всё подтянется.
+      const status = error.response && error.response.status;
+      if (status === 401 || status === 403 || status === 404) logout();
     } finally {
       setLoading(false);
     }

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n/I18nContext';
 
 const Login = ({ onNavigate }) => {
   const { t, tr } = useI18n();
+  const uid = useId();
+  const errId = `${uid}-error`;
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -109,7 +111,7 @@ const Login = ({ onNavigate }) => {
           }}>
             
             {error && (
-              <div style={{
+              <div id={errId} role="alert" style={{
                 background: 'rgba(255, 0, 0, 0.1)',
                 border: '1px solid var(--vinyl-red)',
                 color: '#e0545a',
@@ -126,7 +128,7 @@ const Login = ({ onNavigate }) => {
               
               {/* Email */}
               <div style={{ marginBottom: '20px' }}>
-                <label style={{
+                <label htmlFor={`${uid}-email`} style={{
                   display: 'block',
                   marginBottom: '8px',
                   color: 'var(--vinyl-muted)',
@@ -135,8 +137,12 @@ const Login = ({ onNavigate }) => {
                   Email
                 </label>
                 <input
+                  id={`${uid}-email`}
                   type="email"
                   name="email"
+                  autoComplete="username"
+                  aria-required="true"
+                  aria-describedby={error ? errId : undefined}
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your@email.com"
@@ -149,7 +155,7 @@ const Login = ({ onNavigate }) => {
 
               {/* Пароль */}
               <div style={{ marginBottom: '30px' }}>
-                <label style={{
+                <label htmlFor={`${uid}-password`} style={{
                   display: 'block',
                   marginBottom: '8px',
                   color: 'var(--vinyl-muted)',
@@ -158,8 +164,12 @@ const Login = ({ onNavigate }) => {
                   {t('au.password')}
                 </label>
                 <input
+                  id={`${uid}-password`}
                   type="password"
                   name="password"
+                  autoComplete="current-password"
+                  aria-required="true"
+                  aria-describedby={error ? errId : undefined}
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="••••••••"

@@ -58,6 +58,7 @@ const Taste = ({ onNavigate }) => {
   langRef.current = lang;
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
+  const [slow, setSlow] = useState(false);
   const [step, setStep] = useState(0);            // 0 вступление, 1..n вопросы, n+1 результат
   const [answers, setAnswers] = useState({});
   const [live, setLive] = useState(null);       // последний подсчёт по ответам
@@ -99,6 +100,12 @@ const Taste = ({ onNavigate }) => {
     return () => clearTimeout(t);
   }, [step]);
   useEffect(() => () => clearTimeout(timer.current), []);
+  // пока сервер не ответил, через несколько секунд объясняем, что он просыпается
+  useEffect(() => {
+    if (data || error) { setSlow(false); return undefined; }
+    const id = setTimeout(() => setSlow(true), 4000);
+    return () => clearTimeout(id);
+  }, [data, error]);
   // вопросы и тексты приходят с сервера сразу на нужном языке, при смене языка загружаем заново
   useEffect(() => {
     tasteAPI.questions(lang).then(d => { setData(d); setError(false); }).catch(() => setError(true));
@@ -244,7 +251,7 @@ const Taste = ({ onNavigate }) => {
       </div></div>
     );
   }
-  if (!data) return <div className="tz"><div className="tz-wrap tz-single"><div className="tz-spinner" /></div></div>;
+  if (!data) return <div className="tz"><div className="tz-wrap tz-single"><div className="tz-spinner" /><div role="status">{slow && <p className="tz-lead">{t('net.waking')}</p>}</div></div></div>;
 
   /* ---------- результат ---------- */
   if (step === n + 1 && result) {

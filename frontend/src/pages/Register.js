@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n/I18nContext';
 
 const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
   const { t, tr } = useI18n();
+  const uid = useId();
+  const errId = `${uid}-error`;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -140,7 +142,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
           }}>
             
             {error && (
-              <div style={{
+              <div id={errId} role="alert" style={{
                 background: 'rgba(255, 0, 0, 0.1)',
                 border: '1px solid var(--vinyl-red)',
                 color: '#e0545a',
@@ -157,7 +159,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
               
               {/* Имя */}
               <div style={{ marginBottom: '20px' }}>
-                <label style={{
+                <label htmlFor={`${uid}-name`} style={{
                   display: 'block',
                   marginBottom: '8px',
                   color: 'var(--vinyl-muted)',
@@ -166,8 +168,12 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                   {t('au.name')}
                 </label>
                 <input
+                  id={`${uid}-name`}
                   type="text"
                   name="name"
+                  autoComplete="name"
+                  aria-required="true"
+                  aria-describedby={error ? errId : undefined}
                   value={formData.name}
                   onChange={handleChange}
                   placeholder={t('au.namePh')}
@@ -180,7 +186,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
 
               {/* Email */}
               <div style={{ marginBottom: '20px' }}>
-                <label style={{
+                <label htmlFor={`${uid}-email`} style={{
                   display: 'block',
                   marginBottom: '8px',
                   color: 'var(--vinyl-muted)',
@@ -189,8 +195,12 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                   Email
                 </label>
                 <input
+                  id={`${uid}-email`}
                   type="email"
                   name="email"
+                  autoComplete="email"
+                  aria-required="true"
+                  aria-describedby={error ? errId : undefined}
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your@email.com"
@@ -202,7 +212,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
 
               {/* Пароль */}
               <div style={{ marginBottom: '20px' }}>
-                <label style={{
+                <label htmlFor={`${uid}-password`} style={{
                   display: 'block',
                   marginBottom: '8px',
                   color: 'var(--vinyl-muted)',
@@ -211,8 +221,12 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                   {t('au.passwordMin')}
                 </label>
                 <input
+                  id={`${uid}-password`}
                   type="password"
                   name="password"
+                  autoComplete="new-password"
+                  aria-required="true"
+                  aria-describedby={error ? errId : undefined}
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="••••••••"
@@ -224,7 +238,7 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
 
               {/* Подтверждение пароля */}
               <div style={{ marginBottom: '30px' }}>
-                <label style={{
+                <label htmlFor={`${uid}-confirm`} style={{
                   display: 'block',
                   marginBottom: '8px',
                   color: 'var(--vinyl-muted)',
@@ -233,8 +247,12 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                   {t('au.confirm')}
                 </label>
                 <input
+                  id={`${uid}-confirm`}
                   type="password"
                   name="confirmPassword"
+                  autoComplete="new-password"
+                  aria-required="true"
+                  aria-describedby={error ? errId : undefined}
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   placeholder="••••••••"

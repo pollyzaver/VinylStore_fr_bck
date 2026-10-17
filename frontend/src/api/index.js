@@ -1,41 +1,50 @@
 import axios from 'axios';
-
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://vinylstore-fr-bck.onrender.com/api';
+import { API_URL, REQUEST_TIMEOUT, isTransient, withRetry } from './http';
 
 const apiClient = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
   },
-  timeout: 10000 // 10 секунд таймаут
+  timeout: REQUEST_TIMEOUT
 });
 
-// Добавляем перехватчик для обработки ошибок
+// Превращаем ошибки axios в понятные сообщения. Признак временной ошибки
+// остаётся на новой ошибке, чтобы withRetry знал, стоит ли повторять запрос.
+const fail = (message, source) => {
+  const err = new Error(message);
+  err.transient = isTransient(source);
+  err.status = source.response && source.response.status;
+  throw err;
+};
+
 apiClient.interceptors.response.use(
   response => response,
   error => {
     if (error.response) {
       // Сервер ответил с ошибкой
       console.error('API Error:', error.response.data);
-      
-      // Специальная обработка для 404
+
       if (error.response.status === 404) {
-        throw new Error('Ресурс не найден');
+        fail('Ресурс не найден', error);
       }
-      
-      throw new Error(error.response.data.error || 'Ошибка сервера');
+
+      fail((error.response.data && error.response.data.error) || 'Ошибка сервера', error);
     } else if (error.request) {
       // Запрос был отправлен, но ответа нет
       console.error('No response:', error.request);
-      throw new Error('Сервер не отвечает. Проверьте подключение.');
+      fail('Сервер не отвечает. Проверьте подключение.', error);
     } else {
       // Ошибка при настройке запроса
       console.error('Request error:', error.message);
-      throw new Error('Ошибка при отправке запроса');
+      fail('Ошибка при отправке запроса', error);
     }
   }
 );
+
+// Чтение можно повторять, пока сервер просыпается
+const get = (url) => withRetry(() => apiClient.get(url));
 
 export const api = {
   // Товары
@@ -49,12 +58,12 @@ export const api = {
     if (filters.inStock) params.append('inStock', filters.inStock);
     
     const url = `/products${params.toString() ? `?${params.toString()}` : ''}`;
-    const response = await apiClient.get(url);
+    const response = await get(url);
     return response.data;
   },
   
   getProductById: async (id) => {
-    const response = await apiClient.get(`/products/${id}`);
+    const response = await get(`/products/${id}`);
     return response.data;
   },
   
@@ -75,13 +84,13 @@ export const api = {
   
   // Категории
   getCategories: async () => {
-    const response = await apiClient.get('/categories');
+    const response = await get('/categories');
     return response.data;
   },
   
   // Статистика
   getStats: async () => {
-    const response = await apiClient.get('/stats');
+    const response = await get('/stats');
     return response.data;
   },
 

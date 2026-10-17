@@ -21,6 +21,7 @@ const Home = ({ onNavigate, focusCatalog }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [slow, setSlow] = useState(false);
   
   const [activeFilter, setActiveFilter] = useState('all');
   // Новое состояние для поиска
@@ -36,6 +37,13 @@ const Home = ({ onNavigate, focusCatalog }) => {
   useEffect(() => {
     loadProducts();
   }, []);
+
+  // Если сервер отвечает долго, говорим почему, чтобы пустой экран не выглядел поломкой
+  useEffect(() => {
+    if (!loading) { setSlow(false); return undefined; }
+    const id = setTimeout(() => setSlow(true), 4000);
+    return () => clearTimeout(id);
+  }, [loading]);
 
   const loadProducts = async () => {
     try {
@@ -126,7 +134,7 @@ const Home = ({ onNavigate, focusCatalog }) => {
   const lead = t('faq.lead', { link: '\u0000' }).split('\u0000');
 
   return (
-    <main id="main-content" className="main-content">
+    <div className="main-content">
       {/* Hero: Solco */}
       <section className="solco-hero solco-pattern" aria-labelledby="hero-title">
         <div className="container solco-hero__inner">
@@ -180,7 +188,7 @@ const Home = ({ onNavigate, focusCatalog }) => {
             {loading ? (
               <div className="ct-loading" role="status">
                 <div className="vinyl-spinner"></div>
-                <p>{t('ct.loading')}</p>
+                <p>{slow ? t('net.waking') : t('ct.loading')}</p>
               </div>
             ) : error ? (
               <div className="ct-empty">
@@ -247,7 +255,7 @@ const Home = ({ onNavigate, focusCatalog }) => {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

@@ -57,7 +57,7 @@ const Events = ({ onNavigate }) => {
   };
 
   return (
-    <main className="ev">
+    <div className="ev">
       <Haze scope=".ev" />
       <section className="ev-hero">
         <div className="ev-hero-bg" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/assets/contacts/vinylbg.jpg)` }} aria-hidden="true" />
@@ -183,7 +183,7 @@ const Events = ({ onNavigate }) => {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 };
 

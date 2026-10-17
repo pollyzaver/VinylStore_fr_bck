@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import Header from './components/Header';
+import SkipLink from './components/SkipLink';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Home from './pages/Home';
@@ -72,12 +73,15 @@ function App() {
       <FavoritesProvider>
         <CartProvider>
           <div className="App">
+            <SkipLink />
             <Header 
               onCartClick={() => setIsCartOpen(true)}
               onNavigate={setCurrentPage}
               currentPage={currentPage}
             />
-            {renderPage()}
+            <main id="main-content" tabIndex={-1}>
+              {renderPage()}
+            </main>
             <Footer />
             <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} onNavigate={setCurrentPage} />
           </div>

@@ -1,7 +1,7 @@
 export default {
   ru: {
     'tz.errTitle': 'Не получилось загрузить тест',
-    'tz.errText': 'Проверь, что сервер запущен, и попробуй ещё раз.',
+    'tz.errText': 'Сервер не ответил. Подожди минуту и обнови страницу.',
     'tz.reload': 'Обновить',
     'tz.yourDisc': 'Твой диск',
     'tz.yourDiscTaste': 'Твой диск вкуса',
@@ -48,7 +48,7 @@ export default {
   },
   en: {
     'tz.errTitle': 'Could not load the quiz',
-    'tz.errText': 'Check that the server is running and try again.',
+    'tz.errText': 'The server did not respond. Wait a minute and reload.',
     'tz.reload': 'Reload',
     'tz.yourDisc': 'Your disc',
     'tz.yourDiscTaste': 'Your taste disc',
