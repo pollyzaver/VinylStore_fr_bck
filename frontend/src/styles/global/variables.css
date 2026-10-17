@@ -7,6 +7,7 @@
   --wine: #6a0d12;
   --signal: #b3262d;
   --signal-hover: #c9363d;
+  --signal-text: #e0545a; /* красный для текста на тёмном фоне, 5:1 */
   --amber: #cf8b3e;
   --paper: #f3e9d2;
   --muted: #a89a86;

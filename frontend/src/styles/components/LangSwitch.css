@@ -2,7 +2,7 @@
 .hd-lang {
   display: inline-flex;
   align-items: center;
-  height: 42px;
+  height: 44px;
   padding: 3px;
   border: 1px solid var(--oak);
   border-radius: 999px;
@@ -10,14 +10,14 @@
 }
 .hd-lang button {
   height: 100%;
-  min-width: 38px;
+  min-width: 44px;
   padding: 0 10px;
   background: transparent;
   border: 0;
   border-radius: 999px;
   color: var(--ash, #a89a86);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;

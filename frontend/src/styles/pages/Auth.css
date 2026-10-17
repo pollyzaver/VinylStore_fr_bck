@@ -39,14 +39,16 @@
     rgba(255, 255, 255, 0.1) 50%,
     rgba(255, 255, 255, 0) 100%
   );
-  transform: rotate(45deg);
-  animation: shine 3s infinite;
+  transform: translateX(-100%) rotate(45deg);
+  pointer-events: none;
 }
 
+/* блик проходит один раз, когда на кнопку наводят, а не крутится вечно */
+.btn-primary:not(:disabled):hover::after { animation: shine 0.7s cubic-bezier(0.25, 1, 0.5, 1); }
+
 @keyframes shine {
-  0% { transform: translateX(-100%) rotate(45deg); }
-  20% { transform: translateX(100%) rotate(45deg); }
-  100% { transform: translateX(100%) rotate(45deg); }
+  from { transform: translateX(-100%) rotate(45deg); }
+  to { transform: translateX(100%) rotate(45deg); }
 }
 
 @keyframes fadeInUp {

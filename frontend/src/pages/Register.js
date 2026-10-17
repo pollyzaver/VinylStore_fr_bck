@@ -307,7 +307,9 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
                     color: 'var(--vinyl-red)',
                     cursor: 'pointer',
                     textDecoration: 'underline',
-                    fontSize: '0.9rem'
+                    fontSize: '0.9rem',
+                    minHeight: '44px',
+                    padding: '0 4px'
                   }}
                 >
                   {t('au.signIn')}

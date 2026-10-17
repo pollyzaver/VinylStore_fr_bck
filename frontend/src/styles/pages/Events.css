@@ -24,7 +24,7 @@
 .ev-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.92) contrast(1.05); transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
 .ev-card:hover .ev-photo img { transform: scale(1.06); }
 .ev-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,5,3,.55), transparent 50%); }
-.ev-type { position: absolute; left: 14px; top: 14px; z-index: 1; padding: 5px 10px; border-radius: 99px; background: rgba(18,5,3,.82); border: 1px solid var(--oak); font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
+.ev-type { position: absolute; left: 14px; top: 14px; z-index: 1; padding: 5px 10px; border-radius: 99px; background: rgba(18,5,3,.82); border: 1px solid var(--oak); font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
 
 /* корешок билета с перфорацией */
 .ev-stub { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 20px 8px; background: #1e0c07; border-left: 2px dashed var(--oak); border-right: 2px dashed var(--oak); text-align: center; }
@@ -32,7 +32,7 @@
 .ev-stub::before { top: -12px; } .ev-stub::after { bottom: -12px; }
 .ev-stub b { font-family: var(--font-ui); font-size: 46px; font-weight: 600; line-height: 1; color: var(--paper); }
 .ev-stub span { font-family: var(--font-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
-.ev-stub i { margin-top: 8px; font-style: normal; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
+.ev-stub i { margin-top: 8px; font-style: normal; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
 
 .ev-body { display: flex; flex-direction: column; gap: 10px; padding: 24px 28px 26px; min-width: 0; }
 .ev-body h3 { margin: 0; font-family: var(--font-ui); font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; line-height: 1.15; color: var(--paper); }
@@ -40,7 +40,7 @@
 .ev-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 4px 0 8px; padding: 0; list-style: none; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; color: var(--paper); }
 .ev-meta li { position: relative; }
 .ev-meta li + li::before { content: ''; position: absolute; left: -10px; top: 50%; width: 3px; height: 3px; border-radius: 50%; background: var(--amber); }
-.ev-meta .few { color: var(--signal-hover, #b3262d); }
+.ev-meta .few { color: var(--signal-text); }
 
 .ev-btn { all: unset; box-sizing: border-box; cursor: pointer; align-self: flex-start; padding: 12px 22px; border-radius: 4px; background: var(--signal); color: var(--paper); font-size: 15px; font-weight: 500; transition: background .2s, transform .2s; }
 .ev-btn:hover { background: var(--signal-hover); transform: translateY(-1px); }
@@ -55,7 +55,7 @@
 .ev-shot:hover img { transform: scale(1.05); filter: saturate(1) brightness(1); }
 .ev-shot figcaption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 2px; padding: 40px 16px 14px; background: linear-gradient(to top, rgba(18,5,3,.92), transparent); }
 .ev-shot b { font-weight: 600; color: var(--paper); }
-.ev-shot span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
+.ev-shot span { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
 
 .ev-host { padding-bottom: 96px; }
 .ev-host-in { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px 48px; flex-wrap: wrap; padding: 40px; border: 1px solid var(--oak); border-radius: 6px; background: linear-gradient(120deg, #1e0c07, #2a1209); }
@@ -71,7 +71,7 @@
 .ev-x { all: unset; cursor: pointer; position: absolute; top: 14px; right: 16px; padding: 6px; color: var(--muted); }
 .ev-x:hover { color: var(--paper); }
 .ev-f { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-.ev-f > span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.ev-f > span { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .ev-f input { padding: 12px 14px; border: 1px solid var(--oak); border-radius: 4px; background: var(--cellar); color: var(--paper); font: inherit; font-size: 16px; outline: 0; }
 .ev-f input:focus { border-color: var(--amber); }
 .ev-step { display: inline-flex; align-items: center; align-self: flex-start; border: 1px solid var(--oak); border-radius: 99px; }

@@ -44,7 +44,7 @@ export const I18nProvider = ({ children }) => {
   useEffect(() => {
     document.documentElement.lang = lang;
     const table = TABLES[lang];
-    document.title = table['meta.title'];
+    // document.title ведёт PageMeta: у каждой страницы свой
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', table['meta.description']);
   }, [lang]);

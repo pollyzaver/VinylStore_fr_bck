@@ -183,10 +183,10 @@
 .cr-info dt { color: var(--muted); font-size: 13px; }
 .cr-info dd { margin: 0; font-weight: 500; }
 .cr-tl { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; margin: 16px 0 0; font-size: 13px; color: var(--muted); }
-.cr-tl h3 { margin: 0 0 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); font-weight: 500; }
+.cr-tl h3 { margin: 0 0 4px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); font-weight: 500; }
 .cr-tl ol { margin: 0; padding: 0; list-style: none; counter-reset: t; }
 .cr-tl li { counter-increment: t; display: flex; gap: 8px; padding: 1px 0; color: var(--paper); }
-.cr-tl li::before { content: counter(t); font-family: var(--font-mono); font-size: 11px; color: var(--muted); min-width: 1.2em; }
+.cr-tl li::before { content: counter(t); font-family: var(--font-mono); font-size: 12px; color: var(--muted); min-width: 1.2em; }
 .cr-now { display: flex; align-items: center; gap: 12px; margin: 18px 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .cr-eq { display: flex; gap: 3px; align-items: flex-end; height: 16px; }
 .cr-eq i { display: block; width: 3px; height: 100%; background: var(--signal); transform-origin: bottom; transform: scaleY(0.2); }

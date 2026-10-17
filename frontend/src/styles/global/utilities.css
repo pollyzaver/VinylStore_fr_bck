@@ -155,3 +155,17 @@
   font-size: var(--text-sm);
   color: var(--vinyl-muted);
 }
+/* Область нажатия не меньше 44×44px. Вид не меняется: вокруг мелких кнопок и ссылок
+   лежит невидимый слой, который растёт только если сам элемент меньше. */
+.hd-link, .hd-lang button, .hw-cta, .ev-link, .tz-link, .ct-clear,
+.footer-column a, .footer-line__links a { position: relative; }
+.hd-link::before, .hd-lang button::before, .hw-cta::before, .ev-link::before, .tz-link::before, .ct-clear::before,
+.footer-column a::before, .footer-line__links a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  transform: translate(-50%, -50%);
+}

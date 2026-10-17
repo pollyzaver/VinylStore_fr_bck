@@ -225,7 +225,9 @@ const Login = ({ onNavigate }) => {
                     color: 'var(--vinyl-muted)',
                     cursor: 'pointer',
                     textDecoration: 'none',
-                    fontSize: '0.9rem'
+                    fontSize: '0.9rem',
+                    minHeight: '44px',
+                    padding: '0 4px'
                   }}
                   onMouseEnter={(e) => e.target.style.color = 'var(--vinyl-red)'}
                   onMouseLeave={(e) => e.target.style.color = 'var(--vinyl-muted)'}
@@ -242,7 +244,9 @@ const Login = ({ onNavigate }) => {
                     color: 'var(--vinyl-muted)',
                     cursor: 'pointer',
                     textDecoration: 'none',
-                    fontSize: '0.9rem'
+                    fontSize: '0.9rem',
+                    minHeight: '44px',
+                    padding: '0 4px'
                   }}
                   onMouseEnter={(e) => e.target.style.color = 'var(--vinyl-red)'}
                   onMouseLeave={(e) => e.target.style.color = 'var(--vinyl-muted)'}

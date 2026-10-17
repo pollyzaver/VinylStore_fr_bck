@@ -34,11 +34,16 @@ body.menu-open {
   border-radius: var(--radius-sm);
 }
 
-/* Reduced motion */
+/* Reduced motion: движение убираем, а смену состояния (цвет, рамка, прозрачность) оставляем.
+   Без неё не видно, что кнопка нажата, а вкладка выбрана. Крутилки загрузки живут по своим правилам. */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    transition-duration: 0.01ms !important;
+  html { scroll-behavior: auto; }
+  :not(.vinyl-spinner):not(.tz-spinner),
+  :not(.vinyl-spinner):not(.tz-spinner)::before,
+  :not(.vinyl-spinner):not(.tz-spinner)::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-property: color, background-color, border-color, outline-color, opacity, box-shadow, visibility !important;
   }
 }
 

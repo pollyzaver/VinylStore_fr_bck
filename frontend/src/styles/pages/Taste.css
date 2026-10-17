@@ -191,8 +191,8 @@
 
 /* отклик на нажатие */
 .tz-opt:active, .tz-vcard:active { transform: scale(.985); }
-.tz-opt.sel, .tz-vcard.sel, .tz-duel-card.sel { animation: tz-pop .4s cubic-bezier(.3,1.6,.5,1); }
-.tz-chip.sel { animation: tz-pop .35s cubic-bezier(.3,1.6,.5,1); }
+.tz-opt.sel, .tz-vcard.sel, .tz-duel-card.sel { animation: tz-pop .4s cubic-bezier(.25,1,.5,1); }
+.tz-chip.sel { animation: tz-pop .35s cubic-bezier(.25,1,.5,1); }
 @keyframes tz-pop { 0% { transform: scale(.96); } 100% { transform: scale(1); } }
 
 /* низ карточки: назад и пропустить */

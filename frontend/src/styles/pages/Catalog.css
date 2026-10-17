@@ -8,14 +8,14 @@
 .ct-search { display: flex; align-items: center; gap: 12px; width: min(420px, 100%); padding: 10px 0; border-bottom: 1px solid var(--oak); color: var(--muted); transition: border-color .2s, color .2s; cursor: text; }
 .ct-search:focus-within { border-color: var(--amber); color: var(--paper); }
 .ct-search svg { flex: none; }
-.ct-search input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; box-shadow: none; padding: 4px 0; color: var(--paper); font: inherit; font-size: 17px; }
+.ct-search input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; box-shadow: none; min-height: 44px; padding: 4px 0; color: var(--paper); font: inherit; font-size: 17px; }
 .ct-search input::placeholder { color: var(--muted); opacity: .75; }
 .ct-clear { all: unset; cursor: pointer; padding: 4px 6px; font-size: 14px; line-height: 1; color: var(--muted); }
 .ct-clear:hover { color: var(--paper); }
 .ct-clear:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
 .ct-filters { display: flex; flex-wrap: wrap; gap: 0 28px; border-top: 1px solid var(--oak); border-bottom: 1px solid var(--oak); }
-.ct-filter { all: unset; cursor: pointer; position: relative; padding: 15px 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); transition: color .2s; white-space: nowrap; }
+.ct-filter { all: unset; cursor: pointer; position: relative; min-width: 44px; padding: 15px 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); transition: color .2s; white-space: nowrap; }
 .ct-filter i { font-style: normal; margin-left: 7px; opacity: .5; }
 .ct-filter:hover { color: var(--paper); }
 .ct-filter.on { color: var(--paper); }

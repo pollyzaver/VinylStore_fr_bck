@@ -3,6 +3,7 @@ import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import Header from './components/Header';
 import SkipLink from './components/SkipLink';
+import PageMeta from './components/PageMeta';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Home from './pages/Home';
@@ -74,6 +75,7 @@ function App() {
         <CartProvider>
           <div className="App">
             <SkipLink />
+            <PageMeta page={currentPage} />
             <Header 
               onCartClick={() => setIsCartOpen(true)}
               onNavigate={setCurrentPage}
