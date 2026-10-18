@@ -85,22 +85,24 @@
 .hd-avatar { font-family: var(--font-ui); font-weight: 600; font-size: 16px; line-height: 1; }
 .hd-count {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  min-width: 19px;
-  height: 19px;
-  padding: 0 5px;
-  border-radius: 10px;
+  top: -6px;
+  right: -6px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 4px;
+  border-radius: 11px;
   background: var(--signal);
   color: var(--paper);
   border: 2px solid var(--cellar);
-  box-sizing: content-box;
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 600;
-  line-height: 19px;
-  text-align: center;
-  box-sizing: border-box;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .hd :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
