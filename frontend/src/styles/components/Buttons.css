@@ -53,7 +53,7 @@
 .btn-outline {
   background: transparent;
   border-color: var(--vinyl-primary);
-  color: var(--amber);
+  color: var(--amber-text);
 }
 
 .button-outline:hover,
@@ -74,7 +74,7 @@
 
 .btn-white:hover {
   background: white;
-  color: var(--amber);
+  color: var(--amber-text);
   transform: translateY(-2px);
 }
 
@@ -141,7 +141,7 @@
 
 .filter-button:hover,
 .filter-button:focus {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(var(--tint) / 0.05);
   color: white;
   border-color: var(--vinyl-primary);
   transform: translateY(-1px);

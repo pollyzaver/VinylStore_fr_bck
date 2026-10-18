@@ -27,8 +27,8 @@
   font-variant-numeric: tabular-nums;
   font-weight: 500;
   background: none;
-  -webkit-text-fill-color: var(--paper);
-  color: var(--paper);
+  -webkit-text-fill-color: var(--ink);
+  color: var(--ink);
   text-shadow: none;
 }
 
@@ -38,7 +38,7 @@
 
 /* Feature cards: quiet icon, mono accent */
 .feature-card { background: var(--surface-2); border: 1px solid var(--oak); }
-.feature-icon { color: var(--amber); }
+.feature-icon { color: var(--amber-text); }
 .feature-card:hover { border-color: var(--amber); }
 
 /* Cards and forms */
@@ -60,3 +60,13 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.8; }
 }
 .error-container h2 { font-family: var(--font-ui); margin-bottom: var(--space-md); }
 .error-container p { color: var(--muted); margin-bottom: var(--space-xl); }
+
+/* Блоки, которые остаются тёмными в обеих темах (фото, плашки поверх обложек): тексты в них светлые */
+.ev-hero,
+.ev-type,
+.ev-shot,
+.tz-match {
+  --ink: #f3e9d2;
+  --amber-text: #cf8b3e;
+  --muted: #a89a86;
+}

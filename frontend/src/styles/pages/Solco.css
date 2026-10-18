@@ -1,8 +1,8 @@
 /* Solco: страница «О Solco». Префикс .sl- */
-.sl { background: var(--cellar); color: var(--paper); padding: 56px 0 88px; }
+.sl { background: var(--cellar); color: var(--ink); padding: 56px 0 88px; }
 .sl-wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); display: grid; gap: 96px; }
 .sl-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: center; }
-.sl-eyebrow { margin: 0 0 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--amber); }
+.sl-eyebrow { margin: 0 0 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--amber-text); }
 .sl-h { margin: 0 0 20px; font-family: var(--font-ui); font-weight: 600; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.08; text-wrap: balance; }
 .sl-h2 { margin: 0 0 28px; font-family: var(--font-ui); font-weight: 600; font-size: 28px; }
 .sl-lead { margin: 0 0 28px; font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 54ch; }
@@ -17,15 +17,15 @@
 @keyframes sl-rot { to { transform: rotate(360deg); } }
 .sl-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 .sl-steps li { border-top: 1px solid var(--oak); padding-top: 18px; }
-.sl-num { font-family: var(--font-mono); font-size: 13px; letter-spacing: .12em; color: var(--amber); }
+.sl-num { font-family: var(--font-mono); font-size: 13px; letter-spacing: .12em; color: var(--amber-text); }
 .sl-steps h3 { margin: 10px 0 8px; font-size: 20px; font-weight: 600; }
 .sl-steps p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
 .sl-list { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
 .sl-list > div { display: flex; gap: 20px; border-top: 1px solid var(--oak); padding: 16px 0; flex-wrap: wrap; }
 .sl-list dt { width: 110px; flex: none; color: var(--muted); }
 .sl-list dd { margin: 0; display: flex; gap: 16px; flex-wrap: wrap; min-width: 0; overflow-wrap: anywhere; }
-.sl a { color: var(--paper); text-decoration: none; border-bottom: 1px solid var(--oak); }
-.sl a:hover { color: var(--amber); border-color: var(--amber); }
+.sl a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--oak); }
+.sl a:hover { color: var(--amber-text); border-color: var(--amber); }
 @media (max-width: 860px) {
   .sl { padding-top: 28px; }
   .sl-wrap { gap: 64px; }

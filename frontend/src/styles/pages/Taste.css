@@ -1,5 +1,5 @@
 /* Solco: страница теста («Нарисуем твой диск»). Префикс .tz- */
-.tz { min-height: calc(100vh - 140px); background: var(--cellar); color: var(--paper); padding: 40px 0 72px; }
+.tz { min-height: calc(100vh - 140px); background: var(--cellar); color: var(--ink); padding: 40px 0 72px; }
 .tz-wrap {
   max-width: 1180px; margin: 0 auto;
   padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
@@ -8,8 +8,8 @@
 .tz-wrap.tz-single { display: block; text-align: center; padding-top: 80px; }
 .tz-wrap.tz-result { display: block; }
 
-.tz-eyebrow { margin: 0 0 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--amber); }
-.tz-h { margin: 0 0 16px; font-family: var(--font-ui); font-weight: 600; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.08; text-wrap: balance; color: var(--paper); }
+.tz-eyebrow { margin: 0 0 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em; color: var(--amber-text); }
+.tz-h { margin: 0 0 16px; font-family: var(--font-ui); font-weight: 600; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.08; text-wrap: balance; color: var(--ink); }
 .tz-q { font-size: clamp(26px, 3.4vw, 40px); margin-bottom: 26px; }
 .tz-h2 { margin: 64px 0 24px; font-family: var(--font-ui); font-weight: 600; font-size: 28px; }
 .tz-lead { margin: 0 0 28px; font-size: 18px; line-height: 1.55; color: var(--muted); max-width: 52ch; }
@@ -40,7 +40,7 @@
   background: var(--surface-2); font-size: 18px; line-height: 1.3; transition: border-color .2s, background .2s, transform .2s;
 }
 .tz-opt:hover { border-color: var(--amber); transform: translateX(3px); }
-.tz-opt.sel { border-color: var(--signal); background: #2a0d0e; }
+.tz-opt.sel { border-color: var(--signal); background: color-mix(in srgb, var(--signal) 14%, var(--cellar)); }
 .tz-opt:focus-visible, .tz-duel-card:focus-visible, .tz-chip:focus-visible, .tz-btn:focus-visible, .tz-link:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 
 .tz-duel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -58,15 +58,15 @@
 .tz-chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .tz-chip { all: unset; box-sizing: border-box; cursor: pointer; padding: 11px 18px; border: 1px solid var(--oak); border-radius: 40px; font-size: 16px; background: var(--surface-2); transition: border-color .2s, background .2s; }
 .tz-chip:hover { border-color: var(--amber); }
-.tz-chip.sel { border-color: var(--amber); background: #2b1a0a; color: var(--amber); }
+.tz-chip.sel { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 16%, var(--cellar)); color: var(--amber-text); }
 
 .tz-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .tz-btn { all: unset; box-sizing: border-box; cursor: pointer; padding: 14px 24px; border-radius: 4px; background: var(--signal); color: var(--paper); font-size: 16px; font-weight: 500; transition: background .2s; }
 .tz-btn:hover { background: var(--signal-hover); }
-.tz-btn-ghost { background: transparent; border: 1px solid var(--oak); padding: 13px 22px; }
+.tz-btn-ghost { background: transparent; border: 1px solid var(--oak); padding: 13px 22px; color: var(--ink); }
 .tz-btn-ghost:hover { background: transparent; border-color: var(--amber); }
 .tz-link { all: unset; cursor: pointer; margin-top: 18px; font-size: 15px; color: var(--muted); border-bottom: 1px solid var(--oak); align-self: flex-start; }
-.tz-link:hover { color: var(--amber); border-color: var(--amber); }
+.tz-link:hover { color: var(--amber-text); border-color: var(--amber); }
 .tz-back { display: inline-block; margin-top: 26px; }
 
 /* результат */
@@ -82,7 +82,7 @@
 .tz-rec h3 { margin: 6px 0 2px; font-size: 18px; font-weight: 600; }
 .tz-rec-meta { margin: 0 0 8px; font-size: 14px; color: var(--muted); }
 .tz-rec-why { margin: 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
-.tz-match { position: absolute; right: 8px; top: 8px; padding: 4px 9px; border-radius: 40px; background: rgba(18, 5, 3, .88); border: 1px solid var(--amber); font-family: var(--font-mono); font-size: 13px; color: var(--amber); }
+.tz-match { position: absolute; right: 8px; top: 8px; padding: 4px 9px; border-radius: 40px; background: rgba(18, 5, 3, .88); border: 1px solid var(--amber); font-family: var(--font-mono); font-size: 13px; color: var(--amber-text); }
 
 .tz-spinner { width: 44px; height: 44px; margin: 0 auto; border: 3px solid var(--oak); border-top-color: var(--signal); border-radius: 50%; animation: tz-rot 1s linear infinite; }
 
@@ -104,7 +104,7 @@
 .tz-wrap.tz-single .tz-actions { justify-content: center; }
 
 .tz-word { display: inline-block; white-space: nowrap; margin-right: .35em; }
-.tz-word:not(:last-child)::after { content: ' ·'; color: var(--amber); }
+.tz-word:not(:last-child)::after { content: ' ·'; color: var(--amber-text); }
 .tz-link { display: block; }
 .tz-back { margin-top: 18px; }
 
@@ -127,9 +127,9 @@
 /* постукивание */
 .tz-tap { display: grid; gap: 12px; justify-items: center; }
 .tz-tap-btn { all: unset; box-sizing: border-box; cursor: pointer; width: 190px; height: 190px; border-radius: 50%; border: 2px solid var(--oak); background: var(--surface-2); display: grid; place-content: center; text-align: center; transition: transform .12s, border-color .12s, background .12s; user-select: none; touch-action: manipulation; }
-.tz-tap-btn span { font-family: var(--font-mono); font-size: 44px; color: var(--paper); }
+.tz-tap-btn span { font-family: var(--font-mono); font-size: 44px; color: var(--ink); }
 .tz-tap-btn small { font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }
-.tz-tap-btn.hit { transform: scale(.95); border-color: var(--signal); background: #2a0d0e; }
+.tz-tap-btn.hit { transform: scale(.95); border-color: var(--signal); background: color-mix(in srgb, var(--signal) 14%, var(--cellar)); }
 
 /* планшет настроения */
 .tz-pad-wrap { display: grid; gap: 8px; justify-items: center; }
@@ -137,7 +137,7 @@
 .tz-pad-t, .tz-pad-b, .tz-pad-l, .tz-pad-r { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
 .tz-pad-l, .tz-pad-r { flex: none; writing-mode: vertical-rl; }
 .tz-pad-l { transform: rotate(180deg); }
-.tz-pad { position: relative; flex: 1; aspect-ratio: 1; max-width: 360px; margin: 0 auto; border: 1px solid var(--oak); border-radius: 4px; background: radial-gradient(circle at 50% 50%, #2a1209, var(--surface-2)); cursor: crosshair; touch-action: none; }
+.tz-pad { position: relative; flex: 1; aspect-ratio: 1; max-width: 360px; margin: 0 auto; border: 1px solid var(--oak); border-radius: 4px; background: radial-gradient(circle at 50% 50%, var(--panel-b), var(--surface-2)); cursor: crosshair; touch-action: none; }
 .tz-pad-cx, .tz-pad-cy { position: absolute; background: var(--oak); opacity: .6; }
 .tz-pad-cx { left: 50%; top: 0; bottom: 0; width: 1px; }
 .tz-pad-cy { top: 50%; left: 0; right: 0; height: 1px; }
@@ -146,8 +146,8 @@
 
 /* выбор «для кого» и кнопки у рекомендаций */
 .tz-who { margin-top: 10px; }
-.tz-gift-note { margin: 0 0 18px; padding: 12px 14px; border-left: 2px solid var(--amber); background: rgba(207, 139, 62, 0.08); color: var(--paper); font-size: 15px; line-height: 1.5; }
-.tz-gift-note b, .tz-gift-warn b { color: var(--amber); font-weight: 600; }
+.tz-gift-note { margin: 0 0 18px; padding: 12px 14px; border-left: 2px solid var(--amber); background: rgba(207, 139, 62, 0.08); color: var(--ink); font-size: 15px; line-height: 1.5; }
+.tz-gift-note b, .tz-gift-warn b { color: var(--amber-text); font-weight: 600; }
 .tz-gift-warn { margin-top: 18px; max-width: 46ch; padding: 12px 14px; border-left: 2px solid var(--oak); color: var(--muted); font-size: 14px; line-height: 1.55; }
 .tz-rec-btns { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; margin-top: 10px; }
 .tz-rec-btns .tz-link { margin-top: 6px; font-size: 14px; }
@@ -157,7 +157,7 @@
 .tz-rec-open:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 .tz-rec h3 .tz-rec-name { display: inline; width: auto; }
 .tz-rec-open:hover .tz-rec-pic { box-shadow: 0 0 0 1px var(--amber); }
-.tz-rec h3 .tz-rec-name:hover { color: var(--amber); }
+.tz-rec h3 .tz-rec-name:hover { color: var(--amber-text); }
 
 /* ---- оживление страницы теста ---- */
 .tz { position: relative; }
@@ -187,7 +187,7 @@
 .tz-progress button:not([disabled]):hover::before { background: var(--amber); transform: scaleY(1.8); }
 .tz-progress button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 .tz-count { margin: 0 0 18px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; color: var(--muted); }
-.tz-count b { color: var(--amber); font-weight: 500; }
+.tz-count b { color: var(--amber-text); font-weight: 500; }
 
 /* отклик на нажатие */
 .tz-opt:active, .tz-vcard:active { transform: scale(.985); }
@@ -198,7 +198,7 @@
 /* низ карточки: назад и пропустить */
 .tz-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--oak); }
 .tz-foot-b { all: unset; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 6px 2px; transition: color .2s, transform .2s; }
-.tz-foot-b:hover { color: var(--amber); }
+.tz-foot-b:hover { color: var(--amber-text); }
 .tz-skip:hover { transform: translateX(3px); }
 .tz-foot-b:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 /* результат */

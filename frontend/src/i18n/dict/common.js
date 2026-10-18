@@ -25,6 +25,8 @@ export default {
     'hd.menuClose': 'Закрыть меню',
     'hd.menuOpen': 'Открыть меню',
     'hd.lang': 'Язык сайта',
+    'hd.themeLight': 'Включить светлую тему «Бумага»',
+    'hd.themeDark': 'Включить тёмную тему «Погреб»',
     'hd.langPick': 'Выбрать язык: {name}',
   },
   en: {
@@ -53,6 +55,8 @@ export default {
     'hd.menuClose': 'Close menu',
     'hd.menuOpen': 'Open menu',
     'hd.lang': 'Site language',
+    'hd.themeLight': 'Switch to the light theme (Paper)',
+    'hd.themeDark': 'Switch to the dark theme (Cellar)',
     'hd.langPick': 'Switch language: {name}',
   },
 };

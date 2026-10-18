@@ -15,14 +15,14 @@
   background: transparent;
   border: 0;
   border-radius: 999px;
-  color: var(--ash, #a89a86);
+  color: var(--muted);
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
-.hd-lang button:hover { color: var(--paper); }
+.hd-lang button:hover { color: var(--ink); }
 .hd-lang button.on { background: var(--amber); color: #120503; }
 .hd-lang button:focus-visible { outline-offset: 1px; }
 

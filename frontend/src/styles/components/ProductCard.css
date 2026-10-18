@@ -71,7 +71,7 @@
 }
 
 .product-description {
-  color: #a89a86;
+  color: var(--muted);
   margin-bottom: var(--space-md);
   line-height: 1.5;
   font-size: var(--text-sm);
@@ -110,7 +110,7 @@
   font-size: 1.3rem;
   font-weight: 700;
   text-align: center;
-  color: var(--paper);
+  color: var(--ink);
   margin: 0;
 }
 

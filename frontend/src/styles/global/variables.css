@@ -12,6 +12,15 @@
   --paper: #f3e9d2;
   --muted: #a89a86;
 
+  /* Семантические токены: в теме «Бумага» меняются местами с тёмными */
+  --ink: #f3e9d2;            /* основной текст */
+  --amber-text: #cf8b3e;     /* янтарный для текста */
+  --ok: #4caf50;
+  --tint: 255 255 255;       /* цвет тонких подложек и линий (rgb через пробел) */
+  --bg-rgb: 18 5 3;          /* цвет фона страницы для полупрозрачных слоёв */
+  --panel-a: #1e0c07;        /* градиент крупных плашек */
+  --panel-b: #2a1209;
+
   /* Legacy names used across the stylesheets, now mapped to Solco */
   --vinyl-primary: var(--signal);
   --vinyl-primary-hover: var(--signal-hover);
@@ -20,7 +29,7 @@
   --vinyl-dark: var(--cellar);
   --vinyl-card: var(--surface-2);
   --vinyl-border: var(--oak);
-  --vinyl-text: var(--paper);
+  --vinyl-text: var(--ink);
   --vinyl-muted: var(--muted);
   --vinyl-light-bg: #2a140b;
 
@@ -62,4 +71,23 @@
   /* Transitions */
   --transition: all 0.2s ease-in-out;
   --transition-slow: all 0.3s ease-in-out;
+}
+
+/* Тема «Бумага»: светлая. Включается атрибутом data-theme="light" на <html> */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --cellar: #f3e9d2;
+  --surface: #ece0c5;
+  --surface-2: #f8f1de;
+  --oak: #d2c09b;
+  --muted: #6b5b49;
+  --ink: #2a140b;
+  --amber-text: #8a5214;
+  --signal-text: #9c1f26;
+  --ok: #2e7d32;
+  --tint: 18 5 3;
+  --bg-rgb: 243 233 210;
+  --panel-a: #f8f1de;
+  --panel-b: #ece0c5;
+  --vinyl-light-bg: #e8dcc0;
 }

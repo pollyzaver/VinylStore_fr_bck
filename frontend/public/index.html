@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#120503" />
+    <!-- Тема «Погреб» / «Бумага»: ставим до отрисовки, чтобы не мигало -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('solco-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+            if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3e9d2');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <!-- Язык переключается внутри сайта (RU / EN), поэтому автоперевод браузера отключён -->
     <meta name="google" content="notranslate" />
     <meta

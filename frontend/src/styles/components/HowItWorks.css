@@ -1,21 +1,21 @@
 .hw { padding: 72px 0 24px; }
 .hw-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 40px; flex-wrap: wrap; margin-bottom: 36px; }
-.hw-title { margin: 0; font-family: var(--font-ui); font-weight: 600; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.05; color: var(--paper); text-align: left; }
+.hw-title { margin: 0; font-family: var(--font-ui); font-weight: 600; font-size: clamp(30px, 4.4vw, 52px); line-height: 1.05; color: var(--ink); text-align: left; }
 .hw-title::after { display: none; }
-.hw-cta { all: unset; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); padding: 8px 0; border-bottom: 1px solid currentColor; }
-.hw-cta:hover { color: var(--paper); }
+.hw-cta { all: unset; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--amber-text); padding: 8px 0; border-bottom: 1px solid currentColor; }
+.hw-cta:hover { color: var(--ink); }
 .hw-cta:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
 .hw-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--oak); counter-reset: hw; }
 .hw-step { counter-increment: hw; padding: 28px 28px 8px 0; position: relative; min-width: 0; }
 .hw-step + .hw-step { padding-left: 28px; border-left: 1px solid var(--oak); }
-.hw-step h3 { margin: 22px 0 8px; font-family: var(--font-ui); font-size: 22px; font-weight: 600; color: var(--paper); }
-.hw-step h3::before { content: counter(hw) ' /'; margin-right: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--amber); font-weight: 400; }
+.hw-step h3 { margin: 22px 0 8px; font-family: var(--font-ui); font-size: 22px; font-weight: 600; color: var(--ink); }
+.hw-step h3::before { content: counter(hw) ' /'; margin-right: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; color: var(--amber-text); font-weight: 400; }
 .hw-step p { margin: 0; color: var(--muted); line-height: 1.55; max-width: 34ch; }
 .hw-art { position: relative; height: 150px; overflow: hidden; }
 
 /* 1. Вопросы мелькают */
-.hw-art--q span { position: absolute; left: 0; top: 50%; max-width: 100%; padding: 10px 16px; border: 1px solid var(--oak); border-radius: 999px; background: var(--surface-2, #1b0a06); color: var(--paper); font-size: 15px; white-space: nowrap; opacity: 0; transform: translateY(-50%) translateX(14px); }
+.hw-art--q span { position: absolute; left: 0; top: 50%; max-width: 100%; padding: 10px 16px; border: 1px solid var(--oak); border-radius: 999px; background: var(--surface-2, #1b0a06); color: var(--ink); font-size: 15px; white-space: nowrap; opacity: 0; transform: translateY(-50%) translateX(14px); }
 .in .hw-art--q span { animation: hw-q 6.4s infinite; animation-delay: calc(var(--i) * 1.6s); }
 @keyframes hw-q {
   0% { opacity: 0; transform: translateY(-30%) translateX(14px); }

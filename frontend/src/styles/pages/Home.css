@@ -73,7 +73,7 @@
 .label-text {
   font-size: 12px;
   font-weight: 800;
-  color: var(--amber);
+  color: var(--amber-text);
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
@@ -115,7 +115,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 8px;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgb(var(--tint) / 0.2);
   pointer-events: none;
 }
 
@@ -215,9 +215,9 @@
 
 .hero-actions .btn-white:hover {
   background: white;
-  color: var(--amber);
+  color: var(--amber-text);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 16px rgb(var(--tint) / 0.2);
 }
 
 .music-notes {
@@ -464,12 +464,12 @@
 }
 
 .search-container input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(var(--tint) / 0.5);
   transition: color 0.3s ease;
 }
 
 .search-container input:focus::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgb(var(--tint) / 0.3);
 }
 
 .search-container div:focus-within {
@@ -679,7 +679,7 @@
 }
 
 .mobile-filter-option:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(var(--tint) / 0.05);
   color: white;
 }
 

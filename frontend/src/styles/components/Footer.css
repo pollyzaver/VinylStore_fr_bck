@@ -14,7 +14,7 @@
 
 .footer-column h3 {
   margin-bottom: var(--space-lg);
-  color: var(--amber);
+  color: var(--amber-text);
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: 500;
@@ -40,7 +40,7 @@
 }
 
 .footer-column a:hover {
-  color: var(--amber);
+  color: var(--amber-text);
 }
 
 .footer-bottom {
@@ -58,6 +58,6 @@
 .footer-line { display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; flex-wrap: wrap; }
 .footer-line__links { margin: 0; display: flex; gap: 8px 24px; flex-wrap: wrap; font-size: 14px; }
 .footer-line__links a { color: var(--muted); text-decoration: none; }
-.footer-line__links a:hover { color: var(--amber); }
+.footer-line__links a:hover { color: var(--amber-text); }
 .footer-line__copy { margin: 0; font-size: 13px; color: var(--muted); }
 @media (max-width: 640px) { .footer-line { flex-direction: column; align-items: flex-start; } }

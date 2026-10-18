@@ -3,6 +3,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import Logo from './Logo';
 import { useI18n, LANGS } from '../i18n/I18nContext';
+import { useTheme } from '../theme';
 import '../styles/components/Header.css';
 import '../styles/components/LangSwitch.css';
 
@@ -28,6 +29,19 @@ const BagIcon = () => (
   <Svg>
     <path d="M5.5 8.5h13l-.9 11h-11.2z" />
     <path d="M9 8.5V7.4a3 3 0 0 1 6 0v1.1" />
+  </Svg>
+);
+
+// Тема: иконка показывает, на какую тему переключит кнопка (солнце в «Погребе», луна в «Бумаге»)
+const MoonIcon = () => (
+  <Svg>
+    <path d="M20 14.2A8 8 0 0 1 9.8 4 8 8 0 1 0 20 14.2z" />
+  </Svg>
+);
+const SunIcon = () => (
+  <Svg>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4" />
   </Svg>
 );
 
@@ -63,6 +77,8 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
   const { getCartItemsCount } = useCart();
   const { user } = useAuth();
   const { t, lang, setLang } = useI18n();
+  const { theme, toggle: toggleTheme } = useTheme();
+  const themeLabel = theme === 'light' ? t('hd.themeDark') : t('hd.themeLight');
   const count = getCartItemsCount();
 
   const go = (page) => {
@@ -122,6 +138,9 @@ const Header = ({ onCartClick, onNavigate, currentPage }) => {
 
         <div className="hd-tools">
           <LangSwitch lang={lang} setLang={setLang} t={t} />
+          <button type="button" className="hd-ib" onClick={toggleTheme} aria-label={themeLabel} title={themeLabel}>
+            {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+          </button>
           {user ? (
             <button type="button" className={`hd-ib hd-avatar ${profileActive ? 'on' : ''}`} onClick={() => go('profile')} aria-label={t('hd.profile')} title={t('hd.profile')}>
               {user.name[0].toUpperCase()}

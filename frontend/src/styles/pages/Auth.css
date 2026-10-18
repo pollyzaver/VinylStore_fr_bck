@@ -2,7 +2,7 @@
   min-height: calc(100vh - 200px);
   display: flex;
   align-items: center;
-  background: radial-gradient(circle at center, #1b0a06, #120503 70%);
+  background: radial-gradient(circle at center, var(--surface), var(--cellar) 70%);
 }
 
 .auth-container {

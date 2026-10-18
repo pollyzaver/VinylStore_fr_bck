@@ -65,7 +65,7 @@
 
 .modal-header {
   padding: 20px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(var(--tint) / 0.1);
 }
 
 .modal-breadcrumb {
@@ -88,7 +88,7 @@
 .modal-left {
   width: 40%;
   padding: 30px;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgb(var(--tint) / 0.1);
 }
 
 .modal-right {
@@ -138,7 +138,7 @@
 
 /* QUICK INFO */
 .quick-info {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(var(--tint) / 0.03);
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
@@ -161,17 +161,17 @@
 }
 
 .stock-available {
-  color: #4CAF50;
+  color: var(--ok);
 }
 .stock-available::before { content: '✓ '; }
 
 .stock-unavailable {
-  color: #e0545a;
+  color: var(--signal-text);
 }
 .stock-unavailable::before { content: '✗ '; }
 
 .stock-low {
-  color: #cf8b3e;
+  color: var(--amber-text);
 }
 .stock-low::before { content: '⚠ '; }
 
@@ -193,13 +193,13 @@
   gap: 5px;
   color: var(--vinyl-text);
   font-size: 0.9rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(var(--tint) / 0.05);
   padding: 6px 12px;
   border-radius: 6px;
 }
 
 .price-section {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(var(--tint) / 0.03);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 30px;
@@ -326,7 +326,7 @@
 
 .tabs-header {
   display: flex;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(var(--tint) / 0.1);
   margin-bottom: 20px;
 }
 
@@ -432,7 +432,7 @@
 
 .award-badge {
   background: rgba(255, 193, 7, 0.1);
-  color: #cf8b3e;
+  color: var(--amber-text);
   padding: 8px 16px;
   border-radius: 30px;
   font-size: 0.9rem;
@@ -451,7 +451,7 @@
   list-style: none;
   padding: 15px;
   margin: 0;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgb(var(--tint) / 0.02);
   border-radius: 8px;
   width: 100%;
 }
@@ -460,7 +460,7 @@
   display: flex;
   align-items: center;
   padding: 8px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgb(var(--tint) / 0.05);
   width: 100%;
   gap: 10px;
 }
@@ -504,7 +504,7 @@
   display: flex;
   justify-content: space-between;
   padding: 12px 15px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(var(--tint) / 0.03);
   border-radius: 8px;
   width: 100%;
   gap: 10px;
@@ -526,7 +526,7 @@
 /* ТЕГИ - с правильными отступами */
 .product-tags {
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgb(var(--tint) / 0.1);
   width: 100%;
 }
 
@@ -548,13 +548,13 @@
 }
 
 .tag {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgb(var(--tint) / 0.05);
   color: var(--vinyl-muted);
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 0.85rem;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(var(--tint) / 0.1);
   cursor: default;
 }
 
@@ -577,7 +577,7 @@
   
   .modal-left { 
     border-right: none; 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    border-bottom: 1px solid rgb(var(--tint) / 0.1); 
   }
   
   .modal-title { 

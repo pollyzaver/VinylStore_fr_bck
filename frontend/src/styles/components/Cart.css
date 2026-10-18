@@ -18,7 +18,7 @@
   background: var(--cellar);
   border-left: 1px solid var(--oak);
   box-shadow: -24px 0 60px rgba(0, 0, 0, 0.5);
-  color: var(--paper);
+  color: var(--ink);
   overflow-y: auto;
   overscroll-behavior: contain;
   animation: cd-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -38,20 +38,20 @@
   border-bottom: 1px solid var(--oak);
 }
 .cd-head h2 { flex: 1; margin: 0; font-family: var(--font-ui); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; }
-.cd-head h2 em { font-style: normal; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--amber); border: 1px solid var(--oak); border-radius: 999px; padding: 2px 9px; letter-spacing: 0.06em; }
-.cd-ib { width: 40px; height: 40px; display: grid; place-items: center; padding: 0; background: transparent; border: 1px solid var(--oak); border-radius: 50%; color: var(--paper); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
-.cd-ib:hover { border-color: var(--amber); color: var(--amber); }
+.cd-head h2 em { font-style: normal; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--amber-text); border: 1px solid var(--oak); border-radius: 999px; padding: 2px 9px; letter-spacing: 0.06em; }
+.cd-ib { width: 40px; height: 40px; display: grid; place-items: center; padding: 0; background: transparent; border: 1px solid var(--oak); border-radius: 50%; color: var(--ink); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+.cd-ib:hover { border-color: var(--amber); color: var(--amber-text); }
 
-.cd-eyebrow { margin: 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); }
+.cd-eyebrow { margin: 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber-text); }
 
 .cd-btn { font: inherit; font-size: 16px; font-weight: 500; color: var(--paper); background: var(--signal); border: 1px solid var(--signal); border-radius: 4px; padding: 14px 24px; cursor: pointer; text-align: center; transition: background 0.2s, border-color 0.2s, opacity 0.2s; }
 .cd-btn:hover { background: var(--signal-hover); border-color: var(--signal-hover); }
-.cd-btn-ghost { background: transparent; border-color: var(--oak); }
+.cd-btn-ghost { background: transparent; border-color: var(--oak); color: var(--ink); }
 .cd-btn-ghost:hover { background: transparent; border-color: var(--amber); }
 .cd-btn[disabled] { opacity: 0.4; cursor: default; }
 .cd-wide { width: 100%; }
 .cd-link { align-self: center; background: none; border: 0; padding: 6px; cursor: pointer; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-.cd-link:hover { color: var(--paper); }
+.cd-link:hover { color: var(--ink); }
 .cd :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 
 /* пустая корзина и «заказ принят» */
@@ -76,13 +76,13 @@
 .cd-info { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
 .cd-info h3 { margin: 0; font-family: var(--font-ui); font-size: 16px; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
 .cd-info p { margin: 0; font-size: 14px; color: var(--muted); }
-.cd-card { margin-top: 6px !important; padding: 8px 10px; border-left: 2px solid var(--amber); background: rgba(207, 139, 62, 0.07); font-size: 13px !important; line-height: 1.4; color: var(--paper) !important; overflow-wrap: anywhere; }
-.cd-card b { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); }
+.cd-card { margin-top: 6px !important; padding: 8px 10px; border-left: 2px solid var(--amber); background: rgba(207, 139, 62, 0.07); font-size: 13px !important; line-height: 1.4; color: var(--ink) !important; overflow-wrap: anywhere; }
+.cd-card b { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-text); }
 .cd-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
 .cd-price { font-family: var(--font-mono); font-size: 16px; }
 .cd-qty { display: inline-flex; align-items: center; border: 1px solid var(--oak); border-radius: 999px; }
-.cd-qty button { width: 34px; height: 34px; background: none; border: 0; border-radius: 50%; color: var(--paper); font-size: 18px; line-height: 1; cursor: pointer; transition: color 0.2s; }
-.cd-qty button:hover { color: var(--amber); }
+.cd-qty button { width: 34px; height: 34px; background: none; border: 0; border-radius: 50%; color: var(--ink); font-size: 18px; line-height: 1; cursor: pointer; transition: color 0.2s; }
+.cd-qty button:hover { color: var(--amber-text); }
 .cd-qty span { min-width: 22px; text-align: center; font-family: var(--font-mono); font-size: 14px; }
 .cd-rm { position: absolute; top: 14px; right: 0; width: 34px; height: 34px; display: grid; place-items: center; background: none; border: 0; border-radius: 50%; color: var(--muted); cursor: pointer; transition: color 0.2s; }
 .cd-rm:hover { color: var(--signal-hover); }
@@ -92,11 +92,11 @@
 .cd-sum div { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--muted); }
 .cd-sum dt, .cd-sum dd { margin: 0; }
 .cd-sum dd { font-family: var(--font-mono); }
-.cd-sum .t { margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--oak); font-size: 18px; color: var(--paper); }
+.cd-sum .t { margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--oak); font-size: 18px; color: var(--ink); }
 .cd-sum .t dd { font-size: 20px; }
 .cd-clear { margin: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 14px; font-size: 14px; color: var(--muted); }
-.cd-clear button { background: none; border: 0; padding: 4px; cursor: pointer; font: inherit; color: var(--paper); text-decoration: underline; text-underline-offset: 3px; }
-.cd-clear button:hover { color: var(--amber); }
+.cd-clear button { background: none; border: 0; padding: 4px; cursor: pointer; font: inherit; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.cd-clear button:hover { color: var(--amber-text); }
 
 /* форма */
 .cd-form { display: flex; flex-direction: column; gap: 18px; padding: 24px; }
@@ -105,17 +105,17 @@
 .cd-f { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .cd-f > span { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .cd-f small { font-size: inherit; letter-spacing: 0; text-transform: none; opacity: 0.7; margin-left: 6px; }
-.cd-f input, .cd-f textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; color: var(--paper); background: transparent; border: 1px solid var(--oak); border-radius: 4px; padding: 12px 14px; resize: vertical; transition: border-color 0.2s; }
+.cd-f input, .cd-f textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; color: var(--ink); background: transparent; border: 1px solid var(--oak); border-radius: 4px; padding: 12px 14px; resize: vertical; transition: border-color 0.2s; }
 .cd-f input::placeholder, .cd-f textarea::placeholder { color: rgba(168, 154, 134, 0.55); }
-.cd-f input:hover, .cd-f textarea:hover { border-color: #5a2f1c; }
+.cd-f input:hover, .cd-f textarea:hover { border-color: var(--muted); }
 .cd-f input:focus, .cd-f textarea:focus { outline: 2px solid var(--amber); outline-offset: 2px; border-color: transparent; }
 .cd-f input[aria-invalid="true"] { border-color: var(--signal); }
-.cd-err { font-style: normal; font-size: 13px; color: #e0686e; }
+.cd-err { font-style: normal; font-size: 13px; color: var(--signal-text); }
 .cd-seg { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--oak); border-radius: 4px; overflow: hidden; }
 .cd-seg button { padding: 13px 10px; background: transparent; border: 0; color: var(--muted); font: inherit; font-size: 15px; cursor: pointer; transition: background 0.2s, color 0.2s; }
 .cd-seg button + button { border-left: 1px solid var(--oak); }
-.cd-seg button:hover { color: var(--paper); }
-.cd-seg button.on { background: rgba(207, 139, 62, 0.12); color: var(--amber); box-shadow: inset 0 -2px 0 var(--amber); }
+.cd-seg button:hover { color: var(--ink); }
+.cd-seg button.on { background: rgba(207, 139, 62, 0.12); color: var(--amber-text); box-shadow: inset 0 -2px 0 var(--amber); }
 .cd-note { margin: -6px 0 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
 .cd-recap { margin-top: 6px; padding: 18px; border: 1px solid var(--oak); border-radius: 4px; background: var(--surface); display: flex; flex-direction: column; gap: 12px; }
 .cd-recap ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -140,5 +140,5 @@
   .cd, .cd-veil, .cd-empty-disc svg, .cd-done-disc svg { animation: none; }
 }
 .cd-card-rm { all: unset; cursor: pointer; display: block; margin-top: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--oak); transition: color .2s, border-color .2s; }
-.cd-card-rm:hover { color: var(--amber); border-color: var(--amber); }
+.cd-card-rm:hover { color: var(--amber-text); border-color: var(--amber); }
 .cd-card-rm:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }

@@ -1,8 +1,8 @@
 .vinyl-input {
   width: 100%;
   padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgb(var(--tint) / 0.05);
+  border: 2px solid rgb(var(--tint) / 0.1);
   border-radius: 10px;
   color: white;
   font-size: 1rem;
@@ -12,25 +12,25 @@
 
 .vinyl-input:focus {
   border-color: var(--vinyl-primary);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgb(var(--tint) / 0.08);
   box-shadow: 0 0 0 3px rgba(255, 60, 60, 0.1);
 }
 
 .vinyl-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(var(--tint) / 0.4);
 }
 
 .vinyl-input option {
-  background: #1b0a06;
+  background: var(--surface);
   color: white;
 }
 
 .error-message {
-  color: #e0545a;
+  color: var(--signal-text);
   font-size: var(--text-sm);
   margin-top: var(--space-xs);
 }
 
 .required {
-  color: var(--amber);
+  color: var(--amber-text);
 }

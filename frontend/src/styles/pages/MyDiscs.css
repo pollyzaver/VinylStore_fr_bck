@@ -1,5 +1,5 @@
 /* Профиль: «Мои диски» и «Избранное». Префикс .md- */
-.md { min-height: calc(100vh - 140px); background: var(--cellar); color: var(--paper); padding: 48px 0 80px; }
+.md { min-height: calc(100vh - 140px); background: var(--cellar); color: var(--ink); padding: 48px 0 80px; }
 .md-wrap { max-width: 1080px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 .md-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
 .md-head .tz-h { margin-bottom: 0; }
@@ -8,14 +8,14 @@
 .md-note { margin: 14px 0 28px; color: var(--muted); font-size: 14px; max-width: 640px; }
 .md-tabs { display: flex; gap: 8px; border-bottom: 1px solid var(--oak); margin-bottom: 32px; }
 .md-tabs button { all: unset; cursor: pointer; padding: 12px 18px; font-size: 17px; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; }
-.md-tabs button.on { color: var(--paper); border-color: var(--signal); }
+.md-tabs button.on { color: var(--ink); border-color: var(--signal); }
 .md-tabs button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
-.md-tabs i { font-style: normal; font-family: var(--font-mono); font-size: 12px; margin-left: 6px; color: var(--amber); }
+.md-tabs i { font-style: normal; font-family: var(--font-mono); font-size: 12px; margin-left: 6px; color: var(--amber-text); }
 .md-list { display: grid; gap: 28px; }
 .md-card { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 32px; padding: 28px; border: 1px solid var(--oak); border-radius: 6px; background: var(--surface-2); align-items: start; }
 .md-art { line-height: 0; }
 .md-art svg { width: 100%; height: auto; display: block; }
-.md-meta { margin: 0 0 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); }
+.md-meta { margin: 0 0 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-text); }
 .md-body h2 { margin: 0 0 8px; font-size: 26px; font-weight: 600; line-height: 1.15; }
 .md-text { margin: 0 0 16px; color: var(--muted); font-size: 15px; line-height: 1.5; }
 .md-recs { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 6px; }
@@ -40,11 +40,11 @@
 
 .md-sec { margin-top: 48px; }
 .md-sec:first-of-type { margin-top: 32px; }
-.md-h { margin: 0 0 24px; padding-bottom: 14px; border-bottom: 1px solid var(--oak); font-size: 28px; font-weight: 600; color: var(--paper); }
-.md-h i { font-style: normal; font-family: var(--font-mono); font-size: 13px; letter-spacing: .1em; margin-left: 10px; color: var(--amber); vertical-align: middle; }
+.md-h { margin: 0 0 24px; padding-bottom: 14px; border-bottom: 1px solid var(--oak); font-size: 28px; font-weight: 600; color: var(--ink); }
+.md-h i { font-style: normal; font-family: var(--font-mono); font-size: 13px; letter-spacing: .1em; margin-left: 10px; color: var(--amber-text); vertical-align: middle; }
 
 .md-open { all: unset; cursor: pointer; }
-.md-open:hover b { color: var(--amber); }
+.md-open:hover b { color: var(--amber-text); }
 .md-open:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
 .md-thumb { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: 4px; box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45); }
