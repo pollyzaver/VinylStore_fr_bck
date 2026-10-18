@@ -1,8 +1,9 @@
 import React, { useId, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../i18n/I18nContext';
+import AuthShell, { AuthField, AuthError } from '../components/AuthShell';
 
-const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
+const Register = ({ onNavigate }) => {
   const { t, tr } = useI18n();
   const uid = useId();
   const errId = `${uid}-error`;
@@ -56,9 +57,9 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
       
       setSuccess(true);
       
-      // 👇 ПЕРЕНОСИМ НА ТЕСТ ЧЕРЕЗ 2 СЕКУНДЫ
+      // через две секунды переходим к тесту
       setTimeout(() => {
-        onNavigate('test'); // 👈 ИСПОЛЬЗУЕМ onNavigate
+        onNavigate('test');
       }, 2000);
       
     } catch (err) {
@@ -72,261 +73,55 @@ const Register = ({ onNavigate }) => { // 👈 ДОБАВЛЯЕМ onNavigate
     }
   };
 
-  // Убираем navigateTo, используем onNavigate напрямую
-
   if (success) {
     return (
-      <div className="auth-page">
-        <div className="container">
-          <div className="auth-container" style={{ maxWidth: '400px', margin: '50px auto' }}>
-            <div className="vinyl-card" style={{ padding: '40px', textAlign: 'center' }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                background: 'var(--vinyl-red)',
-                margin: '0 auto 20px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '40px'
-              }}>
-                ✓
-              </div>
-              <h2 style={{ marginBottom: '15px' }}>{t('au.regOk')}</h2>
-              <p style={{ color: 'var(--vinyl-muted)', marginBottom: '20px' }}>
-                {t('au.regRedirect')}
-              </p>
-              <div className="vinyl-spinner" style={{ width: '40px', height: '40px', margin: '0 auto' }} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <AuthShell eyebrow={t('au.eyebrowUp')} title={t('au.regOk')} lead={t('au.regRedirect')}>
+        <div className="au-ok" role="status"><span className="au-spin au-spin--big" aria-hidden="true" /></div>
+      </AuthShell>
     );
   }
 
   return (
-    <div className="auth-page">
-      <div className="container">
-        <div className="auth-container" style={{ maxWidth: '400px', margin: '50px auto' }}>
-          
-          {/* Заголовок */}
-          <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-            <div style={{
-              width: '80px',
-              height: '80px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #2a140b, #120503)',
-              margin: '0 auto 20px',
-              border: '3px solid var(--vinyl-red)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <span style={{ fontSize: '32px' }}>🎵</span>
-            </div>
-            <h1 className="section-title" style={{ marginBottom: '10px' }}>
-              {t('au.create')}
-            </h1>
-            <p className="section-subtitle" style={{ marginBottom: '30px' }}>
-              {t('au.join')}
-            </p>
-          </div>
+    <AuthShell eyebrow={t('au.eyebrowUp')} title={t('au.create')} lead={t('au.join')}>
+      {error && <AuthError id={errId}>{error}</AuthError>}
 
-          {/* Форма регистрации */}
-          <div className="vinyl-card" style={{ 
-            padding: '40px 30px',
-            background: 'var(--vinyl-card)',
-            border: '1px solid var(--vinyl-border)',
-            borderRadius: '20px'
-          }}>
-            
-            {error && (
-              <div id={errId} role="alert" style={{
-                background: 'rgba(255, 0, 0, 0.1)',
-                border: '1px solid var(--vinyl-red)',
-                color: '#e0545a',
-                padding: '12px',
-                borderRadius: '10px',
-                marginBottom: '20px',
-                textAlign: 'center'
-              }}>
-                {error}
-              </div>
-            )}
+      <form className="au-form" onSubmit={handleSubmit}>
+        <AuthField
+          id={`${uid}-name`} label={t('au.name')} errId={errId} hasError={!!error}
+          type="text" name="name" autoComplete="name"
+          value={formData.name} onChange={handleChange}
+          placeholder={t('au.namePh')} disabled={loading} autoFocus
+        />
+        <AuthField
+          id={`${uid}-email`} label="Email" errId={errId} hasError={!!error}
+          type="email" name="email" autoComplete="email"
+          value={formData.email} onChange={handleChange}
+          placeholder="your@email.com" disabled={loading}
+        />
+        <AuthField
+          id={`${uid}-password`} label={t('au.passwordMin')} errId={errId} hasError={!!error}
+          type="password" name="password" autoComplete="new-password"
+          value={formData.password} onChange={handleChange}
+          placeholder="••••••••" disabled={loading}
+        />
+        <AuthField
+          id={`${uid}-confirm`} label={t('au.confirm')} errId={errId} hasError={!!error}
+          type="password" name="confirmPassword" autoComplete="new-password"
+          value={formData.confirmPassword} onChange={handleChange}
+          placeholder="••••••••" disabled={loading}
+        />
 
-            <form onSubmit={handleSubmit}>
-              
-              {/* Имя */}
-              <div style={{ marginBottom: '20px' }}>
-                <label htmlFor={`${uid}-name`} style={{
-                  display: 'block',
-                  marginBottom: '8px',
-                  color: 'var(--vinyl-muted)',
-                  fontSize: '0.9rem'
-                }}>
-                  {t('au.name')}
-                </label>
-                <input
-                  id={`${uid}-name`}
-                  type="text"
-                  name="name"
-                  autoComplete="name"
-                  aria-required="true"
-                  aria-describedby={error ? errId : undefined}
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder={t('au.namePh')}
-                  className="vinyl-input"
-                  style={{ width: '100%' }}
-                  disabled={loading}
-                  autoFocus
-                />
-              </div>
+        <button type="submit" className="au-btn" disabled={loading}>
+          {loading && <span className="au-spin" aria-hidden="true" />}
+          {loading ? t('au.registering') : t('au.register')}
+        </button>
 
-              {/* Email */}
-              <div style={{ marginBottom: '20px' }}>
-                <label htmlFor={`${uid}-email`} style={{
-                  display: 'block',
-                  marginBottom: '8px',
-                  color: 'var(--vinyl-muted)',
-                  fontSize: '0.9rem'
-                }}>
-                  Email
-                </label>
-                <input
-                  id={`${uid}-email`}
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  aria-required="true"
-                  aria-describedby={error ? errId : undefined}
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your@email.com"
-                  className="vinyl-input"
-                  style={{ width: '100%' }}
-                  disabled={loading}
-                />
-              </div>
-
-              {/* Пароль */}
-              <div style={{ marginBottom: '20px' }}>
-                <label htmlFor={`${uid}-password`} style={{
-                  display: 'block',
-                  marginBottom: '8px',
-                  color: 'var(--vinyl-muted)',
-                  fontSize: '0.9rem'
-                }}>
-                  {t('au.passwordMin')}
-                </label>
-                <input
-                  id={`${uid}-password`}
-                  type="password"
-                  name="password"
-                  autoComplete="new-password"
-                  aria-required="true"
-                  aria-describedby={error ? errId : undefined}
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="••••••••"
-                  className="vinyl-input"
-                  style={{ width: '100%' }}
-                  disabled={loading}
-                />
-              </div>
-
-              {/* Подтверждение пароля */}
-              <div style={{ marginBottom: '30px' }}>
-                <label htmlFor={`${uid}-confirm`} style={{
-                  display: 'block',
-                  marginBottom: '8px',
-                  color: 'var(--vinyl-muted)',
-                  fontSize: '0.9rem'
-                }}>
-                  {t('au.confirm')}
-                </label>
-                <input
-                  id={`${uid}-confirm`}
-                  type="password"
-                  name="confirmPassword"
-                  autoComplete="new-password"
-                  aria-required="true"
-                  aria-describedby={error ? errId : undefined}
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="••••••••"
-                  className="vinyl-input"
-                  style={{ width: '100%' }}
-                  disabled={loading}
-                />
-              </div>
-
-              {/* Кнопка регистрации */}
-              <button
-                type="submit"
-                className="btn btn-primary"
-                style={{
-                  width: '100%',
-                  padding: '15px',
-                  fontSize: '1.1rem',
-                  marginBottom: '20px',
-                  position: 'relative'
-                }}
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <span style={{
-                      display: 'inline-block',
-                      width: '20px',
-                      height: '20px',
-                      border: '2px solid transparent',
-                      borderTopColor: 'white',
-                      borderRadius: '50%',
-                      animation: 'spin 1s linear infinite',
-                      marginRight: '10px'
-                    }} />
-                    {t('au.registering')}
-                  </>
-                ) : t('au.register')}
-              </button>
-
-              {/* Ссылка на вход */}
-              <div style={{
-                textAlign: 'center',
-                fontSize: '0.9rem'
-              }}>
-                <span style={{ color: 'var(--vinyl-muted)' }}>{t('au.haveAccount')}</span>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('login')} // 👈 ИСПОЛЬЗУЕМ onNavigate
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--vinyl-red)',
-                    cursor: 'pointer',
-                    textDecoration: 'underline',
-                    fontSize: '0.9rem',
-                    minHeight: '44px',
-                    padding: '0 4px'
-                  }}
-                >
-                  {t('au.signIn')}
-                </button>
-              </div>
-            </form>
-          </div>
+        <div className="au-links au-links--center">
+          <span>{t('au.haveAccount')}</span>
+          <button type="button" className="au-link au-link--accent" onClick={() => onNavigate('login')}>{t('au.signIn')}</button>
         </div>
-      </div>
-
-      {/* Стили для анимации */}
-      <style>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-    </div>
+      </form>
+    </AuthShell>
   );
 };
 
