@@ -87,9 +87,8 @@ const Login = ({ onNavigate }) => {
           {loading ? t('au.signingIn') : t('au.signIn')}
         </button>
 
-        <div className="au-links">
+        <div className="au-links au-links--center">
           <button type="button" className="au-link" onClick={() => onNavigate('register')}>{t('au.noAccount')}</button>
-          <button type="button" className="au-link" onClick={() => onNavigate('forgot-password')}>{t('au.forgot')}</button>
         </div>
       </form>
     </AuthShell>
